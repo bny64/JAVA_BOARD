@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<!-- 로그백 설정시 logback.core 같이 추가해줘야함. -->
+	<!-- console로 log 남기기 -->
+	<!-- appender 어디에, 어떻게 로그를 찍을 것인지에 대한 설정을 하는 부분이다
+		Appender 종류
+		1. ConsoleAppender : 콘솔에 로그를 찍는 방법
+		2. FileAppender : 파일에 로그를 찍는 방법
+		3. RollingFileAppender : 여러개의 파일을 순회하면서 로그를 찍는 방법
+		4. SMTPAppender : 로그를 메일에 찍어 보내는 방법
+		5. DBAppender : DB에 로그를 찍는 방법
+		기타 SocketAppender, SSLSocketAppender 등이 있음.
+	 -->	
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+    <!-- encoder과 layout의 차이점은 layout은 들어오는 이벤트를 String으로 변환하고 이벤트가 기록될 때 제어할 수 없으며 이벤트를 일괄 처리로 집계할 수 없다.
+		반면에 encoder는 바이트를 소유하고 있는 appender가 관리하는 OutputStream에 쓸 시간과 내용을 완전히 제어할 수 있다.
+		FileAppender와 하위 클래스는 encoder를 필요로 하고 더 이상 layout은 사용하지 않는다. -->
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+        	<!-- 패턴에 사용되는 요소
+        		1. %Logger{length} : Logger name을 축약할 수 있다. {length}는 최대 자리 수
+        		2. %thread : 현재 Thread 이름
+        		3. %-5level : 로그 레벨, -5는 출력의 고정폭 값
+        		4. %msg : 로그 메세지(=%message)
+        		5. %n : new line
+        		6. ${PID:-}  : 프로세스 아이디
+        		기타 : 
+        			%d : 로그 기록시간
+					%p : 로깅 레벨					
+					%F : 로깅이 발생한 프로그램 파일명					
+					%M : 로깅일 발생한 메소드의 이름					
+					%l : 로깅이 발생한 호출지의 정보					
+					%L : 로깅이 발생한 호출지의 라인 수					
+					%t : 쓰레드 명					
+					%c : 로깅이 발생한 카테고리					
+					%C : 로깅이 발생한 클래스 명					
+					%m : 로그 메시지					
+					%r : 애플리케이션 시작 이후부터 로깅이 발생한 시점까지의 시간     		
+        	 -->
+            <pattern>
+                	▶ %-5level %d{HH:mm:ss.SSS} [%thread] %logger[%method:%line] - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+    
+    <appender name="consoleForLoginInterceptor" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>
+              	 ▷ %-5level %d{HH:mm:ss} %logger[%method:%line] - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+ 
+ 
+	
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>
+              	  ▶ %-5level %d{HH:mm:ss.SSS} [%thread] %logger[%method:%line] - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+    
+    <!-- file로 log 남기기 -->
+    <appender name="file" class="ch.qos.logback.core.FileAppender">    	
+        <file>C:\Users\user\Desktop\裴男烈\STS\log\JAVA_BOARD.log</file>        
+        <encoder>        	
+            <pattern>
+                	▶ %-5level %d{HH:mm:ss.SSS} [%thread] %logger[%method:%line] - %msg%n
+                	<!-- [%method:%line] : 어떤 메소드에 어떤 라인에서 찍혔는지 %msg%n : 찍고 싶은 로그-->
+            </pattern>
+        </encoder>
+    </appender>
+    
+    <!-- 
+    	로그레벨
+    	ERROR < WARN < INFO < DEBUG < TRACE
+     -->
+    <!-- 
+    class만 따로 지정해서 이 클래스만 로그를 따로 관리할 수 있다. LoginInterceptor class 파일만 따로 로그 관리
+    <appender name="fileForLoginInterceptor" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>d:\testRollingFile.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+        
+            d:\ testRollingFile 2015-04-07-15.log 파일 생성
+            <fileNamePattern>d:\testRollingFile.%d{yyyy-MM-dd-HH}.log</fileNamePattern>
+        
+            30시간 지난건 지우겠다.
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>
+                ▷ %-5level %d{HH:mm:ss} %logger[%method:%line] - %msg%n
+            </pattern>
+        </encoder>
+    </appender> -->
+        
+    <!-- 이 아래에 있는 애들 다 log로 찍겠다. -->
+    <!-- logger는 해당 appender들을 참조하며 해당 로거가 사용될 패키지와 로그레벨을 지정한다.  -->
+    <logger name="com.web" level="debug">
+        <appender-ref ref="fileForLoginInterceptor"/>
+    </logger>
+    
+    <!-- 이 아래에 있는 애들 다 log로 찍겠다. -->
+    <logger name="org.springframework" level="debug" />
+    <root level="debug">
+        <appender-ref ref="console" />
+        <appender-ref ref="file" />
+    </root>
+        
+</configuration>

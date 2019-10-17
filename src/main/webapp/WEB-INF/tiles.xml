@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+  "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+  "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+  
+  <tiles-definitions>
+  	<definition name="layout1" template="/WEB-INF/views/layout/layout1.jsp">
+  		<put-attribute name="headerInclude" value="/WEB-INF/views/layout/headerInclude.jsp"/>
+  		<put-attribute name="row_0" value="/WEB-INF/views/layout/row_0.jsp"/>
+  		<put-attribute name="row_1" value="/WEB-INF/views/layout/row_1.jsp"/>
+  		<put-attribute name="overlay" value="/WEB-INF/views/layout/overlay.jsp"/>
+  		<put-attribute name="body" value=""/>
+  		<put-attribute name="gradient" value="/WEB-INF/views/layout/gradient.jsp"/>
+  		<put-attribute name="row_4" value="/WEB-INF/views/layout/row_4.jsp"/>
+  		<put-attribute name="row_5" value="/WEB-INF/views/layout/row_5.jsp"/>
+  	</definition>
+  	
+  	<definition name="index_layout" extends="layout1">
+  		<put-attribute name="body" value="/WEB-INF/views/index.jsp"/>
+  	</definition>
+  	 	
+  	
+  	<!-- 
+  		tiles 설정시에 
+  		<definition name="*" extends="auth_layout">
+  		<put-attribute name="body" value="/WEB-INF/views/{1}/{2}.jsp"/>
+  		</definition>
+  		이렇게 설정한 후
+  		<definition name="index" extends="layout">
+  		<put-attribute name="body" value="/index.jsp"/>
+  		</definition>
+  		이렇게 또 선언하면 겹치는 nameing이 있기 때문에 에러가 발생한다.
+  		따라서 전자를 하나 설정한 후 사용하던가 아니면 후자를 사용하되 하나하나 밑에 
+  		<definition name="auth/*" extends="auth_layout">
+  		<put-attribute name="body" value="/WEB-INF/views/auth/{1}.jsp"/>
+  		</definition>
+  		이런식으로 naming을 해가면서 사용해야함.
+  	 -->
+  	<definition name="auth/*" extends="auth_layout">
+  		<put-attribute name="body" value="/WEB-INF/views/auth/{1}.jsp"/>
+  	</definition>
+  	
+  	<definition name="board/*" extends="layout">
+  		<put-attribute name="body" value="/WEB-INF/views/board/{1}.jsp"/>
+  	</definition>
+  	
+  </tiles-definitions>
