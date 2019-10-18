@@ -30,8 +30,7 @@
 	   	</property>
    </bean>
    
-   <!-- error 발생 : servlet의 properties와  스프링 환경설정의 properties 서로 다르므로 root-context에서 프로퍼티를 설정해줬다고 해도 
-    	스프링 환경설정에 사용할 properties bean을 다시 선언해 줘야한다.-->
+   <!-- error 발생 : servlet의 properties와  스프링 환경설정의 properties 서로 다르므로 root-context에서 프로퍼티를 설정해줬다고 해도 스프링 환경설정에 사용할 properties bean을 다시 선언해 줘야한다.-->
    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations">
 			<value>classpath:properties/*.properties</value>
@@ -51,10 +50,8 @@
 	
 	<!-- mapping에 해당하는 url들을 location에 정의된 경로로 받아들임. -->
 	<!--mvc:resources 주의점
-		dynamic web project는 location="/a/b/**" mapping="/a/b/**" 이렇게 설정해도 문제가 없지만
-		maven project는 location="/a/b/**" mapping="/a/b/**" 이렇게 설정하면 경로를 못찾기 때문에 
-		location="/a/b/" mapping="/a/b/**" 이렇게 작성해야 함.
-		참고로 classpath는 webapp
+		dynamic web project는 location="/a/b/**" mapping="/a/b/**" 이렇게 설정해도 문제가 없지만 maven project는 location="/a/b/**" mapping="/a/b/**" 이렇게 설정하면 경로를 못찾기 때문에 
+		location="/a/b/" mapping="/a/b/**" 이렇게 작성해야 함. 참고로 classpath는 webapp
 	-->	
 	<mvc:resources location="/static/css/" mapping="/css/**"/>
 	<mvc:resources location="/static/fonts/" mapping="/fonts/**"/>
