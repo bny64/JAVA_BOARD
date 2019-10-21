@@ -26,7 +26,7 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>
-			classpath:spring/application/*-context.xml
+			classpath:spring/application/*-context.xml			
 		</param-value>
   </context-param>
   
@@ -36,7 +36,19 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
     <init-param>
       <param-name>contextConfigLocation</param-name>
 	      <param-value>
-					classpath:spring/root/root-context.xml
+					classpath:spring/root/root-context.xml					
+		  </param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>staticServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+	      <param-value>
+					classpath:spring/static/static-context.xml					
 		  </param-value>
     </init-param>
     <load-on-startup>1</load-on-startup>
@@ -44,12 +56,17 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
   
   <servlet-mapping>
     <servlet-name>dispatcherServlet</servlet-name>
-    <url-pattern>*.do</url-pattern>
+    <url-pattern>*.do</url-pattern>    
+  </servlet-mapping>
+  
+  <servlet-mapping>
+	<servlet-name>staticServlet</servlet-name>
+	<url-pattern>/</url-pattern>
   </servlet-mapping>
   
   <welcome-file-list>
     <welcome-file>/WEB-INF/views/index.jsp</welcome-file>
-  </welcome-file-list>
+  </welcome-file-list>  
   
   <!-- <error-page>
   	<error-code>404</error-code>
