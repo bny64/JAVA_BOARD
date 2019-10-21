@@ -11,33 +11,7 @@
    http://www.springframework.org/schema/mvc
    http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
-	   	<property name="viewResolvers">
-	   		<list>
-	   			<!-- tiles viewResolver에 대한 설정. -->
-	   			<bean class="org.springframework.web.servlet.view.tiles3.TilesViewResolver">
-	   				<property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView"/>
-	   				<property name="order" value="0"/>
-	   			</bean>
-	   			<!-- 일반 viewResolver에 대한 설정. -->
-	   			<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-			     	<property name="prefix" value="/WEB-INF/views/" />
-			      	<property name="suffix" value=".jsp" />
-			      	<property name="contentType" value="text/html; charset=UTF-8"/>
-			      	<property name="order" value="1"></property>
-			   </bean> 
-	   		</list>
-	   	</property>
-   </bean>
-   
-   <!-- error 발생 : servlet의 properties와  스프링 환경설정의 properties 서로 다르므로 root-context에서 프로퍼티를 설정해줬다고 해도 
-    	스프링 환경설정에 사용할 properties bean을 다시 선언해 줘야한다.-->
-   <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<property name="locations">
-			<value>classpath:properties/*.properties</value>
-		</property>
-		<property name="order" value="1"></property>
-	</bean>
+	<mvc:annotation-driven/>
 
 	<!-- mvc controller를 스캔함. -->
 	<!-- component-scan 할 때 해당 패키지 밑으로 선언된 빈들을 읽어오기 때문에 com.bny.controller 로 설정되어 있을 경우 컨트롤러 bean만 찾기 때문에 나머지 dao, service 등의 빈을 읽지 못한다. 주의 할 것. -->
@@ -47,29 +21,6 @@
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/> -->
 	</context:component-scan>	
 	
-	<mvc:annotation-driven/>
-	
-	<!-- mapping에 해당하는 url들을 location에 정의된 경로로 받아들임. -->
-	<!--mvc:resources 주의점
-		dynamic web project는 location="/a/b/**" mapping="/a/b/**" 이렇게 설정해도 문제가 없지만
-		maven project는 location="/a/b/**" mapping="/a/b/**" 이렇게 설정하면 경로를 못찾기 때문에 
-		location="/a/b/" mapping="/a/b/**" 이렇게 작성해야 함.
-		참고로 classpath는 webapp
-	-->	
-	<mvc:resources location="/static/css/" mapping="/css/**"/>
-	<mvc:resources location="/static/fonts/" mapping="/fonts/**"/>
-	<mvc:resources location="/static/images/" mapping="/images/**"/>
-	<mvc:resources location="/static/js/" mapping="/js/**"/>
-	<mvc:resources location="/static/sass/" mapping="/sass/**"/>
-	<mvc:resources location="/static/publishing/" mapping="/publishing/**"/>
-	<mvc:resources location="/static/vendor/" mapping="/vendor/**"/>
-	<mvc:resources location="/static/lib/" mapping="/lib/**"/>
-	<mvc:resources location="/static/style/" mapping="/style/**"/>
-	
-	<mvc:default-servlet-handler/>
-	
-	<!-- error : root path 안 넣어서 에러 발생. server에 설정된 root path가 /spring_xml이기 때문에 모든 context(환경설정)에서 포트 뒤에 있는 root path를 넣고 요청을 처리해야함.
-	 -->
 	<!-- <mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/**"/>	 <mvc:mapping path="/index"/> /** 변경해서 테스트(안됨)
@@ -85,7 +36,6 @@
 			<mvc:exclude-mapping path="/lib/**"/>			
 			<bean class="com.bny.common.interceptor.AccessControlInterceptor"/>		
 		</mvc:interceptor>
-	</mvc:interceptors> -->
-	
+	</mvc:interceptors> -->	
 	
 </beans>
