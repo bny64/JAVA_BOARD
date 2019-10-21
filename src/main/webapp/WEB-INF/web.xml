@@ -50,7 +50,7 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
 	      <param-value>
 					classpath:spring/static/static-context.xml					
 		  </param-value>
-    </init-param>
+    </init-param> 
     <load-on-startup>1</load-on-startup>
   </servlet>
   
