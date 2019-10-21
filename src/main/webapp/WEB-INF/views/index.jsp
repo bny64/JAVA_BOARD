@@ -9,7 +9,7 @@
     </div>
     <ul class="nospace group overview">
       <li class="one_third">
-        <figure><a href="#"><img src="images/demo/348x261.png" alt=""></a>
+        <figure><a href="#"><img src="/images/demo/348x261.png" alt=""></a>
           <figcaption>
             <h6 class="heading">Dapibus pede tristique</h6>
             <p>Congue quam erat et dui morbi at sapien non enim blandit.</p>
@@ -17,7 +17,7 @@
         </figure>
       </li>
       <li class="one_third">
-        <figure><a href="#"><img src="images/demo/348x261.png" alt=""></a>
+        <figure><a href="#"><img src="/images/demo/348x261.png" alt=""></a>
           <figcaption>
             <h6 class="heading">Interdum morbi posuere</h6>
             <p>Etiam consequat arcu accumsan commodo luctus nibh fringilla.</p>
@@ -25,7 +25,7 @@
         </figure>
       </li>
       <li class="one_third">
-        <figure><a href="#"><img src="images/demo/348x261.png" alt=""></a>
+        <figure><a href="#"><img src="/images/demo/348x261.png" alt=""></a>
           <figcaption>
             <h6 class="heading">Augue non vehicula</h6>
             <p>Erat neque et tortor ut molestie ultricies quam aliquam.</p>
