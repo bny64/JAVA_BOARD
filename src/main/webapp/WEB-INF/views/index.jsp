@@ -33,7 +33,7 @@
         </figure>
       </li>
       <li class="one_third">
-        <figure><a href="#"><img src="images/demo/348x261.png" alt=""></a>
+        <figure><a href="#"><img src="/images/demo/348x261.png" alt=""></a>
           <figcaption>
             <h6 class="heading">Erat volutpat integer</h6>
             <p>Posuere vulputate leo nullam eu tellus phasellus aliquam.</p>
@@ -41,7 +41,7 @@
         </figure>
       </li>
       <li class="one_third">
-        <figure><a href="#"><img src="images/demo/348x261.png" alt=""></a>
+        <figure><a href="#"><img src="/images/demo/348x261.png" alt=""></a>
           <figcaption>
             <h6 class="heading">Tellus ut libero etiam</h6>
             <p>Ut metus quisque pretium nunc fermentum volutpat velit sed.</p>
@@ -49,7 +49,7 @@
         </figure>
       </li>
       <li class="one_third">
-        <figure><a href="#"><img src="images/demo/348x261.png" alt=""></a>
+        <figure><a href="#"><img src="/images/demo/348x261.png" alt=""></a>
           <figcaption>
             <h6 class="heading">Dictum bibendum velit</h6>
             <p>Nulla iaculis pellentesque nunc felis tristique vel ultrices.</p>
@@ -93,11 +93,11 @@
       <h6 class="heading">Mauris tincidunt eu tincidunt</h6>
       <p>In egestas vitae turpis sed velit urna sollicitudin ut euismod</p>
     </div>
-    <article class="one_half first"><img src="images/demo/100x100.png" alt="">
+    <article class="one_half first"><img src="/images/demo/100x100.png" alt="">
       <blockquote>Nec hendrerit vel velit ut sodales feugiat nulla proin porttitor lacus eget mi quisque in eros ut porttitor dapibus enim duis mollis accumsan purus etiam quis lorem hendrerit.</blockquote>
       <h6 class="heading">G. Name</h6>
       <em>Neque convallis pretium</em></article>
-    <article class="one_half"><img src="images/demo/100x100.png" alt="">
+    <article class="one_half"><img src="/images/demo/100x100.png" alt="">
       <blockquote>Vestibulum volutpat ut consequat tincidunt tortor nulla enim morbi id ante in felis iaculis faucibus duis nibh diam tristique scelerisque viverra at vulputate quis lacus donec.</blockquote>
       <h6 class="heading">H. Name</h6>
       <em>Vestibulum odio vivamus</em></article>
@@ -114,7 +114,7 @@
     <ul class="nospace group">
       <li class="one_third first">
         <article>
-          <figure><a href="#"><img src="images/demo/348x261.png" alt=""></a>
+          <figure><a href="#"><img src="/images/demo/348x261.png" alt=""></a>
             <figcaption>
               <time datetime="2045-04-06T08:15+00:00"><strong>06</strong> <em>Apr</em></time>
             </figcaption>
@@ -132,7 +132,7 @@
       </li>
       <li class="one_third">
         <article>
-          <figure><a href="#"><img src="images/demo/348x261.png" alt=""></a>
+          <figure><a href="#"><img src="/images/demo/348x261.png" alt=""></a>
             <figcaption>
               <time datetime="2045-04-05T08:15+00:00"><strong>05</strong> <em>Apr</em></time>
             </figcaption>
@@ -150,7 +150,7 @@
       </li>
       <li class="one_third">
         <article>
-          <figure><a href="#"><img src="images/demo/348x261.png" alt=""></a>
+          <figure><a href="#"><img src="/images/demo/348x261.png" alt=""></a>
             <figcaption>
               <time datetime="2045-04-04T08:15+00:00"><strong>04</strong> <em>Apr</em></time>
             </figcaption>

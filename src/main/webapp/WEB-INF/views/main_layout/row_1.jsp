@@ -23,7 +23,7 @@
       <li class="active"><a href="index.html">Home</a></li>
       <li><a class="drop" href="#">Pages</a>
         <ul>
-          <li><a href="pages/gallery.html">Gallery</a></li>
+          <li><a href="/board/boardList.do">Gallery</a></li>
           <li><a href="pages/full-width.html">Full Width</a></li>
           <li><a href="pages/sidebar-left.html">Sidebar Left</a></li>
           <li><a href="pages/sidebar-right.html">Sidebar Right</a></li>
