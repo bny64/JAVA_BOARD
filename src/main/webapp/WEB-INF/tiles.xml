@@ -4,26 +4,26 @@
   "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
   
   <tiles-definitions>
-  	<definition name="layout1" template="/WEB-INF/views/layout/layout1.jsp">
-  		<put-attribute name="headerInclude" value="/WEB-INF/views/layout/headerInclude.jsp"/>
-  		<put-attribute name="row_0" value="/WEB-INF/views/layout/row_0.jsp"/>
-  		<put-attribute name="row_1" value="/WEB-INF/views/layout/row_1.jsp"/>
-  		<put-attribute name="overlay1" value="/WEB-INF/views/layout/overlay1.jsp"/>
+  	<definition name="layout1" template="/WEB-INF/views/main_layout/layout1.jsp">
+  		<put-attribute name="headerInclude" value="/WEB-INF/views/main_layout/headerInclude.jsp"/>
+  		<put-attribute name="row_0" value="/WEB-INF/views/main_layout/row_0.jsp"/>
+  		<put-attribute name="row_1" value="/WEB-INF/views/main_layout/row_1.jsp"/>
+  		<put-attribute name="overlay1" value="/WEB-INF/views/main_layout/overlay1.jsp"/>
   		<put-attribute name="body" value=""/>
-  		<put-attribute name="gradient" value="/WEB-INF/views/layout/gradient.jsp"/>
-  		<put-attribute name="row_4" value="/WEB-INF/views/layout/row_4.jsp"/>
-  		<put-attribute name="row_5" value="/WEB-INF/views/layout/row_5.jsp"/>
+  		<put-attribute name="gradient" value="/WEB-INF/views/main_layout/gradient.jsp"/>
+  		<put-attribute name="row_4" value="/WEB-INF/views/main_layout/row_4.jsp"/>
+  		<put-attribute name="row_5" value="/WEB-INF/views/main_layout/row_5.jsp"/>
   	</definition>
   	
-  	<definition name="layout2" template="/WEB-INF/views/layout/layout2.jsp">
-  		<put-attribute name="headerInclude" value="/WEB-INF/views/layout/headerInclude.jsp"/>
-  		<put-attribute name="row_0" value="/WEB-INF/views/layout/row_0.jsp"/>
-  		<put-attribute name="row_1" value="/WEB-INF/views/layout/row_1.jsp"/>
-  		<put-attribute name="overlay2" value="/WEB-INF/views/layout/overlay2.jsp"/>
+  	<definition name="layout2" template="/WEB-INF/views/main_layout/layout2.jsp">
+  		<put-attribute name="headerInclude" value="/WEB-INF/views/main_layout/headerInclude.jsp"/>
+  		<put-attribute name="row_0" value="/WEB-INF/views/main_layout/row_0.jsp"/>
+  		<put-attribute name="row_1" value="/WEB-INF/views/main_layout/row_1.jsp"/>
+  		<put-attribute name="overlay2" value="/WEB-INF/views/main_layout/overlay2.jsp"/>
   		<put-attribute name="body" value=""/>
-  		<put-attribute name="gradient" value="/WEB-INF/views/layout/gradient.jsp"/>
-  		<put-attribute name="row_4" value="/WEB-INF/views/layout/row_4.jsp"/>
-  		<put-attribute name="row_5" value="/WEB-INF/views/layout/row_5.jsp"/>
+  		<put-attribute name="gradient" value="/WEB-INF/views/main_layout/gradient.jsp"/>
+  		<put-attribute name="row_4" value="/WEB-INF/views/main_layout/row_4.jsp"/>
+  		<put-attribute name="row_5" value="/WEB-INF/views/main_layout/row_5.jsp"/>
   	</definition>
   	
   	<definition name="index" extends="layout1">
