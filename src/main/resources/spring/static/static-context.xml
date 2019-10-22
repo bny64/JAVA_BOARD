@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"	
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+   http://www.springframework.org/schema/beans     
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd   
+   http://www.springframework.org/schema/mvc
+   http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+	
+	<!-- mapping에 해당하는 url들을 location에 정의된 경로로 받아들임. -->
+	<!--mvc:resources 주의점
+		dynamic web project는 location="/a/b/**" mapping="/a/b/**" 이렇게 설정해도 문제가 없지만 maven project는 location="/a/b/**" mapping="/a/b/**" 이렇게 설정하면 경로를 못찾기 때문에 
+		location="/a/b/" mapping="/a/b/**" 이렇게 작성해야 함. 참고로 context root path는 /
+		따라서 /static/..., /WEB_INF/... 이런식으로 됨.		
+	-->
+	<!-- error : root path 안 넣어서 에러 발생. server에 설정된 root path가 /spring_xml이기 때문에 모든 context(환경설정)에서 포트 뒤에 있는 root path를 넣고 요청을 처리해야함. -->
+	<mvc:resources location="/static/images/" mapping="/images/**"/>
+	<mvc:resources location="/static/js/" mapping="/js/**"/>	
+	<mvc:resources location="/static/publishing/" mapping="/publishing/**"/>
+	<mvc:resources location="/static/style/" mapping="/style/**"/>	
+	
+</beans>
