@@ -1,4 +1,5 @@
-servlet by web.xml
+servlet by web.xml(web.xml 상단 서블릿버전 입력하는 부분 작성시)
+
 
 servlet 2.2
 <?xml version="1.0" encoding="UTF-8"?>

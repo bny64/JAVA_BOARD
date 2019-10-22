@@ -12,7 +12,7 @@ Licence URI: https://www.os-templates.com/template-terms
 <html lang="">
 <!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
 <head>
-<title>Surogou</title>
+<title>Surogou | Pages | Gallery</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <tiles:insertAttribute name="headerInclude"/>
@@ -20,7 +20,7 @@ Licence URI: https://www.os-templates.com/template-terms
 <body id="top">
 	<tiles:insertAttribute name="row_0"/>
 	<tiles:insertAttribute name="row_1"/>
-	<tiles:insertAttribute name="overlay"/>	
+	<tiles:insertAttribute name="overlay2"/>	
 	<tiles:insertAttribute name="body"/>
 	<%--<tiles:insertAttribute name="row_3"/>
 	 <tiles:insertAttribute name="row_2_1"/>
