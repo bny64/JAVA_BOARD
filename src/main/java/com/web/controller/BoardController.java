@@ -18,6 +18,7 @@ private Logger logger = LoggerFactory.getLogger(MainController.class);
 	public ModelAndView index(ModelAndView mnv) {
 		logger.debug("---------- BoardController boardList -----------");		
 		mnv.setViewName("board/boardList");
+		
 		return mnv;
 	}
 }
