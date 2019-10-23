@@ -20,7 +20,7 @@
 		<property name="password"><value>${db.password}</value></property>		
 	</bean>
 	
-	<bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"/>
 		<!-- 복수개의 class를 읽을 때 사용 -->
 		<property name="packagesToScan">			
@@ -33,11 +33,11 @@
 		</property>
 	</bean>
 	
-	<bean id="sessionTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
+	<bean id="sessionTemplate" class="org.springframework.orm.hibernate4.HibernateTemplate">
 		<constructor-arg name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 	
-	<bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+	<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 	

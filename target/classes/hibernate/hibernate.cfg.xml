@@ -7,23 +7,24 @@
 		<!-- <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
 		<property name="hibernate.connection.password">Namyul64!</property>
 		<property name="hibernate.connection.url">jdbc:mysql://49.247.211.93:3306/tripleProject</property>		
-		<property name="hibernate.default_schema">tripleProject</property>
+		
 		<property name="hibernate.connection.username">bny64</property> -->
-
+		<property name="hibernate.default_schema">tripleProject</property>	
+		
 		<property name="hibernate.connection.CharSet">UTF-8</property>
 		<property name="hibernate.connection.characterEncoding">UTF-8</property>
 		<property name="hibernate.connection.useUnicode">true</property>
 
 		<!-- SQL dialect <property name="dialect">org.hibernate.dialect.MySQL57Dialect</property> -->
-		<property name="dialect">org.hibernate.dialect.MySQL57Dialect</property>
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
 
 		<!-- Enable Hibernate's automatic session context management -->
-		<property name="current_session_context_class">thread</property>
+		<!-- <property name="current_session_context_class">thread</property> -->
 
 
 		<!-- JDBC connection pool (use the built-in) -->
 		<property name="connection.pool_size">3</property>
-		
+		<property name=""></property>
 		<!-- Vibur DBCP specific properties: -->
 		<!-- <property name="hibernate.connection.provider_class">
 			org.vibur.dbcp.integration.ViburDBCPConnectionProvider</property>
