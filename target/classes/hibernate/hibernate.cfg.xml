@@ -4,27 +4,36 @@
 
 <hibernate-configuration>
 	<session-factory>
-		<!-- <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-		<property name="hibernate.connection.password">Namyul64!</property>
-		<property name="hibernate.connection.url">jdbc:mysql://49.247.211.93:3306/tripleProject</property>		
+		<!-- 드라이버 -->
+		<!-- <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property> --> 
+		<!-- 비밀번호 -->
+		<!-- <property name="hibernate.connection.password">password</property> -->
+		<!-- url -->		
+		<!-- <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/tripleProject</property> -->		
+		<!-- 사용자 -->
+		<!-- <property name="hibernate.connection.username">bny64</property> -->
 		
-		<property name="hibernate.connection.username">bny64</property> -->
-		<property name="hibernate.default_schema">tripleProject</property>	
-		
+		<!-- 기본 스키마 -->
+		<!-- hibernate 5.x 버전에서는 default_schema null로 에러 발생함.  java1.7 Connection.getSchema()로 기본 스키마를 찾지만
+			java1.8에서는 이 메서드를 구현하지 않고 있다. hibernate 4.x 버전에서는 정상적으로 작동함.
+			hibernate 5.x 이상에서 사용하려면 아래와 같이 hibernate.schema_name_resolver라는 프로퍼티로 입력해서 사용해줘야한다.
+		-->
+		<!-- <property name="hibernate.default_schema">tripleProject</property> -->		
+		<property name="hibernate.schema_name_resolver">tripleProject</property>	
+				
 		<property name="hibernate.connection.CharSet">UTF-8</property>
 		<property name="hibernate.connection.characterEncoding">UTF-8</property>
 		<property name="hibernate.connection.useUnicode">true</property>
 
-		<!-- SQL dialect <property name="dialect">org.hibernate.dialect.MySQL57Dialect</property> -->
-		<property name="dialect">org.hibernate.dialect.MySQLDialect</property> 
+		<!-- 드라이버 사용 -->
+		<property name="dialect">org.hibernate.dialect.MySQL5Dialect</property> 
 
 		<!-- Enable Hibernate's automatic session context management -->
 		<!-- <property name="current_session_context_class">thread</property> -->
 
-
 		<!-- JDBC connection pool (use the built-in) -->
-		<property name="connection.pool_size">3</property>
-		<property name=""></property>
+		<property name="connection.pool_size">1</property>
+				
 		<!-- Vibur DBCP specific properties: -->
 		<!-- <property name="hibernate.connection.provider_class">
 			org.vibur.dbcp.integration.ViburDBCPConnectionProvider</property>
@@ -39,7 +48,10 @@
 			name="hibernate.vibur.logStackTraceForLongQueryExecution">true</property>
 		<property name="hibernate.vibur.statementCacheMaxSize">200</property> -->
 
-		<!-- 테이블 자동 생성 : create, 테이블 업데이트? : update	-->		
+		<!-- 데이터베이스 스키마 자동 생성 -->
+		<!-- create : DROP+CREATE, create-drop : DROP+CREATE+DROP, update : 테이블과 엔티티 매핑정보를 비교해서 변경사항만 수정
+			, none : 자동생성기능을 사용하지않으려면 속성값(hibernate.hbm2ddl) 자체를 삭제하거나 유효하지 않은 값(none)을 주면 됨. -->
+				
 		<property name="hibernate.hbm2ddl.auto">update</property>
 		
 		<!-- Echo all executed SQL to stdout -->
@@ -47,8 +59,8 @@
 		<property name="format_sql">true</property>
 		<property name="use_sql_comments">false</property>
 
-		<!-- mapping은 반드시 마지막으로 끝나야함. 안그러면 error 발생 -->
-		<!-- 복수의 클래스 mapping시는 ex)com.web.hibernate.entity.* -->
+		<!-- mapping을 hibernate.cfg.xml에서 사용할 경우 은 반드시 마지막으로 끝나야함. 안그러면 error 발생 -->
+		<!-- 복수의 클래스를 사용할 때는 mapping시는 ex)com.web.hibernate.entity.* -->
 		<!-- <mapping class="com.web.hibernate.entity.Student" /> -->
 		
 	</session-factory>

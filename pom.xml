@@ -7,11 +7,13 @@
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	
-	<properties>
-		<java-version>12.0.1</java-version>
-		<spring-version>4.3.25.RELEASE</spring-version>
+	<properties>		
+		<spring-version>5.1.10.RELEASE</spring-version>
 		<tiles-version>3.0.8</tiles-version>
 		<logback-version>1.2.3</logback-version>
+		<hibernate-version>5.4.6.Final</hibernate-version>
+		<mysql-connector-version>5.1.6</mysql-connector-version>
+		<lombok-version>1.18.10</lombok-version>
 	</properties>
 	
 	<!-- 
@@ -97,13 +99,13 @@
 		<dependency>
 		    <groupId>mysql</groupId>
 		    <artifactId>mysql-connector-java</artifactId>
-		    <version>5.1.6</version>
+		    <version>${mysql-connector-version}</version>
 		</dependency>				
 				
 		<dependency>
 		   <groupId>org.hibernate</groupId>
 		   <artifactId>hibernate-core</artifactId>
-		   <version>5.4.6.Final</version>
+		   <version>${hibernate-version}</version>
 		</dependency>		
 				
 		<!-- https://mvnrepository.com/artifact/org.jsoup/jsoup -->
@@ -148,6 +150,14 @@
 		    <groupId>com.sun.activation</groupId>
 		    <artifactId>javax.activation</artifactId>
 		    <version>1.2.0</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+		<dependency>
+		    <groupId>org.projectlombok</groupId>
+		    <artifactId>lombok</artifactId>
+		    <version>${lombok-version}</version>
+		    <scope>provided</scope>
 		</dependency>
 		
 	</dependencies>

@@ -1,4 +1,4 @@
-package com.web.hibernate.entity;
+package com.web.z_NOTUSED;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
