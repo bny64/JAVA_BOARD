@@ -1,4 +1,4 @@
-package com.web.z_NOTUSED;
+package com.web.$NOTUSED;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;

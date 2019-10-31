@@ -1,4 +1,4 @@
-package com.web.z_NOTUSED;
+package com.web.$NOTUSED;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

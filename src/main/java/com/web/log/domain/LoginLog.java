@@ -15,7 +15,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.web.user.domain.User;
+import com.web.auth.domain.User;
 
 import lombok.Data;
 
@@ -26,7 +26,6 @@ public class LoginLog implements Serializable{
 	
 	@Id
 	@Column(name="listNo", nullable = false)
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	/*
 	 * GeneratedValue
 	 * AUTO : JPA구현체가 자동으로 생성 전략을 결정한다.
@@ -34,11 +33,8 @@ public class LoginLog implements Serializable{
 	 * SEQUENCE : 데이터베이스의 특별한 오브젝트 시퀀스를 사용하여 기본키를 생성한다.
 	 * TABLE : 데이터베이스에 키 생성 전용 테이블을 만들고 이를 사용하여 기본키를 생성한다.
 	 * */
+	@GeneratedValue(strategy = GenerationType.IDENTITY)	
 	private int listNo;
-	
-	/*
-	 * @Column(name="id", nullable = false, length=100) private String id;
-	 */
 	
 	@Column(name="name", nullable = false, length=100)
 	private String name;
@@ -50,7 +46,19 @@ public class LoginLog implements Serializable{
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date loginAt;
 
+	/*
+	 * 1:N관계
+	 * @ManyToOne(fetch = '') 엔티티 로딩 관련
+	 * FetchType.LAZY : 엔티티를 조회할 때 연관된 엔티티를 실제 사용할 때 조회한다. 
+	 * FetchType.EAGER : 엔티티를 조회할 때 연관된 엔티티도 함께 조회한다.
+	 * @ManytoOne(optional='')
+	 * default : true -> 반드시 값이 필요함
+	 * false -> 해당 객체에 null이 들어갈 수도 있음.
+	 * */
 	@ManyToOne(fetch = FetchType.LAZY)
+	/*
+	 * @JoinColumn(name='N테이블의 기본키 이름')
+	 * */		
 	@JoinColumn(name="id")
 	private User user;	
 }

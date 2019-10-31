@@ -3,7 +3,7 @@ package com.test;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
-import com.web.z_NOTUSED.NOTUSED_HibernateUtil;
+import com.web.$NOTUSED.NOTUSED_HibernateUtil;
 
 public class HibernateTest {
 	public static void main(String[] args) {

@@ -26,8 +26,17 @@
   		<put-attribute name="row_5" value="/WEB-INF/views/main_layout/row_5.jsp"/>
   	</definition>
   	
+  	<definition name="authLayout" template="/WEB-INF/views/login_layout/layout.jsp">
+  		<put-attribute name="headerInclude" value="/WEB-INF/views/login_layout/headerInclude.jsp"/>
+  		<put-attribute name="body" value=""/>
+  	</definition>
+  	
   	<definition name="index" extends="layout1">
   		<put-attribute name="body" value="/WEB-INF/views/index.jsp"/>
+  	</definition>
+  	 	
+  	<definition name="auth/*" extends="authLayout">
+  		<put-attribute name="body" value="/WEB-INF/views/auth/{1}.jsp"/>
   	</definition>
   	 	
   	<definition name="*" extends="layout2">
