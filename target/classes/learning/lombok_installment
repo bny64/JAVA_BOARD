@@ -1,0 +1,12 @@
+메이븐에서 설치 후 해당 폴더로 이동해 lombok.jar 파일을 실행해서 실행할 IDE를 넣어줘야 한다.
+그리고 해당 IDE.ini 파일에 
+-vmargs
+-Dosgi.requiredJavaVersion=1.8
+-Xms2048m
+-Xmx2048m
+-XX:+UseG1GC
+-XX:+UseStringDeduplication
+--add-modules=ALL-SYSTEM
+-javaagent:lombok.jar
+
+-vmargs 부분에 위와 같이 -javaagent:lombok.jar 부분 추가
