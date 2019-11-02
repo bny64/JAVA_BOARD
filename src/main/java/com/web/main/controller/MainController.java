@@ -13,8 +13,6 @@ public class MainController {
 
 	private Logger logger = LoggerFactory.getLogger(MainController.class);
 	
-	private HibernateTemplate hibernateTemplate;
-	
 	//method 입력하지 않을 시 default값은 GET
 	@RequestMapping(value="/index", method = RequestMethod.GET)
 	public ModelAndView index(ModelAndView mnv) {

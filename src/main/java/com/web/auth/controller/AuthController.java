@@ -1,6 +1,8 @@
 package com.web.auth.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.Map;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -45,9 +47,20 @@ private Logger logger = LoggerFactory.getLogger(AuthController.class);
 	
 	//°¡ÀÔ Æû Àü¼Û
 	@RequestMapping(value="/join", method = RequestMethod.POST)
-	public ModelAndView joinForm(ModelAndView mnv, HttpServletRequest req) throws Exception{
+	public ModelAndView joinForm(ModelAndView mnv, @RequestParam Map<String, Object> req) throws Exception{
 		logger.debug("---------- [AuthController]:[joinForm] -----------");
 		
+		User user = new User();
+		
+		user.setUserKey(UUID.randomUUID().toString());
+		user.setId(req.get("id").toString());
+		user.setPassword(req.get("password").toString());
+		user.setBirth(new SimpleDateFormat("yyyy-MM-dd").parse(req.get("birth").toString()));
+		user.setEmail(req.get("email").toString());
+		user.setJoinType("JAVA");
+		user.setName(req.get("name").toString());
+		user.setEmailYn("N");
+		authService.join(user);
 		
 		mnv.setViewName("auth/login");
 		return mnv;
