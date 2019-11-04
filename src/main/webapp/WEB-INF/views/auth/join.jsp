@@ -38,7 +38,7 @@
 				</div>
 				
 				<div class="wrap-input100 validate-input">
-					<input class="input100" type="text" name="phone">
+					<input class="input100" type="text" name="phoneNumber">
 					<span class="focus-input100"></span>
 					<span class="label-input100">PhoneNumber</span>
 				</div>
@@ -52,8 +52,8 @@
 				<div class="mb10">
 					<span class="mr20">이메일 수신 여부</span>
 					<span>
-						<span class="mr20"><input type="radio" name="emailYn" checked="checked">수신</span>
-						<span><input type="radio" name="emailYn">비수신</span>
+						<span class="mr20"><input type="radio" name="emailYn" checked="checked" value="Y">수신</span>
+						<span><input type="radio" name="emailYn" value="N">비수신</span>
 					</span>		
 				</div>
 				

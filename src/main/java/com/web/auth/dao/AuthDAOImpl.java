@@ -16,6 +16,6 @@ public class AuthDAOImpl implements AuthDAO {
 
 	@Override
 	public void join(User user) throws Exception {
-		sessionFactory.getCurrentSession().save(user);
+		sessionFactory.getCurrentSession().save(user);		
 	}	
 }

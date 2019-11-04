@@ -90,7 +90,7 @@ public class User implements Serializable{
 	@Column(name = "introduce", columnDefinition = "TEXT")
 	private String introduce;
 	
-	@Column(name = "userType", columnDefinition = "VARCHAR(1) default 'D'")
+	@Column(name = "userType", nullable = false, columnDefinition = "VARCHAR(1) default 'D'")
 	private String userType;
 	
 	/* 1:N °ü°è
