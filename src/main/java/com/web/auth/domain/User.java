@@ -90,6 +90,9 @@ public class User implements Serializable{
 	@Column(name = "introduce", columnDefinition = "TEXT")
 	private String introduce;
 	
+	@Column(name = "userType", columnDefinition = "VARCHAR(1) default 'D'")
+	private String userType;
+	
 	/* 1:N 관계
 	 * @OneToMany(mappedBy='') N테이블 에서의 해당 객체 변수명.
 	 * */	
