@@ -42,7 +42,8 @@ private Logger logger = LoggerFactory.getLogger(this.getClass());
 	@RequestMapping(value="/join", method = RequestMethod.GET)
 	public ModelAndView join(ModelAndView mnv) throws Exception {
 		logger.debug("---------- [AuthController]:[join] -----------");		
-		mnv.setViewName("auth/join");		
+		mnv.setViewName("auth/join");
+		System.out.println(authService.selectById("bny64"));
 		return mnv;
 	}
 	

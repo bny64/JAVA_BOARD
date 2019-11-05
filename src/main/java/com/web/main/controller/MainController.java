@@ -19,7 +19,7 @@ public class MainController {
 	@RequestMapping(value="/index", method = RequestMethod.GET)
 	public ModelAndView index(ModelAndView mnv) {
 		logger.debug("---------- MainController index -----------");		
-		mnv.setViewName("index");		
+		mnv.setViewName("index");
 		return mnv;
 	}
 }
