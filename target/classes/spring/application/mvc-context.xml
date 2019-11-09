@@ -35,5 +35,4 @@
 			<bean class="com.bny.common.interceptor.AccessControlInterceptor"/>		
 		</mvc:interceptor>
 	</mvc:interceptors> -->	
-	
 </beans>

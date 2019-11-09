@@ -2,8 +2,10 @@
 	
 	'use strict';
 	
+	//생일 고르는 날짜 셋팅
 	$("#birth").datepicker();
 	 
+	//이벤트
 	$('.input100').not('.datepicker').each(function(){
        $(this).on('blur', function(){
        	
@@ -37,7 +39,6 @@
                check=false;
            }
        }
-
        return check;
    });
 	    
@@ -47,6 +48,23 @@
        });
    });
 
+   $('#chkValId').click(function(){
+	   var $id = $('#id').val();
+	   $.ajax({
+		   url : '/auth/chkValId.do',
+		   data : {id : $id},
+		   type:'post',
+		   success:function(result){
+			   var data = result.map;
+			   alert(data.msg);
+			   if(data.msgCode==='1001') $('#id').val('');
+		   },
+		   fail:function(){
+			   
+		   }
+	   });
+   });
+   
    function validate (input) {
        if($(input).attr('type') == 'email' || $(input).attr('name') == 'email') {
            if($(input).val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {

@@ -1,6 +1,8 @@
 package com.web.auth.controller;
 
 import java.text.SimpleDateFormat;
+import java.util.HashMap;
+import java.util.List;
 import java.util.UUID;
 
 import org.slf4j.Logger;
@@ -9,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.web.auth.domain.User;
@@ -45,6 +48,25 @@ private Logger logger = LoggerFactory.getLogger(this.getClass());
 		mnv.setViewName("auth/join");
 		System.out.println(authService.selectById("bny64"));
 		return mnv;
+	}
+	
+	//가입 화면 이동
+	@RequestMapping(value="/chkValId", method = RequestMethod.POST)
+	public @ResponseBody CommandMap chkValId(CommandMap map) throws Exception {
+		logger.debug("---------- [AuthController]:[chkValId] -----------");		
+		CommandMap comMap = new CommandMap();
+		
+		List<User> user = authService.selectById(map.get("id").toString());
+		
+		if(user!=null) {
+			comMap.put("msg", "이미 사용중인 ID입니다.");
+			comMap.put("msgCode", "1001");
+		}else {
+			comMap.put("msg", "사용가능한 ID입니다.");
+			comMap.put("msgCode", "1000");
+		}
+		
+		return comMap;
 	}
 	
 	//가입 폼 전송

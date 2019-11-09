@@ -4,15 +4,18 @@
 		<div class="wrap-login100">
 			<form class="login100-form validate-form" action="/auth/join.do" method="post">
 				<span class="login100-form-title p-b-43">
-					Join to continue
+					Join to continue 
 				</span>
 								
 				<div class="wrap-input100 validate-input" data-validate = "ID is required">
-					<input class="input100" type="text" name="id">
+					<input class="input100" type="text" name="id" id="id">
 					<span class="focus-input100"></span>
 					<span class="label-input100">Id</span>
 				</div>
 								
+				<div>
+					<button style="float: right;margin-bottom: 10px; border: 1px;" id="chkValId">Id 중복 체크</button>
+				</div>
 				<div class="wrap-input100 validate-input" data-validate="PASSWORD is required">
 					<input class="input100" type="password" name="password">
 					<span class="focus-input100"></span>

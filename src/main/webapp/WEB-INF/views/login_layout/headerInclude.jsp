@@ -11,7 +11,7 @@
 <link rel="stylesheet" type="text/css" href="/style/login/css/util.css">
 <link rel="stylesheet" type="text/css" href="/style/login/css/main.css">
 <link rel="stylesheet" type="text/css" href="/lib/jquery/jquery-ui.css">
-<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/jquery/jquery.min.js" charset="utf-8"></script>
 <script src="/lib/jquery/jquery-ui.js"></script>
 <script src="/lib/animsition/js/animsition.min.js"></script>
 <script src="/lib/bootstrap/js/popper.js"></script>
