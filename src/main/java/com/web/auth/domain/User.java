@@ -50,6 +50,9 @@ public class User implements Serializable{
 	@Column(name = "id", nullable = false, unique = true, length = 100)
 	private String id;
 	
+	@Column(name = "salt", nullable  = false)
+	private String salt;
+	
 	@Column(name = "email", nullable = false, unique = true, length = 100)
 	private String email;
 	

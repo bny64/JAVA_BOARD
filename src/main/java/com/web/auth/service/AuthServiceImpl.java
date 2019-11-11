@@ -27,8 +27,7 @@ public class AuthServiceImpl implements AuthService {
 	}
 
 	@Override
-	public User selectByEmail(String email) throws Exception {
-		authDao.selectByEmail(email);
+	public List<User> selectByEmail(String email) throws Exception {		
 		return authDao.selectByEmail(email);
 	}
 	

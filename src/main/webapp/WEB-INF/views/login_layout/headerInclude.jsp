@@ -21,3 +21,4 @@
 <script src="/lib/daterangepicker/daterangepicker.js"></script>
 <script src="/js/common/countdowntime/countdowntime.js"></script>
 <script src="/js/common/datepicker/setDatepickerKor.js"></script>
+<script src="/js/common/bAjax.js"></script>

@@ -3,12 +3,16 @@ package com.web.auth.controller;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -45,16 +49,16 @@ private Logger logger = LoggerFactory.getLogger(this.getClass());
 	@RequestMapping(value="/join", method = RequestMethod.GET)
 	public ModelAndView join(ModelAndView mnv) throws Exception {
 		logger.debug("---------- [AuthController]:[join] -----------");		
-		mnv.setViewName("auth/join");
-		System.out.println(authService.selectById("bny64"));
+		mnv.setViewName("auth/join");	
 		return mnv;
 	}
 	
-	//가입 화면 이동
+	//아이디 중복 체크
 	@RequestMapping(value="/chkValId", method = RequestMethod.POST)
 	public @ResponseBody CommandMap chkValId(CommandMap map) throws Exception {
 		logger.debug("---------- [AuthController]:[chkValId] -----------");		
 		CommandMap comMap = new CommandMap();
+		
 		
 		List<User> user = authService.selectById(map.get("id").toString());
 		
@@ -69,16 +73,37 @@ private Logger logger = LoggerFactory.getLogger(this.getClass());
 		return comMap;
 	}
 	
+	//이메일 중복 체크
+	@RequestMapping(value="/chkValEmail", method = RequestMethod.POST)
+	public @ResponseBody CommandMap chkValEmail(CommandMap map) throws Exception {
+		logger.debug("---------- [AuthController]:[chkValId] -----------");		
+		CommandMap comMap = new CommandMap();
+		
+		List<User> user = authService.selectByEmail(map.get("email").toString());
+		
+		if(user!=null) {
+			comMap.put("msg", "이미 사용중인 이메일입니다.");
+			comMap.put("msgCode", "1001");
+		}else {
+			comMap.put("msg", "사용가능한 이메일입니다.");
+			comMap.put("msgCode", "1000");
+		}
+		
+		return comMap;
+	}
+	
 	//가입 폼 전송
 	@RequestMapping(value="/join", method = RequestMethod.POST)
 	public ModelAndView joinForm(ModelAndView mnv, CommandMap map) throws Exception{
 		logger.debug("---------- [AuthController]:[joinForm] -----------");
 		
+		String salt = security.generateSalt();
 		User user = new User();
 		
 		user.setUserKey(UUID.randomUUID().toString());
+		user.setSalt(salt);
 		user.setId(map.get("id").toString());	
-		user.setPassword(security.hashSHA256(map.get("password").toString()));
+		user.setPassword(security.getEncrypt(map.get("password").toString(), salt));
 		user.setEmail(map.get("email").toString());
 		user.setName(map.get("name").toString());
 		user.setJoinType("java");

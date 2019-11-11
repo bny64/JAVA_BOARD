@@ -59,9 +59,22 @@
 			   alert(data.msg);
 			   if(data.msgCode==='1001') $('#id').val('');
 		   },
-		   fail:function(){
-			   
-		   }
+		   fail:function(){}
+	   });
+   });
+   
+   $('#chkValEmail').click(function(){
+	   var $id = $('#email').val();
+	   $.ajax({
+		   url : '/auth/chkValEmail.do',
+		   data : {id : $id},
+		   type:'post',
+		   success:function(result){
+			   var data = result.map;
+			   alert(data.msg);
+			   if(data.msgCode==='1001') $('#email').val('');
+		   },
+		   fail:function(){}
 	   });
    });
    

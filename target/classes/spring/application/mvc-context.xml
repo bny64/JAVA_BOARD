@@ -11,6 +11,24 @@
    http://www.springframework.org/schema/mvc
    http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 	
+	<mvc:annotation-driven>		
+		<mvc:argument-resolvers>
+			<!-- HandlerMethodArgumentResolver는 사용자 요청이 Controller에 도달하기 전에 그 요청의 파라미터들을 수정할 수 있게 해주는 역할을 한다. -->		
+		    <bean class="com.web.common.resolver.WebResolver" lazy-init="false"/>
+		</mvc:argument-resolvers>
+		
+		<mvc:message-converters>
+			<!-- @ResponseBody로 String 처리할때 한글처리 -->
+	        <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+	            <property name="supportedMediaTypes">
+	                <list>
+	                    <value>text/html;charset=UTF-8</value>
+	                </list>
+	            </property>
+	        </bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+	
 	<!-- mvc controller를 스캔함. -->
 	<!-- component-scan 할 때 해당 패키지 밑으로 선언된 빈들을 읽어오기 때문에 com.bny.controller 로 설정되어 있을 경우 컨트롤러 bean만 찾기 때문에 나머지 dao, service 등의 빈을 읽지 못한다. 주의 할 것. -->
 	<context:component-scan base-package = "com.web">

@@ -12,10 +12,10 @@
 					<span class="focus-input100"></span>
 					<span class="label-input100">Id</span>
 				</div>
-								
 				<div>
 					<button style="float: right;margin-bottom: 10px; border: 1px;" id="chkValId">Id 중복 체크</button>
-				</div>
+				</div>				
+				
 				<div class="wrap-input100 validate-input" data-validate="PASSWORD is required">
 					<input class="input100" type="password" name="password">
 					<span class="focus-input100"></span>
@@ -23,9 +23,12 @@
 				</div>
 				
 				<div class="wrap-input100 validate-input" data-validate = "Valid EMAIL is required: ex@abc.xyz">
-					<input class="input100" type="email" name="email">
+					<input class="input100" type="email" name="email" id="email">
 					<span class="focus-input100"></span>
 					<span class="label-input100">Email</span>
+				</div>
+				<div>
+					<button style="float: right;margin-bottom: 10px; border: 1px;" id="chkValEmail">Email 중복 체크</button>
 				</div>
 								
 				<div class="wrap-input100 validate-input" data-validate="NAME is required">

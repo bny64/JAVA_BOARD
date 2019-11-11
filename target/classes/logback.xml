@@ -62,7 +62,7 @@
     
     <!-- file로 log 남기기 -->
     <appender name="file" class="ch.qos.logback.core.FileAppender">    	
-        <file>C:/Users/bny64/git/JAVA_BOARD/src/main/resources/log/20191109.log</file>        
+        <file>C:\Users\user\git\JAVA_BOARD\src\main\resources\log\tripleProject.%d{yyyy-MM-dd}.log</file>        
         <encoder>        	
             <pattern>
                 	▶ %-5level %d{HH:mm:ss.SSS} [%thread] %logger[%method:%line] - %msg%n
