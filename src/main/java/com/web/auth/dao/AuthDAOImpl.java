@@ -63,7 +63,7 @@ public class AuthDAOImpl extends CommonDAO implements AuthDAO{
 		Root<User> root = cr.from(User.class);
 		
 		//검색조건 정의
-		Predicate restrictions = cb.equal(root.get("id"), email);
+		Predicate restrictions = cb.equal(root.get("email"), email);
 		
 		//쿼리
 		cr.select(root)

@@ -56,19 +56,19 @@ private Logger logger = LoggerFactory.getLogger(this.getClass());
 	//아이디 중복 체크
 	@RequestMapping(value="/chkValId", method = RequestMethod.POST)
 	public @ResponseBody CommandMap chkValId(CommandMap map) throws Exception {
-		logger.debug("---------- [AuthController]:[chkValId] -----------");		
+		logger.debug("---------- [AuthController]:[chkValId] -----------");
+				
 		CommandMap comMap = new CommandMap();
-		
-		
+				
 		List<User> user = authService.selectById(map.get("id").toString());
 		
-		if(user!=null) {
+		if(user.size() > 0) {
 			comMap.put("msg", "이미 사용중인 ID입니다.");
 			comMap.put("msgCode", "1001");
 		}else {
 			comMap.put("msg", "사용가능한 ID입니다.");
 			comMap.put("msgCode", "1000");
-		}
+		}			
 		
 		return comMap;
 	}
@@ -76,12 +76,12 @@ private Logger logger = LoggerFactory.getLogger(this.getClass());
 	//이메일 중복 체크
 	@RequestMapping(value="/chkValEmail", method = RequestMethod.POST)
 	public @ResponseBody CommandMap chkValEmail(CommandMap map) throws Exception {
-		logger.debug("---------- [AuthController]:[chkValId] -----------");		
+		logger.debug("---------- [AuthController]:[chkValEmail] -----------");		
 		CommandMap comMap = new CommandMap();
 		
 		List<User> user = authService.selectByEmail(map.get("email").toString());
 		
-		if(user!=null) {
+		if(user.size() > 0) {
 			comMap.put("msg", "이미 사용중인 이메일입니다.");
 			comMap.put("msgCode", "1001");
 		}else {
