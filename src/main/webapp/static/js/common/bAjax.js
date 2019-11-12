@@ -38,11 +38,15 @@
 			};
 		}else{
 			xhr.onreadystatechange = function(){
-				if(xhr.readyState===4 && xhr.status===200){
-					return ajaxSetting.callback(xhr.status, xhr.responseText);
-				}else{
-					return ajaxSetting.fail(xhr.status);
-				}
+				
+				if(xhr.readyState===4){
+					let result = JSON.parse(xhr.responseText);
+					if(xhr.status===200){						
+						return ajaxSetting.callback(xhr.status, result);
+					}else{
+						return ajaxSetting.fail(xhr.status, result);
+					}
+				}				
 			};
 		}
 		

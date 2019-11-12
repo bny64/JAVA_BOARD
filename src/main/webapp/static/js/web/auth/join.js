@@ -50,17 +50,14 @@
 
    $('#chkValId').click(function(){
 	   var $id = $('#id').val();
-	   $.ajax({
-		   url : '/auth/chkValId.do',
-		   data : {id : $id},
-		   type:'post',
-		   success:function(result){
-			   var data = result.map;
-			   alert(data.msg);
-			   if(data.msgCode==='1001') $('#id').val('');
-		   },
-		   fail:function(){}
-	   });
+	   bAjax.ajaxSend({
+		  url : '/auth/chkValId.do',
+		  data : {id : $id},
+		  callback : function(status, result){
+			  console.log(result);
+		  },
+		  fail : function(){}
+	   });	   
    });
    
    $('#chkValEmail').click(function(){

@@ -20,7 +20,7 @@ public class CommandMap {
     Map<String,Object> map = new HashMap<String,Object>();
      
     public void put(String key, Object value) {
-        map.put(key, value);
+    	map.put(key, value);
     }
      
     public Object get(String key) {
@@ -36,7 +36,7 @@ public class CommandMap {
     }
      
     public void clear() {
-        map.clear();
+    	map.clear();
     }
      
     public boolean containsKey(String key) {
@@ -60,6 +60,6 @@ public class CommandMap {
     }
      
     public void putAll(Map<? extends String, ? extends Object> m) {
-        map.putAll(m);
+    	map.putAll(m);
     }
 }
