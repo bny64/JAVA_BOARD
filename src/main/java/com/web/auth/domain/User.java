@@ -83,7 +83,7 @@ public class User implements Serializable{
 	@Column(name = "imgPath")
 	private String imgPath;
 	
-	/* columnDefinition에서 default값 설정시 TYPE을 넣어주지 않으면 에러 발생.
+	/* columnDefinition에서 default값 설정시 TYPE(ex : VARCHAR(5)을 넣어주지 않으면 에러 발생.
 	 * */
 	@Column(name = "emailYn", columnDefinition = "VARCHAR(5) default 'N'")
 	private String emailYn;

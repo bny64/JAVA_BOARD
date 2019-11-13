@@ -63,7 +63,8 @@ public class WebResolver implements HandlerMethodArgumentResolver {
             	}
             }else {
             	values = req.getParameterValues(key);
-            	if(values!=null) {
+            	
+            	if(values!=null && !"".equals(values[0])) {
                     commandMap.put(key, (values.length>1)? values : values[0]);
                 }
             }

@@ -55,6 +55,17 @@ public class Security {
         
         return result;
     }	
+		
+	public boolean comparePassword(String strSalt, String source, String source2) throws Exception {
+		
+		String encSource = getEncrypt(source, strSalt);
+		
+		if(encSource.equals(source2)) {
+			return true;
+		}else {
+			return false;			
+		}		
+	}
 	
 	/*
 	 * //sha256방식으로 암호화 public String hashSHA256(String password) throws Exception {

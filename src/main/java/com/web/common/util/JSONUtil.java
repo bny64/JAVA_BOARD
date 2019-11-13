@@ -10,6 +10,7 @@ public class JSONUtil {
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
+	//string이 json형식인지 확인
 	public boolean validJSONByStr(String str) {
 		logger.debug("---------- [JSONUtil]:[validJSONByStr] -----------");	
 		ObjectMapper mapper = new ObjectMapper();

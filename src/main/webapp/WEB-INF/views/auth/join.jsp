@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<input type="hidden" value="N" id="checkValIdYn">
+<input type="hidden" value="N" id="checkValEmailYn">
 <div class="limiter">
 	<div class="container-login100">
 		<div class="wrap-login100">
@@ -63,11 +65,16 @@
 					</span>		
 				</div>
 				
-				<div class="container-login100-form-btn">
-					<button class="login100-form-btn">
+				<div class="container-login100-form-btn mb10">
+					<button class="login100-form-btn" id="joinBtn">
 						JOIN
 					</button>
-				</div>				
+				</div>		
+				
+				<button class="login100-form-btn" id="loginBtn">
+					LOGIN
+				</button>
+							
 			</form>
 
 			<div class="login100-more" style="background-image: url('/images/login/images/bg-01.jpg');">

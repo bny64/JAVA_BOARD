@@ -4,80 +4,13 @@
 	
 	//생일 고르는 날짜 셋팅
 	$("#birth").datepicker();
-	
-   [].filter.call(document.querySelectorAll('.input100'), function(element){	   
-	   return domUtil.hasClass(element, 'datepicker') ? false : true;	   
-   }).forEach(function(element){
-	   element.addEventListener('blur', function(){
-		   if(element.value.trim()!== ''){
-			   domUtil.addClass(element, 'has-val');
-		   }else{
-			   domUtil.removeClass(element, 'has-val');
-		   }
-	   });
-   });
-   
-   document.querySelector('#birth').onchange = function(){
-	   const that = this;
-	   if(that.value!=='') domUtil.addClass(that, 'has-val');
-	   else domUtil.removeClass(that, 'has-val');
-   };
-   
-   /*document.querySelector('.input100.datepicker').addEventListener('blur', function(e){
-	   let that = this;
-	   
-	   let rt = e.relatedTarget || null;
-	   
-	   if(!rt) return;
-	   
-	   if(rt.parentNode.querySelector('[class*=ui-state]')){
-		   domUtil.addClass(that, 'has-val');
-	   }else{
-		   that.focus();
-	   }
-	   
-   });*/
-   
-   /*$('.input100.datepicker').on('blur', function(e){
-	   var $this = $(this);
-	   var $rt = $(e.relatedTarget);
-	   
-	   if($rt.is('[class*=ui-state]')){		   
-		   $this.addClass('has-val');
-	   }else{
-		   $this.focus();
-	   }
-   });*/
 
-	//input list
-   const inputList = document.querySelectorAll('[data-validate].validate-input .input100');
-   
-   //join 버튼
-   const joinForm = document.querySelector('#joinForm');
-   
-   joinForm.addEventListener('submit', function(e){
-	   
-	   e.preventDefault();
-	   
-	   if(document.activeElement !== document.querySelector('.login100-form-btn')) return; 
-	   
-	   let check = false;
-	   
-	   inputList.forEach(function(element){
-		   if(validate(element)===false){
-			   showValidate(element);
-			   check = false;
-		   }
-	   });
-   });
-      
-   inputList.forEach(function(element){	   
-	   element.addEventListener('focus', function(){
-		   hideValidate(element);
-	   });	   
-   });
-
+	/**
+	 * 이벤트
+	 * */ 
+	//button #chkValId click 이벤트
    document.querySelector('#chkValId').addEventListener('click', function(e){
+	   const that = this;
 	   let userId = document.querySelector('#id').value;
 	   
 	   if(userId===''){
@@ -91,13 +24,28 @@
 		   data : {id : userId},
 		   callback:function(result){
 			   const data = result;
-			   if(data.msgCode==='1001') document.querySelector('#id').value = '';
+			   if(data.msgCode==='AC0001'){
+				   let idTag = document.querySelector('#id');
+				   idTag.value = '';
+				   idTag.focus();
+			   }else if(data.msgCode==='AC0000'){
+				   document.querySelector('#checkValIdYn').value = 'Y';
+			   }
 			   alert(data.msg);
 		   }
 	   });
    });   
    
+   //input #id focus 이벤트
+   document.querySelector('#id').addEventListener('focus', function(){	   
+	   const that = this;	   	   
+	   if(document.querySelector('#checkValIdYn').value==='Y') that.value = '';	   
+	   document.querySelector('#checkValIdYn').value = 'N';	   
+   });
+   
+   //button #chkValEmail click 이벤트
    document.querySelector('#chkValEmail').addEventListener('click', function(){
+	  const that = this;
 	  let userEmail = document.querySelector('#email').value;
 	  
 	  if(userEmail===''){
@@ -111,12 +59,95 @@
 		   data : {email : userEmail},
 		   callback:function(result){
 			   const data = result;
-			   if(data.msgCode==='1001') document.querySelector('#email').value = '';
+			   if(data.msgCode==='EM0001'){
+				   let emailTag =  document.querySelector('#email');
+				   emailTag.value = '';
+				   emailTag.focus();
+			   }else if(data.msgCode==='EM0000'){
+				   document.querySelector('#checkValEmailYn').value = 'Y';
+			   }
 			   alert(data.msg);
 		   }
 	   });
    });
       
+   //input #email focus 이벤트
+   document.querySelector('#email').addEventListener('focus', function(){
+	   const that = this;
+	   if(document.querySelector('#checkValEmailYn').value === 'Y') that.value = '';	   
+	   document.querySelector('#checkValEmailYn').value = 'N';
+   });
+
+	document.querySelector('#birth').addEventListener('change', function(){
+		const that = this;
+		if(that.value!=='') domUtil.addClass(that, 'has-val');
+		else domUtil.removeClass(that, 'has-val');
+	});
+
+	//input blur 이벤트
+	[].filter.call(document.querySelectorAll('.input100'), function(element){	   
+		return domUtil.hasClass(element, 'datepicker') ? false : true;	   
+	}).forEach(function(element){
+		element.addEventListener('blur', function(){
+			if(element.value.trim()!== ''){
+				domUtil.addClass(element, 'has-val');
+			}else{
+				domUtil.removeClass(element, 'has-val');
+			}
+		});
+	});
+
+   //input list
+   const inputList = document.querySelectorAll('[data-validate].validate-input .input100');
+   
+   //join button
+   const joinForm = document.querySelector('#joinForm');
+   
+   //input focus 이벤트
+   inputList.forEach(function(element){	   
+	   element.addEventListener('focus', function(){
+		   hideValidate(element);
+	   });	   
+   });
+   
+   //button #joinBtn submit 이벤트
+   joinForm.addEventListener('submit', function(e){
+	   
+	   const that = this;
+	   let check = true;
+	   
+	   e.preventDefault();
+	   
+	   if(document.activeElement !== document.querySelector('.login100-form-btn#joinBtn')) return; 
+	   
+	   inputList.forEach(function(element){
+		   if(validate(element)===false){
+			   showValidate(element);
+			   check = false;
+		   }
+	   });
+	   
+	   if(!check) return;
+	   
+	   if(document.querySelector('#checkValIdYn').value==='N'){
+		   alert('ID를 중복체크 해주세요.');
+		   return;
+	   }else if(document.querySelector('#checkValEmailYn').value==='N'){
+		   alert('이메일을 중복체크 해주세요.');
+		   return;
+	   }
+	   
+	   that.submit();
+	   
+   });
+   
+   document.querySelector('#loginBtn').addEventListener('click', function(){
+	   location.href = '/auth/login.do';
+   });
+   
+   /**
+    * 함수
+    * */
    function validate (input) {
        if(input.getAttribute('type') == 'email' || input.getAttribute('name') == 'email') {
            if(input.value.trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
@@ -139,4 +170,5 @@
 	   let thisAlert = input.parentNode;
 	   domUtil.removeClass(thisAlert, 'alert-validate');
    }
+   
 })();
