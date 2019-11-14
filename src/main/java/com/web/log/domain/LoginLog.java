@@ -42,7 +42,7 @@ public class LoginLog implements Serializable{
 	@Column(name="joinType", nullable = false, length = 20)
 	private String joinType;
 	
-	@Column(name="loginAt", nullable = false, columnDefinition = "TIMESTAMP default CURRENT_TIMESTAMP")
+	@Column(name="loginAt", columnDefinition = "TIMESTAMP default CURRENT_TIMESTAMP")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date loginAt;
 

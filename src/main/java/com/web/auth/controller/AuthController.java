@@ -28,6 +28,8 @@ import com.web.common.resolver.CommandMap;
 import com.web.common.security.Security;
 import com.web.common.support.message.MsgCode;
 import com.web.common.support.message.MsgList;
+import com.web.log.domain.LoginLog;
+import com.web.log.service.LogService;
 
 @Controller
 @RequestMapping(value = "/auth")
@@ -38,6 +40,9 @@ private Logger logger = LoggerFactory.getLogger(this.getClass());
 	@Autowired
 	private AuthService authService;
 
+	@Autowired
+	private LogService logService;
+	
 	@Autowired
 	private Security security;
 	
@@ -157,10 +162,13 @@ private Logger logger = LoggerFactory.getLogger(this.getClass());
 		boolean result = false;
 		
 		List<User> user = authService.selectByEmail(email);
+		LoginLog log = new LoginLog();
+		User getUser = null;
 		
-		if(user.size() > 0) {			
-			String getSalt = user.get(0).getSalt();
-			String getPassword = user.get(0).getPassword();
+		if(user.size() > 0) {	
+			getUser = user.get(0);
+			String getSalt = getUser.getSalt();
+			String getPassword = getUser.getPassword();
 			result = security.comparePassword(getSalt, password, getPassword);			
 		}
 		
@@ -171,6 +179,11 @@ private Logger logger = LoggerFactory.getLogger(this.getClass());
 			redirectAttr.addFlashAttribute("msg", msgMap);
 			return "redirect:/auth/login.do";			
 		}
+		
+		log.setJoinType(getUser.getJoinType());
+		log.setName(getUser.getName());
+		log.setUser(getUser);
+		logService.writeLoginLog(log);
 		
 		String[] msg = MsgList.getInstance().getCodeMessage(MsgCode.SuccessLogin);
 		msgMap.put("msgCode", msg[0]);
