@@ -1,10 +1,11 @@
+//class 형식
 (function(window){
 	
-	const bAjax = function(){
+	class bAjax {
 		
-		//ajax 공통
-		this.ajaxSend = function(settings){
-			
+		constructor(){}
+		
+		ajaxSend(settings){
 			let that = this;
 			let result = {};//결과 값
 			const xhr = new XMLHttpRequest();
@@ -25,7 +26,7 @@
 			
 			xhr.open(ajaxSetting.type, ajaxSetting.url, ajaxSetting.async);
 			xhr.setRequestHeader(ajaxSetting.header, ajaxSetting.headerValue);
-			xhr.response = ajaxSetting.dataType;
+			xhr.responseType = ajaxSetting.dataType;
 			
 			xhr.send(JSON.stringify(ajaxSetting.data));
 			
@@ -37,7 +38,11 @@
 						
 						if(xhr.readyState===4){
 							
-							const resValue = JSON.parse(xhr.responseText);
+							let resValue = xhr.response;
+							
+							if(xhr.responseType==='json') resValue = xhr.response;
+							else resValue = JSON.parse(xhr.response);
+
 							result = that.parseRtnType(resValue);
 							result.status = xhr.status;
 							
@@ -57,7 +62,11 @@
 					
 					if(xhr.readyState===4){
 						
-						const resValue = JSON.parse(xhr.responseText);
+						let resValue = xhr.response;
+						
+						if(xhr.responseType==='json') resValue = xhr.response;
+						else resValue = JSON.parse(xhr.response);
+						
 						result = that.parseRtnType(resValue);
 						result.status = xhr.status;
 
@@ -69,11 +78,9 @@
 					}				
 				};
 			}
-		};
+		}
 		
-		//parse return value
-		this.parseRtnType = function(resVal){
-			
+		parseRtnType(resVal){
 			const data = resVal;
 			let returnValue = {};
 			
@@ -82,7 +89,7 @@
 			
 			return returnValue;
 		}
-	};
+	}
 	
 	window.bAjax = new bAjax();
 	

@@ -1,3 +1,4 @@
+//함수 형식
 (function(window){
 	
 	const domUtil = function(){};

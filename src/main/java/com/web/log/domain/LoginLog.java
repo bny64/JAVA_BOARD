@@ -42,10 +42,14 @@ public class LoginLog implements Serializable{
 	@Column(name="joinType", nullable = false, length = 20)
 	private String joinType;
 	
+	@Column(name="id", nullable = false, length = 20)
+	private String id;
+	
 	@Column(name="loginAt", columnDefinition = "TIMESTAMP default CURRENT_TIMESTAMP")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date loginAt;
 
+	
 	/*
 	 * 1:N관계
 	 * @ManyToOne(fetch = '') 엔티티 로딩 관련
@@ -57,8 +61,8 @@ public class LoginLog implements Serializable{
 	 * */
 	@ManyToOne(fetch = FetchType.LAZY)
 	/*
-	 * @JoinColumn(name='N테이블의 기본키 이름')
+	 * @JoinColumn(name='현재 테이블의  N테이블의 기본키를 사용할 컬럼 이름')
 	 * */		
-	@JoinColumn(name="id")
+	@JoinColumn(name="userKey")
 	private User user;	
 }

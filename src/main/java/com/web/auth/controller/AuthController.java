@@ -183,6 +183,7 @@ private Logger logger = LoggerFactory.getLogger(this.getClass());
 		log.setJoinType(getUser.getJoinType());
 		log.setName(getUser.getName());
 		log.setUser(getUser);
+		log.setId(getUser.getId());
 		logService.writeLoginLog(log);
 		
 		String[] msg = MsgList.getInstance().getCodeMessage(MsgCode.SuccessLogin);

@@ -23,3 +23,4 @@
 <script src="/js/common/datepicker/setDatepickerKor.js"></script>
 <script src="/js/common/util/bAjax.js"></script>
 <script src="/js/common/util/domUtil.js"></script>
+<script src="/js/common/util/jsUtil.js"></script>
