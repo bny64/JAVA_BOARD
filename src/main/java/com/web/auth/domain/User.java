@@ -13,7 +13,11 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.web.log.domain.LoginLog;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
+import com.web.board.domain.Board;
+import com.web.board.domain.Comment;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -100,6 +104,10 @@ public class User implements Serializable{
 	/* 1:N 관계
 	 * @OneToMany(mappedBy='') N테이블 에서의 해당 객체 변수명.
 	 * */	
-	//@OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
-	//private Collection<LoginLog> loginLog;
+	@OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
+	private Collection<Board> board;
+	
+	@OneToMany(mappedBy = "user")
+	@LazyCollection(LazyCollectionOption.FALSE)
+	private Collection<Comment> comment;
 }

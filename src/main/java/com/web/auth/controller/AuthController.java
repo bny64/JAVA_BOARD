@@ -200,4 +200,18 @@ private Logger logger = LoggerFactory.getLogger(this.getClass());
 		return "redirect:/index.do";		
 	}
 	
+	//·Î±×¾Æ¿ô
+	@RequestMapping(value="/logout", method = RequestMethod.POST)
+	public ModelAndView logout(ModelAndView mnv, HttpSession session) throws Exception {
+		logger.debug("---------- [AuthController]:[logout] -----------");		
+		
+		if(session.getAttribute("userInfo") != null) {
+			session.removeAttribute("userInfo");
+		}
+		
+		mnv.setViewName("index");
+		
+		return mnv;
+	}
+	
 }

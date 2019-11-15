@@ -4,17 +4,38 @@
 	
 	jsUtil.prototype.browserCheck = function(){
 		 
-		let browser = navigator.userAgent.toLowerCase();  
-
-		if ( -1 != browser.indexOf('chrome') ) return 'chrome';
-		if ( -1 != browser.indexOf('opera') ) return 'opera';
-	    if ( -1 != browser.indexOf('sapari') ) return 'sapari';
-	    if ( -1 != browser.indexOf('firefox') ) return 'firefox';
-	    if ( navigator.appName == "Microsoft Internet Explorer" ) return 'IE10 or below';
-	    if ( agent.search( "trident" ) > -1 ) return 'IE11';
-	    if ( agent.search( "edge/" ) > -1 ) return 'edge'; 
-	    return 'undefined browser';
-	    
+		const agent = navigator.userAgent.toLowerCase();
+		const name = navigator.appName;
+        let browser;
+    
+	    // MS 계열 브라우저를 구분하기 위함.
+	    if(name === 'Microsoft Internet Explorer' || agent.indexOf('trident') > -1 || agent.indexOf('edge/') > -1) {
+	        browser = 'ie';
+	        if(name === 'Microsoft Internet Explorer') { // IE old version (IE 10 or Lower)
+	            agent = /msie ([0-9]{1,}[\.0-9]{0,})/.exec(agent);
+	            browser += parseInt(agent[1]);
+	        } else { // IE 11+
+	            if(agent.indexOf('trident') > -1) { // IE 11 
+	                browser += 11;
+	            } else if(agent.indexOf('edge/') > -1) { // Edge
+	                browser = 'edge';
+	            }
+	        }
+	    } else if(agent.indexOf('safari') > -1) { // Chrome or Safari
+	        if(agent.indexOf('opr') > -1) { // Opera
+	            browser = 'opera';
+	        } else if(agent.indexOf('chrome') > -1) { // Chrome
+	            browser = 'chrome';
+	        } else { // Safari
+	            browser = 'safari';
+	        }
+	    } else if(agent.indexOf('firefox') > -1) { // Firefox
+	        browser = 'firefox';
+	    }
+	
+	    // IE: ie7~ie11, Edge: edge, Chrome: chrome, Firefox: firefox, Safari: safari, Opera: opera
+	    //document.getElementsByTagName('html')[0].className = browser;
+	    return browser;
 	};
 	
 	window.jsUtil = new jsUtil();

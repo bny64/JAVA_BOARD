@@ -191,5 +191,5 @@
 		let thisAlert = input.parentNode;
 		domUtil.removeClass(thisAlert, 'alert-validate');
 	}
-
+	
 })();
