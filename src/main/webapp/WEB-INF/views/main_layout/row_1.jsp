@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="wrapper row1">
   <header id="header" class="hoc clear"> 
     <!-- ################################################################################################ -->
@@ -15,9 +16,18 @@
         </li>
       </ul>
     </div>
+    <c:if test="${userInfo != null }">
+   	<div class="fltRt">
+	   	<ul class="nospace clear">
+	   		<li>
+	   			<span style="color: darkcyan; font-size: large;">${userInfo.name }</span>님 환영합니다.
+	   		</li>
+	   	</ul>
+	</div>	
+    </c:if>    
     <!-- ################################################################################################ -->
   </header>
-  <nav id="mainav" class="hoc clear"> 
+  <nav id="mainav" class="hoc clear mtm20"> 
     <!-- ################################################################################################ -->
     <ul class="clear">
       <li class="active"><a href="index.html">Home</a></li>
@@ -47,8 +57,8 @@
       <li><a href="#">Link Text</a></li>
       <li><a href="#">Link Text</a></li>
       <li><a href="#">Link Text</a></li>
-      <li><a href="#">Long Link Text</a></li>
-    </ul>
+      <li><a href="#">Long Link Text</a></li>      
+    </ul>    
     <!-- ################################################################################################ -->
-  </nav>
+  </nav>  
 </div>

@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.tomcat.util.http.fileupload.RequestContext;
 import org.slf4j.Logger;
@@ -153,12 +154,13 @@ private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	//로그인 처리
 	@RequestMapping(value="/login", method = RequestMethod.POST)
-	public String loginForm(CommandMap map, RedirectAttributes redirectAttr) throws Exception {		
+	public String loginForm(CommandMap map, RedirectAttributes redirectAttr, HttpSession session) throws Exception {		
 		logger.debug("---------- [AuthController]:[loginForm] -----------");		
 		
 		String email = map.get("email").toString();
 		String password = map.get("password").toString();		
 		Map<String, String> msgMap = new HashMap<String, String>();
+		Map<String, Object> sessionMap = new HashMap<String, Object>();
 		boolean result = false;
 		
 		List<User> user = authService.selectByEmail(email);
@@ -180,9 +182,14 @@ private Logger logger = LoggerFactory.getLogger(this.getClass());
 			return "redirect:/auth/login.do";			
 		}
 		
+		sessionMap.put("id", getUser.getId());
+		sessionMap.put("name", getUser.getName());
+		sessionMap.put("joinType", getUser.getJoinType());
+		
+		session.setAttribute("userInfo", sessionMap);
+		
 		log.setJoinType(getUser.getJoinType());
-		log.setName(getUser.getName());
-		log.setUser(getUser);
+		log.setName(getUser.getName());		
 		log.setId(getUser.getId());
 		logService.writeLoginLog(log);
 		
@@ -190,7 +197,7 @@ private Logger logger = LoggerFactory.getLogger(this.getClass());
 		msgMap.put("msgCode", msg[0]);
 		msgMap.put("msg", msg[1]);
 		redirectAttr.addFlashAttribute("msg", msgMap);
-		return "redirect:/auth/login.do";		
+		return "redirect:/index.do";		
 	}
 	
 }

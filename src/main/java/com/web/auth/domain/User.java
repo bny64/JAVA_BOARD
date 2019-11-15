@@ -100,6 +100,6 @@ public class User implements Serializable{
 	/* 1:N 관계
 	 * @OneToMany(mappedBy='') N테이블 에서의 해당 객체 변수명.
 	 * */	
-	@OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
-	private Collection<LoginLog> loginLog;
+	//@OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
+	//private Collection<LoginLog> loginLog;
 }

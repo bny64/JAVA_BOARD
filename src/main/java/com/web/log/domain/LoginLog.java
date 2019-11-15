@@ -59,10 +59,10 @@ public class LoginLog implements Serializable{
 	 * default : true -> 반드시 값이 필요함
 	 * false -> 해당 객체에 null이 들어갈 수도 있음.
 	 * */
-	@ManyToOne(fetch = FetchType.LAZY)
+	//@ManyToOne(fetch = FetchType.LAZY)
 	/*
 	 * @JoinColumn(name='현재 테이블의  N테이블의 기본키를 사용할 컬럼 이름')
 	 * */		
-	@JoinColumn(name="userKey")
-	private User user;	
+	//@JoinColumn(name="userKey")
+	//private User user;	
 }
