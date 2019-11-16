@@ -1,12 +1,14 @@
 (function(window){
-	
-	const jsUtil = function(){};
+	//브라우저 체크를 위해 var 타입.
+	var jsUtil = function(){
+		this.validBrowser = ['edge', 'opera', 'chrome', 'firefox'];
+	};
 	
 	jsUtil.prototype.browserCheck = function(){
 		 
-		const agent = navigator.userAgent.toLowerCase();
-		const name = navigator.appName;
-        let browser;
+		var agent = navigator.userAgent.toLowerCase();
+		var name = navigator.appName;
+        var browser;
     
 	    // MS 계열 브라우저를 구분하기 위함.
 	    if(name === 'Microsoft Internet Explorer' || agent.indexOf('trident') > -1 || agent.indexOf('edge/') > -1) {
@@ -35,7 +37,13 @@
 	
 	    // IE: ie7~ie11, Edge: edge, Chrome: chrome, Firefox: firefox, Safari: safari, Opera: opera
 	    //document.getElementsByTagName('html')[0].className = browser;
-	    return browser;
+	    
+	    var browserLen = this.validBrowser.length;
+	    for(var i=0; i<browserLen; i++){
+	    	if(this.validBrowser[i]===browser) return true;
+	    }
+	    
+	    return false;
 	};
 	
 	window.jsUtil = new jsUtil();

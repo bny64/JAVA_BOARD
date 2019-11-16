@@ -31,13 +31,12 @@
 </div>
 <script>
 (function(){
-
+	//헤더 부분은 var
 	window.onload = function(){
-		const browser = jsUtil.browserCheck();
-		if(browser.indexOf('ie') > -1 || browser.indexOf('safari') > -1) alert('지원하지 않는 브라우저 입니다.'); 
+		if(!jsUtil.browserCheck()) alert('지원하지 않은 브라우저 입니다.\n\사용하시는 브라우저에서는 페이지가 정상 작동되지 않습니다.\n지원되는 브라우저 : edge, chrome, firefox, opera'); 
 	};
 	
-	const logout = document.querySelector('#logout');
+	var logout = document.querySelector('#logout');
 
 	if(logout){
 		logout.addEventListener('click', function(){
