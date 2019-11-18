@@ -51,9 +51,8 @@
 		<!-- 로그아웃되면 세션을 초기화한다. -->
 		<!-- logout-url : 로그아웃 url -->
 		<!-- logout-succes-url : 로그아웃 성공시 이동할 페이지 -->
-		<security:logout invalidate-session="true"			
-			logout-url="/auth/logout.do"
-			logout-success-url="/index.do"			
+		<security:logout invalidate-session="true"
+			success-handler-ref="logoutSuccessHandler"			
 		/>		
 	
 		<security:session-management invalid-session-url="/auth/login.do">
@@ -70,8 +69,19 @@
 		<security:authentication-provider ref="userAuthProvider"/>
 	</security:authentication-manager>
 	
-	<!-- bean -->
+	<bean id="userAuthProvider" class="com.web.common.security.UserAuthProvider">
+		<property name="userDetailsService" ref="userService"/>
+		<property name="passwordEncoder" ref="passwordEncoder"/>
+	</bean>
 	
+	<!-- bean -->
+	<bean id="loginSuccessHandler" class="com.web.common.security.LoginSuccessHandler"/>
+	<bean id="loginFailureHandler" class="com.web.common.security.LoginFailureHandler"/>
+	<bean id="logoutSuccessHandler" class="com.web.common.security.CustomLogoutSuccessHandler"/>
+	
+	<bean id="userAuthProvider" class="com.web.common.security.UserAUthProvider"/>
+	<bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
+		
 	<!-- <security:http auto-config="true" use-expressions="true">
 		<security:csrf disabled="true" />
 		<security:intercept-url pattern="/**"
