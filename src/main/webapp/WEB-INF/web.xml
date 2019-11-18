@@ -4,10 +4,29 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
      id="bny" version="3.1" metadata-complete="true">
   <display-name>tripleProject</display-name>
   <description></description>
+  
+  <!-- context -->
+  <!-- 사용자가 직접 컨트롤하는 XML파일을 지정해주는 역할. -->
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>
+			classpath:spring/application/*-context.xml
+			classpath:spring/security/*-context.xml			
+		</param-value>
+  </context-param>
+    <!-- context -->
+  
+  <!-- listener -->  
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
+  <listener>
+  	<!-- 한 유저가 다른 브라우저로 동시 로그인하는 것을 막는다. -->
+  	<listener-class>org.springframework.security.web.session.HttpSessionEventPublisher</listener-class>
+  </listener>
+    <!-- listener -->  
   
+  <!-- filter -->  
   <filter>
     <filter-name>encodingFilter</filter-name>
     <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -15,21 +34,24 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
       <param-name>encoding</param-name>
       <param-value>UTF-8</param-value>
     </init-param>
-  </filter>
-  
+  </filter>  
   <filter-mapping>
     <filter-name>encodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
   
-  <!-- 사용자가 직접 컨트롤하는 XML파일을 지정해주는 역할. -->
-  <context-param>
-    <param-name>contextConfigLocation</param-name>
-    <param-value>
-			classpath:spring/application/*-context.xml			
-		</param-value>
-  </context-param>
+  <filter>
+  	<filter-name>springSecurityFilterChain</filter-name>
+  	<!-- 모든 요청은 이 프록시필터를 거친다. 스프링시큐리티는 이를 통해 인증, 인가를 수행 -->
+  	<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>springSecurityFilterChain</filter-name>
+  	<url-pattern>*.do</url-pattern>
+  </filter-mapping>
+  <!-- filter --> 
   
+  <!-- servlet -->
   <servlet>
     <servlet-name>dispatcherServlet</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -41,6 +63,10 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
     </init-param>
     <load-on-startup>1</load-on-startup>
   </servlet>
+  <servlet-mapping>
+    <servlet-name>dispatcherServlet</servlet-name>
+    <url-pattern>*.do</url-pattern>    
+  </servlet-mapping>
   
   <servlet>
     <servlet-name>staticServlet</servlet-name>
@@ -53,20 +79,17 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
     </init-param> 
     <load-on-startup>1</load-on-startup>
   </servlet>
-  
-  <servlet-mapping>
-    <servlet-name>dispatcherServlet</servlet-name>
-    <url-pattern>*.do</url-pattern>    
-  </servlet-mapping>
-  
   <servlet-mapping>
 	<servlet-name>staticServlet</servlet-name>
 	<url-pattern>/</url-pattern>
   </servlet-mapping>
+  <!-- servlet -->
   
+  <!-- other -->
   <welcome-file-list>
     <welcome-file>/WEB-INF/views/index.jsp</welcome-file>
   </welcome-file-list>  
+   <!-- other -->
   
   <!-- <error-page>
   	<error-code>404</error-code>
