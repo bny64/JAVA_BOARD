@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <input type="hidden" value="${msg.msg }" id="msg">
 <input type="hidden" value="${msg.msgCode }" id="msgCode">
 <div class="limiter">
 	<div class="container-login100">
 		<div class="wrap-login100">
-			<form class="login100-form validate-form" id="loginForm" method="post" action="/auth/login.do">
+			<form class="login100-form validate-form" id="loginForm" method="post" action="/auth/loginCheck.do">
 				<span class="login100-form-title p-b-43">
 					Login to continue
 				</span>
@@ -29,16 +30,14 @@
 						<label class="label-checkbox100" for="ckb1">
 							Remember me
 						</label>
-					</div>
-
+					</div>					
 					<div>
 						<a href="#" class="txt1">
 							Forgot Password?
 						</a>
 					</div>
 				</div>
-		
-
+				<p>${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}</p>
 				<div class="container-login100-form-btn">
 					<button class="login100-form-btn">
 						Login
@@ -60,6 +59,7 @@
 						<i class="fa fa-twitter" aria-hidden="true"></i>
 					</a>
 				</div>
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 			</form>
 
 			<div class="login100-more" style="background-image: url('/images/login/images/bg-01.jpg');">

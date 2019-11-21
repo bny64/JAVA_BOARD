@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.web.auth.domain.User;
 import com.web.common.dao.CommonDAO;
+import com.web.common.security.CustomUserDetails;
 
 @Repository
 @Transactional//data-context에서 설정한 transactionManager를 사용하려면 애노테이션 추가해야 함. (에러 때문에 몇 시간 고생..)
@@ -71,6 +72,5 @@ public class AuthDAOImpl extends CommonDAO implements AuthDAO{
 		
 		return sf.getCurrentSession().createQuery(cr).getResultList();
 	}
-	
 	
 }

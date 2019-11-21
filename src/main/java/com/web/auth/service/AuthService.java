@@ -3,6 +3,7 @@ package com.web.auth.service;
 import java.util.List;
 
 import com.web.auth.domain.User;
+import com.web.common.security.CustomUserDetails;
 
 public interface AuthService {
 

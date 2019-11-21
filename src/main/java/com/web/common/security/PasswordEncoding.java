@@ -5,11 +5,23 @@ import java.util.Random;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
-public class Security {
+public class PasswordEncoding implements PasswordEncoder {
 	
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
+		
+	private PasswordEncoder passwordEncoder;
 	
+	public PasswordEncoder getPasswordEncoder() {
+		return passwordEncoder;
+	}
+
+	public void setPasswordEncoder(PasswordEncoder passwordEncoder) {
+		this.passwordEncoder = passwordEncoder;
+	}
+
 	//salt »ý¼º
 	public String generateSalt() {
 		
@@ -65,6 +77,16 @@ public class Security {
 		}else {
 			return false;			
 		}		
+	}
+
+	@Override
+	public String encode(CharSequence rawPassword) {
+		return passwordEncoder.encode(rawPassword);
+	}
+
+	@Override
+	public boolean matches(CharSequence rawPassword, String encodedPassword) {		
+		return passwordEncoder.matches(rawPassword, encodedPassword);
 	}
 	
 	/*

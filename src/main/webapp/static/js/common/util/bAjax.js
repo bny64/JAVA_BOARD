@@ -28,8 +28,9 @@
 				promise : false, //promise 사용 여부
 				data : {}, //request data
 				stcData : {}, //유지되는 데이터
+				token : true,
 				header : 'Content-type', //헤더 타입
-				headerValue : 'application/x-www-form-urlencoded; charset=UTF-8', //헤더 값
+				headerValue : 'application/x-www-form-urlencoded; charset=UTF-8', //헤더 값				
 				dataType:'json',				
 				fail : function(error){ //에러함수(promise가 false 일 때) 
 					console.error(error);
@@ -40,6 +41,13 @@
 			
 			xhr.open(ajaxSetting.type, ajaxSetting.url, ajaxSetting.async);
 			xhr.setRequestHeader(ajaxSetting.header, ajaxSetting.headerValue);
+			
+			if(ajaxSetting.token){
+				const csrfToken = document.querySelector('#_csrf').getAttribute('content');
+				const csrfHeader = document.querySelector('#_csrf_header').getAttribute('content');
+				xhr.setRequestHeader(csrfHeader, csrfToken);
+			}
+			
 			xhr.responseType = ajaxSetting.dataType;
 			
 			xhr.send(JSON.stringify(ajaxSetting.data));
@@ -63,6 +71,7 @@
 							}							
 														
 							if(xhr.status===200){
+								if(ajaxSetting.stcData) result.stcData = ajaxSetting.stcData;
 								resolve(result);
 							}else{
 								reject(result);
@@ -88,7 +97,8 @@
 
 						}
 
-						if(xhr.status===200){						
+						if(xhr.status===200){					
+							if(ajaxSetting.stcData) result.stcData = ajaxSetting.stcData;
 							return ajaxSetting.callback(result);
 						}else{
 							return ajaxSetting.fail(result);

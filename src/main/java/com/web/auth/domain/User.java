@@ -20,11 +20,9 @@ import com.web.board.domain.Board;
 import com.web.board.domain.Comment;
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@NoArgsConstructor 
 @Getter 
 @Setter 
 @ToString(exclude = {"password"})
@@ -37,6 +35,19 @@ import lombok.ToString;
 public class User implements Serializable{
 	
 	private static final long serialVersionUID = -8112108611538016303L;
+	
+	public User() {		
+	};
+	
+	public User(String id, String email, String password, String name, String joinType, String userType) {
+		super();
+		this.id = id;		
+		this.email = email;
+		this.password = password;
+		this.name = name;
+		this.joinType = joinType;
+		this.userType = userType;
+	}
 
 	/* @id : 기본키
 	 * */
@@ -53,9 +64,6 @@ public class User implements Serializable{
 	 * */
 	@Column(name = "id", nullable = false, unique = true, length = 100)
 	private String id;
-	
-	@Column(name = "salt", nullable  = false)
-	private String salt;
 	
 	@Column(name = "email", nullable = false, unique = true, length = 100)
 	private String email;
@@ -100,6 +108,12 @@ public class User implements Serializable{
 	
 	@Column(name = "userType", nullable = false, columnDefinition = "VARCHAR(1) default 'D'")
 	private String userType;
+	
+	@Column(name = "useYn", columnDefinition = "VARCHAR(10) default 'Y'")
+	private String useYn;
+	
+	@Column(name = "loginCnt", columnDefinition = "INTEGER(10) default 1")
+	private int loginCnt;
 	
 	/* 1:N 관계
 	 * @OneToMany(mappedBy='') N테이블 에서의 해당 객체 변수명.

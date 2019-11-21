@@ -10,8 +10,10 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>
-			classpath:spring/application/*-context.xml
-			classpath:spring/security/*-context.xml			
+   			classpath:spring/root/*-context.xml
+			classpath:spring/application/database-context.xml
+			classpath:spring/application/view-context.xml
+			classpath:spring/security/spring-security-context.xml	
 		</param-value>
   </context-param>
     <!-- context -->
@@ -24,7 +26,7 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
   	<!-- 한 유저가 다른 브라우저로 동시 로그인하는 것을 막는다. -->
   	<listener-class>org.springframework.security.web.session.HttpSessionEventPublisher</listener-class>
   </listener>
-    <!-- listener -->  
+  <!-- listener -->  
   
   <!-- filter -->  
   <filter>
@@ -48,8 +50,8 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
   <filter-mapping>
   	<filter-name>springSecurityFilterChain</filter-name>
   	<url-pattern>*.do</url-pattern>
-  </filter-mapping>
-  <!-- filter --> 
+  </filter-mapping> 
+  <!-- filter  -->
   
   <!-- servlet -->
   <servlet>
@@ -58,7 +60,7 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
     <init-param>
       <param-name>contextConfigLocation</param-name>
 	      <param-value>
-					classpath:spring/root/root-context.xml					
+					classpath:spring/servlet/dispatcher-servlet-context.xml									
 		  </param-value>
     </init-param>
     <load-on-startup>1</load-on-startup>
@@ -68,6 +70,7 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
     <url-pattern>*.do</url-pattern>    
   </servlet-mapping>
   
+  <!-- servlet-context는 등록된 빈은 다른 컨텍스트와 공유할 수 없다. -->
   <servlet>
     <servlet-name>staticServlet</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>

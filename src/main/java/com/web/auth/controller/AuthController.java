@@ -26,7 +26,8 @@ import com.web.auth.domain.User;
 import com.web.auth.service.AuthService;
 import com.web.common.controller.WebCommonController;
 import com.web.common.resolver.CommandMap;
-import com.web.common.security.Security;
+import com.web.common.security.CustomUserDetails;
+import com.web.common.security.PasswordEncoding;
 import com.web.common.support.message.MsgCode;
 import com.web.common.support.message.MsgList;
 import com.web.log.domain.LoginLog;
@@ -45,7 +46,7 @@ private Logger logger = LoggerFactory.getLogger(this.getClass());
 	private LogService logService;
 	
 	@Autowired
-	private Security security;
+	private PasswordEncoding passwordEncoding;
 	
 	//method 입력하지 않을 시 default값은 GET
 	//로그인 화면 이동
@@ -66,7 +67,8 @@ private Logger logger = LoggerFactory.getLogger(this.getClass());
 	//가입 화면 이동
 	@RequestMapping(value="/join", method = RequestMethod.GET)
 	public ModelAndView join(ModelAndView mnv) throws Exception {
-		logger.debug("---------- [AuthController]:[join] -----------");		
+		logger.debug("---------- [AuthController]:[join] -----------");
+		
 		mnv.setViewName("auth/join");	
 		return mnv;
 	}
@@ -122,16 +124,14 @@ private Logger logger = LoggerFactory.getLogger(this.getClass());
 	public String joinForm(ModelAndView mnv, CommandMap map, RedirectAttributes redirectAttr) throws Exception{
 		logger.debug("---------- [AuthController]:[joinForm] -----------");
 		
-		String salt = security.generateSalt();
 		String[] msg;
 		Map<String, String> msgMap = new HashMap<String, String>();
 		
 		User user = new User();
 		
-		user.setUserKey(UUID.randomUUID().toString());
-		user.setSalt(salt);
+		user.setUserKey(UUID.randomUUID().toString());		
 		user.setId(map.get("id").toString());	
-		user.setPassword(security.getEncrypt(map.get("password").toString(), salt));
+		user.setPassword(passwordEncoding.encode(map.get("password").toString()));
 		user.setEmail(map.get("email").toString());
 		user.setName(map.get("name").toString());
 		user.setJoinType("java");
@@ -153,7 +153,7 @@ private Logger logger = LoggerFactory.getLogger(this.getClass());
 	}
 	
 	//로그인 처리
-	@RequestMapping(value="/login", method = RequestMethod.POST)
+	@RequestMapping(value="/logina", method = RequestMethod.POST)
 	public String loginForm(CommandMap map, RedirectAttributes redirectAttr, HttpSession session) throws Exception {		
 		logger.debug("---------- [AuthController]:[loginForm] -----------");		
 		
@@ -164,14 +164,13 @@ private Logger logger = LoggerFactory.getLogger(this.getClass());
 		boolean result = false;
 		
 		List<User> user = authService.selectByEmail(email);
-		LoginLog log = new LoginLog();
+		LoginLog log = new LoginLog();		
 		User getUser = null;
 		
-		if(user.size() > 0) {	
+		if(user.size() > 0) {
 			getUser = user.get(0);
-			String getSalt = getUser.getSalt();
-			String getPassword = getUser.getPassword();
-			result = security.comparePassword(getSalt, password, getPassword);			
+			String getPassword = getUser.getPassword();			
+			result = passwordEncoding.matches(password, getPassword);			
 		}
 		
 		if(!result) {			

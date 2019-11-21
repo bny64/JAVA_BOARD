@@ -31,7 +31,7 @@ public class CrollingTest {
 				String imgPath = domain + element.select("img.fund_weather").attr("src");
 				Elements span1 = element.select("span.condition_date");
 				Elements span2 = element.select("span.condition_hit");
-
+								
 				String title = a.text();
 				String content = div.text();
 				String date = span1.text();

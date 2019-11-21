@@ -5,11 +5,11 @@
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xsi:schemaLocation="
    http://www.springframework.org/schema/beans     
-   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+   http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
    http://www.springframework.org/schema/context 
-   http://www.springframework.org/schema/context/spring-context-3.0.xsd
+   http://www.springframework.org/schema/context/spring-context-4.2.xsd
    http://www.springframework.org/schema/mvc
-   http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+   http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
    
    <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
 	   	<property name="viewResolvers">
@@ -30,12 +30,13 @@
 	   	</property>
    </bean>
    
-   <!-- error 발생 : servlet의 properties와  스프링 환경설정의 properties 서로 다르므로 root-context에서 프로퍼티를 설정해줬다고 해도 스프링 환경설정에 사용할 properties bean을 다시 선언해 줘야한다.-->
-   <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<property name="locations">
-			<value>classpath:properties/*.properties</value>
+   <!-- /WEB-INF/tiles.xml에 정의된 tiles 속성들을 읽어옴. -->
+	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+		<property name="definitions">
+			<list>
+				<value>/WEB-INF/tiles.xml</value>
+			</list>				
 		</property>
-		<property name="order" value="1"></property>
 	</bean>
    
-   </beans>
+</beans>
