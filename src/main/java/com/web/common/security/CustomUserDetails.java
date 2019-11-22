@@ -1,10 +1,8 @@
 package com.web.common.security;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.web.auth.domain.User;
@@ -20,17 +18,19 @@ public class CustomUserDetails extends User implements UserDetails{
 
 	private static final long serialVersionUID = 1500271736617212227L;
 	
-	private String authority;
+	private Collection<? extends GrantedAuthority> authorities;
 	private boolean enabled;	
 	
 	//계정이 갖고있는 권한 목록을 리턴한다.
 	@Override
-	public Collection<? extends GrantedAuthority> getAuthorities() {
-		 ArrayList<GrantedAuthority> auth = new ArrayList<GrantedAuthority>();
-	        auth.add(new SimpleGrantedAuthority(authority));
-	        return auth;
+	public Collection<? extends GrantedAuthority> getAuthorities() {		    
+	     return authorities;
 	}
-
+	
+	public void setAuthorities(Collection<? extends GrantedAuthority> authorities) {		
+		this.authorities = authorities;
+	}
+	
 	//계정의 비밀번호를 리턴한다.
 	@Override
 	public String getPassword() {
@@ -71,6 +71,10 @@ public class CustomUserDetails extends User implements UserDetails{
 	public boolean isEnabled() {
 		// TODO Auto-generated method stub
 		return enabled;
+	}
+	
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
 	}
 
 }

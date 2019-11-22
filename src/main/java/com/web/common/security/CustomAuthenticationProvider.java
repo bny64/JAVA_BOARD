@@ -28,6 +28,9 @@ public class CustomAuthenticationProvider implements AuthenticationProvider{
 		String password = (String) authentication.getCredentials();
 		List<User> user = null;
 		
+		//여기 수정할 차례
+		if(email==null || password==null) throw new UsernameNotFoundException(email);
+		
 		try {
 			user = authService.selectByEmail(email);
 		} catch (Exception e) {

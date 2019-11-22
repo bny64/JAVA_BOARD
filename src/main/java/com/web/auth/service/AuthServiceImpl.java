@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.web.auth.dao.AuthDAO;
 import com.web.auth.domain.User;
+import com.web.auth.domain.UserAuthority;
 import com.web.common.security.CustomUserDetails;
 
 @Service
@@ -30,6 +31,11 @@ public class AuthServiceImpl implements AuthService {
 	@Override
 	public List<User> selectByEmail(String email) throws Exception {		
 		return authDao.selectByEmail(email);
+	}
+
+	@Override
+	public UserAuthority selectAuth(String id) throws Exception {		
+		return authDao.SelectAuth(id);
 	}
 
 }

@@ -152,16 +152,19 @@ public class CrollingTest {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		A();
+		//A();
 		System.out.println("\n");
-		B("1");
+		//B("1");
 		System.out.println("\n");
-		B("2");
+		//B("2");
 		System.out.println("\n");
-		B("3");
+		//B("3");
 		System.out.println("\n");
-		B("4");
+		//B("4");
 		System.out.println("\n");
+		String a = "1212";
+		System.out.println(a.split("10"));
+		
 	}
 
 }

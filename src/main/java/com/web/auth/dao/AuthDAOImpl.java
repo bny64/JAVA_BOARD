@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.web.auth.domain.User;
+import com.web.auth.domain.UserAuthority;
 import com.web.common.dao.CommonDAO;
 import com.web.common.security.CustomUserDetails;
 
@@ -71,6 +72,18 @@ public class AuthDAOImpl extends CommonDAO implements AuthDAO{
 			.where(restrictions);
 		
 		return sf.getCurrentSession().createQuery(cr).getResultList();
+	}
+
+	@Override
+	public UserAuthority SelectAuth(String id) throws Exception {
+		SessionFactory sf = sessionFactory;
+		CriteriaBuilder cb = sf.getCurrentSession().getCriteriaBuilder();
+		CriteriaQuery<UserAuthority> cr = cb.createQuery(UserAuthority.class);
+		Root<UserAuthority> root = cr.from(UserAuthority.class);
+		Predicate restrictions = cb.equal(root.get("id"), id);
+		cr.select(root)
+			.where(restrictions);
+		return sf.getCurrentSession().createQuery(cr).getSingleResult();
 	}
 	
 }
