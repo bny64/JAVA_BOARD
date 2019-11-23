@@ -23,6 +23,7 @@ import org.springframework.web.servlet.support.RequestContextUtils;
 import org.springframework.web.servlet.view.RedirectView;
 
 import com.web.auth.domain.User;
+import com.web.auth.domain.UserAuthority;
 import com.web.auth.service.AuthService;
 import com.web.common.controller.WebCommonController;
 import com.web.common.resolver.CommandMap;
@@ -128,6 +129,7 @@ private Logger logger = LoggerFactory.getLogger(this.getClass());
 		Map<String, String> msgMap = new HashMap<String, String>();
 		
 		User user = new User();
+		UserAuthority userAuthority = new UserAuthority();
 		
 		user.setUserKey(UUID.randomUUID().toString());		
 		user.setId(map.get("id").toString());	
@@ -144,6 +146,10 @@ private Logger logger = LoggerFactory.getLogger(this.getClass());
 		
 		authService.join(user);
 		
+		userAuthority.setUser(user);
+		userAuthority.setName(user.getName());
+		authService.saveAuth(userAuthority);
+		
 		msg = MsgList.getInstance().getCodeMessage(MsgCode.SuccessJoin);
 		msgMap.put("msgCode", msg[0]);
 		msgMap.put("msg", msg[1]);
@@ -153,7 +159,7 @@ private Logger logger = LoggerFactory.getLogger(this.getClass());
 	}
 	
 	//로그인 처리
-	@RequestMapping(value="/logina", method = RequestMethod.POST)
+	@RequestMapping(value="/login", method = RequestMethod.POST)
 	public String loginForm(CommandMap map, RedirectAttributes redirectAttr, HttpSession session) throws Exception {		
 		logger.debug("---------- [AuthController]:[loginForm] -----------");		
 		
@@ -190,6 +196,7 @@ private Logger logger = LoggerFactory.getLogger(this.getClass());
 		log.setJoinType(getUser.getJoinType());
 		log.setName(getUser.getName());		
 		log.setId(getUser.getId());
+
 		logService.writeLoginLog(log);
 		
 		String[] msg = MsgList.getInstance().getCodeMessage(MsgCode.SuccessLogin);

@@ -85,5 +85,10 @@ public class AuthDAOImpl extends CommonDAO implements AuthDAO{
 			.where(restrictions);
 		return sf.getCurrentSession().createQuery(cr).getSingleResult();
 	}
+
+	@Override
+	public void saveAuth(UserAuthority userAuthority) throws Exception {
+		sessionFactory.getCurrentSession().save(userAuthority);
+	}
 	
 }

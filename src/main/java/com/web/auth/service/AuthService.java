@@ -12,4 +12,5 @@ public interface AuthService {
 	public List<User> selectById(String id) throws Exception;
 	public List<User> selectByEmail(String email) throws Exception;
 	public UserAuthority selectAuth(String id) throws Exception;
+	public void saveAuth(UserAuthority userAuthority) throws Exception;
 }

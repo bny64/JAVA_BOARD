@@ -38,4 +38,9 @@ public class AuthServiceImpl implements AuthService {
 		return authDao.SelectAuth(id);
 	}
 
+	@Override
+	public void saveAuth(UserAuthority userAuthority) throws Exception {
+		authDao.saveAuth(userAuthority);
+	}
+
 }
