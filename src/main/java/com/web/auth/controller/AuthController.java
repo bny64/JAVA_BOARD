@@ -136,18 +136,18 @@ private Logger logger = LoggerFactory.getLogger(this.getClass());
 		user.setPassword(passwordEncoding.encode(map.get("password").toString()));
 		user.setEmail(map.get("email").toString());
 		user.setName(map.get("name").toString());
-		user.setJoinType("java");
 		if(map.get("phoneNumber")!= null) user.setPhoneNumber(map.get("phoneNumber").toString());
 		if(map.get("imgPath")!= null) user.setImgPath(map.get("imgPath").toString());
 		if(map.get("introduce")!=null) user.setIntroduce(map.get("introduce").toString());
 		if(map.get("birth")!= null) user.setBirth(new SimpleDateFormat("yyyy-MM-dd").parse(map.get("birth").toString()));
 		user.setEmailYn(map.get("emailYn").toString());
-		user.setUserType("D");
 		
 		authService.join(user);
 		
 		userAuthority.setUser(user);
+		userAuthority.setId(user.getId());
 		userAuthority.setName(user.getName());
+		
 		authService.saveAuth(userAuthority);
 		
 		msg = MsgList.getInstance().getCodeMessage(MsgCode.SuccessJoin);

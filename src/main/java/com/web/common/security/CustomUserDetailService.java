@@ -49,8 +49,6 @@ public class CustomUserDetailService implements UserDetailsService{
 				userDetail.setAuthorities(listGranted);
 				userDetail.setEnabled("Y".equals(userAuthority.getEnabled()) ? true : false);
 				
-			}else {
-				userDetail = new CustomUserDetails();
 			}
 			
 		} catch (Exception e) {

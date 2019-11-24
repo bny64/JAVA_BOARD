@@ -37,8 +37,11 @@ public class Comment implements Serializable{
 	private Board board;
 	
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name="id", columnDefinition = "VARCHAR(100)", nullable = false)
+	@JoinColumn(name="userKey", columnDefinition = "VARCHAR(100)", nullable = false)
 	private User user;
+	
+	@Column(name = "id", nullable = false, unique = true, length = 100)
+	private String id;
 	
 	@Column(name = "name", nullable = false, length = 100)
 	private String name;

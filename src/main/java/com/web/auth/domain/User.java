@@ -11,6 +11,7 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -88,7 +89,7 @@ public class User implements Serializable{
 	@Temporal(TemporalType.TIMESTAMP) 
 	private Date updatedAt;
 	
-	@Column(name = "joinType", nullable = false, length = 20)
+	@Column(name = "joinType", nullable = false, columnDefinition = "VARCHAR(20) default 'JAVA'")
 	private String joinType;
 	
 	@Column(name = "phoneNumber", length = 100)	
@@ -108,14 +109,14 @@ public class User implements Serializable{
 	@Column(name = "introduce", columnDefinition = "TEXT")
 	private String introduce;
 	
-	@Column(name = "userType", nullable = false, columnDefinition = "VARCHAR(1) default 'D'")
+	@Column(name = "userType", nullable = false, columnDefinition = "VARCHAR(1) default 'B'")
 	private String userType;
 	
 	@Column(name = "useYn", columnDefinition = "VARCHAR(10) default 'Y'")
 	private String useYn;
 	
-	@Column(name = "loginCnt", columnDefinition = "INTEGER(10) default 1")
-	private int loginCnt;
+	@Column(name = "loginFailCnt", length = 10)
+	private int loginFailCnt;
 	
 	/* 1:N 관계
 	 * @OneToMany(mappedBy='') N테이블 에서의 해당 객체 변수명.
@@ -130,4 +131,12 @@ public class User implements Serializable{
 	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private UserAuthority userAuthority;
+	
+	@PrePersist
+	public void prePersist() {
+		this.joinType = this.joinType == null ? "JAVA" : this.joinType;
+		this.emailYn = this.emailYn == null ? "Y" : this.emailYn;
+		this.userType = this.userType == null ? "B" : this.userType;
+		this.useYn = this.useYn == null ? "Y" : this.useYn;
+	}
 }
