@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:security="http://www.springframework.org/schema/security"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:security="http://www.springframework.org/schema/security" 
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="
-   http://www.springframework.org/schema/beans
-   http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
-   http://www.springframework.org/schema/context 
-   http://www.springframework.org/schema/context/spring-context-4.2.xsd
-   http://www.springframework.org/schema/tx
-   http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
-   http://www.springframework.org/schema/security
+   http://www.springframework.org/schema/beans 
+   http://www.springframework.org/schema/beans/spring-beans-4.2.xsd 
+   http://www.springframework.org/schema/context  
+   http://www.springframework.org/schema/context/spring-context-4.2.xsd 
+   http://www.springframework.org/schema/tx 
+   http://www.springframework.org/schema/tx/spring-tx-4.2.xsd 
+   http://www.springframework.org/schema/security 
    http://www.springframework.org/schema/security/spring-security.xsd">
 
-	<!-- secuirty 제외할 url -->	
+	<!-- secuirty 제외할 url -->
 	<security:http pattern="/images/**" security="none"/>
 	<security:http pattern="/js/**" security="none"/>
 	<security:http pattern="/publishing/**" security="none"/>
@@ -57,6 +57,14 @@
 			username-parameter="email"
 			password-parameter="password"
 			default-target-url="/index.do"
+			always-use-default-target="true"
+			authentication-failure-handler-ref="loginFailureHandler"
+		/>
+		<!-- authentication-success-handler-ref="loginSuccessHandler"
+			" -->
+		<security:logout logout-url="/auth/logout.do"
+			invalidate-session="true"
+			logout-success-url="/index.do"
 		/>
 	</security:http>
 	
@@ -66,6 +74,9 @@
 		<security:authentication-provider ref="userAuthProvider"/>
 		<security:authentication-provider user-service-ref="userService"/>
 	</security:authentication-manager>
+	
+	<bean id="loginSuccessHandler" class="com.web.common.security.LoginSuccessHandler"/>
+	<bean id="loginFailureHandler" class="com.web.common.security.LoginFailureHandler"/>	
 	
 	<bean id="userAuthProvider" class="com.web.common.security.CustomAuthenticationProvider"/>
 	<bean id="userService" class="com.web.common.security.CustomUserDetailService"/>

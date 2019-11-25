@@ -9,25 +9,17 @@
 		http://www.springframework.org/schema/context  	http://www.springframework.org/schema/context/spring-context.xsd">
 		
 		<!-- resources/config에 정의된 properties를 읽어옴. -->
-		<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<bean id="propertyConfigurer" class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
 			<property name="locations">
-				<value>classpath:properties/database.properties</value>
+				<value>classpath:properties/*.properties</value>
 			</property>
 			<property name="order" value="1"></property>
-		</bean>		
-		
-	   <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-	   		<property name="basenames">
-	   			<list>
-	   				<value>classpath:properties/security_message.properties</value>
-	   			</list>
-	   		</property>
-	   		<property name="defaultEncoding" value="UTF-8"/>
-	   		<property name="cacheSeconds" value="5"/>
-	   </bean>
-	   
+		</bean>
+	   	   
 	   <context:component-scan base-package="com.web">
 			<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>	
 	   </context:component-scan>
+	   
+	   
 	   
 </beans>

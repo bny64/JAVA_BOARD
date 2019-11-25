@@ -9,7 +9,6 @@ import java.util.UUID;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.apache.tomcat.util.http.fileupload.RequestContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,14 +19,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.support.RequestContextUtils;
-import org.springframework.web.servlet.view.RedirectView;
 
 import com.web.auth.domain.User;
 import com.web.auth.domain.UserAuthority;
 import com.web.auth.service.AuthService;
 import com.web.common.controller.WebCommonController;
 import com.web.common.resolver.CommandMap;
-import com.web.common.security.CustomUserDetails;
 import com.web.common.security.PasswordEncoding;
 import com.web.common.support.message.MsgCode;
 import com.web.common.support.message.MsgList;
@@ -207,17 +204,17 @@ private Logger logger = LoggerFactory.getLogger(this.getClass());
 	}
 	
 	//·Î±×¾Æ¿ô
-	@RequestMapping(value="/logout", method = RequestMethod.POST)
-	public ModelAndView logout(ModelAndView mnv, HttpSession session) throws Exception {
-		logger.debug("---------- [AuthController]:[logout] -----------");		
-		
-		if(session.getAttribute("userInfo") != null) {
-			session.removeAttribute("userInfo");
-		}
-		
-		mnv.setViewName("index");
-		
-		return mnv;
-	}
+	/*
+	 * @RequestMapping(value="/logout", method = RequestMethod.POST) public
+	 * ModelAndView logout(ModelAndView mnv, HttpSession session) throws Exception {
+	 * logger.debug("---------- [AuthController]:[logout] -----------");
+	 * 
+	 * if(session.getAttribute("userInfo") != null) {
+	 * session.removeAttribute("userInfo"); }
+	 * 
+	 * mnv.setViewName("index");
+	 * 
+	 * return mnv; }
+	 */
 	
 }

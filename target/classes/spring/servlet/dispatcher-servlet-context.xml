@@ -53,4 +53,14 @@
 			<bean class="com.bny.common.interceptor.AccessControlInterceptor"/>		
 		</mvc:interceptor>
 	</mvc:interceptors> -->	
+	
+	<!-- resources/config에 정의된 properties를 읽어옴. -->
+	<bean id="propertyConfigurer" class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+		<property name="locations">
+			<value>classpath:properties/*.properties</value>
+		</property>
+		<property name="fileEncoding" value="UTF-8"></property>
+		<property name="order" value="1"></property>
+	</bean>
+	
 </beans>

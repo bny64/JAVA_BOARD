@@ -35,8 +35,9 @@ public class CustomUserDetailService implements UserDetailsService{
 				List<String> listAuth = new ArrayList<String>();
 				List<GrantedAuthority> listGranted = null;
 				UserAuthority userAuthority = null;
+				User user = listUser.get(0);
 				
-				userDetail = new CustomUserDetails(listUser.get(0));
+				userDetail = new CustomUserDetails(user);
 								
 				userAuthority = authService.selectAuth(userDetail.getId());
 				String[] authorities = userAuthority.getAuthority().split(",");
@@ -45,7 +46,7 @@ public class CustomUserDetailService implements UserDetailsService{
 					listAuth.add(authority);
 				}
 				
-				listGranted = makeGrantedAuthority(listAuth); 
+				listGranted = makeGrantedAuthority(listAuth);
 				userDetail.setAuthorities(listGranted);
 				userDetail.setEnabled("Y".equals(userAuthority.getEnabled()) ? true : false);
 				
