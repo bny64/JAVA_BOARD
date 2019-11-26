@@ -13,6 +13,7 @@
 			<property name="locations">
 				<value>classpath:properties/*.properties</value>
 			</property>
+			<property name="fileEncoding" value="UTF-8"></property>
 			<property name="order" value="1"></property>
 		</bean>
 	   	   

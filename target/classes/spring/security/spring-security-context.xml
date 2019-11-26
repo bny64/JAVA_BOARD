@@ -48,7 +48,7 @@
 		<!-- login-page : 새로운 로그인 화면 url (default: 스프링 기본 로그인 화면) -->
 		<!-- login-processing-url : form 태그의 action 속성 (default: POST /login)-->
 		<!-- default-target-url : 로그인 성공시 호출할 url -->
-		<!-- authentication-failure-url : 로그인 실패시 호출할 url (default: /login?error=1) -->
+		<!-- authentication-failure-url : 로그인 실패시 호출할 url (default: /login?error=1) [authentication-failure-handler-ref 설정시 사용 불가능한듯 함.]--> 
 		<!-- authentication-success-handler-ref : 로그인 성공시 default-target-url이 아닌 핸들러로 리다이렉트 -->
 		<!-- authentication-failure-handler-ref : 로그인 실패시 authentication-failure-url이 아닌 핸들러로 리다이렉트 -->
 		<!-- always-use-default-target : 무조건 핸들러가 지정한 페이지로 이동 (default: false) -->
@@ -56,9 +56,7 @@
 			login-processing-url="/auth/loginCheck.do"
 			username-parameter="email"
 			password-parameter="password"
-			default-target-url="/index.do"
-			always-use-default-target="true"
-			authentication-failure-handler-ref="loginFailureHandler"
+			authentication-failure-handler-ref="loginFailureHandler"			
 		/>
 		<!-- authentication-success-handler-ref="loginSuccessHandler"
 			" -->
@@ -76,7 +74,11 @@
 	</security:authentication-manager>
 	
 	<bean id="loginSuccessHandler" class="com.web.common.security.LoginSuccessHandler"/>
-	<bean id="loginFailureHandler" class="com.web.common.security.LoginFailureHandler"/>	
+	<bean id="loginFailureHandler" class="com.web.common.security.LoginFailureHandler">
+		<property name="email" value="email"/>
+		<property name="errMsg" value="ERRORMSG"/>
+		<property name="defaultFailUrl" value="/auth/login.do"/>
+	</bean>	
 	
 	<bean id="userAuthProvider" class="com.web.common.security.CustomAuthenticationProvider"/>
 	<bean id="userService" class="com.web.common.security.CustomUserDetailService"/>

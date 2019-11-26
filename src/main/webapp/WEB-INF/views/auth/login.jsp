@@ -36,8 +36,12 @@
 							Forgot Password?
 						</a>
 					</div>
-				</div>
-				<p>${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}</p>
+				</div>				
+				<c:if test="${not empty errormsg}">
+				<div class="mb10">
+					<p style="color : red;">${errormsg }</p>
+				</div>					
+				</c:if>				
 				<div class="container-login100-form-btn">
 					<button class="login100-form-btn">
 						Login

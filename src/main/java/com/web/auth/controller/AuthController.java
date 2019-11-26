@@ -48,7 +48,7 @@ private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	//method 입력하지 않을 시 default값은 GET
 	//로그인 화면 이동
-	@RequestMapping(value="/login", method = RequestMethod.GET)
+	@RequestMapping(value="/login") //로그아웃 실패 후 이 페이지로 이동하기 때문에 GET, POST 모두 받아야 함.
 	public ModelAndView login(ModelAndView mnv, HttpServletRequest request) throws Exception {		
 		logger.debug("---------- [AuthController]:[login] -----------");		
 				
@@ -129,7 +129,7 @@ private Logger logger = LoggerFactory.getLogger(this.getClass());
 		UserAuthority userAuthority = new UserAuthority();
 		
 		user.setUserKey(UUID.randomUUID().toString());		
-		user.setId(map.get("id").toString());	
+		user.setId(map.get("id").toString());
 		user.setPassword(passwordEncoding.encode(map.get("password").toString()));
 		user.setEmail(map.get("email").toString());
 		user.setName(map.get("name").toString());
@@ -156,7 +156,7 @@ private Logger logger = LoggerFactory.getLogger(this.getClass());
 	}
 	
 	//로그인 처리
-	@RequestMapping(value="/login", method = RequestMethod.POST)
+	//@RequestMapping(value="/login", method = RequestMethod.POST)
 	public String loginForm(CommandMap map, RedirectAttributes redirectAttr, HttpSession session) throws Exception {		
 		logger.debug("---------- [AuthController]:[loginForm] -----------");		
 		
@@ -204,17 +204,18 @@ private Logger logger = LoggerFactory.getLogger(this.getClass());
 	}
 	
 	//로그아웃
-	/*
-	 * @RequestMapping(value="/logout", method = RequestMethod.POST) public
-	 * ModelAndView logout(ModelAndView mnv, HttpSession session) throws Exception {
-	 * logger.debug("---------- [AuthController]:[logout] -----------");
-	 * 
-	 * if(session.getAttribute("userInfo") != null) {
-	 * session.removeAttribute("userInfo"); }
-	 * 
-	 * mnv.setViewName("index");
-	 * 
-	 * return mnv; }
-	 */
+	
+	//@RequestMapping(value="/logout", method = RequestMethod.POST) public
+	ModelAndView logout(ModelAndView mnv, HttpSession session) throws Exception {
+		logger.debug("---------- [AuthController]:[logout] -----------");
+  
+		if(session.getAttribute("userInfo") != null) {
+			session.removeAttribute("userInfo"); }
+  
+		mnv.setViewName("index");
+  
+		return mnv; 
+	}
+	 
 	
 }

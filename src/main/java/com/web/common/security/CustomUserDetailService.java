@@ -21,15 +21,15 @@ public class CustomUserDetailService implements UserDetailsService{
 	
 	@Override
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-		
+		//권한정보가 있는 CustomUserDetails
 		CustomUserDetails userDetail = null;
 		
 		try {
 		
 			List<User> listUser = null;
-			
+			//이메일로 사용자 검색
 			listUser = authService.selectByEmail(email);
-			
+			//사용자가 검색되면
 			if(listUser.size() > 0) {
 				
 				List<String> listAuth = new ArrayList<String>();
@@ -38,18 +38,28 @@ public class CustomUserDetailService implements UserDetailsService{
 				User user = listUser.get(0);
 				
 				userDetail = new CustomUserDetails(user);
-								
+				//권한 정보 조회	
 				userAuthority = authService.selectAuth(userDetail.getId());
-				String[] authorities = userAuthority.getAuthority().split(",");
-				
-				for(String authority : authorities) {
-					listAuth.add(authority);
+				//권한이 없을 경우
+				if(userAuthority.getAuthority().length()<1) {
+					
+					userDetail.setAuthorities(null);
+				//권한이 있을 경우
+				}else {
+					String[] authorities = userAuthority.getAuthority().split(",");
+					
+					for(String authority : authorities) {
+						listAuth.add(authority);
+					}
+					
+					listGranted = makeGrantedAuthority(listAuth);
+					userDetail.setAuthorities(listGranted);
 				}
-				
-				listGranted = makeGrantedAuthority(listAuth);
-				userDetail.setAuthorities(listGranted);
+				//계정 잠김 여부
 				userDetail.setEnabled("Y".equals(userAuthority.getEnabled()) ? true : false);
 				
+			}else {
+				throw new UsernameNotFoundException(email);
 			}
 			
 		} catch (Exception e) {

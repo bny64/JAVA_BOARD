@@ -13,13 +13,6 @@
    
    <!-- BasicDataSource를 사용하기 위한 라이브러리 : dbcp2, pool2 (자바 버전 7 이상), dbcp2 -> connection pool 라이브러리 : 관리-->
    
-   <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<property name="locations">
-			<value>classpath*:properties/database.properties</value>
-		</property>
-		<property name="order" value="1"></property>
-	</bean>
-   
    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
 		<property name="driverClassName"><value>${db.driver}</value></property>
 		<property name="url"><value>${db.url}</value></property>
