@@ -56,13 +56,14 @@
 			login-processing-url="/auth/loginCheck.do"
 			username-parameter="email"
 			password-parameter="password"
-			authentication-failure-handler-ref="loginFailureHandler"			
+			authentication-failure-handler-ref="loginFailureHandler"
+			authentication-success-handler-ref="loginSuccessHandler"		
 		/>
 		<!-- authentication-success-handler-ref="loginSuccessHandler"
 			" -->
 		<security:logout logout-url="/auth/logout.do"
-			invalidate-session="true"
-			logout-success-url="/index.do"
+			invalidate-session="true"	
+			success-handler-ref="logoutHandler"
 		/>
 	</security:http>
 	
@@ -73,12 +74,19 @@
 		<security:authentication-provider user-service-ref="userService"/>
 	</security:authentication-manager>
 	
-	<bean id="loginSuccessHandler" class="com.web.common.security.LoginSuccessHandler"/>
+	<bean id="loginSuccessHandler" class="com.web.common.security.LoginSuccessHandler">
+		<property name="email" value="email"/>
+		<property name="defaultSuccessUrl" value="/index.do"/>
+	</bean>
 	<bean id="loginFailureHandler" class="com.web.common.security.LoginFailureHandler">
 		<property name="email" value="email"/>
 		<property name="errMsg" value="ERRORMSG"/>
 		<property name="defaultFailUrl" value="/auth/login.do"/>
 	</bean>	
+	<bean id="logoutHandler" class="com.web.common.security.LogoutHandler">
+		<constructor-arg value="/index.do"/>		
+	</bean>
+	
 	
 	<bean id="userAuthProvider" class="com.web.common.security.CustomAuthenticationProvider"/>
 	<bean id="userService" class="com.web.common.security.CustomUserDetailService"/>

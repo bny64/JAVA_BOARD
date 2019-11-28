@@ -28,7 +28,7 @@ import lombok.ToString;
 
 @Getter 
 @Setter 
-@ToString(exclude = {"password"})
+//@ToString(exclude = {"password"})
 /* @Entity : JPA에서 테이블에 매핑할 클래스에 붙인다.
  * */
 @Entity

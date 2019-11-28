@@ -1,5 +1,8 @@
 package com.web.common.security;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -8,7 +11,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 public class CustomAuthenticationProvider implements AuthenticationProvider{
 	
@@ -31,10 +33,12 @@ public class CustomAuthenticationProvider implements AuthenticationProvider{
 		CredentialExpiredException	 인증 거부 - 비밀번호 유효기간 만료 
 		*/
 		
+		Map<String, String> principal = new HashMap<String, String>();
+		
 		String email = (String) authentication.getPrincipal();
 		String password = (String) authentication.getCredentials();
 		
-		UserDetails userDetails = userDetailService.loadUserByUsername(email);
+		CustomUserDetails userDetails = (CustomUserDetails) userDetailService.loadUserByUsername(email);
 		
 		if(!passwordEncoding.matches(password, userDetails.getPassword())) 
 			throw new BadCredentialsException(email);
@@ -42,7 +46,12 @@ public class CustomAuthenticationProvider implements AuthenticationProvider{
 		if(userDetails.getAuthorities()==null) 
 			throw new DisabledException(email);
 		
-		return new UsernamePasswordAuthenticationToken(email, userDetails.getPassword(), userDetails.getAuthorities());
+		principal.put("name", userDetails.getName());
+		principal.put("id", userDetails.getId());
+		principal.put("email", userDetails.getEmail());
+		Object a = new Object();
+		
+		return new UsernamePasswordAuthenticationToken(principal, userDetails.getPassword(), userDetails.getAuthorities());
 	}
 
 	@Override
