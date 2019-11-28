@@ -11,6 +11,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 public class CustomAuthenticationProvider implements AuthenticationProvider{
 	
@@ -38,8 +39,10 @@ public class CustomAuthenticationProvider implements AuthenticationProvider{
 		String email = (String) authentication.getPrincipal();
 		String password = (String) authentication.getCredentials();
 		
-		CustomUserDetails userDetails = (CustomUserDetails) userDetailService.loadUserByUsername(email);
-		
+		CustomUserDetails userDetails = null;
+				
+		userDetails = (CustomUserDetails) userDetailService.loadUserByUsername(email);
+				
 		if(!passwordEncoding.matches(password, userDetails.getPassword())) 
 			throw new BadCredentialsException(email);
 		
