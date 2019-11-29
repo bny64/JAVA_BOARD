@@ -1,11 +1,13 @@
-package com.web.common.security;
+package com.web.common.security.handler;
 
 import java.io.IOException;
 
+import javax.persistence.NoResultException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.hibernate.HibernateException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -13,6 +15,7 @@ import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.InternalAuthenticationServiceException;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.web.WebAttributes;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 
 import com.web.common.util.MessageUtil;
@@ -47,6 +50,8 @@ public class LoginFailureHandler implements AuthenticationFailureHandler{
 		
 		request.setAttribute("userEmail", userEmail);
 		request.setAttribute("errormsg", errormsg);
+		
+		request.removeAttribute(WebAttributes.AUTHENTICATION_EXCEPTION);
 		
 		request.getRequestDispatcher(defaultFailUrl).forward(request, response);
 	}

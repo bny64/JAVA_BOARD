@@ -35,7 +35,7 @@ import com.web.log.service.LogService;
 @RequestMapping(value = "/auth")
 public class AuthController extends WebCommonController{
 	
-private Logger logger = LoggerFactory.getLogger(this.getClass());
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	@Autowired
 	private AuthService authService;

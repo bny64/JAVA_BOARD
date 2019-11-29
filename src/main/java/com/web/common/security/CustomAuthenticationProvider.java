@@ -3,6 +3,8 @@ package com.web.common.security;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.persistence.PersistenceException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -10,8 +12,6 @@ import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 public class CustomAuthenticationProvider implements AuthenticationProvider{
 	
@@ -22,7 +22,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider{
 	private PasswordEncoding passwordEncoding;
 		
 	@Override
-	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+	public Authentication authenticate(Authentication authentication) throws AuthenticationException, PersistenceException {
 		
 		/*
 		BadCredentialException	 비밀번호가 일치하지 않을 때 던지는 예외	

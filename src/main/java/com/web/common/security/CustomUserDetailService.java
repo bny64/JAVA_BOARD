@@ -3,6 +3,8 @@ package com.web.common.security;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.PersistenceException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -13,26 +15,22 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import com.web.auth.domain.User;
 import com.web.auth.domain.UserAuthority;
 import com.web.auth.service.AuthService;
+import com.web.common.security.service.SecurityService;
 
 public class CustomUserDetailService implements UserDetailsService{
 
 	@Autowired
-	private AuthService authService;
+	private SecurityService securityService;
 	
 	@Override
-	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException, PersistenceException {
 		//권한정보가 있는 CustomUserDetails
 		CustomUserDetails userDetail = null;
 		
 		List<User> listUser = null;
 		//이메일로 사용자 검색
-		try {
-			listUser = authService.selectByEmail(email);
-			
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
+		listUser = securityService.selectByEmail(email);
 		
 		//사용자가 검색되면
 		if(listUser.size() > 0) {
@@ -44,15 +42,9 @@ public class CustomUserDetailService implements UserDetailsService{
 			
 			userDetail = new CustomUserDetails(user);
 			
-			//권한 정보 조회	
-			try {
-				userAuthority = authService.selectAuth(userDetail.getId());
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-			
+			//권한 정보 조회
+			userAuthority = securityService.selectAuth(userDetail.getId());
+						
 			//권한이 없을 경우
 			if(userAuthority.getAuthority().length()<1) {
 				
@@ -74,8 +66,6 @@ public class CustomUserDetailService implements UserDetailsService{
 		}else {
 			throw new UsernameNotFoundException(email);
 		}
-			
-		
 		
 		return userDetail;
 		

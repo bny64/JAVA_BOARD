@@ -1,4 +1,4 @@
-package com.web.common.security;
+package com.web.common.security.handler;
 
 import java.io.IOException;
 
@@ -33,8 +33,7 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler{
 			Authentication authentication) throws IOException, ServletException {
 		// TODO Auto-generated method stub
 		
-		 //SavedRequest savedRequest = requestCache.getRequest(request, response);
-		
+		//spring security에서 message를 세션에 담기 때문에 삭제
 		request.removeAttribute(WebAttributes.AUTHENTICATION_EXCEPTION);
 		
 		 redirectStratgy.sendRedirect(request, response, defaultSuccessUrl);
