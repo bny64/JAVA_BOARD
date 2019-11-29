@@ -51,8 +51,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider{
 		
 		principal.put("name", userDetails.getName());
 		principal.put("id", userDetails.getId());
-		principal.put("email", userDetails.getEmail());
-		Object a = new Object();
+		principal.put("email", userDetails.getEmail());		
 		
 		return new UsernamePasswordAuthenticationToken(principal, userDetails.getPassword(), userDetails.getAuthorities());
 	}
