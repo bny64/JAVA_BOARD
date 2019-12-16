@@ -77,6 +77,12 @@ public enum MsgCode {
 	 * @see
 	 * LG0001
 	 * */
-	NullUser
+	NullUser,
 	
+	/**
+	 * 요청 중 에러
+	 * @see
+	 * RQ0001
+	 * */
+	RequestError
 }

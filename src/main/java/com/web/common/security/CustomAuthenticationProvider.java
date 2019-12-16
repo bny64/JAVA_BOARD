@@ -13,6 +13,9 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 
+import com.web.log.domain.LoginLog;
+import com.web.log.service.LogService;
+
 public class CustomAuthenticationProvider implements AuthenticationProvider{
 	
 	@Autowired
@@ -20,7 +23,10 @@ public class CustomAuthenticationProvider implements AuthenticationProvider{
 	
 	@Autowired
 	private PasswordEncoding passwordEncoding;
-		
+	
+	@Autowired
+	private LogService logService;
+	
 	@Override
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException, PersistenceException {
 		
@@ -35,6 +41,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider{
 		*/
 		
 		Map<String, String> principal = new HashMap<String, String>();
+		LoginLog log = new LoginLog();
 		
 		String email = (String) authentication.getPrincipal();
 		String password = (String) authentication.getCredentials();
@@ -52,6 +59,12 @@ public class CustomAuthenticationProvider implements AuthenticationProvider{
 		principal.put("name", userDetails.getName());
 		principal.put("id", userDetails.getId());
 		principal.put("email", userDetails.getEmail());		
+		
+		log.setJoinType(userDetails.getJoinType());
+		log.setName(userDetails.getName());
+		log.setId(userDetails.getId());
+		
+		logService.writeLoginLog(log);
 		
 		return new UsernamePasswordAuthenticationToken(principal, userDetails.getPassword(), userDetails.getAuthorities());
 	}

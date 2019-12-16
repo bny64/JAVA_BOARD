@@ -24,11 +24,7 @@ Licence URI: https://www.os-templates.com/template-terms
 	<tiles:insertAttribute name="row_0"/>
 	<tiles:insertAttribute name="row_1"/>
 	<tiles:insertAttribute name="overlay1"/>	
-	<tiles:insertAttribute name="body"/>
-	<%--<tiles:insertAttribute name="row_3"/>
-	 <tiles:insertAttribute name="row_2_1"/>
-	<tiles:insertAttribute name="gradient_1"/>
-	<tiles:insertAttribute name="row_2_2"/> --%>
+	<tiles:insertAttribute name="body"/>	
 	<tiles:insertAttribute name="gradient"/>
 	<tiles:insertAttribute name="row_4"/>
 	<tiles:insertAttribute name="row_5"/>

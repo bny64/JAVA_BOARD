@@ -1,5 +1,7 @@
 package com.web.log.dao;
 
+import javax.persistence.PersistenceException;
+
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,7 +13,7 @@ import com.web.log.domain.LoginLog;
 public class LogDAOImpl extends CommonDAO implements LogDAO{
 
 	@Override
-	public void writeLoginLog(LoginLog log) throws Exception {
+	public void writeLoginLog(LoginLog log) throws PersistenceException {
 		
 		sessionFactory.getCurrentSession().save(log);
 		

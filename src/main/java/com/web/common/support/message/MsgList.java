@@ -64,6 +64,10 @@ public class MsgList {
 		msg[1] = "로그인 성공했습니다.";
 		msgList.put(MsgCode.SuccessLogin, msg);
 		
+		msg = new String[2];
+		msg[0] = "RQ0001";
+		msg[1] = "요청 중 에러가 발생헀습니다.";
+		msgList.put(MsgCode.RequestError, msg);
 	}
 	
 	public static MsgList getInstance() {

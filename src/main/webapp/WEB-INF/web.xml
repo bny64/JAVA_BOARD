@@ -86,7 +86,7 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
 	<servlet-name>staticServlet</servlet-name>
 	<url-pattern>/</url-pattern>
   </servlet-mapping>
-  <!-- servlet -->
+  
   
   <!-- other -->
   <welcome-file-list>
@@ -94,11 +94,11 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
   </welcome-file-list>  
    <!-- other -->
   
-  <!-- <error-page>
-  	<error-code>404</error-code>
-  	<location>/WEB-INF/views/error/404error.jsp</location>
-  </error-page>
   <error-page>
+  	<error-code>404</error-code>
+  	<location>/WEB-INF/error/notFoundPage.jsp</location>
+  </error-page>
+  <!-- <error-page>
   	<error-code>500</error-code>
   	<location>/WEB-INF/views/error/500error.jsp</location>
   </error-page> -->
