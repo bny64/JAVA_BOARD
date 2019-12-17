@@ -49,8 +49,21 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
   <filter-mapping>
   	<filter-name>springSecurityFilterChain</filter-name>
   	<url-pattern>*.do</url-pattern>
-  </filter-mapping> 
+  </filter-mapping>
+  
+  <!-- DispatherServlet 앞단에서 정보 처리 -->
+  <!-- 전역적으로 무언가를 처리해야 하는 로직은 필터로 구현(인코딩 및 보안관련 처리). 디테일한 처리는 인터셉터로 구현(인증, 권한) -->
+  <filter>
+    <filter-name>CommonFilter</filter-name>
+    <filter-class>com.web.common.filter.CommonFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>CommonFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+   
   <!-- filter  -->
+    
   
   <!-- servlet -->
   <servlet>

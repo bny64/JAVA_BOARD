@@ -3,6 +3,9 @@ package com.web.common.resolver;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
+
+import org.json.JSONObject;
+
 import java.util.Set;
 
 /**
@@ -61,5 +64,9 @@ public class CommandMap {
      
     public void putAll(Map<? extends String, ? extends Object> m) {
     	map.putAll(m);
+    }
+    
+    public JSONObject toJson() {    	    	
+    	return new JSONObject(this.map);
     }
 }

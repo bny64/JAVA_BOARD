@@ -40,7 +40,7 @@
 			Object.assign(ajaxSetting, settings);
 			
 			xhr.open(ajaxSetting.type, ajaxSetting.url, ajaxSetting.async);
-			xhr.setRequestHeader(ajaxSetting.header, ajaxSetting.headerValue);
+			xhr.setRequestHeader(ajaxSetting.header, ajaxSetting.headerValue);			
 			
 			if(ajaxSetting.token){
 				const csrfToken = document.querySelector('#_csrf').getAttribute('content');
@@ -50,7 +50,7 @@
 			
 			xhr.responseType = ajaxSetting.dataType;
 			
-			xhr.send(JSON.stringify(ajaxSetting.data));
+			xhr.send(JSON.stringify(ajaxSetting.data));			
 			
 			if(!ajaxSetting.callback){
 				

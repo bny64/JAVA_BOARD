@@ -1,12 +1,18 @@
 package com.web.common.resolver;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.ServletInputStream;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequestWrapper;
 
+import org.json.JSONObject;
 import org.springframework.core.MethodParameter;
+import org.springframework.http.codec.multipart.MultipartHttpMessageReader;
 import org.springframework.web.bind.support.WebDataBinderFactory;
 import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
@@ -45,8 +51,9 @@ public class WebResolver implements HandlerMethodArgumentResolver {
 		// TODO Auto-generated method stub
 		JSONUtil jsonUtil = new JSONUtil();
 		CommandMap commandMap = new CommandMap();
-        
+		
         HttpServletRequest req = (HttpServletRequest)webRequest.getNativeRequest();
+                
         Enumeration<?> enumeration = req.getParameterNames();
         ObjectMapper mapper = new ObjectMapper();
         
