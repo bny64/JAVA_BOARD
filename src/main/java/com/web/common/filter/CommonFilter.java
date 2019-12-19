@@ -1,5 +1,6 @@
 package com.web.common.filter;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 
 import javax.servlet.Filter;
@@ -8,6 +9,8 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+
+import org.json.JSONObject;
 
 public class CommonFilter implements Filter{
 
@@ -21,6 +24,20 @@ public class CommonFilter implements Filter{
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		// TODO Auto-generated method stub
+		
+		//요청이 json인 경우
+		if(request.getContentType() != null && request.getContentType().contains("application/json")) {
+			StringBuffer sb = new StringBuffer(); 
+			String line = null; 
+			BufferedReader reader = request.getReader();
+			  
+			while((line=reader.readLine())!=null) { 
+				sb.append(line);
+			}
+			
+			request.setAttribute("jsonReqInfo", new JSONObject(sb.toString()));
+		}
+		
 		chain.doFilter(request, response);
 	}
 

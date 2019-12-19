@@ -10,7 +10,7 @@
    http://www.springframework.org/schema/context/spring-context-4.2.xsd
    http://www.springframework.org/schema/tx
    http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
-   
+   	<!-- 사용하고 있는 필터 정보 -->
    	<bean id="commonFilter" class="com.web.common.filter.CommonFilter"/>
     
-   </beans>
+</beans>

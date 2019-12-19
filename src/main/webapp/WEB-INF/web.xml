@@ -48,7 +48,7 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
   </filter>
   <filter-mapping>
   	<filter-name>springSecurityFilterChain</filter-name>
-  	<url-pattern>*.do</url-pattern>
+  	<url-pattern>/*</url-pattern>
   </filter-mapping>
   
   <!-- DispatherServlet 앞단에서 정보 처리 -->
@@ -101,9 +101,18 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
   </servlet-mapping>
   
   
+  
   <!-- other -->
+  <!-- 기존에  welcome-file의 경로를 /WEB-INF/views/index.jsp 이렇게 했음
+  	welcome-file을 찾을 때 //WEB-INF/views/index.jsp 이렇게 찾기 때문에 spring-security에서 //(double slash)를 제한하기 때문에 에러 발생.
+  	참고로 welcome-file 경로는 webapp 하위 경로임
+  	따라서 아래와 같이 설정해야 함.
+  	혹은 webapp 밑 하위경로에 넣는 경우 
+  	<welcome-file>index.jsp</welcome-file>
+  	이런식으로
+  -->
   <welcome-file-list>
-    <welcome-file>/WEB-INF/views/index.jsp</welcome-file>
+    <welcome-file>WEB-INF/views/index.jsp</welcome-file>
   </welcome-file-list>  
    <!-- other -->
   

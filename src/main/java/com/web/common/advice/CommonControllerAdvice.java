@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -31,8 +30,7 @@ public class CommonControllerAdvice {
 		CommandMap comMap = new CommandMap();
 		String[] msg;
 		
-		String acceptHeader = request.getHeader("Accept"); 
-		List<String> errList = generate(e);
+		String acceptHeader = request.getHeader("Accept");
 				
 		if(acceptHeader.contains("application/json")) {//ajax 에러 일 때
 			msg = MsgList.getInstance().getCodeMessage(MsgCode.RequestError);
