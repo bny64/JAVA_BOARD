@@ -32,10 +32,33 @@
 		});
 		
 	});
-	
-	
+		
 	/**이벤트 종료**/
-	function saveBoard(){
+	
+	document.querySelector('#registBtn').addEventListener('click', function(){
+		
+		if(!validateCheck()) return;
+		
+		
+	});
+	
+	function validateCheck(){
+		
+		if(!document.querySelector('#title').value.trim()){
+			alert('제목을 입력하세요.');
+			return false;
+		} else if(!document.querySelector('#content').value.trim()){
+			alert('내용을 입력하세요.');
+			return false;
+		} else if(!document.querySelector('#viewYn').value.trim()){
+			alert('글 공개여부를 선택해주세요.');
+			return false;
+		} else if(document.querySelector('input[type="radio"][name="passYn"]:checked').value==='Y'){
+			if(!document.querySelector('#boardPass').value) alert('비밀번호를 입력해주세요.');
+			return false;
+		}
+		
+		return true;
 		
 	}
 	

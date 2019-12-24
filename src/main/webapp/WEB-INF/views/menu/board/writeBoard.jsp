@@ -9,7 +9,7 @@
 		</div>
 		<div class="mt10">
 			<select class="editor">
-				<option value="" selected disabled>글 공개 여부</option>				
+				<option id="viewYn" value="" selected disabled>글 공개 여부</option>				
 				<option value="Y">공개</option>
 				<option value="N">비공개</option>
 			</select>
@@ -25,7 +25,7 @@
 			<input placeholder="비밀번호" type="password" id="boardPass">
 		</div>
 		<div class="mt10 pt5">
-			<button class="mt30 btn1">등록</button>
+			<button class="mt30 btn1" id="registBtn">등록</button>
 		</div>
 	</main>
 </div>
