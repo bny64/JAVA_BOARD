@@ -57,5 +57,8 @@ public class Board implements Serializable{
 	private String title;
 	
 	@Column(name = "password", length=10)
-	private String password;	
+	private String password;
+	
+	@Column(name = "viewYn", length=2)
+	private String viewYn;
 }

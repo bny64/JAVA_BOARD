@@ -100,7 +100,9 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
 	<url-pattern>/</url-pattern>
   </servlet-mapping>
   
-  
+  <session-config>
+  	<session-timeout>120</session-timeout>
+  </session-config>
   
   <!-- other -->
   <!-- 기존에  welcome-file의 경로를 /WEB-INF/views/index.jsp 이렇게 했음

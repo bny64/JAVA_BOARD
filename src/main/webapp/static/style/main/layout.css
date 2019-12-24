@@ -247,10 +247,10 @@ nav ul, nav ol{margin:0; padding:0; list-style:none;}
 .sidebar nav ul ul ul a::after{left:45px;}
 
 /* Pagination */
-.pagination{display:block; width:100%; text-align:center; clear:both;}
-.pagination li{display:inline-block; margin:0 2px 0 0;}
-.pagination li:last-child{margin-right:0;}
-.pagination a, .pagination strong{display:block; padding:8px 11px; border:1px solid; background-clip:padding-box; font-weight:normal;}
+.pagination_2{display:block; width:100%; text-align:center; clear:both;}
+.pagination_2 li{display:inline-block; margin:0 2px 0 0;}
+.pagination_2 li:last-child{margin-right:0;}
+.pagination_2 a, .pagination_2 strong{display:block; padding:8px 11px; border:1px solid; background-clip:padding-box; font-weight:normal;}
 
 /* Back to Top */
 #backtotop{z-index:999; display:inline-block; position:fixed; visibility:hidden; bottom:20px; right:20px; width:36px; height:36px; line-height:36px; font-size:16px; text-align:center; opacity:.2;}
@@ -314,7 +314,7 @@ input:focus, textarea:focus, *:required:focus{border-color:#56AED4;}
 .overlay.light{color:#474747;}
 .overlay.light::after{background-color:rgba(255,255,255,.7);}
 
-.btn, .btn.inverse:hover{color:#FFFFFF; background-color:#F7A804; border-color:#F7A804;}
+.btn[class!='note-'], .btn.inverse:hover{color:#FFFFFF; background-color:#F7A804; border-color:#F7A804;}
 .btn:hover, .btn.inverse{color:inherit; background-color:transparent; border-color:inherit;}
 
 .logoname{color:#F7A804;}
@@ -396,8 +396,8 @@ input:focus, textarea:focus, *:required:focus{border-color:#56AED4;}
 .container .sidebar nav a{color:inherit; border-color:#D7D7D7;}
 .container .sidebar nav a:hover{color:#F7A804;}
 
-.pagination a, .pagination strong{border-color:#D7D7D7;}
-.pagination .current *{color:#FFFFFF; background-color:#F7A804;}
+.pagination_2 a, .pagination_2 strong{border-color:#D7D7D7;}
+.pagination_2 .current *{color:#FFFFFF; background-color:#F7A804;}
 
 #backtotop{color:#FFFFFF; background-color:#F7A804;}
 
@@ -447,7 +447,7 @@ table a, #comments a{background-color:inherit;}
 
 	.container{}
 	#comments input[type="reset"]{margin-top:10px;}
-	.pagination li{display:inline-block; margin:0 5px 5px 0;}
+	.pagination_2 li{display:inline-block; margin:0 5px 5px 0;}
 
 	#footer{}
 
@@ -497,14 +497,77 @@ table a, #comments a{background-color:inherit;}
 	.font-x3{font-size:1.6rem;}
 }
 
-/* Custom
+/* Other
 --------------------------------------------------------------------------------------------------------------- */
-.fltRt{
-	float:right !important;
+
+.mt30{
+	margin-top:30px;
 }
-.mb10{
-	margin-bottom: 10px;
+
+.mt10{
+	margin-top:10px;
 }
-.mtm20{
-	margin-top : -20px;
+
+.pt5{
+	padding-top : 5px;
+}
+
+.nospace{
+	text-align: right;	
+}
+
+input.title{
+	margin : 0 auto;
+	width : 70%;
+}
+
+div > label.editor{
+	text-align : center;
+	display:block;
+	color : #F7A804;
+	margin-bottom: 20px;
+	margin-top : 10px;
+	font-size : 23px;
+}
+
+div > button.btn1{
+	margin: 0 auto;
+    margin-top: 30px;
+    border-radius: 15px;
+    width: 20%;
+    background-color: #FFFFFF;
+    color: #F7A804;
+    font-size: 23px;    
+}
+
+select.editor{
+	margin : 0 auto;
+}
+
+div.editor.radio{
+	width: 45%;
+	margin-left : 36%;
+}
+
+.editor.radio > .span{
+	float : left;
+}
+
+.editor.radio > input[type=radio]{
+	float: left;
+    clear: none;
+    margin: 2px 0 4% 4%;
+}
+
+.editor.radio > label{
+	float: left;
+    clear: none;
+    display: block;
+    margin-left : 3%;
+}
+
+div > input[type=password] {
+	margin : 0 auto;
+	margin-top : 5%;
+	text-align : center;
 }

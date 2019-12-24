@@ -24,3 +24,5 @@
 <script src="/js/common/util/bAjax.js"></script>
 <script src="/js/common/util/domUtil.js"></script>
 <script src="/js/common/util/jsUtil.js"></script>
+<link rel="stylesheet" type="text/css" href="/lib/summernote/summernote.css">
+<script src=/lib/summernote/summernote.js></script>
