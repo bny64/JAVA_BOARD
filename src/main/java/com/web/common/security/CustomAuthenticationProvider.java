@@ -58,7 +58,8 @@ public class CustomAuthenticationProvider implements AuthenticationProvider{
 		
 		principal.put("name", userDetails.getName());
 		principal.put("id", userDetails.getId());
-		principal.put("email", userDetails.getEmail());		
+		principal.put("email", userDetails.getEmail());
+		principal.put("userKey", userDetails.getUserKey());
 		
 		log.setJoinType(userDetails.getJoinType());
 		log.setName(userDetails.getName());

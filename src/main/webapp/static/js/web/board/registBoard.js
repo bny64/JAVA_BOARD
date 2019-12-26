@@ -1,7 +1,9 @@
 (function(){
 	'use strict';
 		
-	$('#content').summernote({
+	let reqParam;
+	
+	$('#contents').summernote({
 		width : '70%',
 		height : '400px',
 		align : 'center',
@@ -32,34 +34,53 @@
 		});
 		
 	});
-		
-	/**이벤트 종료**/
 	
 	document.querySelector('#registBtn').addEventListener('click', function(){
 		
 		if(!validateCheck()) return;
 		
+		bAjax.ajaxSend({
+			url : '/board/registBoard.do',
+			data : reqParam,
+			callback:function(result){
+				console.log(result);
+			}
+		});
 		
 	});
+	/**이벤트 종료**/
+	
+	/**함수**/
 	
 	function validateCheck(){
 		
 		if(!document.querySelector('#title').value.trim()){
 			alert('제목을 입력하세요.');
 			return false;
-		} else if(!document.querySelector('#content').value.trim()){
+		} else if(!document.querySelector('#contents').value.trim()){
 			alert('내용을 입력하세요.');
 			return false;
 		} else if(!document.querySelector('#viewYn').value.trim()){
 			alert('글 공개여부를 선택해주세요.');
 			return false;
-		} else if(document.querySelector('input[type="radio"][name="passYn"]:checked').value==='Y'){
+		} else if(document.querySelector('input[type="radio"][name="passYn"]:checked').value==='passY'){
 			if(!document.querySelector('#boardPass').value) alert('비밀번호를 입력해주세요.');
+			document.getElementById('boardPass').focus();
 			return false;
 		}
+		
+		reqParam = {
+			title : document.getElementById('title').value,
+			contents : document.getElementById('contents').value,
+			viewYn : document.getElementById('viewYn').value,
+			passwordYn : document.querySelector('input[type="radio"][name="passYn"]:checked').value,
+			password : document.getElementById('boardPass').value
+		};		
 		
 		return true;
 		
 	}
 	
+	
+	/**함수**/
 })();

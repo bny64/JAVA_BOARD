@@ -13,5 +13,6 @@ public interface AuthDAO {
 	public List<User> selectById(String id) throws PersistenceException;
 	public List<User> selectByEmail(String email) throws PersistenceException;
 	public UserAuthority SelectAuth(String id) throws PersistenceException;
+	public User selectByUserKey(String userKey) throws PersistenceException;
 	public void saveAuth(UserAuthority userAuthority) throws PersistenceException;
 }

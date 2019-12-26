@@ -44,4 +44,9 @@ public class AuthServiceImpl implements AuthService {
 		authDao.saveAuth(userAuthority);
 	}
 
+	@Override
+	public User selectByUserKey(String userKey) throws PersistenceException {
+		return authDao.selectByUserKey(userKey);
+	}
+
 }

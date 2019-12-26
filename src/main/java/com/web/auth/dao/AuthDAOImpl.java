@@ -90,5 +90,17 @@ public class AuthDAOImpl extends CommonDAO implements AuthDAO{
 	public void saveAuth(UserAuthority userAuthority) throws PersistenceException {
 		sessionFactory.getCurrentSession().save(userAuthority);
 	}
+
+	@Override
+	public User selectByUserKey(String userKey) throws PersistenceException {
+		SessionFactory sf = sessionFactory;
+		CriteriaBuilder cb = sf.getCurrentSession().getCriteriaBuilder();
+		CriteriaQuery<User> cr = cb.createQuery(User.class);
+		Root<User> root = cr.from(User.class);
+		Predicate restrictions = cb.equal(root.get("userKey"), userKey);
+		cr.select(root)
+			.where(restrictions);
+		return sf.getCurrentSession().createQuery(cr).getSingleResult();
+	}
 	
 }

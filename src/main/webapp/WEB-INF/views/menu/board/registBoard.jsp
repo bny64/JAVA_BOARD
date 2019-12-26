@@ -4,21 +4,21 @@
 		<div>
 			<label class="title editor" for="title">제목</label>
 			<input class="title mb10" type="text" id="title">
-			<label class="editor" for="content">내용</label>
-			<textarea id="content"></textarea>
+			<label class="editor" for="contents">내용</label>
+			<textarea id="contents"></textarea>
 		</div>
 		<div class="mt10">
-			<select class="editor">
-				<option id="viewYn" value="" selected disabled>글 공개 여부</option>				
+			<select class="editor" id="viewYn">
+				<option value="" selected disabled>글 공개 여부</option>				
 				<option value="Y">공개</option>
 				<option value="N">비공개</option>
 			</select>
 		</div>
 		<div class="editor radio mt10">
 			<span class="span">비밀번호 설정 여부</span>
-			<input type="radio" class="" name="passYn" value="passY"/>
+			<input type="radio" class="" name="passYn" value="Y"/>
 		    <label for="passY">설정</label>
-		    <input type="radio" class="" name="passYn" value="passN" checked/>
+		    <input type="radio" class="" name="passYn" value="N" checked/>
 		    <label for="passN">설정 안함</label>		    
 		</div>
 		<div class="mt10" style="display:none;" id="boardPassDiv">
@@ -29,4 +29,4 @@
 		</div>
 	</main>
 </div>
-<script src="/js/web/board/writeBoard.js"></script>
+<script src="/js/web/board/registBoard.js"></script>

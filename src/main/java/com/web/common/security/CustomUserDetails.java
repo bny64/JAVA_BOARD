@@ -12,7 +12,7 @@ public class CustomUserDetails extends User implements UserDetails{
 	public CustomUserDetails() {}
 	
 	public CustomUserDetails(User user) {
-		super(user.getId(), user.getEmail(), user.getPassword(), user.getName(), user.getJoinType(), user.getUserType());
+		super(user.getId(), user.getEmail(), user.getPassword(), user.getName(), user.getJoinType(), user.getUserType(), user.getUserKey());
 		// TODO Auto-generated constructor stub
 	}
 

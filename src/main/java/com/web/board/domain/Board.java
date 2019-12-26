@@ -15,6 +15,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 import com.web.auth.domain.User;
 
@@ -32,11 +33,12 @@ public class Board implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int listNo;
 	
+	@Transient
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name="userKey", columnDefinition = "VARCHAR(100)", nullable = false)
 	private User user;
 	
-	@Column(name = "id", nullable = false, unique = true, length = 100)
+	@Column(name = "id", nullable = false, length = 100)
 	private String id;
 	
 	@Column(name = "name", nullable = false, length = 100)
@@ -56,9 +58,12 @@ public class Board implements Serializable{
 	@Column(name = "title", nullable = false, columnDefinition = "TEXT")
 	private String title;
 	
-	@Column(name = "password", length=10)
+	@Column(name = "password", length=100)
 	private String password;
 	
-	@Column(name = "viewYn", length=2)
-	private String viewYn;
+	@Column(name = "passwordYn", nullable = false, columnDefinition = "VARCHAR(2) default 'N'")
+	private String passwordYn;
+	
+	@Column(name = "viewYn", nullable = false, columnDefinition = "VARCHAR(2) default 'Y'")
+	private String viewYn;		
 }

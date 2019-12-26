@@ -12,9 +12,11 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
@@ -24,7 +26,6 @@ import com.web.board.domain.Comment;
 
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 @Getter 
 @Setter 
@@ -42,7 +43,7 @@ public class User implements Serializable{
 	public User() {		
 	};
 	
-	public User(String id, String email, String password, String name, String joinType, String userType) {
+	public User(String id, String email, String password, String name, String joinType, String userType, String userKey) {
 		super();
 		this.id = id;		
 		this.email = email;
@@ -50,6 +51,7 @@ public class User implements Serializable{
 		this.name = name;
 		this.joinType = joinType;
 		this.userType = userType;
+		this.userKey = userKey;
 	}
 
 	/* @id : 기본키
@@ -120,18 +122,26 @@ public class User implements Serializable{
 	
 	/* 1:N 관계
 	 * @OneToMany(mappedBy='') N테이블 에서의 해당 객체 변수명.
-	 * */	
+	 * @Transient DB테이블에는 존재하지 않지만 엔티티 클래스에는 등록되어 같이 운용해야 할 경우 사용
+	 * */
+	@Transient
 	@OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
 	private Collection<Board> board;
 	
+	@Transient
 	@OneToMany(mappedBy = "user")
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private Collection<Comment> comment;
 
+	@Transient
 	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private UserAuthority userAuthority;
 	
+	/*
+	 * @PrePersist 처음 저장시에만 호출
+	 * @PreUpdate 저장 및 업데이트시 호출
+	 */
 	@PrePersist
 	public void prePersist() {
 		this.joinType = this.joinType == null ? "JAVA" : this.joinType;

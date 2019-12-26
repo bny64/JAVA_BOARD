@@ -569,5 +569,5 @@ div.editor.radio{
 div > input[type=password] {
 	margin : 0 auto;
 	margin-top : 5%;
-	text-align : center;
+	text-align : left;
 }

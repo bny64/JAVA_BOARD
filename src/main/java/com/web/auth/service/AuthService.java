@@ -6,7 +6,6 @@ import javax.persistence.PersistenceException;
 
 import com.web.auth.domain.User;
 import com.web.auth.domain.UserAuthority;
-import com.web.common.security.CustomUserDetails;
 
 public interface AuthService {
 
@@ -14,5 +13,6 @@ public interface AuthService {
 	public List<User> selectById(String id) throws PersistenceException;
 	public List<User> selectByEmail(String email) throws PersistenceException;
 	public UserAuthority selectAuth(String id) throws PersistenceException;
+	public User selectByUserKey(String userKey) throws PersistenceException;
 	public void saveAuth(UserAuthority userAuthority) throws PersistenceException;
 }

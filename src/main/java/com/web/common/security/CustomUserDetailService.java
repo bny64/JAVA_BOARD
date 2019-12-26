@@ -14,7 +14,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import com.web.auth.domain.User;
 import com.web.auth.domain.UserAuthority;
-import com.web.auth.service.AuthService;
 import com.web.common.security.service.SecurityService;
 
 public class CustomUserDetailService implements UserDetailsService{
