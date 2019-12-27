@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.web.auth.domain.User;
@@ -14,10 +15,10 @@ import com.web.board.domain.Board;
 import com.web.board.service.BoardService;
 import com.web.common.controller.WebCommonController;
 import com.web.common.resolver.CommandMap;
-import com.web.common.security.CustomUserDetails;
 import com.web.common.security.PasswordEncoding;
 import com.web.common.support.message.MsgCode;
 import com.web.common.support.message.MsgList;
+import com.web.common.wrapper.MutableHttpServletRequestWrapper;
 import com.web.main.controller.MainController;
 
 @Controller
@@ -64,9 +65,7 @@ private Logger logger = LoggerFactory.getLogger(MainController.class);
 		board.setViewYn(reqMap.get("viewYn").toString());
 		board.setPasswordYn(passwordYn);
 		
-		if("Y".equals(passwordYn)) {
-			board.setPassword(passwordEncoding.encode(reqMap.get("password").toString()));
-		}
+		if("Y".equals(passwordYn)) board.setPassword(passwordEncoding.encode(reqMap.get("password").toString()));
 		
 		user = getSessionUser();
 			

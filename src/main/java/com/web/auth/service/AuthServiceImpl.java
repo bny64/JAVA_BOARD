@@ -6,7 +6,6 @@ import javax.persistence.PersistenceException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.web.auth.dao.AuthDAO;
 import com.web.auth.domain.User;

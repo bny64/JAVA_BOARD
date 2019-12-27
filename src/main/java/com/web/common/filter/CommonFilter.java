@@ -11,7 +11,9 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
 import org.json.JSONObject;
+import org.springframework.core.annotation.Order;
 
+@Order(1)
 public class CommonFilter implements Filter{
 
 	@Override
@@ -26,16 +28,26 @@ public class CommonFilter implements Filter{
 		// TODO Auto-generated method stub
 		
 		//요청이 json인 경우
-		if(request.getContentType() != null && request.getContentType().contains("application/json")) {
-			StringBuffer sb = new StringBuffer(); 
-			String line = null; 
-			BufferedReader reader = request.getReader();
-			  
-			while((line=reader.readLine())!=null) { 
-				sb.append(line);
+		if(request.getContentType() != null) {
+			
+			if(request.getContentType().contains("application/json")) {
+				
+				StringBuffer sb = new StringBuffer(); 
+				String line = null; 
+				BufferedReader reader = request.getReader();
+				  
+				while((line=reader.readLine())!=null) { 
+					sb.append(line);
+				}
+				
+				request.setAttribute("jsonReqInfo", new JSONObject(sb.toString()));
+				
+			}else if(request.getContentType().contains("multipart/form-data")) {
+				
+				request.setAttribute("multiReqInfo", true);				
 			}
 			
-			request.setAttribute("jsonReqInfo", new JSONObject(sb.toString()));
+			
 		}
 		
 		chain.doFilter(request, response);

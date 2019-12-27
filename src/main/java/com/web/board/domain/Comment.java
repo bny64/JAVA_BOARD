@@ -15,7 +15,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.persistence.Transient;
 
 import com.web.auth.domain.User;
 
@@ -32,13 +31,11 @@ public class Comment implements Serializable{
 	@Column(name = "listNo", nullable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int listNo;
-	
-	@Transient
+		
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name="parentListNo", nullable = false)
 	private Board board;
-	
-	@Transient
+		
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name="userKey", columnDefinition = "VARCHAR(100)", nullable = false)
 	private User user;

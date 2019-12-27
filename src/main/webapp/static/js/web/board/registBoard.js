@@ -3,6 +3,8 @@
 		
 	let reqParam;
 	
+	const whiteExt = ['jpeg', 'jpg', 'gif', 'png'];
+	
 	$('#contents').summernote({
 		width : '70%',
 		height : '400px',
@@ -18,15 +20,14 @@
 		]
 	});
 	
-	/**이벤트 시작**/
-	
+	/**이벤트 시작**/	
 	document.querySelectorAll('[name="passYn"]').forEach(function(elements){
 		
 		elements.addEventListener('click', function(){
 			const type = this.value;
 			const passTag = document.querySelector('#boardPassDiv');
 			
-			if(type==='passY'){
+			if(type==='Y'){
 				passTag.style.display = '';
 			}else{
 				passTag.style.display = 'none';
@@ -39,19 +40,56 @@
 		
 		if(!validateCheck()) return;
 		
-		bAjax.ajaxSend({
+		const $form = $('#registBoardForm');
+		$form.ajaxForm({
 			url : '/board/registBoard.do',
-			data : reqParam,
-			callback:function(result){
+			enctype : "multipart/form-data",
+			beforeSend : function(xhr){
+				const csrfToken = document.querySelector('#_csrf').getAttribute('content');
+				const csrfHeader = document.querySelector('#_csrf_header').getAttribute('content');
+				xhr.setRequestHeader(csrfHeader, csrfToken);
+			},
+			success : function(result){
 				console.log(result);
+			},
+			error : function(result){
+				console.error(result);
 			}
-		});
+		})
 		
+		$form.submit();
+		
+	});
+	
+	document.getElementById('boardFile').addEventListener('change', function(){
+		
+		let element = this;
+		
+		if(!element.value) return;
+		
+		const fileInfo = this.files[0];
+		
+		let fileExt = fileInfo.name.substring(fileInfo.name.lastIndexOf('.')+1, fileInfo.name.length);
+		if(!fileValidateCheck(fileExt)){
+			
+			let msg = whiteExt.join(', ');
+			
+			msg = msg.substring(0, msg.length-2);
+			element.value = '';
+			alert(msg);
+			
+			return;
+		}
+		
+		if(fileInfo.size > 10000000){
+			element.value = '';
+			alert('10MB까지 저장 가능합니다.');			
+		}
 	});
 	/**이벤트 종료**/
 	
 	/**함수**/
-	
+	//게시글 유효성 검사
 	function validateCheck(){
 		
 		if(!document.querySelector('#title').value.trim()){
@@ -81,6 +119,14 @@
 		
 	}
 	
-	
+	//파일 확장자 유효성 검사
+	function fileValidateCheck(fileExt){
+		
+		for(let index in whiteExt){
+			if(whiteExt[index]===fileExt) return true;			
+		}
+		
+		return false;
+	}
 	/**함수**/
 })();

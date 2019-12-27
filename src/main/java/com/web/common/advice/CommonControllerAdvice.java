@@ -30,7 +30,7 @@ public class CommonControllerAdvice {
 		CommandMap comMap = new CommandMap();
 		String[] msg;
 		
-		String acceptHeader = request.getHeader("Accept");
+		String acceptHeader = request.getContentType();
 				
 		if(acceptHeader.contains("application/json")) {//ajax 에러 일 때
 			msg = MsgList.getInstance().getCodeMessage(MsgCode.RequestError);

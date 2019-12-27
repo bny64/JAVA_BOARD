@@ -8,6 +8,7 @@
 <script src="/lib/jquery/jquery.mobilemenu.js"></script>
 <script src="/lib/bootstrap/js/popper.js"></script>
 <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="/lib/jquery/jquery.form.min.js"></script>
 <script src="/js/common/util/bAjax.js"></script>
 <script src="/js/common/util/jsUtil.js"></script>
 <script src="/js/common/util/domUtil.js"></script>

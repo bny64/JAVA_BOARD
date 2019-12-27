@@ -508,6 +508,10 @@ table a, #comments a{background-color:inherit;}
 	margin-top:10px;
 }
 
+.mt70{
+	margin-top : 70px;
+}
+
 .pt5{
 	padding-top : 5px;
 }
@@ -570,4 +574,9 @@ div > input[type=password] {
 	margin : 0 auto;
 	margin-top : 5%;
 	text-align : left;
+}
+
+div > input[type=file]{
+	margin : 0 auto;
+	padding-left : 5%;
 }

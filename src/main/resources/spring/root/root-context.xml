@@ -20,7 +20,7 @@
 	   <context:component-scan base-package="com.web">
 			<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>	
 	   </context:component-scan>
-	   
-	   
+	   <!-- 파일 업로드 관련 빈 설정 -->
+	   <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
 	   
 </beans>
