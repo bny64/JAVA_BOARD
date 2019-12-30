@@ -32,7 +32,7 @@ public class CommonControllerAdvice {
 		
 		String acceptHeader = request.getContentType();
 				
-		if(acceptHeader.contains("application/json")) {//ajax 에러 일 때
+		if(acceptHeader.contains("application/json") || acceptHeader.contains("multipart/form-data")) {//ajax 에러 일 때
 			msg = MsgList.getInstance().getCodeMessage(MsgCode.RequestError);
 			comMap.put("msgCode", msg[0]);
 			comMap.put("msg", msg[1]);

@@ -34,7 +34,7 @@ public class MessageUtil {
 	@SuppressWarnings("unchecked")
 	public String getMessage(String msgCode) {		
 		logger.debug("---------- [MessageUtil]:[getMessage] -----------");	
-		Map<String, String> msg = (Map) this.parser.parseExpression(securityMsg).getValue();
+		Map<String, String> msg = (Map<String, String>) this.parser.parseExpression(securityMsg).getValue();
 		
 		return msg.get(msgCode);
 	}

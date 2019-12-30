@@ -67,4 +67,10 @@ public class Board implements Serializable{
 	
 	@Column(name = "imgFilePath")
 	private String imgFilePath;
+	
+	@Column(name = "fileName")
+	private String fileName;
+	
+	@Column(name = "orgFileName")
+	private String orgFileName;
 }

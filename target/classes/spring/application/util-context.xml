@@ -11,12 +11,19 @@
    http://www.springframework.org/schema/mvc 
    http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
   
+  	<!-- UTIL BEAN -->
   	<bean id="messageUtil" class="com.web.common.util.MessageUtil">
-  		<property name="parser">
-  			<bean class="org.springframework.expression.spel.standard.SpelExpressionParser"/>
-  		</property>  		
+  		<property name="parser" ref="spelExpressionParser"/>  			 		
   	</bean>
+  	   
+   	<bean id="fileUtil" class="com.web.common.util.FileUtil">
+   		<property name="parser" ref="spelExpressionParser"/>
+   	</bean>
    
    	<bean id="jsonUtil" class="com.web.common.util.JSONUtil"/>
-   
+   	
+   	
+   	<!-- 참조 BEAN -->
+   	<bean id="spelExpressionParser" class="org.springframework.expression.spel.standard.SpelExpressionParser"/>
+	   	
 </beans>

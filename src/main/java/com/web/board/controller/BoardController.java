@@ -1,5 +1,8 @@
 package com.web.board.controller;
 
+import java.util.HashMap;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +21,7 @@ import com.web.common.resolver.CommandMap;
 import com.web.common.security.PasswordEncoding;
 import com.web.common.support.message.MsgCode;
 import com.web.common.support.message.MsgList;
+import com.web.common.util.FileUtil;
 import com.web.common.wrapper.MutableHttpServletRequestWrapper;
 import com.web.main.controller.MainController;
 
@@ -30,6 +34,9 @@ private Logger logger = LoggerFactory.getLogger(MainController.class);
 	@Autowired
 	private PasswordEncoding passwordEncoding;
 
+	@Autowired
+	private FileUtil fileUtil;
+	
 	@Autowired
 	private BoardService boardService;
 	
@@ -58,20 +65,26 @@ private Logger logger = LoggerFactory.getLogger(MainController.class);
 		Board board = new Board();
 		String[] msg;
 		
-		String passwordYn = reqMap.get("passwordYn").toString();
+		String passwordYn = reqMap.get("passYn").toString();
+		if("Y".equals(passwordYn)) board.setPassword(passwordEncoding.encode(reqMap.get("password").toString()));
 		
 		board.setTitle(reqMap.get("title").toString());
 		board.setContents(reqMap.get("contents").toString());
 		board.setViewYn(reqMap.get("viewYn").toString());
 		board.setPasswordYn(passwordYn);
 		
-		if("Y".equals(passwordYn)) board.setPassword(passwordEncoding.encode(reqMap.get("password").toString()));
-		
 		user = getSessionUser();
 			
 		board.setUser(user);
 		board.setId(user.getId());
 		board.setName(user.getName());
+		
+		List<HashMap<String, String>> fileList = fileUtil.saveFiles("1", reqMap.getMap());
+		
+		//게시판 이미지는 한 개만 저장 가능
+		board.setImgFilePath(fileList.get(0).get("imgFilePath"));		
+		board.setFileName(fileList.get(0).get("fileName"));		
+		board.setOrgFileName(fileList.get(0).get("orgFileName"));
 		
 		boardService.registBoard(board);
 		

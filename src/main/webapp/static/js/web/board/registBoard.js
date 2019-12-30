@@ -40,25 +40,18 @@
 		
 		if(!validateCheck()) return;
 		
-		const $form = $('#registBoardForm');
-		$form.ajaxForm({
+		bAjax.ajaxForm({
+			form : $('#registBoardForm'),
 			url : '/board/registBoard.do',
-			enctype : "multipart/form-data",
-			beforeSend : function(xhr){
-				const csrfToken = document.querySelector('#_csrf').getAttribute('content');
-				const csrfHeader = document.querySelector('#_csrf_header').getAttribute('content');
-				xhr.setRequestHeader(csrfHeader, csrfToken);
-			},
-			success : function(result){
-				console.log(result);
-			},
-			error : function(result){
-				console.error(result);
+			promise : true			
+		}).then(function(result){
+			if(result.msgCode==='I0000'){
+				alert(result.msg);
+				location.href = '/board/boardList.do';
 			}
-		})
-		
-		$form.submit();
-		
+		}).catch(function(error){
+			alert(error.msg);
+		});
 	});
 	
 	document.getElementById('boardFile').addEventListener('change', function(){
