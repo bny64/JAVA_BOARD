@@ -12,6 +12,7 @@ import javax.servlet.ServletResponse;
 
 import org.json.JSONObject;
 import org.springframework.core.annotation.Order;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 @Order(1)
 public class CommonFilter implements Filter{
@@ -27,10 +28,11 @@ public class CommonFilter implements Filter{
 			throws IOException, ServletException {
 		// TODO Auto-generated method stub
 		
-		//요청이 json인 경우
-		if(request.getContentType() != null) {
-			
-			if(request.getContentType().contains("application/json")) {
+		String contentType = request.getContentType();
+		
+		if(contentType != null) {
+			//요청이 json인 경우
+			if(contentType.contains("application/json")) {
 				
 				StringBuffer sb = new StringBuffer(); 
 				String line = null; 
@@ -40,14 +42,14 @@ public class CommonFilter implements Filter{
 					sb.append(line);
 				}
 				
+				request.setAttribute("jsonReqCheck", true);
 				request.setAttribute("jsonReqInfo", new JSONObject(sb.toString()));
 				
-			}else if(request.getContentType().contains("multipart/form-data")) {
+			//파일이 포함 됐을 때
+			}else if(contentType.contains("multipart/form-data")){
 				
-				request.setAttribute("multiReqInfo", true);				
+				request.setAttribute("multiReqCheck", true);				
 			}
-			
-			
 		}
 		
 		chain.doFilter(request, response);

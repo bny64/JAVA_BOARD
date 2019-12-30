@@ -32,7 +32,7 @@
 				header : 'Content-type', //헤더 타입
 				headerValue : 'application/x-www-form-urlencoded; charset=UTF-8', //헤더 값				
 				dataType:'json',				
-				fail : function(error){ //에러함수(promise가 false 일 때) 
+				fail : function(error){ //에러함수(promise가 false 일 때)					
 					console.error(error);
 				}
 			};
