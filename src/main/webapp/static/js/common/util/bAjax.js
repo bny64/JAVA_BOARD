@@ -33,8 +33,9 @@
 				header : 'Content-type', //헤더 타입
 				headerValue : 'application/x-www-form-urlencoded; charset=UTF-8', //헤더 값				
 				dataType:'json',				
-				fail : function(error){ //에러함수(promise가 false 일 때)					
-					alert(error);
+				error : function(result){
+					const error = that.parseRtnType(result);
+					alert(error.msg);
 				}
 			};
 			
@@ -102,7 +103,7 @@
 							if(ajaxSetting.mtnData) result.mtnData = ajaxSetting.mtnData;
 							return ajaxSetting.callback(result);
 						}else{
-							return ajaxSetting.fail(result);
+							return ajaxSetting.error(result);
 						}
 					}				
 				};
@@ -209,10 +210,13 @@
 			const data = resVal;
 			let returnValue = {};
 			
-			if(data.map){
+			//xhr로 요청할 때
+			if(data.map && typeof data.map !== 'function'){
 				returnValue = data.map;
+			//ajax로 요청할 때
 			}else if(data.responseJSON){
 				returnValue = data.responseJSON.map;
+			//그 외
 			}else{
 				returnValue = resVal;
 			} 

@@ -24,16 +24,16 @@
 	
 	<!-- expression을 추가해야 hasRole, permitAll 등의 다양한 옵션을 사용할 수 있음. -->
 	<!-- use-expressions="true"를 설정하지 않으면 false가 default. 이럴 때는 SpEL을 사용하지 않는다. -->
-	<!-- spring security 4.x.x 버전부터 default값이 true로 변경됨. -->
-	<!-- <intercept-url pattern="..." access="ROLE_ANONYMOUS" /> -->
+	<!-- spring security 4.x.x 버전부터 default값이 true로 변경됨. -->	
+	<!-- create-session=never 세션생성하지 않도록 설정-->
 	<security:http 
+		create-session="never"
 		auto-config="true" 
 		use-expressions="true"
-		
 		>
 		
 		<!-- <security:access-denied-handler error-page=""/> -->
-		
+		<!-- <intercept-url pattern="..." access="ROLE_ANONYMOUS" /> -->
 		<!-- 해당 pattern의 url은 모두 허용. 나머지는 ROLE_USER 권한을 가진사람만 허용 -->
 		<!-- hasRole('role1') 권한(role1)을 가지고 있는 경우 -->
 		<!-- hasAnyRole('role1', 'role2') 권한들(role1, role2) 하나라도 가지고 있을 경우 (갯수는 제한없다) -->
@@ -42,10 +42,12 @@
 		<!-- isAnonymous() Anonymous 사용자일 경우 (인증을 하지 않은 사용자) -->
 		<!-- isRememberMe() Remember-me 기능으로 로그인한 사용자일 경우  -->
 		<!-- isAuthenticated() Anonymous 사용자가 아닐 경우 (인증을 한 사용자) -->
-		<!-- isFullyAuthenticated() Anonymous 사용자가 아니고 Remember-me 기능으로 로그인 하지 않은 사용자 일 경우 -->
+		<!-- isFullyAuthenticated() Anonymous 사용자가 아니고 Remember-me 기능으로 로그인 하지 않은 사용자 일 경우 -->		
 		<security:intercept-url pattern="/index.do" access="permitAll"/>
 		<security:intercept-url pattern="/auth/*.do" access="permitAll"/>
+		<security:intercept-url pattern="/common/**/*.do" access="permitAll"/>		
 		<security:intercept-url pattern="/**" access="hasAnyRole('ROLE_USER','ROLE_ADMIN')"/>		
+		
 		
 		<!-- 보안설정 -->
 		<security:csrf/> 
@@ -76,6 +78,7 @@
 			invalidate-session="true"	
 			success-handler-ref="logoutHandler"
 		/>
+		
 	</security:http>
 	
 	<security:global-method-security secured-annotations="enabled" /> 

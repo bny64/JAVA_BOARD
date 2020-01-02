@@ -10,7 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.web.auth.domain.User;
@@ -22,14 +21,13 @@ import com.web.common.security.PasswordEncoding;
 import com.web.common.support.message.MsgCode;
 import com.web.common.support.message.MsgList;
 import com.web.common.util.FileUtil;
-import com.web.common.wrapper.MutableHttpServletRequestWrapper;
 import com.web.main.controller.MainController;
 
 @Controller
 @RequestMapping(value="/board")
 public class BoardController extends WebCommonController{
 
-private Logger logger = LoggerFactory.getLogger(MainController.class);
+	private Logger logger = LoggerFactory.getLogger(MainController.class);
 	
 	@Autowired
 	private PasswordEncoding passwordEncoding;

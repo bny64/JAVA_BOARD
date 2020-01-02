@@ -1,5 +1,8 @@
 package com.web.board.service;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.persistence.PersistenceException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +20,11 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public void registBoard(Board board) throws PersistenceException {
 		boardDao.registBoard(board);
+	}
+
+	@Override
+	public List<Board> getBoardList(Map<String, String> param) throws PersistenceException {
+		return boardDao.getBoardList(param);		
 	}
 
 }

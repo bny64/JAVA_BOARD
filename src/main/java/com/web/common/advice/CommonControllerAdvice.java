@@ -11,6 +11,8 @@ import java.util.regex.Pattern;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -20,10 +22,13 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import com.web.common.resolver.CommandMap;
 import com.web.common.support.message.MsgCode;
 import com.web.common.support.message.MsgList;
+import com.web.main.controller.MainController;
 
 @ControllerAdvice // 사용하기 위해서 xml에서 anotation-driven설정해야 함.
 public class CommonControllerAdvice {
 
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
+	
 	@ExceptionHandler(Exception.class)
 	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)	
 	public @ResponseBody CommandMap handleException(HttpServletRequest request, HttpServletResponse response, Exception e) throws IOException{
@@ -31,18 +36,24 @@ public class CommonControllerAdvice {
 		String[] msg;
 		
 		String acceptHeader = request.getContentType();
-				
-		if(acceptHeader.contains("application/json") || acceptHeader.contains("multipart/form-data")) {//ajax 에러 일 때
-			msg = MsgList.getInstance().getCodeMessage(MsgCode.RequestError);
-			comMap.put("msgCode", msg[0]);
-			comMap.put("msg", msg[1]);
-			return comMap;
 			
-		}else {
-			response.sendRedirect("/error/requestError.do");
-		}
+		e.printStackTrace();
+		msg = MsgList.getInstance().getCodeMessage(MsgCode.RequestError);
+		comMap.put("msgCode", msg[0]);
+		comMap.put("msg", msg[1]);			
+		return comMap;
 		
-		return null;
+		/*
+		 * if(acceptHeader.contains("application/json") ||
+		 * acceptHeader.contains("multipart/form-data")) {//ajax 에러 일 때
+		 * e.printStackTrace(); msg =
+		 * MsgList.getInstance().getCodeMessage(MsgCode.RequestError);
+		 * comMap.put("msgCode", msg[0]); comMap.put("msg", msg[1]); return comMap;
+		 * }else { e.printStackTrace(); response.sendRedirect("/error/requestError.do");
+		 * }
+		 */
+		
+		//return null;
 	}
 
 	private List<String> generate(Exception e) {

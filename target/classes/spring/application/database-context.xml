@@ -30,6 +30,7 @@
 		<property name="packagesToScan">			
 			<list>
 				<value>com.web.*.domain</value>
+				<value>com.web.common.*.domain</value>
 			</list>			
 		</property>		
 	</bean>

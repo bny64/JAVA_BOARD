@@ -6,6 +6,7 @@ import javax.persistence.PersistenceException;
 
 import com.web.auth.domain.User;
 import com.web.auth.domain.UserAuthority;
+import com.web.common.jsmap.domain.Jsmap;
 
 public interface AuthDAO {
 	
@@ -15,4 +16,5 @@ public interface AuthDAO {
 	public UserAuthority SelectAuth(String id) throws PersistenceException;
 	public User selectByUserKey(String userKey) throws PersistenceException;
 	public void saveAuth(UserAuthority userAuthority) throws PersistenceException;
+	
 }

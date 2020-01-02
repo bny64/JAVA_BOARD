@@ -21,7 +21,7 @@ public ModelAndView main(Map<String,Object> commandMap) throws Exception{} ¶ó°í 
 public class CommandMap {
 	 
     Map<String,Object> map = new HashMap<String,Object>();
-     
+    
     public void put(String key, Object value) {
     	map.put(key, value);
     }
@@ -68,5 +68,7 @@ public class CommandMap {
     
     public JSONObject toJson() {    	    	
     	return new JSONObject(this.map);
-    }    
+    }
+    
+    
 }

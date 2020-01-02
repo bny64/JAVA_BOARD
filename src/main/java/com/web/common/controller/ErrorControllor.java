@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping(value = "/error")
+@RequestMapping(value = "/common/error")
 public class ErrorControllor {
 
 	@RequestMapping(value = "/permissionError")

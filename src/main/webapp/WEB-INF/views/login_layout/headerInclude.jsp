@@ -11,6 +11,10 @@
 <link rel="stylesheet" type="text/css" href="/style/login/css/util.css">
 <link rel="stylesheet" type="text/css" href="/style/login/css/main.css">
 <link rel="stylesheet" type="text/css" href="/lib/jquery/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="/lib/summernote/summernote.css">
+
+<script src="/lib/requirejs/require.min.js" data-main="/js/common/main"></script>
+<!-- 
 <script src="/lib/jquery/jquery.min.js" charset="utf-8"></script>
 <script src="/lib/jquery/jquery-ui.js"></script>
 <script src="/lib/animsition/js/animsition.min.js"></script>
@@ -24,5 +28,4 @@
 <script src="/js/common/util/bAjax.js"></script>
 <script src="/js/common/util/domUtil.js"></script>
 <script src="/js/common/util/jsUtil.js"></script>
-<link rel="stylesheet" type="text/css" href="/lib/summernote/summernote.css">
-<script src=/lib/summernote/summernote.js></script>
+<script src=/lib/summernote/summernote.js></script> -->
