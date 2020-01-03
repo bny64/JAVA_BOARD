@@ -1,5 +1,5 @@
 //class 형식
-(function(window){
+define(function(){
 	
 	/**
 	 * bAjax.ajaxSend : ajax 전송
@@ -225,6 +225,6 @@
 		}
 	}
 	
-	window.bAjax = new bAjax();
+	return new bAjax();
 	
-})(window);
+});

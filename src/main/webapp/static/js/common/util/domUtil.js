@@ -1,5 +1,5 @@
 //함수 형식
-(function(window){
+define(function(){
 	
 	const domUtil = function(){};
 	
@@ -32,6 +32,5 @@
 		return result;
 	}
 	
-	window.domUtil = new domUtil();
-	
-})(window);
+	return new domUtil();
+});

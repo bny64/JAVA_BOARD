@@ -8,20 +8,78 @@ requirejs.config({
 	 * 또한 아래와 같이 특정 라이브러리 경로 선언을 위해 사용될 수 있는데, * path 매핑 코드는 자동적으로 .js 확장자를
 	 * 붙여서 모듈명으로 매핑됩니다. * 정리 : 모듈의 별칭(Alias)을 설정하고 모듈의 단축 경로를 지정합니다.
 	 */
-	paths:{
-		"jsutil" : '/js/common/util/jsUtil',
-		"jquery" : '/lib/jquery/jquery.min'
+	
+	//기준이 될 경로
+	baseUrl : '/js',
+	
+	//해당 파일의 경로 baseUrl + / +paths.xxx
+	paths:{		
+		jquery : 'lib/jquery/jquery.min', 
+		jqueryui:'lib/jquery/jquery-ui',
+		jqueryForm:'lib/jquery/jquery.form.min',
+		animsition : 'lib/animsition/js/animsition.min',
+		popper:'lib/bootstrap/js/popper',
+		bootstrap:'lib/bootstrap/js/bootstrap',
+		select2:'lib/select2/select2.min',
+		moment:'lib/daterangepicker/moment.min',
+		daterangepicker:'lib/daterangepicker/daterangepicker',
+		countdowntime:'common/countdowntime/countdowntime',
+		setDatepickerKor:'common/datepicker/setDatepickerKor',
+		summernote:'lib/summernote/summernote',
+		summernote_kor:'lib/summernote/lang/summernote-ko-KR',
+		bAjax:'common/util/bAjax',
+		domUtil : 'common/util/domUtil',
+		jsUtil: 'common/util/jsUtil'
+		
 	},
+	
+	//의존성 설정 deps:['paths에 정의된 이름'] -> 먼저 로드되야 할 파일
+	//exports 전역으로 사용할 파일
+	//대부분의 라이브러리 파일들은 의존성 체크를 하기 때문에 설정값에 넣어줄 필요가 없음.
 	shim:{
-		'jsutil':{
-			exports : 'jsutil'
-		},
-		'jquery':{
-			exports : '_jquery'
-		}
+		//jquery
+		//jqueryui:{deps:['jquery']},		
+		//animsition:{deps:['jquery']},
+		//popper:{deps:['jquery']},
+		//bootstrap:{deps:['jquery','popper']}, -> 파일에서 설정해 놓음.
+		//select2:{deps:['jquery']},
+		//moment		
+		//daterangepicker:{deps:['jquery','moment']},
+		countdowntime:{deps:['jquery']},
+		setDatepickerKor:{deps:['jquery']},	
+		//summernote
+		summernote_kor:{deps:['summernote']},
+		bAjax:{deps:['jqueryForm']}
 	}
 })
 
-requirejs(['jsutil', 'jquery'], function(a,b){
-	debugger;
+//비동기 호출
+requirejs(checkLoadJs(), function(){
+	const loadedJsList = arguments;
+	for(let element in loadedJsList){
+		console.log(loadedJsList[element]);
+	}
 });
+
+function checkLoadJs(){
+		
+	const loadJsList = [
+		'jquery',
+		'jqueryui',
+		'animsition',
+		'popper',
+		'bootstrap' ,
+		'select2',
+		'moment',
+		'daterangepicker',
+		'countdowntime',
+		'setDatepickerKor',
+		'summernote',
+		'summernote_kor',
+		'bAjax',
+		'domUtil',
+		'jsUtil'
+	];		
+	
+	return loadJsList;
+};
