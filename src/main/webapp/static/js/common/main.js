@@ -55,6 +55,7 @@ requirejs.config({
 
 //비동기 호출
 requirejs(checkLoadJs(), function(){
+	//url별로 라이브러리 달리 호출하게 설정.
 	const loadedJsList = arguments;
 	for(let element in loadedJsList){
 		console.log(loadedJsList[element]);
