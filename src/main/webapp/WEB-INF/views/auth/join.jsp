@@ -82,4 +82,3 @@
 		</div>
 	</div>
 </div>
-<script src="/js/web/auth/join.js"></script>

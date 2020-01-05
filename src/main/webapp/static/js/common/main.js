@@ -14,22 +14,22 @@ requirejs.config({
 	
 	//해당 파일의 경로 baseUrl + / +paths.xxx
 	paths:{		
-		jquery : 'lib/jquery/jquery.min', 
-		jqueryui:'lib/jquery/jquery-ui',
-		jqueryForm:'lib/jquery/jquery.form.min',
-		animsition : 'lib/animsition/js/animsition.min',
-		popper:'lib/bootstrap/js/popper',
-		bootstrap:'lib/bootstrap/js/bootstrap',
-		select2:'lib/select2/select2.min',
-		moment:'lib/daterangepicker/moment.min',
-		daterangepicker:'lib/daterangepicker/daterangepicker',
-		countdowntime:'common/countdowntime/countdowntime',
-		setDatepickerKor:'common/datepicker/setDatepickerKor',
-		summernote:'lib/summernote/summernote',
-		summernote_kor:'lib/summernote/lang/summernote-ko-KR',
-		bAjax:'common/util/bAjax',
-		domUtil : 'common/util/domUtil',
-		jsUtil: 'common/util/jsUtil'
+		jquery : 'lib/jquery/jquery.min', 									//jquery
+		jqueryui:'lib/jquery/jquery-ui', 									//jquery-ui
+		jqueryForm:'lib/jquery/jquery.form.min',							//jquery-form
+		animsition : 'lib/animsition/js/animsition.min',					//animsition
+		popper:'lib/bootstrap/js/popper',									//popper
+		bootstrap:'lib/bootstrap/js/bootstrap',								//bootstrap
+		select2:'lib/select2/select2.min',									//select2
+		moment:'lib/daterangepicker/moment.min',							//moment
+		daterangepicker:'lib/daterangepicker/daterangepicker',				//daterangepicker
+		countdowntime:'common/countdowntime/countdowntime',					//countdowntime
+		setDatepickerKor:'common/datepicker/setDatepickerKor',				//setDatepickerKor
+		summernote:'lib/summernote/summernote',								//summernote
+		summernote_kor:'lib/summernote/lang/summernote-ko-KR',				//summernte-kor
+		bAjax:'common/util/bAjax',											//bAjax
+		domUtil : 'common/util/domUtil',									//domUtil
+		jsUtil: 'common/util/jsUtil'										//jsUtil
 		
 	},
 	
@@ -53,34 +53,33 @@ requirejs.config({
 	}
 })
 
+const loadJsList = checkLoadJsLib();
+loadJsList.g_lib.push('/js/web'+location.pathname.replace('.do', '.js'));
 //비동기 호출
-requirejs(checkLoadJs(), function(){
+requirejs(loadJsList.g_lib, function(){
 	//url별로 라이브러리 달리 호출하게 설정.
-	const loadedJsList = arguments;
-	for(let element in loadedJsList){
-		console.log(loadedJsList[element]);
-	}
+	
+	const func = arguments[arguments.length-1];
+	
+	//requirejs(loadJsList.l_lib, func.definition);
+	
 });
 
-function checkLoadJs(){
-		
-	const loadJsList = [
-		'jquery',
-		'jqueryui',
-		'animsition',
-		'popper',
-		'bootstrap' ,
-		'select2',
-		'moment',
-		'daterangepicker',
-		'countdowntime',
-		'setDatepickerKor',
-		'summernote',
-		'summernote_kor',
-		'bAjax',
-		'domUtil',
-		'jsUtil'
-	];		
+//로드해야할 js 라이브러리 확인
+function checkLoadJsLib(){
 	
-	return loadJsList;
+	let jsList = null;
+	
+	const type1 = {
+		g_lib : ['jquery','jqueryui','animsition','popper','bootstrap','select2','moment','daterangepicker','countdowntime','setDatepickerKor',
+			'bAjax','domUtil','jsUtil'],
+		l_lib : ['bAjax','domUtil', 'jsUtil']
+	}		
+	
+	//사용자 인증 관련
+	if(location.pathname.indexOf('/auth')>-1){
+		jsList = type1;
+	}
+	
+	return jsList;
 };
