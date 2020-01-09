@@ -12,7 +12,7 @@
 <link rel="stylesheet" type="text/css" href="/style/login/css/main.css">
 <link rel="stylesheet" type="text/css" href="/js/lib/jquery/jquery-ui.css">
 <link rel="stylesheet" type="text/css" href="/js/lib/summernote/summernote.css">
-
+<script src="/js/common/requireConfig.js"></script>
 <script src="/js/lib/requirejs/require.min.js" data-main="/js/common/main"></script>
 <!-- 
 <script src="/lib/jquery/jquery.min.js" charset="utf-8"></script>

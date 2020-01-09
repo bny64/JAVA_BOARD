@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -46,9 +47,9 @@ public class AuthController extends WebCommonController{
 	@Autowired
 	private PasswordEncoding passwordEncoding;
 	
-	//method ÀÔ·ÂÇÏÁö ¾ÊÀ» ½Ã default°ªÀº GET
-	//·Î±×ÀÎ È­¸é ÀÌµ¿
-	@RequestMapping(value="/login") //·Î±×¾Æ¿ô ½ÇÆĞ ÈÄ ÀÌ ÆäÀÌÁö·Î ÀÌµ¿ÇÏ±â ¶§¹®¿¡ GET, POST ¸ğµÎ ¹Ş¾Æ¾ß ÇÔ.
+	//method ì…ë ¥í•˜ì§€ ì•Šì„ ì‹œ defaultê°’ì€ GET
+	//ë¡œê·¸ì¸ í™”ë©´ ì´ë™
+	@RequestMapping(value="/login") //ë¡œê·¸ì•„ì›ƒ ì‹¤íŒ¨ í›„ ì´ í˜ì´ì§€ë¡œ ì´ë™í•˜ê¸° ë•Œë¬¸ì— GET, POST ëª¨ë‘ ë°›ì•„ì•¼ í•¨.
 	public ModelAndView login(ModelAndView mnv, HttpServletRequest request) throws Exception {		
 		logger.debug("---------- [AuthController]:[login] -----------");		
 				
@@ -62,7 +63,7 @@ public class AuthController extends WebCommonController{
 		return mnv;
 	}
 	
-	//°¡ÀÔ È­¸é ÀÌµ¿
+	//ê°€ì… í™”ë©´ ì´ë™
 	@RequestMapping(value="/join", method = RequestMethod.GET)
 	public ModelAndView join(ModelAndView mnv) throws Exception {
 		logger.debug("---------- [AuthController]:[join] -----------");
@@ -71,7 +72,7 @@ public class AuthController extends WebCommonController{
 		return mnv;
 	}
 	
-	//¾ÆÀÌµğ Áßº¹ Ã¼Å©
+	//ì•„ì´ë”” ì¤‘ë³µ ì²´í¬
 	@RequestMapping(value="/chkValId", method = RequestMethod.POST)
 	public @ResponseBody CommandMap chkValId(CommandMap map) throws Exception {
 		logger.debug("---------- [AuthController]:[chkValId] -----------");
@@ -94,7 +95,7 @@ public class AuthController extends WebCommonController{
 		return comMap;
 	}
 	
-	//ÀÌ¸ŞÀÏ Áßº¹ Ã¼Å©
+	//ì´ë©”ì¼ ì¤‘ë³µ ì²´í¬
 	@RequestMapping(value="/chkValEmail", method = RequestMethod.POST)
 	public @ResponseBody CommandMap chkValEmail(CommandMap map) throws Exception {
 		logger.debug("---------- [AuthController]:[chkValEmail] -----------");		
@@ -117,7 +118,7 @@ public class AuthController extends WebCommonController{
 		return comMap;
 	}
 	
-	//°¡ÀÔ Æû Àü¼Û
+	//ê°€ì… í¼ ì „ì†¡
 	@RequestMapping(value="/join", method = RequestMethod.POST)
 	public String joinForm(ModelAndView mnv, CommandMap map, RedirectAttributes redirectAttr) throws Exception{
 		logger.debug("---------- [AuthController]:[joinForm] -----------");
@@ -155,7 +156,7 @@ public class AuthController extends WebCommonController{
 		return "redirect:/auth/login.do";
 	}
 	
-	//·Î±×ÀÎ Ã³¸®
+	//ë¡œê·¸ì¸ ì²˜ë¦¬
 	//@RequestMapping(value="/login", method = RequestMethod.POST)
 	public String loginForm(CommandMap map, RedirectAttributes redirectAttr, HttpSession session) throws Exception {		
 		logger.debug("---------- [AuthController]:[loginForm] -----------");		
@@ -203,7 +204,7 @@ public class AuthController extends WebCommonController{
 		return "redirect:/index.do";		
 	}
 	
-	//·Î±×¾Æ¿ô
+	//ë¡œê·¸ì•„ì›ƒ
 	
 	//@RequestMapping(value="/logout", method = RequestMethod.POST) public
 	ModelAndView logout(ModelAndView mnv, HttpSession session) throws Exception {

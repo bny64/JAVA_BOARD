@@ -1,5 +1,5 @@
 //class 형식
-define(function(){
+define([], function(){
 	
 	/**
 	 * bAjax.ajaxSend : ajax 전송
@@ -32,7 +32,7 @@ define(function(){
 				token : true, //spring security 토큰값
 				header : 'Content-type', //헤더 타입
 				headerValue : 'application/x-www-form-urlencoded; charset=UTF-8', //헤더 값				
-				dataType:'json',				
+				dataType:'json',
 				error : function(result){
 					const error = that.parseRtnType(result);
 					alert(error.msg);
