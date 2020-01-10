@@ -14,28 +14,30 @@ const requireConfig = {
 
 	// 해당 파일의 경로 baseUrl + / +paths.xxx
 	paths : {
-		jquery : 'lib/jquery/jquery.min', // jquery
-		jqueryui : 'lib/jquery/jquery-ui', // jquery-ui
-		jqueryForm : 'lib/jquery/jquery.form.min', // jquery-form
-		animsition : 'lib/animsition/js/animsition.min', // animsition
-		popper : 'lib/bootstrap/js/popper', // popper
-		bootstrap : 'lib/bootstrap/js/bootstrap', // bootstrap
-		select2 : 'lib/select2/select2.min', // select2
-		moment : 'lib/daterangepicker/moment.min', // moment
-		daterangepicker : 'lib/daterangepicker/daterangepicker', // daterangepicker
-		countdowntime : 'common/countdowntime/countdowntime', // countdowntime
-		setDatepickerKor : 'common/datepicker/setDatepickerKor', // setDatepickerKor
-		summernote : 'lib/summernote/summernote', // summernote
-		summernote_kor : 'lib/summernote/lang/summernote-ko-KR', // summernte-kor
-		bAjax : 'common/util/bAjax', // bAjax
-		domUtil : 'common/util/domUtil', // domUtil
-		jsUtil : 'common/util/jsUtil' // jsUtil
+		jquery : 'lib/jquery/jquery.min', 							// jquery
+		jqueryui : 'lib/jquery/jquery-ui', 							// jquery-ui
+		jqueryForm : 'lib/jquery/jquery.form.min', 					// jquery-form
+		animsition : 'lib/animsition/js/animsition.min', 			// animsition
+		popper : 'lib/bootstrap/js/popper', 						// popper
+		bootstrap : 'lib/bootstrap/js/bootstrap', 					// bootstrap
+		select2 : 'lib/select2/select2.min', 						// select2
+		moment : 'lib/daterangepicker/moment.min', 					// moment
+		daterangepicker : 'lib/daterangepicker/daterangepicker',	// daterangepicker
+		countdowntime : 'common/countdowntime/countdowntime', 		// countdowntime
+		setDatepickerKor : 'common/datepicker/setDatepickerKor',	// setDatepickerKor
+		summernote : 'lib/summernote/summernote', 					// summernote
+		summernote_kor : 'lib/summernote/lang/summernote-ko-KR',	// summernte-kor
+		bAjax : 'common/util/bAjax', 								// bAjax
+		domUtil : 'common/util/domUtil', 							// domUtil
+		jsUtil : 'common/util/jsUtil', 								// jsUtil
+		libFilterUtil : 'common/util/libFilterUtil'					// libFilterUtil
 	},
 
 	// 의존성 설정 deps:['paths에 정의된 이름'] -> 먼저 로드되야 할 파일
 	// exports 전역으로 사용할 파일
-	// 대부분의 라이브러리 파일들은 의존성 체크를 하기 때문에 설정값에 넣어줄 필요가 없음.
-	shim : {
+	// 대부분의 라이브러리 파일들은 의존성 체크[AMD지원]를 하기 때문에 설정값에 넣어줄 필요가 없음.
+	
+	shim : {		
 		// jquery
 		// jqueryui:{deps:['jquery']},
 		// animsition:{deps:['jquery']},
@@ -44,13 +46,16 @@ const requireConfig = {
 		// select2:{deps:['jquery']},
 		// moment
 		// daterangepicker:{deps:['jquery','moment']},
+		// summernote
+		
+		//AMD지원 X
 		countdowntime : {
 			deps : [ 'jquery' ]
 		},
 		setDatepickerKor : {
 			deps : [ 'jquery' ]
 		},
-		// summernote
+		
 		summernote_kor : {
 			deps : [ 'summernote' ]
 		},
