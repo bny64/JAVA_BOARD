@@ -40,8 +40,8 @@ function checkLoadJsLib(){
 		
 		type.g_lib = ['jquery','jqueryui','animsition','popper','bootstrap','select2','moment','daterangepicker','countdowntime','setDatepickerKor', 'bAjax',
 			'domUtil','jsUtil','libFilterUtil'];
-		type.l_lib = ['libFilterUtil', 'jquery', 'bAjax','domUtil' ];
-		type.l_lib_naming = ['type_l_lib를 사용할 변수명 배열 index 1부터', '$', 'bx', 'du'];
+		type.l_lib = 		['libFilterUtil', 						'jquery', 	'bAjax',	'domUtil' ];
+		type.l_lib_naming = ['type_l_lib를 사용할 변수명 배열 index 1부터', 	'$', 		'bx', 		'du'];
 		
 	}else{
 		
