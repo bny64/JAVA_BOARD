@@ -9,7 +9,7 @@ const path = location.pathname.replace('.do', '.js');
 const lsList = checkLoadJsLib();
 
 //전역 함수 추가(순서 중요)
-lsList.g_lib.push('/js/web/globalSvc.js');
+lsList.g_lib.push(checkLoadJsLibTop());
 lsList.g_lib.push(jsFilePath + path);
 
 window.onload = function(){
@@ -19,11 +19,9 @@ window.onload = function(){
 		//url별로 라이브러리 달리 호출하게 설정
 		jQuery.noConflict(true);
 		
-		const func = arguments[arguments.length-1];
+		const func_low = arguments[arguments.length-1]; //최하위 스크립트
 				
-		//로컬		
-		requirejs(lsList.l_lib, func);
-		
+		requirejs(lsList.l_lib, func_low); //최하위 스크립트
 	});
 }
 
@@ -49,3 +47,12 @@ function checkLoadJsLib(){
 	
 	return type;
 };
+
+function checkLoadJsLibTop(){
+	
+	let path = '';
+	
+	if(location.pathname.indexOf('/auth')> -1)	path = '/js/web/top/type_1.js';
+	
+	return path;
+}
