@@ -1,10 +1,18 @@
-//class 형식
+/**
+ * AJAX function
+ * AJAX 함수
+ * */
 define([], function(){
 	
 	/**
-	 * bAjax.ajaxSend : ajax 전송
-	 * bAjax.ajaxSendAll : ajax 병렬 전송
-	 * bAjax.ajaxForm : ajax form 전송
+	 * bAjax.ajaxSend : ajax send
+	 * [bAjax.ajaxSend : ajax 전송]
+	 * 
+	 * bAjax.ajaxSendAll : ajax parallel send
+	 * [bAjax.ajaxSendAll : ajax 병렬 전송]
+	 * 
+	 * bAjax.ajaxForm : ajax form send(It's made by jquery)
+	 * [bAjax.ajaxForm : ajax form 전송]
 	 * */
 	
 	class bAjax {
@@ -12,26 +20,29 @@ define([], function(){
 		constructor(){}
 		
 		/**
-		 * 비동기 호출 함수
-		 * settings값에 callback 함수를 넣어주는 경우 callback 함수 실행
-		 * callback 함수 없는 경우는 promise를 리턴
+		 * asynchronous send function
+		 * [비동기 호출 함수]
+		 * if you input callback function in the settings value, callback function will be excuted
+		 * [settings값에 callback 함수를 넣어주는 경우 callback 함수 실행]
+		 * if there's no callback function, It will return promise
+		 * [callback 함수 없는 경우는 promise를 리턴]
 		 * */
 		ajaxSend(settings){
 						
 			const that = this;
-			let result = {};//결과 값
+			let result = {};//result value
 			const xhr = new XMLHttpRequest();
 			
 			const ajaxSetting = {				
-				type : 'post', //reqeust 타입
+				type : 'post', //reqeust type[reqeust 타입]
 				url : '', //url
-				async : true, //비동기 여부
-				promise : false, //promise 사용 여부
+				async : true, //asynchronous status[비동기 여부]
+				promise : false, //promise usage status[promise 사용 여부]
 				data : {}, //request data
-				mtnData : {}, //유지되는 데이터
-				token : true, //spring security 토큰값
-				header : 'Content-type', //헤더 타입
-				headerValue : 'application/x-www-form-urlencoded; charset=UTF-8', //헤더 값				
+				mtnData : {}, //maintain data[유지되는 데이터]
+				token : true, //spring security token value[spring security 토큰값]
+				header : 'Content-type', //header type[헤더 타입]
+				headerValue : 'application/x-www-form-urlencoded; charset=UTF-8', //header value[헤더 값]	
 				dataType:'json',
 				error : function(result){
 					const error = that.parseRtnType(result);
@@ -113,28 +124,31 @@ define([], function(){
 		}
 		
 		/**
-		 * 비동기 호출 함수(form)
-		 * settings값에 promise로 사용할 경우 promise값을 true 설정(default -> promise : false)
+		 * Form-type asynchronous send function
+		 * [비동기 호출 함수(form)]
+		 * 
+		 * When you use this function by promise, have to set true on promise value(default => promise : false)
+		 * [settings값에 promise로 사용할 경우 promise값을 true 설정(default -> promise : false)]
 		 * */
 		ajaxForm(settings){
 			
-			console.log('ajaxForm은 JQUERY를 사용합니다.');
+			console.log('ENG:ajaxForm is used by JQUERY.\n'+'KOR:ajaxForm은 JQUERY를 사용합니다.\n'+'JPN:ajaxFormはjqueryを用います\n'+'CHN:ajaxForm使用jquery');
 						
 			const that = this;
-			let result = {};//결과 값
+			let result = {};//result value[결과 값]
 			
 			const ajaxSetting = {
-				form : $('#form'), //form 태그
-				type : 'post', //reqeust 타입
+				form : $('#form'), //form tag[form 태그]
+				type : 'post', //request type[reqeust 타입]
 				url : '', //url
-				async : true, //비동기 여부
+				async : true, //asynchronous status[비동기 여부]
 				enctype : 'multipart/form-data',
-				promise : false, //promise 사용 여부
+				promise : false, //promise usage status[promise 사용 여부]
 				data : {}, //request data
-				mtnData : {}, //유지되는 데이터
-				token : true, //spring security 토큰값 설정						
+				mtnData : {}, //maintain data[유지되는 데이터]
+				token : true, //setting of spring security token value[spring security 토큰값 설정]						
 				dataType:'json',
-				beforeSend : function(xhr){ //spring security 토큰
+				beforeSend : function(xhr){ //spring secuirty token[spring security 토큰]
 					const csrfToken = document.querySelector('#_csrf').getAttribute('content');
 					const csrfHeader = document.querySelector('#_csrf_header').getAttribute('content');
 					xhr.setRequestHeader(csrfHeader, csrfToken);
@@ -172,7 +186,8 @@ define([], function(){
 					ajaxSetting.form.submit();					
 				});
 				
-			//proise : false(callback 함수 이용)
+			//proise : false
+			//use callback function(callback 함수 이용)
 			}else{
 				
 				ajaxSetting.success = function(result, textStatus){
@@ -210,10 +225,10 @@ define([], function(){
 			const data = resVal;
 			let returnValue = {};
 			
-			//xhr로 요청할 때
+			//When you send something by xhr[xhr로 요청할 때]
 			if(data.map && typeof data.map !== 'function'){
 				returnValue = data.map;
-			//ajax로 요청할 때
+			//When you send something by ajax[ajax로 요청할 때]
 			}else if(data.responseJSON){
 				returnValue = data.responseJSON.map;
 			//그 외

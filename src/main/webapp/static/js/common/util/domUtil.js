@@ -1,8 +1,13 @@
-//함수 형식
-define(function(){
+/**
+ * DOM control function by vanilla script
+ * */
+define([], function(){
+
+	'use strict';
 	
 	const domUtil = function(){};
 	
+	//add class to element
 	domUtil.prototype.addClass = function(element, clsName){
 		if(element.classList)
 			element.classList.add(clsName);
@@ -10,6 +15,7 @@ define(function(){
 			element.className += ' ' + clsName;
 	};
 	
+	//remove class to element
 	domUtil.prototype.removeClass = function(element, clsName){
 		if(element.classList)
 			element.classList.remove(clsName);
@@ -17,6 +23,7 @@ define(function(){
 			element.className = element.className.replace(new RegExp('(^|\\b)' + clsName.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
 	};
 	
+	//check whether input class exists or not
 	domUtil.prototype.hasClass = function(element, clsName){
 		
 		let result = false;
@@ -33,4 +40,5 @@ define(function(){
 	}
 	
 	return new domUtil();
+	
 });

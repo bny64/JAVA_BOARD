@@ -1,58 +1,53 @@
+//set envirment in requirejs[requirejs 환경설정 셋팅]
 require.config(requireConfig);
 
-//js 전역 파일 경로
+//js path[js 경로]
 const jsFilePath = '/js/web';
 
-//js 파일 경로
-const path = location.pathname.replace('.do', '.js');
+//top file path[1단계 파일 경로]
+const top_path = '/globalSvc.js';
 
 const lsList = checkLoadJsLib();
 
-//전역 함수 추가(순서 중요)
-lsList.g_lib.push(checkLoadJsLibTop());
-lsList.g_lib.push(jsFilePath + path);
+//add top definition[1단계 defintion 추가]
+lsList.lib.push(jsFilePath + top_path);
 
 window.onload = function(){
-	//비동기 호출
-	requirejs(lsList.g_lib, function(){
+	
+	//asynchronous send[비동기 호출]
+	requirejs(lsList.lib, function(){
 		
-		//url별로 라이브러리 달리 호출하게 설정
+		//prevent usage of jquery in global scope[jquery가 전역에서 사용되는 것을 방지]
 		jQuery.noConflict(true);
+
+		//valuePipe
+		let vp = arguments[0].getGlobalVal();
 		
-		const func_low = arguments[arguments.length-1]; //최하위 스크립트
+		//top definition[1단계 definition]
+		const func_top = arguments[arguments.length-1];
 				
-		requirejs(lsList.l_lib, func_low); //최하위 스크립트
+		lsList.top_lib[0].push(jsFilePath + vp.middle_path);
+		
+		requirejs(lsList.top_lib[0], func_top);
+		
 	});
 }
 
-//로드해야할 js 라이브러리 확인
+//check libraries to load[로드해야할 js 라이브러리 확인]
 function checkLoadJsLib(){
 	
-	const type = {
-		g_lib : null,		//전역 라이브러리
-		l_lib : null, 		//로컬 라이브러리
-		l_lib_naming : []   //로컬 라이브러리 이름
-	};
+	let type;
 		
 	if(location.pathname.indexOf('/auth')>-1){
-		
-		type.g_lib = ['jquery','jqueryui','animsition','popper','bootstrap','select2','moment','daterangepicker','countdowntime','setDatepickerKor', 'bAjax',
-			'domUtil','jsUtil','libFilterUtil'];
-		type.l_lib = 		['libFilterUtil', 						'jquery', 	'bAjax',	'domUtil' ];
-		type.l_lib_naming = ['type_l_lib를 사용할 변수명 배열 index 1부터', 	'$', 		'bx', 		'du'];
-		
+		type = {
+			lib : ['valuePipe', 'jquery','jqueryui','animsition','popper','bootstrap','select2','moment','daterangepicker','countdowntime','setDatepickerKor'],
+			top_lib : [['valuePipe', 'libFilterTop', 'bAjax','jsUtil'],['', '', 'bx', 'ju']], 			//top
+			mid_lib : [['valuePipe', 'libFilterMid'],['','']],											//mid
+			bot_lib : [['valuePipe', 'libFilterBot','jquery','bAjax','domUtil'],['','','$','bx','du']]	//bottom
+		}
 	}else{
 		
 	}
 	
 	return type;
 };
-
-function checkLoadJsLibTop(){
-	
-	let path = '';
-	
-	if(location.pathname.indexOf('/auth')> -1)	path = '/js/web/top/type_1.js';
-	
-	return path;
-}
