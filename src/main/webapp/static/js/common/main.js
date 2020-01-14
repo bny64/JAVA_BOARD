@@ -36,16 +36,23 @@ window.onload = function(){
 //check libraries to load[로드해야할 js 라이브러리 확인]
 function checkLoadJsLib(){
 	
-	let type;
+	let type = {
+			top_lib : [['valuePipe', 'libFilterTop', 'bAjax','jsUtil'],['', '', 'bx', 'ju']]				//top
+	};
 		
 	if(location.pathname.indexOf('/auth')>-1){
-		type = {
-			lib : ['valuePipe', 'jquery','jqueryui','animsition','popper','bootstrap','select2','moment','daterangepicker','countdowntime','setDatepickerKor'],
-			top_lib : [['valuePipe', 'libFilterTop', 'bAjax','jsUtil'],['', '', 'bx', 'ju']], 			//top
-			mid_lib : [['valuePipe', 'libFilterMid'],['','']],											//mid
-			bot_lib : [['valuePipe', 'libFilterBot','jquery','bAjax','domUtil'],['','','$','bx','du']]	//bottom
-		}
-	}else{
+		
+		type.lib = ['valuePipe', 'jquery','jqueryui','animsition','popper','bootstrap','select2','moment','daterangepicker','countdowntime','setDatepickerKor'];
+		type.mid_lib = [['valuePipe', 'libFilterMid'],['','']];												//middle
+		type.bot_lib = [['valuePipe', 'libFilterBot','jquery','bAjax','domUtil'],['','','$','bx','du']];	//bottom
+		
+	}else if(location.pathname.indexOf('/board')>-1){
+		
+		type.lib = ['valuePipe','jquery','jqueryui', 'backtotop', 'popper', 'bootstrap','summernote'];
+		type.mid_lib = [['valuePipe', 'libFilterMid'],['','']];												//middle
+		type.bot_lib = [['valuePipe', 'libFilterBot','jquery','bAjax'],['','','$','bx']];					//bottom
+		
+	}else if(location.pathname.indexOf('/index')>-1){
 		
 	}
 	

@@ -34,4 +34,3 @@
 		</form>
 	</main>
 </div>
-<script src="/js/web/board/registBoard.js"></script>

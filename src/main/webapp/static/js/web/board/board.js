@@ -10,9 +10,7 @@ define([], function(){
 		let vp = arguments[0].getGlobalVal();
 		
 		//----------FUNCTION SCOPE----------
-		const msg = document.querySelector('#msg');
 		
-		if(msg !== null && msg.value !== null && msg.value !== '') alert(msg);
 		//----------FUNCTION SCOPE---------
 		
 		//bottom definition[3단계 definition]

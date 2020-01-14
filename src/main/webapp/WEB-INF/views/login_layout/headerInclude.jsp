@@ -14,18 +14,3 @@
 <link rel="stylesheet" type="text/css" href="/js/lib/summernote/summernote.css">
 <script src="/js/common/requireConfig.js"></script>
 <script src="/js/lib/requirejs/require.min.js" data-main="/js/common/main"></script>
-<!-- 
-<script src="/lib/jquery/jquery.min.js" charset="utf-8"></script>
-<script src="/lib/jquery/jquery-ui.js"></script>
-<script src="/lib/animsition/js/animsition.min.js"></script>
-<script src="/lib/bootstrap/js/popper.js"></script>
-<script src="/lib/bootstrap/js/bootstrap.min.js"></script>
-<script src="/lib/select2/select2.min.js"></script>
-<script src="/lib/daterangepicker/moment.min.js"></script>
-<script src="/lib/daterangepicker/daterangepicker.js"></script>
-<script src="/js/common/countdowntime/countdowntime.js"></script>
-<script src="/js/common/datepicker/setDatepickerKor.js"></script>
-<script src="/js/common/util/bAjax.js"></script>
-<script src="/js/common/util/domUtil.js"></script>
-<script src="/js/common/util/jsUtil.js"></script>
-<script src=/lib/summernote/summernote.js></script> -->

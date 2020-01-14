@@ -7,16 +7,17 @@ Licence: Free to use under our free template licence terms
 Licence URI: https://www.os-templates.com/template-terms
 File: Back to Top JS
 */
-
-jQuery("#backtotop").click(function () {
-    jQuery("body,html").animate({
-        scrollTop: 0
-    }, 600);
-});
-jQuery(window).scroll(function () {
-    if (jQuery(window).scrollTop() > 150) {
-        jQuery("#backtotop").addClass("visible");
-    } else {
-        jQuery("#backtotop").removeClass("visible");
-    }
+define(['jquery'], function($){
+	$("#backtotop").click(function () {
+	    jQuery("body,html").animate({
+	        scrollTop: 0
+	    }, 600);
+	});
+	$(window).scroll(function () {
+	    if ($(window).scrollTop() > 150) {
+	        $("#backtotop").addClass("visible");
+	    } else {
+	        $("#backtotop").removeClass("visible");
+	    }
+	});
 });
