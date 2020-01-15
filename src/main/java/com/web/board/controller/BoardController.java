@@ -40,15 +40,16 @@ public class BoardController extends WebCommonController{
 	
 	//method 입력하지 않을 시 default값은 GET
 	@RequestMapping(value="/boardList", method = RequestMethod.GET)
-	public ModelAndView index(ModelAndView mnv) throws Exception{
-		logger.debug("---------- BoardController boardList -----------");		
+	public ModelAndView boardList(ModelAndView mnv) throws Exception{
+		logger.debug("---------- BoardController boardList -----------");
+						
 		mnv.setViewName("board/boardList");
 		
 		return mnv;
 	}
 	
 	@RequestMapping(value="/registBoard", method = RequestMethod.GET)
-	public ModelAndView writeBoard(ModelAndView mnv) throws Exception{
+	public ModelAndView registBoard(ModelAndView mnv) throws Exception{
 		logger.debug("---------- BoardController boardList -----------");		
 		mnv.setViewName("board/registBoard");
 		
@@ -60,7 +61,7 @@ public class BoardController extends WebCommonController{
 		
 		CommandMap comMap = new CommandMap();
 		User user = null;
-		Board board = new Board();
+		Board board = new Board();		
 		String[] msg;
 		
 		String passwordYn = reqMap.get("passYn").toString();
@@ -76,19 +77,36 @@ public class BoardController extends WebCommonController{
 		board.setUser(user);
 		board.setId(user.getId());
 		board.setName(user.getName());
-		
+		 
 		List<HashMap<String, String>> fileList = fileUtil.saveFiles("1", reqMap.getMap());
 		
 		//게시판 이미지는 한 개만 저장 가능
-		if(fileList.size()>0) {
+		if(fileList.size() > 0) {
 			board.setImgFilePath(fileList.get(0).get("imgFilePath"));		
 			board.setFileName(fileList.get(0).get("fileName"));		
 			board.setOrgFileName(fileList.get(0).get("orgFileName"));
-		}		
+		}
 		
 		boardService.registBoard(board);
 		
 		msg = MsgList.getInstance().getCodeMessage(MsgCode.InsertSuccess);
+		comMap.put("msgCode", msg[0]);
+		comMap.put("msg", msg[1]);
+		
+		return comMap;
+	}
+	
+	@RequestMapping(value="/boardList",  method=RequestMethod.POST)
+	public @ResponseBody CommandMap boardList(CommandMap reqMap) throws Exception {
+		CommandMap comMap = new CommandMap();
+		String[] msg;
+		
+		//추후 옵션값 추가 될 예정. 비밀번호, 보이기 옵션 등		
+		
+		List<Board> boards = boardService.getBoardList(reqMap.getMap());
+		comMap.put("boards", boards);
+		
+		msg = MsgList.getInstance().getCodeMessage(MsgCode.SelectSuccess);
 		comMap.put("msgCode", msg[0]);
 		comMap.put("msg", msg[1]);
 		

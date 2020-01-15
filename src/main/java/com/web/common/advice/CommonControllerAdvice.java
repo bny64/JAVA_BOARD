@@ -34,8 +34,8 @@ public class CommonControllerAdvice {
 		CommandMap comMap = new CommandMap();
 		String[] msg;
 		
-		String acceptHeader = request.getContentType();
-			
+		//String acceptHeader = request.getContentType();
+				
 		e.printStackTrace();
 		msg = MsgList.getInstance().getCodeMessage(MsgCode.RequestError);
 		comMap.put("msgCode", msg[0]);

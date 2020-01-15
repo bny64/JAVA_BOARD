@@ -18,20 +18,34 @@ import javax.persistence.TemporalType;
 
 import com.web.auth.domain.User;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 @Table(name="board")
 public class Board implements Serializable{
 	
 	private static final long serialVersionUID = -7363117729121436953L;
 	
+	public Board(String id, String name, Date createdAt, Date updatedAt, String contents, String title) {
+		this.id = id;
+		this.name = name;
+		this.createdAt = createdAt;
+		this.updatedAt = updatedAt;
+		this.contents = contents;
+		this.title = title;		
+	}
+	
 	@Id	
 	@Column(name = "listNo", nullable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int listNo;
-		
+	
+	
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name="userKey", columnDefinition = "VARCHAR(100)", nullable = false)
 	private User user;

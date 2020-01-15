@@ -50,4 +50,3 @@
     <div class="clear"></div>
   </main>
 </div>
-<script src="/js/web/board/boardList.js"></script>

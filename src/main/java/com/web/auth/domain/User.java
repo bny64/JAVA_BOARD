@@ -43,7 +43,7 @@ public class User implements Serializable{
 	};
 	
 	public User(String id, String email, String password, String name, String joinType, String userType, String userKey) {
-		super();
+		//super();
 		this.id = id;		
 		this.email = email;
 		this.password = password;
