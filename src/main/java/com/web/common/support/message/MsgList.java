@@ -11,62 +11,62 @@ public class MsgList {
 		
 		String[] msg = new String[2];
 		msg[0] = "S0000";
-		msg[1] = "Á¶È¸ ¼º°ø ÇÏ¾ú½À´Ï´Ù.";
+		msg[1] = "ì¡°íšŒ ì„±ê³µ í•˜ì—ˆìŠµë‹ˆë‹¤.";
 		msgList.put(MsgCode.SelectSuccess, msg);
 		
 		msg = new String[2];
 		msg[0] = "S0001";
-		msg[1] = "Á¶È¸ ½ÇÆĞ ÇÏ¿´½À´Ï´Ù.";
+		msg[1] = "ì¡°íšŒ ì‹¤íŒ¨ í•˜ì˜€ìŠµë‹ˆë‹¤.";
 		msgList.put(MsgCode.SelectFail, msg);
 		
 		msg = new String[2];
 		msg[0] = "I0000";
-		msg[1] = "ÀÔ·Â ¼º°ø ÇÏ¿´½À´Ï´Ù.";
+		msg[1] = "ì…ë ¥ ì„±ê³µ í•˜ì˜€ìŠµë‹ˆë‹¤.";
 		msgList.put(MsgCode.InsertSuccess, msg);
 		
 		msg = new String[2];
 		msg[0] = "I0001";
-		msg[1] = "ÀÔ·Â ½ÇÆĞ ÇÏ¿´½À´Ï´Ù.";
+		msg[1] = "ì…ë ¥ ì‹¤íŒ¨ í•˜ì˜€ìŠµë‹ˆë‹¤.";
 		msgList.put(MsgCode.InsertFail, msg);
 		
 		msg = new String[2];
 		msg[0] = "AC0000";
-		msg[1] = "»ç¿ë°¡´ÉÇÑ ID ÀÔ´Ï´Ù.";
+		msg[1] = "ì‚¬ìš©ê°€ëŠ¥í•œ ID ì…ë‹ˆë‹¤.";
 		msgList.put(MsgCode.ValidateId, msg);
 		
 		msg = new String[2];
 		msg[0] = "AC0001";
-		msg[1] = "ID°¡ Áßº¹µË´Ï´Ù.";
+		msg[1] = "IDê°€ ì¤‘ë³µë©ë‹ˆë‹¤.";
 		msgList.put(MsgCode.DuplicateId, msg);
 		
 		msg = new String[2];
 		msg[0] = "EM0000";
-		msg[1] = "»ç¿ë°¡´ÉÇÑ ÀÌ¸ŞÀÏ ÀÔ´Ï´Ù.";
+		msg[1] = "ì‚¬ìš©ê°€ëŠ¥í•œ ì´ë©”ì¼ ì…ë‹ˆë‹¤.";
 		msgList.put(MsgCode.ValidateEmail, msg);
 		
 		msg = new String[2];
 		msg[0] = "EM0001";
-		msg[1] = "ÀÌ¸ŞÀÏÀÌ Áßº¹µË´Ï´Ù.";
+		msg[1] = "ì´ë©”ì¼ì´ ì¤‘ë³µë©ë‹ˆë‹¤.";
 		msgList.put(MsgCode.DuplicateEmail, msg);
 		
 		msg = new String[2];
 		msg[0] = "JN0000";
-		msg[1] = "Á¤»óÀûÀ¸·Î °¡ÀÔµÇ¾ú½À´Ï´Ù.";
+		msg[1] = "ì •ìƒì ìœ¼ë¡œ ê°€ì…ë˜ì—ˆìŠµë‹ˆë‹¤.";
 		msgList.put(MsgCode.SuccessJoin, msg);
 		
 		msg = new String[2];
 		msg[0] = "LG0001";
-		msg[1] = "¾ÆÀÌµğ È¤Àº ºñ¹Ğ¹øÈ£°¡ ¸ÂÁö ¾Ê½À´Ï´Ù.";
+		msg[1] = "ì•„ì´ë”” í˜¹ì€ ë¹„ë°€ë²ˆí˜¸ê°€ ë§ì§€ ì•ŠìŠµë‹ˆë‹¤.";
 		msgList.put(MsgCode.NullUser, msg);
 		
 		msg = new String[2];
 		msg[0] = "LG0001";
-		msg[1] = "·Î±×ÀÎ ¼º°øÇß½À´Ï´Ù.";
+		msg[1] = "ë¡œê·¸ì¸ ì„±ê³µí–ˆìŠµë‹ˆë‹¤.";
 		msgList.put(MsgCode.SuccessLogin, msg);
 		
 		msg = new String[2];
 		msg[0] = "RQ0001";
-		msg[1] = "¿äÃ» Áß ¿¡·¯°¡ ¹ß»ıÁ™½À´Ï´Ù.";
+		msg[1] = "ìš”ì²­ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒÂ™ìŠµë‹ˆë‹¤.";
 		msgList.put(MsgCode.RequestError, msg);
 	}
 	

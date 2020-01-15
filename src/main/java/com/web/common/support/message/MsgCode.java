@@ -3,84 +3,84 @@ package com.web.common.support.message;
 public enum MsgCode {
 	
 	/**
-	 * ÀÔ·Â ¼º°ø
+	 * ì…ë ¥ ì„±ê³µ
 	 * @see
 	 * I0000
 	 * */
 	InsertSuccess,
 	
 	/**
-	 * ÀÔ·Â ½ÇÆĞ
+	 * ì…ë ¥ ì‹¤íŒ¨
 	 * @see
 	 * I0001
 	 * */	
 	InsertFail,
 	
 	/**
-	 * Á¶È¸ ¼º°ø
+	 * ì¡°íšŒ ì„±ê³µ
 	 * @see
 	 * S0000
 	 * */
 	SelectSuccess,
 	
 	/**
-	 * Á¶È¸ ½ÇÆĞ
+	 * ì¡°íšŒ ì‹¤íŒ¨
 	 * @see
 	 * S0001
 	 * */
 	SelectFail,
 	
 	/**
-	 * id »ç¿ë°¡´É
+	 * id ì‚¬ìš©ê°€ëŠ¥
 	 * @see
 	 * AC0000
 	 * */
 	ValidateId,
 	
 	/**
-	 * id Áßº¹
+	 * id ì¤‘ë³µ
 	 * @see
 	 * AC0001
 	 * */
 	DuplicateId,
 	
 	/**
-	 * email »ç¿ë°¡´É
+	 * email ì‚¬ìš©ê°€ëŠ¥
 	 * @see
 	 * EM0000
 	 * */
 	ValidateEmail,
 	
 	/**
-	 * email Áßº¹
+	 * email ì¤‘ë³µ
 	 * @see
 	 * EM0001
 	 * */
 	DuplicateEmail,
 	
 	/**
-	 * °¡ÀÔ ¼º°ø
+	 * ê°€ì… ì„±ê³µ
 	 * @see
 	 * JN0000
 	 * */
 	SuccessJoin,
 	
 	/**
-	 * ·Î±×ÀÎ ¼º°ø
+	 * ë¡œê·¸ì¸ ì„±ê³µ
 	 * @see
 	 * LG0000
 	 * */
 	SuccessLogin,
 	
 	/**
-	 * ÇØ´ç »ç¿ëÀÚ ¾øÀ½
+	 * í•´ë‹¹ ì‚¬ìš©ì ì—†ìŒ
 	 * @see
 	 * LG0001
 	 * */
 	NullUser,
 	
 	/**
-	 * ¿äÃ» Áß ¿¡·¯
+	 * ìš”ì²­ ì¤‘ ì—ëŸ¬
 	 * @see
 	 * RQ0001
 	 * */

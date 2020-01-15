@@ -37,22 +37,30 @@ window.onload = function(){
 function checkLoadJsLib(){
 	
 	let type = {
-			top_lib : [['valuePipe', 'libFilterTop', 'bAjax','jsUtil'],['', '', 'bx', 'ju']]				//top
+			top_lib : [['valuePipe', 'libFilter', 'bAjax','jsUtil'],['', '', 'bx', 'ju']]				//top
 	};
+	
+	let first_url;
+	
+	if(location.pathname.indexOf('/',1) > -1) first_url = location.pathname.substring(0, location.pathname.indexOf('/',1));
+	else first_url = location.pathname.substring(0, location.pathname.indexOf('.'));
+	
+	if(/^\/(index)$/.test(first_url)){
 		
-	if(location.pathname.indexOf('/auth')>-1){
+		type.lib = ['valuePipe', 'jquery', 'jqueryui', 'backtotop', 'popper', 'bootstrap', 'summernote'];
+		type.mid_lib = [['valuePipe', 'libFilter'],['','']];
+		
+	}else if(/^\/(auth)$/.test(first_url)){
 		
 		type.lib = ['valuePipe', 'jquery','jqueryui','animsition','popper','bootstrap','select2','moment','daterangepicker','countdowntime','setDatepickerKor'];
-		type.mid_lib = [['valuePipe', 'libFilterMid'],['','']];												//middle
-		type.bot_lib = [['valuePipe', 'libFilterBot','jquery','bAjax','domUtil'],['','','$','bx','du']];	//bottom
+		type.mid_lib = [['valuePipe', 'libFilter'],['','']];												//middle
+		type.bot_lib = [['valuePipe', 'libFilter','jquery','bAjax','domUtil'],['','','$','bx','du']];		//bottom
 		
-	}else if(location.pathname.indexOf('/board')>-1){
+	}else if(/^\/(board)$/.test(first_url)){
 		
 		type.lib = ['valuePipe','jquery','jqueryui', 'backtotop', 'popper', 'bootstrap','summernote'];
-		type.mid_lib = [['valuePipe', 'libFilterMid'],['','']];												//middle
-		type.bot_lib = [['valuePipe', 'libFilterBot','jquery','bAjax'],['','','$','bx']];					//bottom
-		
-	}else if(location.pathname.indexOf('/index')>-1){
+		type.mid_lib = [['valuePipe', 'libFilter'],['','']];												//middle
+		type.bot_lib = [['valuePipe', 'libFilter','jquery','bAjax'],['','','$','bx']];						//bottom
 		
 	}
 	

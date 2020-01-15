@@ -23,15 +23,15 @@ public class CustomUserDetailService implements UserDetailsService{
 	
 	@Override
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException, PersistenceException {
-		//±ÇÇÑÁ¤º¸°¡ ÀÖ´Â CustomUserDetails
+		//ê¶Œí•œì •ë³´ê°€ ìˆëŠ” CustomUserDetails
 		CustomUserDetails userDetail = null;
 		
 		List<User> listUser = null;
-		//ÀÌ¸ŞÀÏ·Î »ç¿ëÀÚ °Ë»ö
+		//ì´ë©”ì¼ë¡œ ì‚¬ìš©ì ê²€ìƒ‰
 		
 		listUser = securityService.selectByEmail(email);
 		
-		//»ç¿ëÀÚ°¡ °Ë»öµÇ¸é
+		//ì‚¬ìš©ìê°€ ê²€ìƒ‰ë˜ë©´
 		if(listUser.size() > 0) {
 			
 			List<String> listAuth = new ArrayList<String>();
@@ -41,14 +41,14 @@ public class CustomUserDetailService implements UserDetailsService{
 			
 			userDetail = new CustomUserDetails(user);
 			
-			//±ÇÇÑ Á¤º¸ Á¶È¸
+			//ê¶Œí•œ ì •ë³´ ì¡°íšŒ
 			userAuthority = securityService.selectAuth(userDetail.getId());
 						
-			//±ÇÇÑÀÌ ¾øÀ» °æ¿ì
+			//ê¶Œí•œì´ ì—†ì„ ê²½ìš°
 			if(userAuthority.getAuthority().length()<1) {
 				
 				userDetail.setAuthorities(null);
-			//±ÇÇÑÀÌ ÀÖÀ» °æ¿ì
+			//ê¶Œí•œì´ ìˆì„ ê²½ìš°
 			}else {
 				String[] authorities = userAuthority.getAuthority().split(",");
 				
@@ -59,7 +59,7 @@ public class CustomUserDetailService implements UserDetailsService{
 				listGranted = makeGrantedAuthority(listAuth);
 				userDetail.setAuthorities(listGranted);
 			}
-			//°èÁ¤ Àá±è ¿©ºÎ
+			//ê³„ì • ì ê¹€ ì—¬ë¶€
 			userDetail.setEnabled("Y".equals(userAuthority.getEnabled()) ? true : false);
 			
 		}else {

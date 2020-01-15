@@ -5,7 +5,7 @@ define([], function(){
 	function Module(){
 		
 		const vp = arguments[0].getGlobalVal();
-		const pandora = new arguments[1](arguments);
+		const pandora = new arguments[1]('bot', arguments);
 		
 		let reqParam;
 		
@@ -47,7 +47,7 @@ define([], function(){
 			if(!validateCheck()) return;
 			
 			pandora.bx.ajaxForm({
-				form : $('#registBoardForm'),
+				form : pandora.$('#registBoardForm'),
 				url : '/board/registBoard.do',
 				promise : true			
 			}).then(function(result){

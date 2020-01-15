@@ -30,7 +30,7 @@ public class CommonFilter implements Filter{
 		String contentType = request.getContentType();
 		
 		if(contentType != null) {
-			//¿äÃ»ÀÌ jsonÀÎ °æ¿ì
+			//ìš”ì²­ì´ jsonì¸ ê²½ìš°
 			if(contentType.contains("application/json")) {
 				
 				StringBuffer sb = new StringBuffer(); 
@@ -44,7 +44,7 @@ public class CommonFilter implements Filter{
 				request.setAttribute("jsonReqCheck", true);
 				request.setAttribute("jsonReqInfo", new JSONObject(sb.toString()));
 				
-			//ÆÄÀÏÀÌ Æ÷ÇÔ µÆÀ» ¶§
+			//íŒŒì¼ì´ í¬í•¨ ëì„ ë•Œ
 			}else if(contentType.contains("multipart/form-data")){
 				
 				request.setAttribute("multiReqCheck", true);				

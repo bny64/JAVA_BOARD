@@ -21,7 +21,7 @@ public class PasswordEncoding implements PasswordEncoder {
 		this.passwordEncoder = passwordEncoder;
 	}
 
-	//salt »ı¼º
+	//salt ìƒì„±
 	public String generateSalt() {
 		
 		logger.debug("---------- [Security]:[generateSalt] -----------");
@@ -32,14 +32,14 @@ public class PasswordEncoding implements PasswordEncoder {
 		
 		StringBuffer sb = new StringBuffer();
         for (int i = 0; i < salt.length; i++) {
-            // byte °ªÀ» Hex °ªÀ¸·Î ¹Ù²Ù±â.
+            // byte ê°’ì„ Hex ê°’ìœ¼ë¡œ ë°”ê¾¸ê¸°.
             sb.append(String.format("%02x",salt[i]));
         }
         
         return sb.toString();
 	}
 	
-	//SHA256 ¾ÏÈ£È­
+	//SHA256 ì•”í˜¸í™”
 	public String getEncrypt(String source, String strSalt) throws Exception{
 		
 		logger.debug("---------- [Security]:[getEncrypt] -----------");

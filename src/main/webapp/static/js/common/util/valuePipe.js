@@ -7,10 +7,18 @@
 define([], function(){
 	
 	const globalVal = {};
+	let getMidPath;
 	
 	//middle file path[2단계 파일 경로]
-	const getMidPath = location.pathname.substring(0, location.pathname.indexOf('/', 1));
-	globalVal.middle_path = getMidPath + getMidPath + '.js';
+	if(location.pathname.indexOf('/', 1) > -1){
+		getMidPath = location.pathname.substring(0, location.pathname.indexOf('/', 1));
+		globalVal.middle_path = getMidPath + getMidPath + '.js';
+	}else{
+		getMidPath = location.pathname.replace('.do', '.js')
+		globalVal.middle_path = getMidPath;
+	}
+		
+	
 	
 	//bottom file path[3단계 파일 경로]
 	globalVal.bottom_path = location.pathname.replace('.do', '.js');

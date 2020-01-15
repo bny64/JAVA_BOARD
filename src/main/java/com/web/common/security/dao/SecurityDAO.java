@@ -22,20 +22,20 @@ public class SecurityDAO extends CommonDAO{
 
 	public List<User> selectByEmail(String email) throws PersistenceException {
 		SessionFactory sf = sessionFactory;
-		//sessionFactory¿¡¼­ CriteriaBuilder¸¦ °¡Á®¿Â´Ù.		
+		//sessionFactoryì—ì„œ CriteriaBuilderë¥¼ ê°€ì ¸ì˜¨ë‹¤.		
 		CriteriaBuilder cb = sf.getCurrentSession().getCriteriaBuilder();
 		
-		//CriteriaBuilder·ÎºÎÅÍ CriteriaQuery°´Ã¼¸¦ °¡Á®¿Â´Ù.
-		//¹İÈ¯Å¸ÀÔÀ» ¾Ë ¼ö ¾ø´Ù¸é Á¦³×¸¯Å¸ÀÔÀ» Object·Î ÁØ´Ù.
-		CriteriaQuery<User> cr = cb.createQuery(User.class); //createQuery »ı¼º
+		//CriteriaBuilderë¡œë¶€í„° CriteriaQueryê°ì²´ë¥¼ ê°€ì ¸ì˜¨ë‹¤.
+		//ë°˜í™˜íƒ€ì…ì„ ì•Œ ìˆ˜ ì—†ë‹¤ë©´ ì œë„¤ë¦­íƒ€ì…ì„ Objectë¡œ ì¤€ë‹¤.
+		CriteriaQuery<User> cr = cb.createQuery(User.class); //createQuery ìƒì„±
 		
-		//Á¶È¸ÀÇ ½ÃÀÛÁ¡À» ¶æÇÏ´Â Root°´Ã¼ »ı¼º(Root´Â ¿µ¼ÓÀû ¿£Æ¼Æ¼¸¦ Ç¥½ÃÇÏ´Â Äõ¸® Ç¥Çö½Ä)
+		//ì¡°íšŒì˜ ì‹œì‘ì ì„ ëœ»í•˜ëŠ” Rootê°ì²´ ìƒì„±(RootëŠ” ì˜ì†ì  ì—”í‹°í‹°ë¥¼ í‘œì‹œí•˜ëŠ” ì¿¼ë¦¬ í‘œí˜„ì‹)
 		Root<User> root = cr.from(User.class);
 		
-		//°Ë»öÁ¶°Ç Á¤ÀÇ
+		//ê²€ìƒ‰ì¡°ê±´ ì •ì˜
 		Predicate restrictions = cb.equal(root.get("email"), email);
 		
-		//Äõ¸®
+		//ì¿¼ë¦¬
 		cr.select(root)
 			.where(restrictions);
 		

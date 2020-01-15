@@ -21,7 +21,7 @@ public class CustomUserDetails extends User implements UserDetails{
 	private Collection<? extends GrantedAuthority> authorities;
 	private boolean enabled;	
 	
-	//°èÁ¤ÀÌ °®°íÀÖ´Â ±ÇÇÑ ¸ñ·ÏÀ» ¸®ÅÏÇÑ´Ù.
+	//ê³„ì •ì´ ê°–ê³ ìˆëŠ” ê¶Œí•œ ëª©ë¡ì„ ë¦¬í„´í•œë‹¤.
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {		    
 	     return authorities;
@@ -31,42 +31,42 @@ public class CustomUserDetails extends User implements UserDetails{
 		this.authorities = authorities;
 	}
 	
-	//°èÁ¤ÀÇ ºñ¹Ğ¹øÈ£¸¦ ¸®ÅÏÇÑ´Ù.
+	//ê³„ì •ì˜ ë¹„ë°€ë²ˆí˜¸ë¥¼ ë¦¬í„´í•œë‹¤.
 	@Override
 	public String getPassword() {
 		// TODO Auto-generated method stub
 		return super.getPassword();
 	}
 
-	//°èÁ¤ÀÇ ÀÌ¸§À» ¸®ÅÏÇÑ´Ù.
+	//ê³„ì •ì˜ ì´ë¦„ì„ ë¦¬í„´í•œë‹¤.
 	@Override
 	public String getUsername() {
 		// TODO Auto-generated method stub
 		return super.getEmail();
 	}
 
-	//°èÁ¤ÀÌ ¸¸·áµÇÁö ¾Ê¾Ò´Â Áö ¸®ÅÏÇÑ´Ù. (true: ¸¸·á¾ÈµÊ)
+	//ê³„ì •ì´ ë§Œë£Œë˜ì§€ ì•Šì•˜ëŠ” ì§€ ë¦¬í„´í•œë‹¤. (true: ë§Œë£Œì•ˆë¨)
 	@Override
 	public boolean isAccountNonExpired() {
 		// TODO Auto-generated method stub
 		return true;
 	}
 
-	//°èÁ¤ÀÌ Àá°ÜÀÖÁö ¾Ê¾Ò´Â Áö ¸®ÅÏÇÑ´Ù. (true: Àá±âÁö ¾ÊÀ½)
+	//ê³„ì •ì´ ì ê²¨ìˆì§€ ì•Šì•˜ëŠ” ì§€ ë¦¬í„´í•œë‹¤. (true: ì ê¸°ì§€ ì•ŠìŒ)
 	@Override
 	public boolean isAccountNonLocked() {
 		// TODO Auto-generated method stub
 		return true;
 	}
 
-	//ºñ¹Ğ¹øÈ£°¡ ¸¸·áµÇÁö ¾Ê¾Ò´Â Áö ¸®ÅÏÇÑ´Ù. (true: ¸¸·á¾ÈµÊ)
+	//ë¹„ë°€ë²ˆí˜¸ê°€ ë§Œë£Œë˜ì§€ ì•Šì•˜ëŠ” ì§€ ë¦¬í„´í•œë‹¤. (true: ë§Œë£Œì•ˆë¨)
 	@Override
 	public boolean isCredentialsNonExpired() {
 		// TODO Auto-generated method stub
 		return true;
 	}
 
-	//°èÁ¤ÀÌ È°¼ºÈ­(»ç¿ë°¡´É)ÀÎ Áö ¸®ÅÏÇÑ´Ù. (true: È°¼ºÈ­)
+	//ê³„ì •ì´ í™œì„±í™”(ì‚¬ìš©ê°€ëŠ¥)ì¸ ì§€ ë¦¬í„´í•œë‹¤. (true: í™œì„±í™”)
 	@Override
 	public boolean isEnabled() {
 		// TODO Auto-generated method stub

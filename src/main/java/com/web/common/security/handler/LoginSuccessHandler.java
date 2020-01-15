@@ -33,7 +33,7 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler{
 			Authentication authentication) throws IOException, ServletException {
 		// TODO Auto-generated method stub
 		
-		//spring security¿¡¼­ message¸¦ ¼¼¼Ç¿¡ ´ã±â ¶§¹®¿¡ »èÁ¦
+		//spring securityì—ì„œ messageë¥¼ ì„¸ì…˜ì— ë‹´ê¸° ë•Œë¬¸ì— ì‚­ì œ
 		request.removeAttribute(WebAttributes.AUTHENTICATION_EXCEPTION);
 		
 		 redirectStratgy.sendRedirect(request, response, defaultSuccessUrl);

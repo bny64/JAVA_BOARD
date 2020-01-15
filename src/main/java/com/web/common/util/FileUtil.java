@@ -24,7 +24,7 @@ public class FileUtil {
 	
 	/*
 	 * @Value("${pathInfo}")
-	 * private static Å¸ÀÔ º¯¼ö -> ÀÌ Çü½ÄÀº @Value »ç¿ëÇÒ ¼ö ¾øÀ½. null°ª ³ª¿È
+	 * private static íƒ€ì… ë³€ìˆ˜ -> ì´ í˜•ì‹ì€ @Value ì‚¬ìš©í•  ìˆ˜ ì—†ìŒ. nullê°’ ë‚˜ì˜´
 	 */
 	@Value("${pathInfo}")
 	private String filePathInfo;
@@ -41,8 +41,8 @@ public class FileUtil {
 	
 	public List<HashMap<String, String>> saveFiles(String type, Map<String, Object> requestMap) throws Exception{
 		
-		List<HashMap<String, String>> fileList = new ArrayList<HashMap<String, String>>(); //¸®ÅÏµÇ´Â ÆÄÀÏ Á¤º¸ ¸®½ºÆ®
-		List<MultipartFile> files = new ArrayList<MultipartFile>(); //request·Î ³Ñ¾î¿Â ÆÄÀÏ ¸®½ºÆ®
+		List<HashMap<String, String>> fileList = new ArrayList<HashMap<String, String>>(); //ë¦¬í„´ë˜ëŠ” íŒŒì¼ ì •ë³´ ë¦¬ìŠ¤íŠ¸
+		List<MultipartFile> files = new ArrayList<MultipartFile>(); //requestë¡œ ë„˜ì–´ì˜¨ íŒŒì¼ ë¦¬ìŠ¤íŠ¸
 		
 		String filePath = parseName(type);
 		
@@ -91,7 +91,7 @@ public class FileUtil {
 		Map<String, String> filePaths = (Map<String, String>) this.parser.parseExpression(filePathInfo).getValue();
 		String name = "";
 		
-		//ÃßÈÄ properties°¡ ¸¹¾ÆÁö¸é ÄÉÀÌ½º Ãß°¡
+		//ì¶”í›„ propertiesê°€ ë§ì•„ì§€ë©´ ì¼€ì´ìŠ¤ ì¶”ê°€
 		switch(number) {
 		case "1": name = "boardImgFilePath"; break;
 		default : break;

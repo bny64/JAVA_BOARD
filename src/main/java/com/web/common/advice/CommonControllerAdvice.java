@@ -22,9 +22,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import com.web.common.resolver.CommandMap;
 import com.web.common.support.message.MsgCode;
 import com.web.common.support.message.MsgList;
-import com.web.main.controller.MainController;
 
-@ControllerAdvice // »ç¿ëÇÏ±â À§ÇØ¼­ xml¿¡¼­ anotation-driven¼³Á¤ÇØ¾ß ÇÔ.
+@ControllerAdvice // ì‚¬ìš©í•˜ê¸° ìœ„í•´ì„œ xmlì—ì„œ anotation-drivenì„¤ì •í•´ì•¼ í•¨.
 public class CommonControllerAdvice {
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -45,7 +44,7 @@ public class CommonControllerAdvice {
 		
 		/*
 		 * if(acceptHeader.contains("application/json") ||
-		 * acceptHeader.contains("multipart/form-data")) {//ajax ¿¡·¯ ÀÏ ¶§
+		 * acceptHeader.contains("multipart/form-data")) {//ajax ì—ëŸ¬ ì¼ ë•Œ
 		 * e.printStackTrace(); msg =
 		 * MsgList.getInstance().getCodeMessage(MsgCode.RequestError);
 		 * comMap.put("msgCode", msg[0]); comMap.put("msg", msg[1]); return comMap;

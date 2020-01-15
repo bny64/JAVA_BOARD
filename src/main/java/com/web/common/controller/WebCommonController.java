@@ -19,12 +19,12 @@ public class WebCommonController{
 		this.mapper = new ObjectMapper();
 	}
 	
-	//¼¼¼Ç¿¡ ´ã±ä Spring security Á¤º¸(id, name, email, userKey)
+	//ì„¸ì…˜ì— ë‹´ê¸´ Spring security ì •ë³´(id, name, email, userKey)
 	public CustomUserDetails getUserDetails() {
 		
 		CustomUserDetails userDetails = null;
 		
-		//spring securityÀÇ principalÀ» CustomUserDetails·Î º¯°æ
+		//spring securityì˜ principalì„ CustomUserDetailsë¡œ ë³€ê²½
 		if(SecurityContextHolder.getContext().getAuthentication()!=null) {
 			Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 			userDetails = mapper.convertValue(principal, CustomUserDetails.class);
@@ -33,7 +33,7 @@ public class WebCommonController{
 		return userDetails;
 	}
 	
-	//ÇöÀç ¼¼¼Ç »ç¿ëÀÚÀÇ Á¤º¸
+	//í˜„ì¬ ì„¸ì…˜ ì‚¬ìš©ìì˜ ì •ë³´
 	public User getSessionUser() {
 		
 		CustomUserDetails userDetails = getUserDetails();

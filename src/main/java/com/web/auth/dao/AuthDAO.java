@@ -6,7 +6,6 @@ import javax.persistence.PersistenceException;
 
 import com.web.auth.domain.User;
 import com.web.auth.domain.UserAuthority;
-import com.web.common.jsmap.domain.Jsmap;
 
 public interface AuthDAO {
 	

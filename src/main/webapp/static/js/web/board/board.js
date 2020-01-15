@@ -4,7 +4,7 @@ define([], function(){
 	
 	function Module(){
 
-		const pandora = new arguments[1](arguments);
+		const pandora = new arguments[1]('mid', arguments);
 		
 		//valuePipe
 		let vp = arguments[0].getGlobalVal();

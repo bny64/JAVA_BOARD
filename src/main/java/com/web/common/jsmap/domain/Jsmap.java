@@ -12,20 +12,19 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 /**
- * @NoArgsConstructor : ÆÄ¶ó¹ÌÅÍ°¡ ¾ø´Â ±âº» »ı¼ºÀÚ¸¦ »ı¼º
- * @AllArgsConstructor : ¸ğµç ÇÊµå °ªÀ» ÆÄ¶ó¹ÌÅÍ·Î ¹Ş´Â »ı¼ºÀÚ »ı¼º
- * @RequiredArgsConstructor : finalÀÌ³ª @NonNullÀÎ ÇÊµå °ª¸¸ ÆÄ¶ó¹ÌÅÍ·Î ¹Ş´Â »ı¼ºÀÚ¸¦ ¸¸µç´Ù.
+ * @NoArgsConstructor : íŒŒë¼ë¯¸í„°ê°€ ì—†ëŠ” ê¸°ë³¸ ìƒì„±ìë¥¼ ìƒì„±
+ * @AllArgsConstructor : ëª¨ë“  í•„ë“œ ê°’ì„ íŒŒë¼ë¯¸í„°ë¡œ ë°›ëŠ” ìƒì„±ì ìƒì„±
+ * @RequiredArgsConstructor : finalì´ë‚˜ @NonNullì¸ í•„ë“œ ê°’ë§Œ íŒŒë¼ë¯¸í„°ë¡œ ë°›ëŠ” ìƒì„±ìë¥¼ ë§Œë“ ë‹¤.
  * */
 @Getter
 @Setter
-//hibernate¿¡¼­ multiselect¸¦ »ç¿ëÇÒ ¶§ »ç¿ëÇÏ´Â ÇÊµå °ª¸¸ »ç¿ëÇÏ´Â »ı¼ºÀÚ¸¦ ¸¸µé¾î¾ß ÇÔ.
+//hibernateì—ì„œ multiselectë¥¼ ì‚¬ìš©í•  ë•Œ ì‚¬ìš©í•˜ëŠ” í•„ë“œ ê°’ë§Œ ì‚¬ìš©í•˜ëŠ” ìƒì„±ìë¥¼ ë§Œë“¤ì–´ì•¼ í•¨.
 @RequiredArgsConstructor
 @Entity
 @Table(name = "js_map")

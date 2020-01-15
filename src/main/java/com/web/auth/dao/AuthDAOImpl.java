@@ -17,57 +17,57 @@ import com.web.auth.domain.UserAuthority;
 import com.web.common.dao.CommonDAO;
 
 @Repository
-@Transactional//data-context¿¡¼­ ¼³Á¤ÇÑ transactionManager¸¦ »ç¿ëÇÏ·Á¸é ¾Ö³ëÅ×ÀÌ¼Ç Ãß°¡ÇØ¾ß ÇÔ. (¿¡·¯ ¶§¹®¿¡ ¸î ½Ã°£ °í»ı..)
+@Transactional//data-contextì—ì„œ ì„¤ì •í•œ transactionManagerë¥¼ ì‚¬ìš©í•˜ë ¤ë©´ ì• ë…¸í…Œì´ì…˜ ì¶”ê°€í•´ì•¼ í•¨. (ì—ëŸ¬ ë•Œë¬¸ì— ëª‡ ì‹œê°„ ê³ ìƒ..)
 public class AuthDAOImpl extends CommonDAO implements AuthDAO{
 	
-	//»ç¿ëÀÚ ÀúÀå
+	//ì‚¬ìš©ì ì €ì¥
 	@Override
 	public void join(User user) throws PersistenceException{
 		sessionFactory.getCurrentSession().save(user);
 	}
 
-	//¾ÆÀÌµğ·Î À¯Àú °Ë»ö
+	//ì•„ì´ë””ë¡œ ìœ ì € ê²€ìƒ‰
 	@Override
 	public List<User> selectById(String id) throws PersistenceException {		
 		SessionFactory sf = sessionFactory;
-		//sessionFactory¿¡¼­ CriteriaBuilder¸¦ °¡Á®¿Â´Ù.		
+		//sessionFactoryì—ì„œ CriteriaBuilderë¥¼ ê°€ì ¸ì˜¨ë‹¤.		
 		CriteriaBuilder cb = sf.getCurrentSession().getCriteriaBuilder();
 		
-		//CriteriaBuilder·ÎºÎÅÍ CriteriaQuery°´Ã¼¸¦ °¡Á®¿Â´Ù.
-		//¹İÈ¯Å¸ÀÔÀ» ¾Ë ¼ö ¾ø´Ù¸é Á¦³×¸¯Å¸ÀÔÀ» Object·Î ÁØ´Ù.
-		CriteriaQuery<User> cr = cb.createQuery(User.class); //createQuery »ı¼º
+		//CriteriaBuilderë¡œë¶€í„° CriteriaQueryê°ì²´ë¥¼ ê°€ì ¸ì˜¨ë‹¤.
+		//ë°˜í™˜íƒ€ì…ì„ ì•Œ ìˆ˜ ì—†ë‹¤ë©´ ì œë„¤ë¦­íƒ€ì…ì„ Objectë¡œ ì¤€ë‹¤.
+		CriteriaQuery<User> cr = cb.createQuery(User.class); //createQuery ìƒì„±
 		
-		//Á¶È¸ÀÇ ½ÃÀÛÁ¡À» ¶æÇÏ´Â Root°´Ã¼ »ı¼º(Root´Â ¿µ¼ÓÀû ¿£Æ¼Æ¼¸¦ Ç¥½ÃÇÏ´Â Äõ¸® Ç¥Çö½Ä)
+		//ì¡°íšŒì˜ ì‹œì‘ì ì„ ëœ»í•˜ëŠ” Rootê°ì²´ ìƒì„±(RootëŠ” ì˜ì†ì  ì—”í‹°í‹°ë¥¼ í‘œì‹œí•˜ëŠ” ì¿¼ë¦¬ í‘œí˜„ì‹)
 		Root<User> root = cr.from(User.class);
 		
-		//°Ë»öÁ¶°Ç Á¤ÀÇ
+		//ê²€ìƒ‰ì¡°ê±´ ì •ì˜
 		Predicate restrictions = cb.equal(root.get("id"), id);
 		
-		//Äõ¸®
+		//ì¿¼ë¦¬
 		cr.select(root)
 			.where(restrictions);
 		
 		return sf.getCurrentSession().createQuery(cr).getResultList();
 	}
 
-	//ÀÌ¸ŞÀÏ·Î À¯Àú °Ë»ö
+	//ì´ë©”ì¼ë¡œ ìœ ì € ê²€ìƒ‰
 	@Override
 	public List<User> selectByEmail(String email) throws PersistenceException {
 		SessionFactory sf = sessionFactory;
-		//sessionFactory¿¡¼­ CriteriaBuilder¸¦ °¡Á®¿Â´Ù.		
+		//sessionFactoryì—ì„œ CriteriaBuilderë¥¼ ê°€ì ¸ì˜¨ë‹¤.		
 		CriteriaBuilder cb = sf.getCurrentSession().getCriteriaBuilder();
 		
-		//CriteriaBuilder·ÎºÎÅÍ CriteriaQuery°´Ã¼¸¦ °¡Á®¿Â´Ù.
-		//¹İÈ¯Å¸ÀÔÀ» ¾Ë ¼ö ¾ø´Ù¸é Á¦³×¸¯Å¸ÀÔÀ» Object·Î ÁØ´Ù.
-		CriteriaQuery<User> cr = cb.createQuery(User.class); //createQuery »ı¼º
+		//CriteriaBuilderë¡œë¶€í„° CriteriaQueryê°ì²´ë¥¼ ê°€ì ¸ì˜¨ë‹¤.
+		//ë°˜í™˜íƒ€ì…ì„ ì•Œ ìˆ˜ ì—†ë‹¤ë©´ ì œë„¤ë¦­íƒ€ì…ì„ Objectë¡œ ì¤€ë‹¤.
+		CriteriaQuery<User> cr = cb.createQuery(User.class); //createQuery ìƒì„±
 		
-		//Á¶È¸ÀÇ ½ÃÀÛÁ¡À» ¶æÇÏ´Â Root°´Ã¼ »ı¼º(Root´Â ¿µ¼ÓÀû ¿£Æ¼Æ¼¸¦ Ç¥½ÃÇÏ´Â Äõ¸® Ç¥Çö½Ä)
+		//ì¡°íšŒì˜ ì‹œì‘ì ì„ ëœ»í•˜ëŠ” Rootê°ì²´ ìƒì„±(RootëŠ” ì˜ì†ì  ì—”í‹°í‹°ë¥¼ í‘œì‹œí•˜ëŠ” ì¿¼ë¦¬ í‘œí˜„ì‹)
 		Root<User> root = cr.from(User.class);
 		
-		//°Ë»öÁ¶°Ç Á¤ÀÇ
+		//ê²€ìƒ‰ì¡°ê±´ ì •ì˜
 		Predicate restrictions = cb.equal(root.get("email"), email);
 		
-		//Äõ¸®
+		//ì¿¼ë¦¬
 		cr.select(root)
 			.where(restrictions);
 				

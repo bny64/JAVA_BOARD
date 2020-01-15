@@ -13,32 +13,29 @@ const requireConfig = {
 	baseUrl : '/js',
 
 	// 해당 파일의 경로 baseUrl + / +paths.xxx
-	//[]뒤에는 정의된 파일 안에서 사용할 파라미터명
 	paths : {
 		//----------------------------------------library----------------------------------------//
 		jquery : 'lib/jquery/jquery.min', 							// jquery
 		jqueryui : 'lib/jquery/jquery-ui', 							// jquery-ui
 		jqueryForm : 'lib/jquery/jquery.form.min', 					// jquery-form
-		animsition : 'lib/animsition/js/animsition.min', 				// animsition
-		popper : 'lib/bootstrap/js/popper', 							// popper
+		animsition : 'lib/animsition/js/animsition.min', 			// animsition
+		popper : 'lib/bootstrap/js/popper', 						// popper
 		bootstrap : 'lib/bootstrap/js/bootstrap', 					// bootstrap
-		select2 : 'lib/select2/select2.min', 							// select2
+		select2 : 'lib/select2/select2.min', 						// select2
 		moment : 'lib/daterangepicker/moment.min', 					// moment
-		daterangepicker : 'lib/daterangepicker/daterangepicker',		// daterangepicker
+		daterangepicker : 'lib/daterangepicker/daterangepicker',	// daterangepicker
 		countdowntime : 'common/countdowntime/countdowntime', 		// countdowntime
-		setDatepickerKor : 'common/datepicker/setDatepickerKor',		// setDatepickerKor
+		setDatepickerKor : 'common/datepicker/setDatepickerKor',	// setDatepickerKor
 		summernote : 'lib/summernote/summernote-bs4', 				// summernote
-		summernote_kor : 'lib/summernote/lang/summernote-ko-KR',		// summernte-kor
+		summernote_kor : 'lib/summernote/lang/summernote-ko-KR',	// summernte-kor
 		backtotop : 'lib/jquery/jquery.backtotop',					// backtotop
-		mobilemenu : 'lib/jquery/jquery.mobilemenu',					// mobilemenu
-		//----------------------------------------util----------------------------------------//
-		bAjax : 'common/util/bAjax', 									// bAjax
-		domUtil : 'common/util/domUtil', 								// domUtil
+		mobilemenu : 'lib/jquery/jquery.mobilemenu',				// mobilemenu
+		//----------------------------------------util-------------------------------------------//
+		bAjax : 'common/util/bAjax', 								// bAjax
+		domUtil : 'common/util/domUtil', 							// domUtil
 		jsUtil : 'common/util/jsUtil', 								// jsUtil
-		libFilterBot : 'common/util/libFilter_bot',					// libFilter_bot
-		libFilterMid : 'common/util/libFilter_mid',					// libFilter_mid
-		libFilterTop : 'common/util/libFilter_top',					// libFilter_top
-		valuePipe: 'common/util/valuePipe'
+		libFilter : 'common/util/libFilter',						// libFilter		
+		valuePipe: 'common/util/valuePipe'							// valuePipe
 	},
 
 	// 의존성 설정 deps:['paths에 정의된 이름'] -> 먼저 로드되야 할 파일

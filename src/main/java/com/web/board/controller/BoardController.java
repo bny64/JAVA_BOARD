@@ -38,7 +38,7 @@ public class BoardController extends WebCommonController{
 	@Autowired
 	private BoardService boardService;
 	
-	//method ÀÔ·ÂÇÏÁö ¾ÊÀ» ½Ã default°ªÀº GET
+	//method ì…ë ¥í•˜ì§€ ì•Šì„ ì‹œ defaultê°’ì€ GET
 	@RequestMapping(value="/boardList", method = RequestMethod.GET)
 	public ModelAndView index(ModelAndView mnv) throws Exception{
 		logger.debug("---------- BoardController boardList -----------");		
@@ -79,10 +79,12 @@ public class BoardController extends WebCommonController{
 		
 		List<HashMap<String, String>> fileList = fileUtil.saveFiles("1", reqMap.getMap());
 		
-		//°Ô½ÃÆÇ ÀÌ¹ÌÁö´Â ÇÑ °³¸¸ ÀúÀå °¡´É
-		board.setImgFilePath(fileList.get(0).get("imgFilePath"));		
-		board.setFileName(fileList.get(0).get("fileName"));		
-		board.setOrgFileName(fileList.get(0).get("orgFileName"));
+		//ê²Œì‹œíŒ ì´ë¯¸ì§€ëŠ” í•œ ê°œë§Œ ì €ì¥ ê°€ëŠ¥
+		if(fileList.size()>0) {
+			board.setImgFilePath(fileList.get(0).get("imgFilePath"));		
+			board.setFileName(fileList.get(0).get("fileName"));		
+			board.setOrgFileName(fileList.get(0).get("orgFileName"));
+		}		
 		
 		boardService.registBoard(board);
 		

@@ -2,7 +2,7 @@
  * AJAX function
  * AJAX 함수
  * */
-define([], function(){
+define(['jquery'], function($){
 	
 	/**
 	 * bAjax.ajaxSend : ajax send

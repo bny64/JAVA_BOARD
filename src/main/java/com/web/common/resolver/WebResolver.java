@@ -4,7 +4,6 @@ import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.Map;
 
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 
 import org.json.JSONObject;
@@ -16,20 +15,18 @@ import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.method.support.ModelAndViewContainer;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
-import org.springframework.web.multipart.MultipartRequest;
-import org.springframework.web.multipart.support.DefaultMultipartHttpServletRequest;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.web.common.util.JSONUtil;
 
-//HandlerMethodArgumentResolver´Â »ç¿ëÀÚ ¿äÃ»ÀÌ Controller¿¡ µµ´ŞÇÏ±â Àü¿¡ ±× ¿äÃ»ÀÇ ÆÄ¶ó¹ÌÅÍµéÀ» ¼öÁ¤ÇÒ ¼ö ÀÖ°Ô ÇØÁÖ´Â ¿ªÇÒÀ» ÇÑ´Ù.
+//HandlerMethodArgumentResolverëŠ” ì‚¬ìš©ì ìš”ì²­ì´ Controllerì— ë„ë‹¬í•˜ê¸° ì „ì— ê·¸ ìš”ì²­ì˜ íŒŒë¼ë¯¸í„°ë“¤ì„ ìˆ˜ì •í•  ìˆ˜ ìˆê²Œ í•´ì£¼ëŠ” ì—­í• ì„ í•œë‹¤.
 public class WebResolver implements HandlerMethodArgumentResolver {
 
 	@Autowired
 	private JSONUtil jsonUtil;
 	/**
-     * resolveArgument¸¦ ½ÇÇà ÇÒ ¼ö ÀÖ´Â methodÀÎÁö ÆÇº°
+     * resolveArgumentë¥¼ ì‹¤í–‰ í•  ìˆ˜ ìˆëŠ” methodì¸ì§€ íŒë³„
      * @param methodParameter
      * @return
      */
@@ -40,7 +37,7 @@ public class WebResolver implements HandlerMethodArgumentResolver {
 	}
 
 	/**
-     * Method parameter¿¡ ´ëÇÑ Argument Resovler·ÎÁ÷ Ã³¸®
+     * Method parameterì— ëŒ€í•œ Argument Resovlerë¡œì§ ì²˜ë¦¬
      * @param methodParameter
      * @param modelAndViewContainer
      * @param nativeWebRequest

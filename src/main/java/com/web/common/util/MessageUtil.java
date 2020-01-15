@@ -16,7 +16,7 @@ public class MessageUtil {
 	/*
 	 * @Value("${security.message}")
 	 * private String securityMsg;
-	 * private static Å¸ÀÔ º¯¼ö -> ÀÌ Çü½ÄÀº @Value »ç¿ëÇÒ ¼ö ¾øÀ½. null°ª ³ª¿È
+	 * private static íƒ€ì… ë³€ìˆ˜ -> ì´ í˜•ì‹ì€ @Value ì‚¬ìš©í•  ìˆ˜ ì—†ìŒ. nullê°’ ë‚˜ì˜´
 	 */
 	@Value("${security.message}")
 	private String securityMsg;
