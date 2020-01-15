@@ -29,11 +29,11 @@ import lombok.Setter;
 @Getter 
 @Setter 
 //@ToString(exclude = {"password"})
-/* @Entity : JPA¿¡¼­ Å×ÀÌºí¿¡ ¸ÅÇÎÇÒ Å¬·¡½º¿¡ ºÙÀÎ´Ù.
+/* @Entity : JPAì—ì„œ í…Œì´ë¸”ì— ë§¤í•‘í•  í´ë˜ìŠ¤ì— ë¶™ì¸ë‹¤.
  * */
 @Entity
-/* @Table(name='¸ÅÇÎÇÒ Å×ÀÌºí¸í') ->¿£Æ¼Æ¼¿Í ¸ÅÇÎÇÒ Å×ÀÌºí¸í ÁöÁ¤
- * @Table(schema='½ºÅ°¸¶¸í') -> ¿£Æ¼Æ¼ÀÇ ½ºÅ°¸¶¸í(default schema°¡ ¼³Á¤µÇ¾î ÀÖÀ¸¹Ç·Î  ¾È³Ö¾îµµµÊ.) * */
+/* @Table(name='ë§¤í•‘í•  í…Œì´ë¸”ëª…') ->ì—”í‹°í‹°ì™€ ë§¤í•‘í•  í…Œì´ë¸”ëª… ì§€ì •
+ * @Table(schema='ìŠ¤í‚¤ë§ˆëª…') -> ì—”í‹°í‹°ì˜ ìŠ¤í‚¤ë§ˆëª…(default schemaê°€ ì„¤ì •ë˜ì–´ ìˆìœ¼ë¯€ë¡œ  ì•ˆë„£ì–´ë„ë¨.) * */
 @Table(name="user", schema = "tripleProject")
 public class User implements Serializable{
 	
@@ -53,18 +53,18 @@ public class User implements Serializable{
 		this.userKey = userKey;
 	}
 
-	/* @id : ±âº»Å°
+	/* @id : ê¸°ë³¸í‚¤
 	 * */
 	@Id
-	/* @Column(name='Å×ÀÌºíÀÇ ÄÃ·³¸í')->Å×ÀÌºíÀÇ ÄÃ·³¸í
-	 * @Column(nullable=boolean)->³Î ¿©ºÎ
-	 * @Column(columnDefinition='')->±âÅ¸ Á¤ÀÇ 
+	/* @Column(name='í…Œì´ë¸”ì˜ ì»¬ëŸ¼ëª…')->í…Œì´ë¸”ì˜ ì»¬ëŸ¼ëª…
+	 * @Column(nullable=boolean)->ë„ ì—¬ë¶€
+	 * @Column(columnDefinition='')->ê¸°íƒ€ ì •ì˜ 
 	 * */
 	@Column(name="userKey", nullable = false, columnDefinition = "VARCHAR(255)")
 	private String userKey;
 	
-	/* @Column(unique=boolean)-> °íÀ¯°ª ¼³Á¤
-	 * @Column(length='number')->µ¥ÀÌÅÍ ±æÀÌ
+	/* @Column(unique=boolean)-> ê³ ìœ ê°’ ì„¤ì •
+	 * @Column(length='number')->ë°ì´í„° ê¸¸ì´
 	 * */
 	@Column(name = "id", nullable = false, unique = true, length = 100)
 	private String id;
@@ -79,12 +79,12 @@ public class User implements Serializable{
 	private String name;
 	
 	@Column(name = "createdAt", columnDefinition = "TIMESTAMP default CURRENT_TIMESTAMP")
-	/* ³¯Â¥ Å¸ÀÔ(Date, Calendar)¸ÅÇÎ½Ã »ç¿ë(DATE, TIME, TIMESTAMP)
+	/* ë‚ ì§œ íƒ€ì…(Date, Calendar)ë§¤í•‘ì‹œ ì‚¬ìš©(DATE, TIME, TIMESTAMP)
 	 * */
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date createdAt;
 	
-	/* @Column(updatable, insertable=false) ÀĞ±â Àü¿ë º¯°æ 
+	/* @Column(updatable, insertable=false) ì½ê¸° ì „ìš© ë³€ê²½ 
 	 * */
 	@Column(name = "updatedAt", columnDefinition = "TIMESTAMP default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP")
 	@Temporal(TemporalType.TIMESTAMP) 
@@ -99,7 +99,7 @@ public class User implements Serializable{
 	@Column(name = "imgPath")
 	private String imgPath;
 	
-	/* columnDefinition¿¡¼­ default°ª ¼³Á¤½Ã TYPE(ex : VARCHAR(5)À» ³Ö¾îÁÖÁö ¾ÊÀ¸¸é ¿¡·¯ ¹ß»ı.
+	/* columnDefinitionì—ì„œ defaultê°’ ì„¤ì •ì‹œ TYPE(ex : VARCHAR(5)ì„ ë„£ì–´ì£¼ì§€ ì•Šìœ¼ë©´ ì—ëŸ¬ ë°œìƒ.
 	 * */
 	@Column(name = "emailYn", columnDefinition = "VARCHAR(5) default 'N'")
 	private String emailYn;
@@ -119,9 +119,9 @@ public class User implements Serializable{
 	@Column(name = "loginFailCnt", length = 10)
 	private int loginFailCnt;
 	
-	/* 1:N °ü°è
-	 * @OneToMany(mappedBy='') NÅ×ÀÌºí ¿¡¼­ÀÇ ÇØ´ç °´Ã¼ º¯¼ö¸í.
-	 * @Transient DBÅ×ÀÌºí¿¡´Â Á¸ÀçÇÏÁö ¾ÊÁö¸¸ ¿£Æ¼Æ¼ Å¬·¡½º¿¡´Â µî·ÏµÇ¾î °°ÀÌ ¿î¿ëÇØ¾ß ÇÒ °æ¿ì »ç¿ë
+	/* 1:N ê´€ê³„
+	 * @OneToMany(mappedBy='') Ní…Œì´ë¸” ì—ì„œì˜ í•´ë‹¹ ê°ì²´ ë³€ìˆ˜ëª….
+	 * @Transient DBí…Œì´ë¸”ì—ëŠ” ì¡´ì¬í•˜ì§€ ì•Šì§€ë§Œ ì—”í‹°í‹° í´ë˜ìŠ¤ì—ëŠ” ë“±ë¡ë˜ì–´ ê°™ì´ ìš´ìš©í•´ì•¼ í•  ê²½ìš° ì‚¬ìš©
 	 * */
 	@Transient
 	@OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
@@ -138,8 +138,8 @@ public class User implements Serializable{
 	private UserAuthority userAuthority;
 	
 	/*
-	 * @PrePersist Ã³À½ ÀúÀå½Ã¿¡¸¸ È£Ãâ
-	 * @PreUpdate ÀúÀå ¹× ¾÷µ¥ÀÌÆ®½Ã È£Ãâ
+	 * @PrePersist ì²˜ìŒ ì €ì¥ì‹œì—ë§Œ í˜¸ì¶œ
+	 * @PreUpdate ì €ì¥ ë° ì—…ë°ì´íŠ¸ì‹œ í˜¸ì¶œ
 	 */
 	@PrePersist
 	public void prePersist() {
