@@ -1,5 +1,6 @@
 package com.web.common.util;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -10,6 +11,9 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.UUID;
 
+import javax.imageio.ImageIO;
+
+import org.imgscalr.Scalr;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -39,10 +43,10 @@ public class FileUtil {
 		this.parser = parser;
 	}
 	
-	public List<HashMap<String, String>> saveFiles(String type, Map<String, Object> requestMap) throws Exception{
+	public List<HashMap<String, String>> saveDateFiles(String type, Map<String, Object> requestMap) throws Exception{
 		
 		List<HashMap<String, String>> fileList = new ArrayList<HashMap<String, String>>(); //리턴되는 파일 정보 리스트
-		List<MultipartFile> files = new ArrayList<MultipartFile>(); //request로 넘어온 파일 리스트
+		List<MultipartFile> files = new ArrayList<MultipartFile>(); //request로 넘어온 파일 리스트		
 		
 		String filePath = parseName(type);
 		
@@ -77,6 +81,63 @@ public class FileUtil {
 			map.put("imgFilePath", midPath);
 			map.put("fileName", fileName);
 			map.put("orgFileName", orgFileName);
+			map.put("imgFileFullPath", filePath + "/" + fileName);
+			
+			fileList.add(map);
+		}
+		
+		return fileList;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<HashMap<String, String>> saveDateThumbFiles(String type, Map<String, Object> requestMap) throws Exception{
+	
+		List<HashMap<String, String>> fileList = new ArrayList<HashMap<String, String>>(); //리턴되는 파일 정보 리스트
+		List<String> fileFullPaths = (List<String>) requestMap.get("fileFullPaths");
+		List<String> fileNames = (List<String>) requestMap.get("fileNames");
+		
+		String filePath = parseName(type);
+		
+		String date = new SimpleDateFormat("yyyy.MM").format(new Date());
+		String[] dateSplit = date.split("\\.");
+		String midPath = "/" + dateSplit[0] + "/" + dateSplit[1];
+		
+		filePath += midPath;
+		
+		File dir = new File(filePath);
+		
+		if(!dir.exists()) dir.mkdirs();
+		
+		for(int i=0; i<fileFullPaths.size(); i++) {
+			
+			BufferedImage thumbImg = ImageIO.read(new File(fileFullPaths.get(i)));
+			HashMap<String, String> map = new HashMap<String, String>();
+			
+			int dw = 240, dh = 240;
+			
+			int ow = thumbImg.getWidth();
+			int oh = thumbImg.getHeight();
+			
+			int nw = ow;
+			int nh = (ow * dh)/dw;
+			
+			if(nh > oh) { 
+				nw = (oh * dw) / dh;
+				nh = oh; 
+			}
+			
+			BufferedImage cropImg = Scalr.crop(thumbImg, (ow-nw)/2, (oh-nh)/2, nw, nh);
+			BufferedImage destImg = Scalr.resize(cropImg, dw, dh);
+			
+			String orgFileName = fileNames.get(i);
+			String fileName = orgFileName.substring(0, orgFileName.indexOf(".")) + "_thumb";
+			String ext = orgFileName.substring(orgFileName.indexOf(".")+1);
+			
+			File thumbFile = new File(filePath + "/" + fileName + "." + ext);
+			ImageIO.write(destImg, ext, thumbFile);
+			
+			map.put("thumbImgFilePath", midPath);
+			map.put("thumbFileName", fileName + "." + ext);
 			
 			fileList.add(map);
 		}
@@ -94,6 +155,8 @@ public class FileUtil {
 		//추후 properties가 많아지면 케이스 추가
 		switch(number) {
 		case "1": name = "boardImgFilePath"; break;
+		case "thumb_1" : name = "boardImgFileThumbPath"; break;
+		case "thumbUrl_1" : name = "boardImgFileThumbUrl"; break;
 		default : break;
 		}
 			
@@ -105,6 +168,5 @@ public class FileUtil {
 		}
 		
 		return name;		
-	}	
-	
+	}
 }

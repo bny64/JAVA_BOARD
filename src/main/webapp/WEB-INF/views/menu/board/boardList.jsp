@@ -8,8 +8,8 @@
       <div id="gallery">
         <figure>
           <header class="heading">Gallery Title Goes Here</header>
-          <ul class="nospace clear">
-            <li class="one_quarter first"><a href="#"><img src="/images/main/demo/gallery/01.png" alt=""></a></li>
+          <ul class="nospace clear" id="boards">
+            <!-- <li class="one_quarter first"><a href="#"><img src="/images/main/demo/gallery/01.png" alt=""><span></span></a></li>
             <li class="one_quarter"><a href="#"><img src="/images/main/demo/gallery/01.png" alt=""></a></li>
             <li class="one_quarter"><a href="#"><img src="/images/main/demo/gallery/01.png" alt=""></a></li>
             <li class="one_quarter"><a href="#"><img src="/images/main/demo/gallery/01.png" alt=""></a></li>
@@ -20,7 +20,7 @@
             <li class="one_quarter first"><a href="#"><img src="/images/main/demo/gallery/01.png" alt=""></a></li>
             <li class="one_quarter"><a href="#"><img src="/images/main/demo/gallery/01.png" alt=""></a></li>
             <li class="one_quarter"><a href="#"><img src="/images/main/demo/gallery/01.png" alt=""></a></li>
-            <li class="one_quarter"><a href="#"><img src="/images/main/demo/gallery/01.png" alt=""></a></li>
+            <li class="one_quarter"><a href="#"><img src="/images/main/demo/gallery/01.png" alt=""></a></li> -->
           </ul>
           <figcaption>Gallery Description Goes Here</figcaption>
         </figure>

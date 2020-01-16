@@ -6,7 +6,6 @@ import java.util.Map;
 import javax.persistence.PersistenceException;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Root;
 
 import org.hibernate.SessionFactory;
@@ -36,7 +35,8 @@ public class BoardDAOImpl extends CommonDAO implements BoardDAO{
 		CriteriaQuery<Board> cr = cb.createQuery(Board.class);
 		Root<Board> root = cr.from(Board.class);
 				
-		cr.select(cb.construct(Board.class, root.get("id"), root.get("name"), root.get("createdAt"), root.get("updatedAt"), root.get("contents"), root.get("title")))
+		cr.select(cb.construct(Board.class, root.get("id"), root.get("name"), root.get("createdAt"), root.get("updatedAt"), root.get("contents"), 
+				root.get("title"), root.get("imgFilePath"), root.get("fileName"), root.get("thumbImgFilePath"), root.get("thumbFileName"), root.get("orgFileName")))
 			.orderBy(cb.desc(root.get("createdAt")));
 		
 		List<Board> boards = sf.getCurrentSession().createQuery(cr).setFirstResult((page-1)*pageSize).setMaxResults(page*pageSize).getResultList();

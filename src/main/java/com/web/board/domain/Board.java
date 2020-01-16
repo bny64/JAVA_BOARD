@@ -31,13 +31,19 @@ public class Board implements Serializable{
 	
 	private static final long serialVersionUID = -7363117729121436953L;
 	
-	public Board(String id, String name, Date createdAt, Date updatedAt, String contents, String title) {
+	public Board(String id, String name, Date createdAt, Date updatedAt, String contents, String title, String imgFilePath, String fileName, 
+			String thumbImgFilePath, String thumbFileName, String orgFileName) {
 		this.id = id;
 		this.name = name;
 		this.createdAt = createdAt;
 		this.updatedAt = updatedAt;
 		this.contents = contents;
-		this.title = title;		
+		this.title = title;
+		this.imgFilePath = imgFilePath;
+		this.fileName = fileName;
+		this.thumbImgFilePath = thumbImgFilePath;
+		this.thumbFileName = thumbFileName;
+		this.orgFileName = orgFileName;
 	}
 	
 	@Id	
@@ -84,6 +90,12 @@ public class Board implements Serializable{
 	
 	@Column(name = "fileName")
 	private String fileName;
+	
+	@Column(name = "thumbImgFilePath")
+	private String thumbImgFilePath;
+	
+	@Column(name = "thumbFileName")
+	private String thumbFileName;
 	
 	@Column(name = "orgFileName")
 	private String orgFileName;
