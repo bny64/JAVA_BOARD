@@ -15,7 +15,7 @@ public class LogDAOImpl extends CommonDAO implements LogDAO{
 	@Override
 	public void writeLoginLog(LoginLog log) throws PersistenceException {
 		
-		sessionFactory.getCurrentSession().save(log);
+		getSession().save(log);
 		
 	}
 

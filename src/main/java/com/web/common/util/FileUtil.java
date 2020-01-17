@@ -21,14 +21,29 @@ import org.springframework.expression.ExpressionParser;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
+/**
+ * The class that use libraries to save and control files
+ * 라이브러리를 사용하여 파일을 저장하고 제어하는 클래스
+ * ライブラリーを用いてファイルを保存, 制御するクラス
+ * @author Nam Yul Bae
+ * @version 1.0.0
+ * @since 2020.01.17
+ * */
+
+/**
+ * To be defined as bean at util-context.xml
+ * util-context.xml에 bean으로 정의되어 있다
+ * util-context.xmlにbeanとして定義されている
+ * */
 @Component
 public class FileUtil {
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
-	/*
+	/**
+	 * @see
 	 * @Value("${pathInfo}")
-	 * private static 타입 변수 -> 이 형식은 @Value 사용할 수 없음. null값 나옴
+	 * private static [type] [variable] -> It cannot be used in the same format as before
 	 */
 	@Value("${pathInfo}")
 	private String filePathInfo;
@@ -43,6 +58,10 @@ public class FileUtil {
 		this.parser = parser;
 	}
 	
+	/**
+	 * @param : String type, Map<String, Object> requestMap 
+	 * 
+	 * */
 	public List<HashMap<String, String>> saveDateFiles(String type, Map<String, Object> requestMap) throws Exception{
 		
 		List<HashMap<String, String>> fileList = new ArrayList<HashMap<String, String>>(); //리턴되는 파일 정보 리스트

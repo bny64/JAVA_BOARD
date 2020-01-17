@@ -31,6 +31,7 @@ public class BoardController extends WebCommonController{
 
 	private Logger logger = LoggerFactory.getLogger(MainController.class);
 	
+	/**/
 	@Autowired
 	private PasswordEncoding passwordEncoding;
 
@@ -63,13 +64,16 @@ public class BoardController extends WebCommonController{
 		
 		CommandMap comMap = new CommandMap();
 		User user = null;
-		Board board = new Board();		
+		Board board = new Board();
 		String[] msg;
 		List<String> fileFullPaths = new ArrayList<String>();
 		List<String> fileNames = new ArrayList<String>();
 		
 		String passwordYn = reqMap.get("passYn").toString();
-		if("Y".equals(passwordYn)) board.setPassword(passwordEncoding.encode(reqMap.get("password").toString()));
+		
+		if("Y".equals(passwordYn)) {
+			board.setPassword(passwordEncoding.encode(reqMap.get("boardPass").toString()));
+		}
 		
 		board.setTitle(reqMap.get("title").toString());
 		board.setContents(reqMap.get("contents").toString());
@@ -80,17 +84,21 @@ public class BoardController extends WebCommonController{
 			
 		board.setUser(user);
 		board.setId(user.getId());
-		board.setName(user.getName());
+		board.setName(user.getName());		
 		 
+		//파일 저장
 		List<HashMap<String, String>> fileList = fileUtil.saveDateFiles("1", reqMap.getMap());
 		
 		//게시판 이미지는 한 개만 저장 가능
 		if(fileList.size() > 0) {
+			
 			String fileFullPath = fileList.get(0).get("imgFileFullPath");
 			String fileName = fileList.get(0).get("fileName");
+			
 			board.setFileName(fileName);
 			board.setImgFilePath(fileList.get(0).get("imgFilePath"));	
 			board.setOrgFileName(fileList.get(0).get("orgFileName"));
+			
 			fileFullPaths.add(fileFullPath);
 			fileNames.add(fileName);
 		}
@@ -103,8 +111,10 @@ public class BoardController extends WebCommonController{
 		fileList = fileUtil.saveDateThumbFiles("thumb_1", reqMap.getMap());
 		
 		if(fileList.size()>0) {
+			
 			board.setThumbFileName(fileList.get(0).get("thumbFileName"));
 			board.setThumbImgFilePath(fileList.get(0).get("thumbImgFilePath"));
+			
 		}
 		
 		boardService.registBoard(board);
@@ -118,21 +128,22 @@ public class BoardController extends WebCommonController{
 	
 	@RequestMapping(value="/boardList",  method=RequestMethod.POST)
 	public @ResponseBody CommandMap boardList(CommandMap reqMap) throws Exception {
+		
 		CommandMap comMap = new CommandMap();
 		String[] msg;
 		String thumbPath = fileUtil.parseName("thumbUrl_1");
 		
-		//추후 옵션값 추가 될 예정. 비밀번호, 보이기 옵션 등		
-		
+		//추후 옵션값 추가 될 예정. 비밀번호, 보이기 옵션 등	
 		List<Board> boards = boardService.getBoardList(reqMap.getMap());
 		
 		for(int i=0; i<boards.size(); i++) {
 			
 			Board board = boards.get(i);
 			String boardThumbPath = board.getThumbImgFilePath();
-			if(!StringUtils.isNullOrEmpty(boardThumbPath)) {
+			
+			if(!StringUtils.isNullOrEmpty(boardThumbPath)) { //썸네일 경로가 있으면
 				board.setThumbImgFilePath(thumbPath + boardThumbPath);
-			}else {
+			}else { //썸네일 경로가 없으면
 				board.setThumbImgFilePath(thumbPath);
 				board.setThumbFileName("defaultThumb.jpg");
 			}
@@ -146,6 +157,23 @@ public class BoardController extends WebCommonController{
 		comMap.put("msg", msg[1]);
 		
 		return comMap;
+	}
+	
+	@RequestMapping(value="/getNumOfBoards", method=RequestMethod.POST)
+	public @ResponseBody CommandMap getNumOfBoards(CommandMap reqMap) throws Exception{
+
+		CommandMap comMap = new CommandMap();
+		String[] msg;
+		
+		Long boardCnt = boardService.getNumOfBoards(reqMap.getMap());
+		comMap.put("boardCnt", boardCnt);
+		
+		msg = MsgList.getInstance().getCodeMessage(MsgCode.SelectSuccess);
+		comMap.put("msgCode", msg[0]);
+		comMap.put("msg", msg[1]);
+		
+		return comMap;
+		
 	}
 	
 	@RequestMapping(value="/deleteBoard", method=RequestMethod.POST)

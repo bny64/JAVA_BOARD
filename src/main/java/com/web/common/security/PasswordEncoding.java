@@ -10,7 +10,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class PasswordEncoding implements PasswordEncoder {
 	
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
-		
+	
+	/* to be defined by bean as spring-security-context.xml file
+	 * spring-security-context.xml 파일에 정의되어 있다
+	 * */
 	private PasswordEncoder passwordEncoder;
 	
 	public PasswordEncoder getPasswordEncoder() {
@@ -21,7 +24,7 @@ public class PasswordEncoding implements PasswordEncoder {
 		this.passwordEncoder = passwordEncoder;
 	}
 
-	//salt 생성
+	//NOT USED
 	public String generateSalt() {
 		
 		logger.debug("---------- [Security]:[generateSalt] -----------");
@@ -32,14 +35,19 @@ public class PasswordEncoding implements PasswordEncoder {
 		
 		StringBuffer sb = new StringBuffer();
         for (int i = 0; i < salt.length; i++) {
-            // byte 값을 Hex 값으로 바꾸기.
+            /* to change byte to hex value
+             * byte 값을 Hex 값으로 바꾸기
+             * */
             sb.append(String.format("%02x",salt[i]));
         }
         
         return sb.toString();
 	}
-	
-	//SHA256 암호화
+		
+	/* SHA256 encryption
+	 * SHA256 암호화
+	 * */
+	//NOT USED
 	public String getEncrypt(String source, String strSalt) throws Exception{
 		
 		logger.debug("---------- [Security]:[getEncrypt] -----------");
@@ -67,6 +75,7 @@ public class PasswordEncoding implements PasswordEncoder {
         return result;
     }	
 		
+	//NOT USED
 	public boolean comparePassword(String strSalt, String source, String source2) throws Exception {
 		
 		String encSource = getEncrypt(source, strSalt);

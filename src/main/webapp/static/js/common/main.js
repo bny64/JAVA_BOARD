@@ -60,7 +60,7 @@ function checkLoadJsLib(){
 		
 		type.lib = ['valuePipe','jquery','jqueryui', 'backtotop', 'popper', 'bootstrap','summernote'];
 		type.mid_lib = [['valuePipe', 'libFilter'],['','']];												//middle
-		type.bot_lib = [['valuePipe', 'libFilter','jquery', 'moment', 'bAjax'],['','','$', 'mmt','bx']];	//bottom
+		type.bot_lib = [['valuePipe', 'libFilter','jquery', 'moment', 'bAjax', 'domUtil'],['','','$', 'mmt','bx', 'du']];	//bottom
 		
 	}
 	

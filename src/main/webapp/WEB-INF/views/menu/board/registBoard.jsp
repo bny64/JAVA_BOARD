@@ -23,7 +23,7 @@
 			    <label for="passN">설정 안함</label>		    
 			</div>
 			<div class="mt10" style="display:none;" id="boardPassDiv">
-				<input placeholder="비밀번호" type="password" id="boardPass" name="boardPassDiv">
+				<input placeholder="비밀번호" type="password" id="boardPass" name="boardPass">
 			</div>
 			<div class="mt70">
 				<input type="file" id="boardFile" accept=".jpg, .jpeg, .png, .gif" name="boardFile">

@@ -7,40 +7,28 @@
       <!-- ################################################################################################ -->
       <div id="gallery">
         <figure>
-          <header class="heading">Gallery Title Goes Here</header>
-          <ul class="nospace clear" id="boards">
-            <!-- <li class="one_quarter first"><a href="#"><img src="/images/main/demo/gallery/01.png" alt=""><span></span></a></li>
-            <li class="one_quarter"><a href="#"><img src="/images/main/demo/gallery/01.png" alt=""></a></li>
-            <li class="one_quarter"><a href="#"><img src="/images/main/demo/gallery/01.png" alt=""></a></li>
-            <li class="one_quarter"><a href="#"><img src="/images/main/demo/gallery/01.png" alt=""></a></li>
-            <li class="one_quarter first"><a href="#"><img src="/images/main/demo/gallery/01.png" alt=""></a></li>
-            <li class="one_quarter"><a href="#"><img src="/images/main/demo/gallery/01.png" alt=""></a></li>
-            <li class="one_quarter"><a href="#"><img src="/images/main/demo/gallery/01.png" alt=""></a></li>
-            <li class="one_quarter"><a href="#"><img src="/images/main/demo/gallery/01.png" alt=""></a></li>
-            <li class="one_quarter first"><a href="#"><img src="/images/main/demo/gallery/01.png" alt=""></a></li>
-            <li class="one_quarter"><a href="#"><img src="/images/main/demo/gallery/01.png" alt=""></a></li>
-            <li class="one_quarter"><a href="#"><img src="/images/main/demo/gallery/01.png" alt=""></a></li>
-            <li class="one_quarter"><a href="#"><img src="/images/main/demo/gallery/01.png" alt=""></a></li> -->
+          <header class="heading">BOARD LIST</header>
+          <ul class="nospace clear" id="boards">            
           </ul>
-          <figcaption>Gallery Description Goes Here</figcaption>
+          <figcaption><a href="/board/registBoard.do">WRITE A NEW BOARD</a></figcaption>
         </figure>
       </div>
       <!-- ################################################################################################ -->
       <!-- ################################################################################################ -->
       <nav class="pagination_2">
-        <ul>
-          <li><a href="#">&laquo; Previous</a></li>
-          <li><a href="#">1</a></li>
+        <ul id="pageNavi">
+          <!-- <li><a href="#">&laquo; Previous</a></li>
+          <li class="current"><a href="#">1</a></li>
           <li><a href="#">2</a></li>
-          <li><strong>&hellip;</strong></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">4</a></li>
+          <li><a href="#">5</a></li>
           <li><a href="#">6</a></li>
-          <li class="current"><strong>7</strong></li>
+          <li><a href="#">7</a></li>
           <li><a href="#">8</a></li>
           <li><a href="#">9</a></li>
-          <li><strong>&hellip;</strong></li>
-          <li><a href="#">14</a></li>
-          <li><a href="#">15</a></li>
-          <li><a href="#">Next &raquo;</a></li>
+          <li><a href="#">10</a></li>
+          <li><a href="#">Next &raquo;</a></li> -->
         </ul>
       </nav>
       <!-- ################################################################################################ -->

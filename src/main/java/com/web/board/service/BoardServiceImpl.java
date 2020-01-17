@@ -27,4 +27,9 @@ public class BoardServiceImpl implements BoardService {
 		return boardDao.getBoardList(param);		
 	}
 
+	@Override
+	public Long getNumOfBoards(Map<String, Object> param) throws PersistenceException {		
+		return boardDao.getNumOfBoards(param);
+	}
+
 }
