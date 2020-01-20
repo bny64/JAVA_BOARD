@@ -8,32 +8,31 @@
 		<div class="wrap-login100">
 			<form class="login100-form validate-form" id="loginForm" method="post" action="/auth/loginCheck.do">
 				<span class="login100-form-title p-b-43">
-					Login to continue
+					로그인
 				</span>
 				
-				<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+				<div class="wrap-input100 validate-input" data-validate = "이메일 형식은 ex@abc.xyz와 같이 입력해 주세요">
 					<input class="input100" type="text" name="email" id="email">
 					<span class="focus-input100"></span>
-					<span class="label-input100">Email</span>
+					<span class="label-input100">이메일</span>
 				</div>
-				
-				
-				<div class="wrap-input100 validate-input" data-validate="Password is required">
+								
+				<div class="wrap-input100 validate-input" data-validate="비밀번호를 입력해 주세요">
 					<input class="input100" type="password" name="password" id="password">
 					<span class="focus-input100"></span>
-					<span class="label-input100">Password</span>
+					<span class="label-input100">비밀번호</span>
 				</div>
 
 				<div class="flex-sb-m w-full p-t-3 p-b-32">
 					<div class="contact100-form-checkbox">
 						<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
 						<label class="label-checkbox100" for="ckb1">
-							Remember me
+							아이디 저장
 						</label>
 					</div>					
 					<div>
 						<a href="#" class="txt1">
-							Forgot Password?
+							비밀번호 분실
 						</a>
 					</div>
 				</div>				
@@ -44,13 +43,13 @@
 				</c:if>				
 				<div class="container-login100-form-btn">
 					<button class="login100-form-btn">
-						Login
+						로그인
 					</button>
 				</div>
 				
 				<div class="text-center p-t-46 p-b-20">
 					<span class="txt2">
-						<a href="/auth/join.do">or sign up using</a>
+						<a href="/auth/join.do">가입하기</a>
 					</span>
 				</div>
 

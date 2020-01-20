@@ -38,8 +38,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Component
 public class FileUtil {
 
-	private Logger logger = LoggerFactory.getLogger(this.getClass());
-	
+	private Logger logger = LoggerFactory.getLogger(this.getClass());	
 	/**
 	 * @see
 	 * @Value("${pathInfo}")
@@ -47,7 +46,7 @@ public class FileUtil {
 	 */
 	@Value("${pathInfo}")
 	private String filePathInfo;
-	
+
 	private ExpressionParser parser;
 	
 	public ExpressionParser getParser() {

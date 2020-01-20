@@ -4,7 +4,7 @@ define([], function(){
 	
 	function Module(){
 		
-		const vp = arguments[0].getGlobalVal();
+		//const vp = arguments[0].getGlobalVal();
 		const pandora = new arguments[1]('bot', arguments);
 		
 		// 생일 고르는 날짜 셋팅

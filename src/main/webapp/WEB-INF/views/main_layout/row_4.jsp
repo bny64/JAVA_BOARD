@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<div class="wrapper row4">
+<!-- <div class="wrapper row4">
   <footer id="footer" class="hoc clear"> 
-    <!-- ################################################################################################ -->
+    ################################################################################################
     <div class="one_third first">
       <h1 class="logoname"><span>Suro</span>gou</h1>
       <p class="btmspace-30">Sem nam et erat nec eros elementum gravida proin bibendum diam sed congue sagittis metus risus rutrum mauris sed euismod nisl purus vel leo phasellus nunc erat cursus aliquet [<a href="#">&hellip;</a>]</p>
@@ -35,6 +35,6 @@
         </fieldset>
       </form>
     </div>
-    <!-- ################################################################################################ -->
+    ################################################################################################
   </footer>
-</div>
+</div> -->

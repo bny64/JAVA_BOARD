@@ -29,7 +29,7 @@
   	<definition name="layout3" template="/WEB-INF/views/main_layout/layout3.jsp">
   		<put-attribute name="headerInclude" value="/WEB-INF/views/main_layout/headerInclude.jsp"/>  		
   		<put-attribute name="body" value=""/>  		
-  	</definition>  	
+  	</definition>
   	
   	<definition name="authLayout" template="/WEB-INF/views/login_layout/layout.jsp">
   		<put-attribute name="headerInclude" value="/WEB-INF/views/login_layout/headerInclude.jsp"/>

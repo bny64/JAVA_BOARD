@@ -7,8 +7,8 @@
       <h6 class="heading">Quis est gravida facilisis</h6>
       <p>Mauris tempor aenean pretium sem et luctus semper justo velit</p>
     </div>
-    <ul class="nospace group overview">
-      <li class="one_third">
+    <ul class="nospace group overview" id="indexBoards">
+      <!-- <li class="one_third">
         <figure><a href="#"><img src="/images/main/demo/348x261.png" alt=""></a>
           <figcaption>
             <h6 class="heading">Dapibus pede tristique</h6>
@@ -55,16 +55,16 @@
             <p>Nulla iaculis pellentesque nunc felis tristique vel ultrices.</p>
           </figcaption>
         </figure>
-      </li>
+      </li> -->
     </ul>
     <!-- ################################################################################################ -->
     <!-- / main body -->
     <div class="clear"></div>
   </main>
 </div>
-<div class="wrapper row2">
+<!-- <div class="wrapper row2">
   <section class="hoc container clear"> 
-    <!-- ################################################################################################ -->
+    ################################################################################################
     <div class="sectiontitle">
       <h6 class="heading">Vitae congue at urna suspendisse</h6>
       <p>Vestibulum nisi ut lectus proin lectus ante fermentum sed</p>
@@ -83,12 +83,12 @@
         <p>Suspendisse potenti vestibulum mattis suspendisse potenti praesent nec ligula ut non ante sit amet est luctus dictum duis magna.</p>
       </article>
     </div>
-    <!-- ################################################################################################ -->
+    ################################################################################################
   </section>
 </div>
 <div class="wrapper gradient">
   <section id="testimonials" class="hoc container clear"> 
-    <!-- ################################################################################################ -->
+    ################################################################################################
     <div class="sectiontitle">
       <h6 class="heading">Mauris tincidunt eu tincidunt</h6>
       <p>In egestas vitae turpis sed velit urna sollicitudin ut euismod</p>
@@ -101,12 +101,12 @@
       <blockquote>Vestibulum volutpat ut consequat tincidunt tortor nulla enim morbi id ante in felis iaculis faucibus duis nibh diam tristique scelerisque viverra at vulputate quis lacus donec.</blockquote>
       <h6 class="heading">H. Name</h6>
       <em>Vestibulum odio vivamus</em></article>
-    <!-- ################################################################################################ -->
+    ################################################################################################
   </section>
 </div>
 <div class="wrapper row2">
   <section id="latest" class="hoc container clear"> 
-    <!-- ################################################################################################ -->
+    ################################################################################################
     <div class="sectiontitle">
       <h6 class="heading">Ligula mi fringilla vel hendrerit</h6>
       <p>Et malesuada vitae risus in a enim in metus ultrices tristique</p>
@@ -167,6 +167,6 @@
         </article>
       </li>
     </ul>
-    <!-- ################################################################################################ -->
+    ################################################################################################
   </section>
-</div>
+</div> -->

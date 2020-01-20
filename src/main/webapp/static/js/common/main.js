@@ -9,35 +9,37 @@ const top_path = '/globalSvc.js';
 
 const lsList = checkLoadJsLib();
 
-//add top definition[1단계 defintion 추가]
-lsList.lib.push(jsFilePath + top_path);
+if(lsList){
+	//add top definition[1단계 defintion 추가]
+	lsList.lib.push(jsFilePath + top_path);
 
-window.onload = function(){
-	
-	//asynchronous send[비동기 호출]
-	requirejs(lsList.lib, function(){
+	window.onload = function(){
 		
-		//prevent usage of jquery in global scope[jquery가 전역에서 사용되는 것을 방지]
-		jQuery.noConflict(true);
+		//asynchronous send[비동기 호출]
+		requirejs(lsList.lib, function(){
+			
+			//prevent usage of jquery in global scope[jquery가 전역에서 사용되는 것을 방지]
+			jQuery.noConflict(true);
 
-		//valuePipe
-		let vp = arguments[0].getGlobalVal();
-		
-		//top definition[1단계 definition]
-		const func_top = arguments[arguments.length-1];
-				
-		lsList.top_lib[0].push(jsFilePath + vp.middle_path);
-		
-		requirejs(lsList.top_lib[0], func_top);
-		
-	});
+			//valuePipe
+			let vp = arguments[0].getGlobalVal();
+			
+			//top definition[1단계 definition]
+			const func_top = arguments[arguments.length-1];
+					
+			lsList.top_lib[0].push(jsFilePath + vp.middle_path);
+			
+			requirejs(lsList.top_lib[0], func_top);
+			
+		});
+	}
 }
 
 //check libraries to load[로드해야할 js 라이브러리 확인]
 function checkLoadJsLib(){
 	
 	let type = {
-			top_lib : [['valuePipe', 'libFilter', 'bAjax','jsUtil'],['', '', 'bx', 'ju']]				//top
+			top_lib : [['valuePipe', 'libFilter', 'bAjax','jsUtil'],['', '', 'bx', 'ju']]					//top
 	};
 	
 	let first_url;
@@ -48,7 +50,7 @@ function checkLoadJsLib(){
 	if(/^\/(index)$/.test(first_url)){
 		
 		type.lib = ['valuePipe', 'jquery', 'jqueryui', 'backtotop', 'popper', 'bootstrap', 'summernote'];
-		type.mid_lib = [['valuePipe', 'libFilter'],['','']];
+		type.mid_lib = [['valuePipe', 'libFilter', 'bAjax'],['','', 'bx']];
 		
 	}else if(/^\/(auth)$/.test(first_url)){
 		
@@ -62,6 +64,8 @@ function checkLoadJsLib(){
 		type.mid_lib = [['valuePipe', 'libFilter'],['','']];												//middle
 		type.bot_lib = [['valuePipe', 'libFilter','jquery', 'moment', 'bAjax', 'domUtil'],['','','$', 'mmt','bx', 'du']];	//bottom
 		
+	}else{
+		type = null;
 	}
 	
 	return type;

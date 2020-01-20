@@ -7,7 +7,7 @@ define([], function(){
 			
 			if(scopeType==='top' || scopeType==='mid'){
 			
-				for(let i=2; i<libList.length-1 ; i++){
+				for(let i=2; i<libList.length ; i++){
 					
 					let name = lsList[scopeType+'_lib'][1][i];
 					this[name] = libList[i];

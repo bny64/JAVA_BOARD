@@ -4,9 +4,9 @@
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xsi:schemaLocation="
    http://www.springframework.org/schema/beans     
-   http://www.springframework.org/schema/beans/spring-beans-4.2.xsd   
+   https://www.springframework.org/schema/beans/spring-beans.xsd   
    http://www.springframework.org/schema/mvc
-   http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
+   https://www.springframework.org/schema/mvc/spring-mvc.xsd">
 	
 	<!-- mapping에 해당하는 url들을 location에 정의된 경로로 받아들임. -->
 	<!--mvc:resources 주의점

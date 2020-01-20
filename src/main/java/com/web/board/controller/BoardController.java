@@ -42,26 +42,34 @@ public class BoardController extends WebCommonController{
 	private BoardService boardService;
 	
 	//method 입력하지 않을 시 default값은 GET
+	/*게시판 리스트:GET*/
 	@RequestMapping(value="/boardList", method = RequestMethod.GET)
 	public ModelAndView boardList(ModelAndView mnv) throws Exception{
-		logger.debug("---------- BoardController boardList -----------");
-						
+		logger.debug("********************[BoardController]:[boardList:GET]********************");						
 		mnv.setViewName("board/boardList");
-		
 		return mnv;
 	}
 	
+	/*게시판 글쓰기:GET*/
 	@RequestMapping(value="/registBoard", method = RequestMethod.GET)
 	public ModelAndView registBoard(ModelAndView mnv) throws Exception{
-		logger.debug("---------- BoardController boardList -----------");		
+		logger.debug("********************[BoardController]:[registBoard:GET]********************");		
 		mnv.setViewName("board/registBoard");
-		
+		return mnv;
+	}
+
+	/*게시판 수정하기:GET*/
+	@RequestMapping(value="/modifyBoard", method = RequestMethod.GET)
+	public ModelAndView modifyBoard(ModelAndView mnv) throws Exception{
+		logger.debug("********************[BoardController]:[modifyBoard:GET]********************");	
+		mnv.setViewName("board/modifyBoard");
 		return mnv;
 	}
 	
+	/*게시판 등록하기:POST*/
 	@RequestMapping(value="/registBoard", method=RequestMethod.POST)
 	public @ResponseBody CommandMap registBoard(CommandMap reqMap) throws Exception{
-		
+		logger.debug("********************[BoardController]:[registBoard:POST]********************");	
 		CommandMap comMap = new CommandMap();
 		User user = null;
 		Board board = new Board();
@@ -126,9 +134,10 @@ public class BoardController extends WebCommonController{
 		return comMap;
 	}
 	
+	/*게시판 리스트:POST*/
 	@RequestMapping(value="/boardList",  method=RequestMethod.POST)
 	public @ResponseBody CommandMap boardList(CommandMap reqMap) throws Exception {
-		
+		logger.debug("********************[BoardController]:[boardList:POST]********************");
 		CommandMap comMap = new CommandMap();
 		String[] msg;
 		String thumbPath = fileUtil.parseName("thumbUrl_1");
@@ -159,9 +168,10 @@ public class BoardController extends WebCommonController{
 		return comMap;
 	}
 	
+	/*게시판 리스트 총 갯수:POST*/
 	@RequestMapping(value="/getNumOfBoards", method=RequestMethod.POST)
 	public @ResponseBody CommandMap getNumOfBoards(CommandMap reqMap) throws Exception{
-
+		logger.debug("********************[BoardController]:[getNumOfBoards:POST]********************");
 		CommandMap comMap = new CommandMap();
 		String[] msg;
 		
@@ -178,15 +188,8 @@ public class BoardController extends WebCommonController{
 	
 	@RequestMapping(value="/deleteBoard", method=RequestMethod.POST)
 	public @ResponseBody CommandMap deleteBoard(CommandMap reqMap) throws Exception{
-		
+		logger.debug("********************[BoardController]:[deleteBoard:POST]********************");
 		CommandMap comMap = new CommandMap();
 		return comMap;
-	}
-	
-	@RequestMapping(value="/reviseBoard", method=RequestMethod.POST)
-	public @ResponseBody CommandMap reviseBoard(CommandMap reqMap) throws Exception{
-		
-		CommandMap comMap = new CommandMap();
-		return comMap;
-	}
+	}	
 }

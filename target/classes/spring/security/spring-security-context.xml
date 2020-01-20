@@ -7,14 +7,20 @@
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="
    http://www.springframework.org/schema/beans 
-   http://www.springframework.org/schema/beans/spring-beans-4.2.xsd 
+   https://www.springframework.org/schema/beans/spring-beans.xsd 
    http://www.springframework.org/schema/context  
-   http://www.springframework.org/schema/context/spring-context-4.2.xsd 
+   https://www.springframework.org/schema/context/spring-context.xsd 
    http://www.springframework.org/schema/tx 
-   http://www.springframework.org/schema/tx/spring-tx-4.2.xsd 
+   https://www.springframework.org/schema/tx/spring-tx.xsd 
    http://www.springframework.org/schema/security 
-   http://www.springframework.org/schema/security/spring-security.xsd">
-
+   https://www.springframework.org/schema/security/spring-security.xsd">
+	<!-- 
+		schema는 라이브러리가 없으면 인터넷에서 불러온다.
+		라이브러리가 있었으나 문제가 있어서 계속 인터넷에서 schema를 불러오고 있었다. 그래서 인터넷이 연결이 안되면 SSL 에러가 발생했었음.
+		이더넷으로 연결된 상태에서 기존에 http://~~ 로 되어 있을 때는 문제가 있었지만 https로 변경하니 문제가 사라짐.
+		spring-security-4.2.xsd 버전까지는 http인 것 같다.
+	 -->
+	
 	<!-- secuirty 제외할 url -->
 	<security:http pattern="/images/**" security="none" />
 	<security:http pattern="/js/**" security="none"/>
@@ -31,6 +37,7 @@
 		create-session="never"
 		auto-config="true" 
 		use-expressions="true"
+		entry-point-ref="authenticationEntryPoint"
 		>
 		
 		<!-- <security:access-denied-handler error-page=""/> -->
@@ -46,16 +53,14 @@
 		<!-- isFullyAuthenticated() Anonymous 사용자가 아니고 Remember-me 기능으로 로그인 하지 않은 사용자 일 경우 -->		
 		<security:intercept-url pattern="/index.do" access="permitAll"/>
 		<security:intercept-url pattern="/auth/*.do" access="permitAll"/>
-		<security:intercept-url pattern="/common/**/*.do" access="permitAll"/>		
+		<security:intercept-url pattern="/common/**/*.do" access="permitAll"/>
+		<!-- <security:intercept-url pattern="/board/boardList.do" access="permitAll"/> -->
 		<security:intercept-url pattern="/**" access="hasAnyRole('ROLE_USER','ROLE_ADMIN')"/>		
 		
 		
 		<!-- 보안설정 -->
 		<security:csrf/> 
-		
-		<!-- 권한 없이 접근시 이동할 페이지 -->
-		<security:access-denied-handler error-page="/error/permissionError.do"/>
-		
+				
 		<!-- <form-login 사용자이름과 비밀번호를 가지고 있는 폼기반 인증방법을 사용한다.> -->		
 		<!-- username-parameter : input 태그의 아이디 혹은 이메일 name 속성 값 (default: username) -->
 		<!-- password-parameter :  input 태그의 비밀번호 name 속성 값 (default: password) -->
@@ -79,7 +84,9 @@
 			invalidate-session="true"	
 			success-handler-ref="logoutHandler"
 		/>
-		
+	
+		<!-- 권한 없이 접근시 이동할 페이지 -->
+		<security:access-denied-handler error-page="/common/error/permissionError.do"/>
 	</security:http>
 	
 	<security:global-method-security secured-annotations="enabled" /> 
@@ -101,6 +108,11 @@
 	<bean id="logoutHandler" class="com.web.common.security.handler.LogoutHandler">
 		<constructor-arg value="/index.do"/>		
 	</bean>
+	
+	<bean id="authenticationEntryPoint" class="com.web.common.security.CustomAuthenticationEntryPoint"/>
+	<!-- 사용하지 않음. 권한이 없는 페이지를 이동할 때 사용. 지금은 url로 직접 이동시킴 -->
+	<bean id="accessDeinedHandler" class="com.web.common.security.CustomAccessDeniedHandler"/>	
+	
 	
 	<bean id="userAuthProvider" class="com.web.common.security.CustomAuthenticationProvider"/>
 	<bean id="userService" class="com.web.common.security.CustomUserDetailService"/>

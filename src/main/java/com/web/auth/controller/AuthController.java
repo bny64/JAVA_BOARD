@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import javax.persistence.PersistenceException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -50,7 +51,7 @@ public class AuthController extends WebCommonController{
 	//로그인 화면 이동
 	@RequestMapping(value="/login") //로그아웃 실패 후 이 페이지로 이동하기 때문에 GET, POST 모두 받아야 함.
 	public ModelAndView login(ModelAndView mnv, HttpServletRequest request) throws Exception {		
-		logger.debug("---------- [AuthController]:[login] -----------");		
+		logger.debug("********************[BoardController]:[login:GET]********************");
 				
 		Map<String, ?> flashMap = RequestContextUtils.getInputFlashMap(request);
 		
@@ -65,16 +66,24 @@ public class AuthController extends WebCommonController{
 	//가입 화면 이동
 	@RequestMapping(value="/join", method = RequestMethod.GET)
 	public ModelAndView join(ModelAndView mnv) throws Exception {
-		logger.debug("---------- [AuthController]:[join] -----------");
+		logger.debug("********************[BoardController]:[join:GET]********************");
 		
 		mnv.setViewName("auth/join");	
 		return mnv;
 	}
 	
+	@RequestMapping(value="/checkErr", method= RequestMethod.GET)
+	public ModelAndView checkErr(ModelAndView mnv) throws Exception{
+		
+		throw new PersistenceException();
+		
+		//return mnv;
+	}
+	
 	//아이디 중복 체크
 	@RequestMapping(value="/chkValId", method = RequestMethod.POST)
 	public @ResponseBody CommandMap chkValId(CommandMap map) throws Exception {
-		logger.debug("---------- [AuthController]:[chkValId] -----------");
+		logger.debug("********************[BoardController]:[chkValId:POST]********************");
 				
 		CommandMap comMap = new CommandMap();	
 		String[] msg;
@@ -97,7 +106,7 @@ public class AuthController extends WebCommonController{
 	//이메일 중복 체크
 	@RequestMapping(value="/chkValEmail", method = RequestMethod.POST)
 	public @ResponseBody CommandMap chkValEmail(CommandMap map) throws Exception {
-		logger.debug("---------- [AuthController]:[chkValEmail] -----------");		
+		logger.debug("********************[BoardController]:[chkValEmail:POST]********************");		
 		
 		CommandMap comMap = new CommandMap();
 		String[] msg;
@@ -120,7 +129,7 @@ public class AuthController extends WebCommonController{
 	//가입 폼 전송
 	@RequestMapping(value="/join", method = RequestMethod.POST)
 	public String joinForm(ModelAndView mnv, CommandMap map, RedirectAttributes redirectAttr) throws Exception{
-		logger.debug("---------- [AuthController]:[joinForm] -----------");
+		logger.debug("********************[BoardController]:[joinForm:POST]********************");	
 		
 		String[] msg;
 		Map<String, String> msgMap = new HashMap<String, String>();
@@ -158,7 +167,7 @@ public class AuthController extends WebCommonController{
 	//로그인 처리
 	//@RequestMapping(value="/login", method = RequestMethod.POST)
 	public String loginForm(CommandMap map, RedirectAttributes redirectAttr, HttpSession session) throws Exception {		
-		logger.debug("---------- [AuthController]:[loginForm] -----------");		
+		logger.debug("********************[BoardController]:[loginForm:POST]********************");	
 		
 		String email = map.get("email").toString();
 		String password = map.get("password").toString();		
@@ -207,7 +216,7 @@ public class AuthController extends WebCommonController{
 	
 	//@RequestMapping(value="/logout", method = RequestMethod.POST) public
 	ModelAndView logout(ModelAndView mnv, HttpSession session) throws Exception {
-		logger.debug("---------- [AuthController]:[logout] -----------");
+		logger.debug("********************[BoardController]:[logout:POST]********************");	
   
 		if(session.getAttribute("userInfo") != null) {
 			session.removeAttribute("userInfo"); }

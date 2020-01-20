@@ -36,7 +36,7 @@ public class BoardDAOImpl extends CommonDAO implements BoardDAO{
 		CriteriaQuery<Board> cr = cb.createQuery(Board.class);
 		Root<Board> root = cr.from(Board.class);
 				
-		cr.select(cb.construct(Board.class, root.get("id"), root.get("name"), root.get("createdAt"), root.get("updatedAt"), root.get("contents"), 
+		cr.select(cb.construct(Board.class, root.get("listNo"), root.get("id"), root.get("name"), root.get("createdAt"), root.get("updatedAt"), root.get("contents"), 
 				root.get("title"), root.get("imgFilePath"), root.get("fileName"), root.get("thumbImgFilePath"), root.get("thumbFileName"), root.get("orgFileName")))
 			.orderBy(cb.desc(root.get("createdAt")));		
 		

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<div class="wrapper gradient">
+<!-- <div class="wrapper gradient">
   <section id="cta" class="hoc container clear"> 
-    <!-- ################################################################################################ -->
+    ################################################################################################
     <div class="sectiontitle">
       <h6 class="heading">interdum pulvinar aliquam</h6>
       <p>in urna proin luctus ligula eget mauris quisque congue malesuada</p>
@@ -17,6 +17,6 @@
         <div class="block clear"><i class="fas fa-map-marker-alt"></i> <span><strong>Come visit us:</strong> Directions to <a href="#">our location</a></span> </div>
       </li>
     </ul>
-    <!-- ################################################################################################ -->
+    ################################################################################################
   </section>
-</div>
+</div> -->

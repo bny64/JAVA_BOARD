@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -23,38 +24,48 @@ import com.web.common.resolver.CommandMap;
 import com.web.common.support.message.MsgCode;
 import com.web.common.support.message.MsgList;
 
-@ControllerAdvice // 사용하기 위해서 xml에서 anotation-driven설정해야 함.
+/*// 사용하기 위해서 xml에서 anotation-driven설정해야 함.*/
+@ControllerAdvice 
 public class CommonControllerAdvice {
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
+	@ResponseStatus(HttpStatus.UNAUTHORIZED)
+	public @ResponseBody CommandMap unAuthHandleException(HttpServletRequest request, HttpServletResponse response, Exception e) throws IOException{
+		CommandMap map = new CommandMap();
+		return map;
+	} 
+	
 	@ExceptionHandler(Exception.class)
-	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)	
+	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 	public @ResponseBody CommandMap handleException(HttpServletRequest request, HttpServletResponse response, Exception e) throws IOException{
+		logger.debug("********************[CommonControllerAdvice]:[handleException]********************");	
 		CommandMap comMap = new CommandMap();
 		String[] msg;
 		
-		//String acceptHeader = request.getContentType();
-				
 		e.printStackTrace();
-		msg = MsgList.getInstance().getCodeMessage(MsgCode.RequestError);
-		comMap.put("msgCode", msg[0]);
-		comMap.put("msg", msg[1]);			
-		return comMap;
 		
-		/*
-		 * if(acceptHeader.contains("application/json") ||
-		 * acceptHeader.contains("multipart/form-data")) {//ajax 에러 일 때
-		 * e.printStackTrace(); msg =
-		 * MsgList.getInstance().getCodeMessage(MsgCode.RequestError);
-		 * comMap.put("msgCode", msg[0]); comMap.put("msg", msg[1]); return comMap;
-		 * }else { e.printStackTrace(); response.sendRedirect("/error/requestError.do");
-		 * }
-		 */
+		String acceptHeader = request.getContentType();
 		
-		//return null;
+		//asynchronous 요청일 경우
+		if(acceptHeader != null) {
+		
+			if(acceptHeader.contains("multipart/form-data") ||
+					acceptHeader.contains("application/json") ||
+					acceptHeader.contains("application/x-www-form-urlencoded")) {
+				
+				msg = MsgList.getInstance().getCodeMessage(MsgCode.RequestError);
+				comMap.put("msgCode", msg[0]);
+				comMap.put("msg", msg[1]);			
+				return comMap;				
+			}			
+		}
+		
+		//URL 이동일 경우
+		response.sendRedirect("/common/error/requestError.do");
+		return null;
 	}
-
+	
 	private List<String> generate(Exception e) {
 		StringWriter writer = new StringWriter();
 		e.printStackTrace(new PrintWriter(writer));

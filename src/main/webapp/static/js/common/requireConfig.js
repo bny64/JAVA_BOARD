@@ -18,6 +18,7 @@ const requireConfig = {
 		jquery : 'lib/jquery/jquery.min', 							// jquery
 		jqueryui : 'lib/jquery/jquery-ui', 							// jquery-ui
 		jqueryForm : 'lib/jquery/jquery.form.min', 					// jquery-form
+		jqueryCookie : 'lib/jquery/jquery-cookie.min.js',			// jquery-cookie
 		animsition : 'lib/animsition/js/animsition.min', 			// animsition
 		popper : 'lib/bootstrap/js/popper', 						// popper
 		bootstrap : 'lib/bootstrap/js/bootstrap', 					// bootstrap

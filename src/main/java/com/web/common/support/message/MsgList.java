@@ -66,7 +66,7 @@ public class MsgList {
 		
 		msg = new String[2];
 		msg[0] = "RQ0001";
-		msg[1] = "요청 중 에러가 발생습니다.";
+		msg[1] = "요청 중 에러가 발생했습니다.";
 		msgList.put(MsgCode.RequestError, msg);
 	}
 	
