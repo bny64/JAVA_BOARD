@@ -1,17 +1,14 @@
 package com.web.common.security;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
-
-import com.web.common.resolver.CommandMap;
 
 public class CustomAuthenticationEntryPoint implements AuthenticationEntryPoint{
 	
@@ -20,12 +17,25 @@ public class CustomAuthenticationEntryPoint implements AuthenticationEntryPoint{
 			AuthenticationException authException) throws IOException, ServletException {
 		// TODO Auto-generated method stub
 		
-		CommandMap map = new CommandMap();
-		map.put("code", "code");
+		String contentType = request.getContentType();
+		
+		if(contentType != null) {
+		
+			if(contentType.contains("multipart/form-data") ||
+					contentType.contains("application/json") ||
+					contentType.contains("application/x-www-form-urlencoded")) {
 				
-		PrintWriter writer = response.getWriter();
-		writer.println(map.getMap());
-		writer.write(map.getMap().toString());
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/common/error/unauthorizedAjaxError.do");
+				dispatcher.forward(request, response);
+				
+			}			
+			
+		}else {
+			response.sendRedirect("/auth/login.do");
+		}
+		
+		
+		
 	}
 
 }

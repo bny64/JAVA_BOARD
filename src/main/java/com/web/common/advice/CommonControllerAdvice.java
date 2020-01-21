@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -20,6 +19,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+import com.web.common.excpetion.AccessDeniedException;
+import com.web.common.excpetion.UnauthorizedException;
 import com.web.common.resolver.CommandMap;
 import com.web.common.support.message.MsgCode;
 import com.web.common.support.message.MsgList;
@@ -30,11 +31,39 @@ public class CommonControllerAdvice {
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
+	@ExceptionHandler(AccessDeniedException.class)
+	@ResponseStatus(HttpStatus.FORBIDDEN)
+	public @ResponseBody CommandMap accessDeniedHandleException(HttpServletRequest request, HttpServletResponse response, Exception e) throws IOException{
+		logger.debug("********************[CommonControllerAdvice]:[accessDeniedHandleException]********************");
+		
+		CommandMap comMap = new CommandMap();
+		String[] msg;
+		
+		e.printStackTrace();
+				
+		msg = MsgList.getInstance().getCodeMessage(MsgCode.AccessDeniedError);
+		comMap.put("msgCode", msg[0]);
+		comMap.put("msg", msg[1]);
+		
+		return comMap;		
+	}
+	
+	@ExceptionHandler(UnauthorizedException.class)
 	@ResponseStatus(HttpStatus.UNAUTHORIZED)
 	public @ResponseBody CommandMap unAuthHandleException(HttpServletRequest request, HttpServletResponse response, Exception e) throws IOException{
-		CommandMap map = new CommandMap();
-		return map;
-	} 
+		logger.debug("********************[CommonControllerAdvice]:[unAuthHandleException]********************");
+		
+		CommandMap comMap = new CommandMap();
+		String[] msg;
+		
+		e.printStackTrace();
+				
+		msg = MsgList.getInstance().getCodeMessage(MsgCode.UnauthorizedError);
+		comMap.put("msgCode", msg[0]);
+		comMap.put("msg", msg[1]);
+		
+		return comMap;		
+	}
 	
 	@ExceptionHandler(Exception.class)
 	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
@@ -47,7 +76,7 @@ public class CommonControllerAdvice {
 		
 		String acceptHeader = request.getContentType();
 		
-		//asynchronous 요청일 경우
+		//ajax 요청일 경우
 		if(acceptHeader != null) {
 		
 			if(acceptHeader.contains("multipart/form-data") ||
@@ -58,7 +87,7 @@ public class CommonControllerAdvice {
 				comMap.put("msgCode", msg[0]);
 				comMap.put("msg", msg[1]);			
 				return comMap;				
-			}			
+			}
 		}
 		
 		//URL 이동일 경우
@@ -66,6 +95,7 @@ public class CommonControllerAdvice {
 		return null;
 	}
 	
+	//사용 안함
 	private List<String> generate(Exception e) {
 		StringWriter writer = new StringWriter();
 		e.printStackTrace(new PrintWriter(writer));

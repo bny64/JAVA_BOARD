@@ -4,8 +4,8 @@
     <!-- main body -->
     <!-- ################################################################################################ -->
     <div class="sectiontitle">
-      <h6 class="heading">Quis est gravida facilisis</h6>
-      <p>Mauris tempor aenean pretium sem et luctus semper justo velit</p>
+      <h6 class="heading">게시판 목록</h6>
+      <p>다른 사용자들과 게시판으로 정보를 공유하세요</p>
     </div>
     <ul class="nospace group overview" id="indexBoards">
       <!-- <li class="one_third">

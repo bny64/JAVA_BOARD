@@ -14,6 +14,7 @@
    https://www.springframework.org/schema/tx/spring-tx.xsd 
    http://www.springframework.org/schema/security 
    https://www.springframework.org/schema/security/spring-security.xsd">
+	
 	<!-- 
 		schema는 라이브러리가 없으면 인터넷에서 불러온다.
 		라이브러리가 있었으나 문제가 있어서 계속 인터넷에서 schema를 불러오고 있었다. 그래서 인터넷이 연결이 안되면 SSL 에러가 발생했었음.
@@ -28,6 +29,9 @@
 	<security:http pattern="/style/**" security="none"/>
 	<security:http pattern="/lib/**" security="none"/>
 	<security:http pattern="/thumb/**" security="none"/>
+	
+	<!-- custom filter 사용시 아래와 같이 사용 -->
+	<!-- <security:custom-filter position="FORM_LOGIN_FILTER" ref="fok.service.security.AuthenticationFilter"/> -->
 	
 	<!-- expression을 추가해야 hasRole, permitAll 등의 다양한 옵션을 사용할 수 있음. -->
 	<!-- use-expressions="true"를 설정하지 않으면 false가 default. 이럴 때는 SpEL을 사용하지 않는다. -->
@@ -54,8 +58,8 @@
 		<security:intercept-url pattern="/index.do" access="permitAll"/>
 		<security:intercept-url pattern="/auth/*.do" access="permitAll"/>
 		<security:intercept-url pattern="/common/**/*.do" access="permitAll"/>
-		<!-- <security:intercept-url pattern="/board/boardList.do" access="permitAll"/> -->
-		<security:intercept-url pattern="/**" access="hasAnyRole('ROLE_USER','ROLE_ADMIN')"/>		
+		<security:intercept-url pattern="/board/boardList.do" access="permitAll" method="POST"/>
+		<security:intercept-url pattern="/**" access="hasAnyRole('ROLE_BRONZE', 'ROLE_SILVER', 'ROLE_ADMIN')"/>		
 		
 		
 		<!-- 보안설정 -->
@@ -84,9 +88,18 @@
 			invalidate-session="true"	
 			success-handler-ref="logoutHandler"
 		/>
-	
+		
+		 
+		<!-- invalid-session-url : 세션이 끊어졌을 때 이동할 페이지 -->
+		<!-- max-sessions : 최대 허용 가능 중복 세션 갯수 -->
+		<!-- expired-url : 중복 로그인이 일어났을 경우 이동할 페이지 -->
+		<security:session-management invalid-session-url="/auth/login.do">
+			<security:concurrency-control max-sessions="1" expired-url="/index.do"/>		
+		</security:session-management>
+		
 		<!-- 권한 없이 접근시 이동할 페이지 -->
-		<security:access-denied-handler error-page="/common/error/permissionError.do"/>
+		<security:access-denied-handler ref="accessDeinedHandler"/>
+		
 	</security:http>
 	
 	<security:global-method-security secured-annotations="enabled" /> 
@@ -109,8 +122,10 @@
 		<constructor-arg value="/index.do"/>		
 	</bean>
 	
-	<bean id="authenticationEntryPoint" class="com.web.common.security.CustomAuthenticationEntryPoint"/>
-	<!-- 사용하지 않음. 권한이 없는 페이지를 이동할 때 사용. 지금은 url로 직접 이동시킴 -->
+	<!-- 사용자가 인증을 하지 않고 접근하는 경우 -->
+	<bean id="authenticationEntryPoint" class="com.web.common.security.CustomAuthenticationEntryPoint"/>	
+	
+	<!-- 사용하지 않음. 사용자가 권한이 없는 페이지로 이동할 경우 사용. 지금은 url로 직접 이동시킴 -->
 	<bean id="accessDeinedHandler" class="com.web.common.security.CustomAccessDeniedHandler"/>	
 	
 	

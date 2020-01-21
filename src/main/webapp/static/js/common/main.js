@@ -9,11 +9,18 @@ const top_path = '/globalSvc.js';
 
 const lsList = checkLoadJsLib();
 
-if(lsList){
-	//add top definition[1단계 defintion 추가]
-	lsList.lib.push(jsFilePath + top_path);
+if (document.readyState === "complete" || (document.readyState !== "loading" && !document.documentElement.doScroll)) {
+  callback();
+} else {
+  document.addEventListener("DOMContentLoaded", callback);
+}
 
-	window.onload = function(){
+function callback(){
+	
+	if(lsList){
+		
+		//add top definition[1단계 defintion 추가]
+		lsList.lib.push(jsFilePath + top_path);
 		
 		//asynchronous send[비동기 호출]
 		requirejs(lsList.lib, function(){
@@ -32,7 +39,9 @@ if(lsList){
 			requirejs(lsList.top_lib[0], func_top);
 			
 		});
+		
 	}
+	
 }
 
 //check libraries to load[로드해야할 js 라이브러리 확인]

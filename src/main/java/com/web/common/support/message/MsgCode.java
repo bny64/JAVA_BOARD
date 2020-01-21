@@ -84,5 +84,19 @@ public enum MsgCode {
 	 * @see
 	 * RQ0001
 	 * */
-	RequestError
+	RequestError,
+	
+	/**
+	 * 사용자 인증 전 에러
+	 * @see
+	 * UA0001
+	 * */
+	UnauthorizedError,
+	
+	/**
+	 * 사용자 인증 후 에러
+	 * @see
+	 * AD0001
+	 * */
+	AccessDeniedError
 }

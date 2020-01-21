@@ -66,8 +66,20 @@ public class MsgList {
 		
 		msg = new String[2];
 		msg[0] = "RQ0001";
-		msg[1] = "요청 중 에러가 발생했습니다.";
+		msg[1] = "요청 중 에러가 발견됐습니다.";
 		msgList.put(MsgCode.RequestError, msg);
+		
+		msg = new String[2];
+		msg[0] = "UA0001";
+		msg[1] = "인증이 되지 않은 요청입니다.";
+		msgList.put(MsgCode.UnauthorizedError, msg);
+		
+		
+		msg = new String[2];
+		msg[0] = "AD0001";
+		msg[1] = "권한이 없는 요청입니다.";
+		msgList.put(MsgCode.AccessDeniedError, msg);
+		
 	}
 	
 	public static MsgList getInstance() {

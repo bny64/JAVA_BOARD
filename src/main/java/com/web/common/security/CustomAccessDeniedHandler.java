@@ -2,6 +2,7 @@ package com.web.common.security;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,6 +22,22 @@ public class CustomAccessDeniedHandler implements AccessDeniedHandler{
 		
 		String contentType = request.getContentType();
 		
+		if(contentType != null) {
+			
+			if(contentType.contains("multipart/form-data") ||
+					contentType.contains("application/json") ||
+					contentType.contains("application/x-www-form-urlencoded")) {
+				
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/common/error/permissionAjaxError.do");
+				dispatcher.forward(request, response);
+				
+			}
+			
+		}else {
+			
+			response.sendRedirect("/common/error/permissionError.do");
+			
+		}
 		
 	}
 

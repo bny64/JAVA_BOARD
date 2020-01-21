@@ -17,7 +17,9 @@ define(['jquery'], function($){
 	
 	class bAjax {
 		
-		constructor(){}
+		constructor(){
+			
+		}
 		
 		/**
 		 * asynchronous send function
@@ -45,8 +47,7 @@ define(['jquery'], function($){
 				headerValue : 'application/x-www-form-urlencoded; charset=UTF-8', //header value[헤더 값]	
 				dataType:'json',
 				error : function(result){
-					const error = that.parseRtnType(result);
-					alert(error.msg);
+					alert('요청 url : ' + result.url + '\nMessage : ' + result.msg + '\n코드 : ' + result.msgCode);
 				}
 			};
 			
@@ -71,20 +72,23 @@ define(['jquery'], function($){
 						
 						if(xhr.readyState===4){
 							
-							let resValue = xhr.response;
-														
+							let resValue = xhr.response;										
+							
 							if(resValue){								
 								if(xhr.responseType!=='json') resValue = JSON.parse(xhr.response);
-
 								result = that.parseRtnType(resValue);
-								result.status = xhr.status;
-
 							}							
-														
-							if(xhr.status===200){
+
+							result.status = xhr.status;
+							
+							//success
+							if(xhr.status===200){						
 								if(ajaxSetting.mtnData) result.mtnData = ajaxSetting.mtnData;
 								resolve(result);
-							}else{
+								
+							//error
+							}else{								
+								reesult.url = xhr.responseURL;
 								reject(result);
 							}
 						}					
@@ -104,17 +108,21 @@ define(['jquery'], function($){
 												
 						if(resValue){								
 							if(xhr.responseType!=='json') resValue = JSON.parse(xhr.response);
-
 							result = that.parseRtnType(resValue);
-							result.status = xhr.status;
-
 						}
 
+						result.status = xhr.status;
+						
+						//success
 						if(xhr.status===200){					
 							if(ajaxSetting.mtnData) result.mtnData = ajaxSetting.mtnData;
 							return ajaxSetting.callback(result);
+						//error
 						}else{
+							
+							result.url = xhr.responseURL;
 							return ajaxSetting.error(result);
+							
 						}
 					}				
 				};

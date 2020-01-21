@@ -57,7 +57,7 @@ const requireConfig = {
 		countdowntime : { deps : [ 'jquery' ] },
 		backtotop : {deps : ['jquery'] },
 		mobilemenu : {deps : ['jquery'] },
-		setDatepickerKor : { deps : [ 'jquery' ] },
+		setDatepickerKor : { deps : [ 'jquery', 'jqueryui' ] },
 		summernote_kor : { deps : [ 'summrnote' ] },		
 		bAjax : { deps : [ 'jqueryForm' ] }
 	}
