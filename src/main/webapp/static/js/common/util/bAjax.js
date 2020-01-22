@@ -88,7 +88,7 @@ define(['jquery'], function($){
 								
 							//error
 							}else{								
-								reesult.url = xhr.responseURL;
+								result.url = xhr.responseURL;
 								reject(result);
 							}
 						}					

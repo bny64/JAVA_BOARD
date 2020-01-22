@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 
+/**
+ * 인증이 되지 않은 사용자에 대해서 동작함
+ * */
 public class CustomAuthenticationEntryPoint implements AuthenticationEntryPoint{
 	
 	@Override
@@ -33,8 +36,6 @@ public class CustomAuthenticationEntryPoint implements AuthenticationEntryPoint{
 		}else {
 			response.sendRedirect("/auth/login.do");
 		}
-		
-		
 		
 	}
 

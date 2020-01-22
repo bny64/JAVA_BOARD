@@ -648,3 +648,7 @@ input.input100 {
 .mb10{
 	margin-bottom: 10px;
 }
+
+.lgBtn1 {
+	text-align : right !important;
+}

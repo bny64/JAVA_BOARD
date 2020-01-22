@@ -63,9 +63,9 @@ function checkLoadJsLib(){
 		
 	}else if(/^\/(auth)$/.test(first_url)){
 		
-		type.lib = ['valuePipe', 'jquery','jqueryui','animsition','popper','bootstrap','select2','moment','daterangepicker','countdowntime','setDatepickerKor'];
+		type.lib = ['valuePipe', 'jquery', 'jqueryui', 'jqueryCookie', 'animsition', 'popper', 'bootstrap', 'select2', 'moment','daterangepicker', 'countdowntime', 'setDatepickerKor'];
 		type.mid_lib = [['valuePipe', 'libFilter'],['','']];												//middle
-		type.bot_lib = [['valuePipe', 'libFilter','jquery','bAjax','domUtil'],['','','$','bx','du']];		//bottom
+		type.bot_lib = [['valuePipe', 'libFilter','jquery', 'bAjax','domUtil'],['','','$', 'bx','du']];		//bottom
 		
 	}else if(/^\/(board)$/.test(first_url)){
 		

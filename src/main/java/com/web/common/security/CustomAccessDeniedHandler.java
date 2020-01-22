@@ -35,8 +35,7 @@ public class CustomAccessDeniedHandler implements AccessDeniedHandler{
 			
 		}else {
 			
-			response.sendRedirect("/common/error/permissionError.do");
-			
+			response.sendRedirect("/common/error/permissionError.do");			
 		}
 		
 	}

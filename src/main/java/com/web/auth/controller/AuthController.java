@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-import javax.persistence.PersistenceException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -72,13 +71,13 @@ public class AuthController extends WebCommonController{
 		return mnv;
 	}
 	
-	@RequestMapping(value="/checkErr", method= RequestMethod.GET)
-	public ModelAndView checkErr(ModelAndView mnv) throws Exception{
+	@RequestMapping(value="/forgetEmail", method= RequestMethod.GET)
+	public ModelAndView forgetEmail(ModelAndView mnv) throws Exception{
+		logger.debug("********************[BoardController]:[forgetEmail:GET]********************");
 		
-		throw new PersistenceException();
-		
-		//return mnv;
-	}
+		mnv.setViewName("auth/forgetEmail");
+		return mnv;
+	}	
 	
 	//아이디 중복 체크
 	@RequestMapping(value="/chkValId", method = RequestMethod.POST)
@@ -162,6 +161,30 @@ public class AuthController extends WebCommonController{
 		redirectAttr.addFlashAttribute("msg", msgMap);
 		
 		return "redirect:/auth/login.do";
+	}
+	
+	//이메일 찾기
+	@RequestMapping(value="/forgetEmail", method = RequestMethod.POST)
+	public @ResponseBody CommandMap forgetEmail(CommandMap map) throws Exception {
+		logger.debug("********************[BoardController]:[chkValId:POST]********************");
+		
+		CommandMap comMap = new CommandMap();	
+		String[] msg;
+				
+		List<User> user = authService.selectEmailByIdName(map.getMap());
+		
+		if(user.size()>0) {
+			comMap.put("email", user.get(0).getEmail());
+			msg = MsgList.getInstance().getCodeMessage(MsgCode.SelectSuccess);
+			comMap.put("msgCode", msg[0]);
+			comMap.put("msg", msg[1]);
+		}else {
+			msg = MsgList.getInstance().getCodeMessage(MsgCode.SelectNonResult);
+			comMap.put("msgCode", msg[0]);
+			comMap.put("msg", msg[1]);
+		}
+		
+		return comMap;		
 	}
 	
 	//로그인 처리

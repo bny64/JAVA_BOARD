@@ -20,6 +20,11 @@ public class MsgList {
 		msgList.put(MsgCode.SelectFail, msg);
 		
 		msg = new String[2];
+		msg[0] = "S0002";
+		msg[1] = "조회된 데이터가 없습니다";
+		msgList.put(MsgCode.SelectNonResult, msg);
+		
+		msg = new String[2];
 		msg[0] = "I0000";
 		msg[1] = "입력 성공 하였습니다.";
 		msgList.put(MsgCode.InsertSuccess, msg);

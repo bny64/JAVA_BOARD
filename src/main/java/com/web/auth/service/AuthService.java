@@ -1,6 +1,7 @@
 package com.web.auth.service;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.PersistenceException;
 
@@ -15,4 +16,5 @@ public interface AuthService {
 	public UserAuthority selectAuth(String id) throws PersistenceException;
 	public User selectByUserKey(String userKey) throws PersistenceException;
 	public void saveAuth(UserAuthority userAuthority) throws PersistenceException;
+	public List<User> selectEmailByIdName(Map<String, Object> req) throws PersistenceException;
 }

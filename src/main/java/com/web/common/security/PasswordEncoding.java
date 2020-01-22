@@ -24,6 +24,16 @@ public class PasswordEncoding implements PasswordEncoder {
 		this.passwordEncoder = passwordEncoder;
 	}
 
+	@Override
+	public String encode(CharSequence rawPassword) {
+		return passwordEncoder.encode(rawPassword);
+	}
+
+	@Override
+	public boolean matches(CharSequence rawPassword, String encodedPassword) {		
+		return passwordEncoder.matches(rawPassword, encodedPassword);
+	}	
+	
 	//NOT USED
 	public String generateSalt() {
 		
@@ -85,15 +95,5 @@ public class PasswordEncoding implements PasswordEncoder {
 		}else {
 			return false;			
 		}		
-	}
-
-	@Override
-	public String encode(CharSequence rawPassword) {
-		return passwordEncoder.encode(rawPassword);
-	}
-
-	@Override
-	public boolean matches(CharSequence rawPassword, String encodedPassword) {		
-		return passwordEncoder.matches(rawPassword, encodedPassword);
 	}	
 }

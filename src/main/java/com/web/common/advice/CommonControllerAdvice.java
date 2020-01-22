@@ -25,7 +25,7 @@ import com.web.common.resolver.CommandMap;
 import com.web.common.support.message.MsgCode;
 import com.web.common.support.message.MsgList;
 
-/*// 사용하기 위해서 xml에서 anotation-driven설정해야 함.*/
+/* 사용하기 위해서 xml에서 anotation-driven설정해야 함.*/
 @ControllerAdvice 
 public class CommonControllerAdvice {
 

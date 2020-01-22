@@ -16,12 +16,12 @@ define([], function(){
 				
 			}else if(scopeType==='bot'){
 				
-				for(let i=1; i<libList.length; i++){
+				for(let i=2; i<libList.length; i++){
 					
 					let name = lsList[scopeType+'_lib'][1][i];
 					this[name] = libList[i];
 					
-				}				
+				}
 			}			
 			
 		}

@@ -1,6 +1,7 @@
 package com.web.auth.service;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.PersistenceException;
 
@@ -46,6 +47,11 @@ public class AuthServiceImpl implements AuthService {
 	@Override
 	public User selectByUserKey(String userKey) throws PersistenceException {
 		return authDao.selectByUserKey(userKey);
+	}
+
+	@Override
+	public List<User> selectEmailByIdName(Map<String, Object> req) throws PersistenceException {		
+		return authDao.selectEmailByIdName(req);
 	}
 
 }

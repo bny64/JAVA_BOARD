@@ -177,6 +177,8 @@ define([], function(){
 					return false;
 				}
 			}
+			
+			return true;
 		}
 
 		function showValidate(input) {

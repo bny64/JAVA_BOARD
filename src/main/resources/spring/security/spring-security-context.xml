@@ -93,7 +93,7 @@
 		<!-- invalid-session-url : 세션이 끊어졌을 때 이동할 페이지 -->
 		<!-- max-sessions : 최대 허용 가능 중복 세션 갯수 -->
 		<!-- expired-url : 중복 로그인이 일어났을 경우 이동할 페이지 -->
-		<security:session-management invalid-session-url="/auth/login.do">
+		<security:session-management>
 			<security:concurrency-control max-sessions="1" expired-url="/index.do"/>		
 		</security:session-management>
 		

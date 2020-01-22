@@ -42,6 +42,10 @@ public class User implements Serializable{
 	public User() {		
 	};
 	
+	public User(String email) {
+		this.email = email;
+	}
+	
 	public User(String id, String email, String password, String name, String joinType, String userType, String userKey) {
 		//super();
 		this.id = id;		

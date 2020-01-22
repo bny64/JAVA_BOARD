@@ -35,7 +35,12 @@
 							비밀번호 분실
 						</a>
 					</div>
-				</div>				
+				</div>
+				<div style="height:30px;">
+					<span id="chkIdMsg" style="display:none; float:right;">
+						아이디는 30일간 저장됩니다.
+					</span>
+				</div>		
 				<c:if test="${not empty errormsg}">
 				<div class="mb10">
 					<p style="color : red;">${errormsg }</p>
@@ -47,11 +52,20 @@
 					</button>
 				</div>
 				
-				<div class="text-center p-t-46 p-b-20">
+				<div class="text-center p-t-46 p-b-20 lgBtn1">
 					<span class="txt2">
 						<a href="/auth/join.do">가입하기</a>
 					</span>
+					<br>
+					<span class="txt2">
+						<a href="/auth/forgetEmail.do">이메일 찾기</a>
+					</span>
+					<br>
+					<span class="txt2">
+						<a href="/auth/forgetPassword.do">비밀번호 찾기</a>
+					</span>
 				</div>
+
 
 				<div class="login100-form-social flex-c-m">
 					<a href="#" class="login100-form-social-item flex-c-m bg1 m-r-5">

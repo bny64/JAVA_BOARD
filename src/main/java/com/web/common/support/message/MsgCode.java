@@ -31,6 +31,13 @@ public enum MsgCode {
 	SelectFail,
 	
 	/**
+	 * 조회된 데이터가 없음
+	 * @see
+	 * S0002
+	 * */
+	SelectNonResult,
+	
+	/**
 	 * id 사용가능
 	 * @see
 	 * AC0000

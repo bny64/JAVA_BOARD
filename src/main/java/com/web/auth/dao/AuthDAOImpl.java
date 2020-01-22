@@ -1,6 +1,8 @@
 package com.web.auth.dao;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.PersistenceException;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -101,6 +103,26 @@ public class AuthDAOImpl extends CommonDAO implements AuthDAO{
 		cr.select(root)
 			.where(restrictions);
 		return session.createQuery(cr).getSingleResult();
+	}
+
+	@Override
+	public List<User> selectEmailByIdName(Map<String, Object> req) throws PersistenceException {
+		
+		Session session = getSession();
+		
+		String id = (String) req.get("id");
+		String name = (String) req.get("name");
+		
+		CriteriaBuilder cb = session.getCriteriaBuilder();
+		CriteriaQuery<User> cr = cb.createQuery(User.class);
+		Root<User> root = cr.from(User.class);
+		List<Predicate> predicates = new ArrayList<Predicate>();
+		predicates.add(cb.equal(root.get("id"), id));
+		predicates.add(cb.equal(root.get("name"), name));
+		
+		cr.select(cb.construct(User.class, root.get("email"))).where(predicates.toArray(new Predicate[] {}));
+		
+		return session.createQuery(cr).getResultList();
 	}
 	
 }
