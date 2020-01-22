@@ -40,7 +40,7 @@ public class UserAuthority implements Serializable{
 	@Column(name="id", nullable = false, unique=true, length=100)
 	private String id;
 	
-	@Column(name="authority", columnDefinition = "VARCHAR(50) default 'ROLE_USER'")
+	@Column(name="authority", columnDefinition = "VARCHAR(50) default 'ROLE_BRONZE'")
 	private String authority = "ROLE_USER";
 	
 	@Column(name="name", nullable = false, length=100)

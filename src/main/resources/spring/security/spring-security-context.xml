@@ -56,7 +56,7 @@
 		<!-- isAuthenticated() Anonymous 사용자가 아닐 경우 (인증을 한 사용자) -->
 		<!-- isFullyAuthenticated() Anonymous 사용자가 아니고 Remember-me 기능으로 로그인 하지 않은 사용자 일 경우 -->		
 		<security:intercept-url pattern="/index.do" access="permitAll"/>
-		<security:intercept-url pattern="/auth/*.do" access="permitAll"/>
+		<security:intercept-url pattern="/auth/*.do" access="isAnonymous()"/>
 		<security:intercept-url pattern="/common/**/*.do" access="permitAll"/>
 		<security:intercept-url pattern="/board/boardList.do" access="permitAll" method="POST"/>
 		<security:intercept-url pattern="/**" access="hasAnyRole('ROLE_BRONZE', 'ROLE_SILVER', 'ROLE_ADMIN')"/>		

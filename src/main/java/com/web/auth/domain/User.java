@@ -46,6 +46,14 @@ public class User implements Serializable{
 		this.email = email;
 	}
 	
+
+	public User(String id, String email, String name) {
+		super();
+		this.id = id;
+		this.email = email;
+		this.name = name;
+	}
+	
 	public User(String id, String email, String password, String name, String joinType, String userType, String userKey) {
 		//super();
 		this.id = id;		
@@ -152,4 +160,5 @@ public class User implements Serializable{
 		this.userType = this.userType == null ? "B" : this.userType;
 		this.useYn = this.useYn == null ? "Y" : this.useYn;
 	}
+
 }

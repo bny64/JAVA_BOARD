@@ -7,9 +7,11 @@ import java.util.Map;
 import javax.persistence.PersistenceException;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.CriteriaUpdate;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -55,6 +57,8 @@ public class AuthDAOImpl extends CommonDAO implements AuthDAO{
 	//이메일로 유저 검색
 	@Override
 	public List<User> selectByEmail(String email) throws PersistenceException {
+		Session session = getSession();
+		
 		//sessionFactory에서 CriteriaBuilder를 가져온다.		
 		CriteriaBuilder cb = session.getCriteriaBuilder();
 		
@@ -123,6 +127,43 @@ public class AuthDAOImpl extends CommonDAO implements AuthDAO{
 		cr.select(cb.construct(User.class, root.get("email"))).where(predicates.toArray(new Predicate[] {}));
 		
 		return session.createQuery(cr).getResultList();
+	}
+
+	@Override
+	public int selectByIdNmEml(Map<String, Object> req) throws PersistenceException {
+		Session session = getSession();
+		
+		String id = (String) req.get("id");
+		String name = (String) req.get("name");
+		String email = (String) req.get("email");
+		
+		CriteriaBuilder cb = session.getCriteriaBuilder();
+		CriteriaQuery<Long> cr = cb.createQuery(Long.class);
+		Root<User> root = cr.from(User.class);
+		List<Predicate> predicates = new ArrayList<Predicate>();
+		predicates.add(cb.equal(root.get("id"), id));
+		predicates.add(cb.equal(root.get("name"), name));
+		predicates.add(cb.equal(root.get("email"), email));
+		
+		cr.select(cb.count(root)).where(predicates.toArray(new Predicate[] {}));
+		return (int) (long) session.createQuery(cr).getSingleResult();		
+	}
+
+	@Override
+	public void resetPassword(Map<String, String> req) throws PersistenceException {
+		
+		Session session = getSession();
+		
+		String email = req.get("email");		
+		String password = req.get("password");
+		
+		CriteriaBuilder cb = session.getCriteriaBuilder();
+		CriteriaUpdate<User> ud = cb.createCriteriaUpdate(User.class);
+		Root<User> root = ud.from(User.class);
+		Predicate restriction = cb.equal(root.get("email"), email);
+		
+		ud.set("password", password).where(restriction);
+		session.createQuery(ud).executeUpdate();
 	}
 	
 }

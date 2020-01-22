@@ -17,6 +17,20 @@ public enum MsgCode {
 	InsertFail,
 	
 	/**
+	 * 업데이트 성공
+	 * @see
+	 * U0000
+	 * */	
+	UpdateSuccess,
+	
+	/**
+	 * 업데이트 실패
+	 * @see
+	 * U0001
+	 * */	
+	UpdateFail,
+	
+	/**
 	 * 조회 성공
 	 * @see
 	 * S0000

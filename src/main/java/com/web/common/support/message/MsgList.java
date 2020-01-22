@@ -25,6 +25,16 @@ public class MsgList {
 		msgList.put(MsgCode.SelectNonResult, msg);
 		
 		msg = new String[2];
+		msg[0] = "U0000";
+		msg[1] = "업데이트 성공 하였습니다.";
+		msgList.put(MsgCode.UpdateSuccess, msg);
+		
+		msg = new String[2];
+		msg[0] = "U0001";
+		msg[1] = "업데이트 실패 하였습니다.";
+		msgList.put(MsgCode.UpdateFail, msg);
+		
+		msg = new String[2];
 		msg[0] = "I0000";
 		msg[1] = "입력 성공 하였습니다.";
 		msgList.put(MsgCode.InsertSuccess, msg);

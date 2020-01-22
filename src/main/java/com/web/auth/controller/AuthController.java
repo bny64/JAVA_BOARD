@@ -79,6 +79,14 @@ public class AuthController extends WebCommonController{
 		return mnv;
 	}	
 	
+	@RequestMapping(value="/forgetPassword", method= RequestMethod.GET)
+	public ModelAndView forgetPassword(ModelAndView mnv) throws Exception{
+		logger.debug("********************[BoardController]:[forgetPassword:GET]********************");
+		
+		mnv.setViewName("auth/forgetPassword");
+		return mnv;
+	}	
+	
 	//아이디 중복 체크
 	@RequestMapping(value="/chkValId", method = RequestMethod.POST)
 	public @ResponseBody CommandMap chkValId(CommandMap map) throws Exception {
@@ -185,6 +193,53 @@ public class AuthController extends WebCommonController{
 		}
 		
 		return comMap;		
+	}
+	
+	//이메일 찾기
+	@RequestMapping(value="/forgetPassword", method = RequestMethod.POST)
+	public @ResponseBody CommandMap forgetPassword(CommandMap map) throws Exception {
+		logger.debug("********************[BoardController]:[forgetPassword:POST]********************");
+		
+		CommandMap comMap = new CommandMap();	
+		String[] msg;
+		Map<String, String> reqMap = new HashMap<String, String>();
+		
+		
+		
+		int cnt = authService.selectByIdNmEml(map.getMap());
+		
+		if(cnt==1) {
+		
+			String newPass = String.valueOf((int) (Math.random()*9999) + 1000);
+			reqMap.put("password", passwordEncoding.encode(newPass));
+			reqMap.put("email", (String) map.get("email")); 
+			
+			try {
+				
+				authService.resetPassword(reqMap);
+				msg = MsgList.getInstance().getCodeMessage(MsgCode.UpdateSuccess);
+				comMap.put("password", newPass);
+				comMap.put("msgCode", msg[0]);
+				comMap.put("msg", msg[1]);
+				
+			} catch(Exception e) {
+				
+				e.printStackTrace();
+				msg = MsgList.getInstance().getCodeMessage(MsgCode.UpdateFail);
+				comMap.put("msgCode", msg[0]);
+				comMap.put("msg", msg[1]);
+			}
+			
+		} else {
+			
+			msg = MsgList.getInstance().getCodeMessage(MsgCode.SelectNonResult);
+			comMap.put("msgCode", msg[0]);
+			comMap.put("msg", msg[1]);
+			
+		}
+		
+		return comMap;
+		
 	}
 	
 	//로그인 처리

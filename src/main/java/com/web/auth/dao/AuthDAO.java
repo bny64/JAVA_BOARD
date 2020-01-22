@@ -17,4 +17,6 @@ public interface AuthDAO {
 	public User selectByUserKey(String userKey) throws PersistenceException;
 	public void saveAuth(UserAuthority userAuthority) throws PersistenceException;
 	public List<User> selectEmailByIdName(Map<String, Object> req) throws PersistenceException;
+	public int selectByIdNmEml(Map<String, Object> req) throws PersistenceException;
+	public void resetPassword(Map<String, String> req) throws PersistenceException;
 }

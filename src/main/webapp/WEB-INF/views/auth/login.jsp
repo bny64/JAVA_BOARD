@@ -62,7 +62,7 @@
 					</span>
 					<br>
 					<span class="txt2">
-						<a href="/auth/forgetPassword.do">비밀번호 찾기</a>
+						<a href="/auth/forgetPassword.do">비밀번호 초기화</a>
 					</span>
 				</div>
 

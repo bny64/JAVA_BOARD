@@ -9,7 +9,7 @@ define([], function(){
 		//--------------------substantial logic--------------------//
 		const msg = document.querySelector('#msg');
 		
-		if(msg !== null && msg.value !== null && msg.value !== '') alert(msg);
+		if(msg !== null && msg.value !== null && msg.value !== '') alert(msg.value);
 		//--------------------substantial logic--------------------//
 		
 		//valuePipe

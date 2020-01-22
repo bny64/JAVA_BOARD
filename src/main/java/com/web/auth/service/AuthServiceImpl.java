@@ -54,4 +54,14 @@ public class AuthServiceImpl implements AuthService {
 		return authDao.selectEmailByIdName(req);
 	}
 
+	@Override
+	public int selectByIdNmEml(Map<String, Object> req) throws PersistenceException {		
+		return authDao.selectByIdNmEml(req);
+	}
+
+	@Override
+	public void resetPassword(Map<String, String> req) throws PersistenceException {
+		authDao.resetPassword(req);		
+	}
+
 }
