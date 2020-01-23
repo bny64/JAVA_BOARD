@@ -32,4 +32,9 @@ public class BoardServiceImpl implements BoardService {
 		return boardDao.getNumOfBoards(param);
 	}
 
+	@Override
+	public Board getBoard(String listNo) throws PersistenceException {		
+		return boardDao.getBoard(listNo);
+	}
+
 }

@@ -38,7 +38,7 @@ define([], function(){
 						
 						html.push('<li class="one_third">');
 						html.push(	'<figure>');
-						html.push(		'<a href="/board/viewBoard?listNo=' + data.listNo + '">');
+						html.push(		'<a href="/board/viewBoard.do?listNo=' + data.listNo + '">');
 						if(data.thumbImgFilePath){
 							html.push(		'<img style="width:338px;" src="' + data.thumbImgFilePath + '/' + data.thumbFileName + '" alt="">');
 						}

@@ -50,9 +50,12 @@ define([], function(){
 				url : '/board/registBoard.do',
 				promise : true			
 			}).then(function(result){
-				if(result.msgCode==='I0000'){
-					alert(result.msg);
-					location.href = '/board/boardList.do';
+				if(result.msgCode==='I0000'){					
+					//썸네일 파일 저장 후 불러오는 시간 고려
+					setTimeout(function(){
+						alert(result.msg);
+						location.href = '/board/boardList.do';
+					},1000);					
 				}
 			}).catch(function(error){
 				alert(error.msg);

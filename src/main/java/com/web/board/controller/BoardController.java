@@ -1,10 +1,10 @@
 package com.web.board.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
-import javax.persistence.PersistenceException;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,7 +33,6 @@ public class BoardController extends WebCommonController{
 
 	private Logger logger = LoggerFactory.getLogger(MainController.class);
 	
-	/**/
 	@Autowired
 	private PasswordEncoding passwordEncoding;
 
@@ -65,6 +64,37 @@ public class BoardController extends WebCommonController{
 	public ModelAndView modifyBoard(ModelAndView mnv) throws Exception{
 		logger.debug("********************[BoardController]:[modifyBoard:GET]********************");	
 		mnv.setViewName("board/modifyBoard");
+		
+		return mnv;
+	}
+	
+	/*게시판 보기:GET*/
+	@RequestMapping(value="/viewBoard", method = RequestMethod.GET)
+	public ModelAndView viewBoard(ModelAndView mnv, CommandMap reqMap) throws Exception{
+		logger.debug("********************[BoardController]:[modifyBoard:GET]********************");	
+		mnv.setViewName("board/viewBoard");
+		
+		Map<String, Object> resMap = new HashMap<String, Object>();
+		Board board = new Board();
+		
+		String listNo = (String) reqMap.get("listNo");
+		board = boardService.getBoard(listNo);
+		
+		resMap.put("listNo", board.getListNo());
+		resMap.put("name", board.getName());
+		resMap.put("id", board.getId());
+		resMap.put("title", board.getTitle());
+		resMap.put("contents", board.getContents());
+		
+		String boardDate = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss").format(board.getCreatedAt());
+		resMap.put("createdAt", boardDate);
+		
+		String sessionId = getSessionUser().getId();
+		if(sessionId.equals(board.getId())) resMap.put("equalUserYn", "Y");
+		else resMap.put("equalUserYn", "N");
+		
+		mnv.addObject("board", resMap);
+		
 		return mnv;
 	}
 	
@@ -188,10 +218,19 @@ public class BoardController extends WebCommonController{
 		
 	}
 	
+	/*게시판 수정하기:POST*/
+	@RequestMapping(value="/modifyBoard", method=RequestMethod.POST)
+	public @ResponseBody CommandMap modifyBoard(CommandMap reqMap) throws Exception{
+		logger.debug("********************[BoardController]:[modifyBoard:POST]********************");
+		CommandMap comMap = new CommandMap();
+		return comMap;
+	}
+	
+	/*게시판 삭제하기:POST*/
 	@RequestMapping(value="/deleteBoard", method=RequestMethod.POST)
 	public @ResponseBody CommandMap deleteBoard(CommandMap reqMap) throws Exception{
 		logger.debug("********************[BoardController]:[deleteBoard:POST]********************");
 		CommandMap comMap = new CommandMap();
 		return comMap;
-	}	
+	}
 }

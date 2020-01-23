@@ -9,7 +9,7 @@ File: Back to Top JS
 */
 define(['jquery'], function($){
 	$("#backtotop").click(function () {
-	    jQuery("body,html").animate({
+	    $("body,html").animate({
 	        scrollTop: 0
 	    }, 600);
 	});

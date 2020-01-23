@@ -48,7 +48,8 @@ function callback(){
 function checkLoadJsLib(){
 	
 	let type = {
-			top_lib : [['valuePipe', 'libFilter', 'bAjax','jsUtil'],['', '', 'bx', 'ju']]					//top
+			top_lib : [['valuePipe', 'libFilter', 'bAjax','jsUtil'],['', '', 'bx', 'ju']],					//top
+			mid_lib : [['valuePipe', 'libFilter'],['','']]													//middle
 	};
 	
 	let first_url;
@@ -64,13 +65,11 @@ function checkLoadJsLib(){
 	}else if(/^\/(auth)$/.test(first_url)){
 		
 		type.lib = ['valuePipe', 'jquery', 'jqueryui', 'jqueryCookie', 'animsition', 'popper', 'bootstrap', 'select2', 'moment','daterangepicker', 'countdowntime', 'setDatepickerKor'];
-		type.mid_lib = [['valuePipe', 'libFilter'],['','']];												//middle
 		type.bot_lib = [['valuePipe', 'libFilter','jquery', 'bAjax','domUtil'],['','','$', 'bx','du']];		//bottom
 		
 	}else if(/^\/(board)$/.test(first_url)){
 		
-		type.lib = ['valuePipe','jquery','jqueryui', 'backtotop', 'popper', 'bootstrap','summernote'];
-		type.mid_lib = [['valuePipe', 'libFilter'],['','']];												//middle
+		type.lib = ['valuePipe','jquery','jqueryui', 'backtotop', 'popper', 'bootstrap','summernote'];		
 		type.bot_lib = [['valuePipe', 'libFilter','jquery', 'moment', 'bAjax', 'domUtil'],['','','$', 'mmt','bx', 'du']];	//bottom
 		
 	}else{

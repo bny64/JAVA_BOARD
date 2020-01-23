@@ -55,7 +55,7 @@ define([], function(){
 						
 						const data = result.boards[i];
 						html.push('<li class="one_quarter' + ((i+1)%4===1?' first':'') + '">');
-						html.push(	'<a href="javascript:void(0);">');
+						html.push(	'<a href="/board/viewBoard.do?listNo=' + data.listNo + '">');
 						if(data.thumbImgFilePath){
 							html.push(	'<img src="' +  data.thumbImgFilePath+ '/' + data.thumbFileName + '" alt="">');
 						} 

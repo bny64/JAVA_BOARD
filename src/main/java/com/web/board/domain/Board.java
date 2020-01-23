@@ -71,7 +71,7 @@ public class Board implements Serializable{
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date updatedAt;
 	
-	@Column(name = "contents", nullable = false, columnDefinition = "TEXT")
+	@Column(name = "contents", nullable = false, columnDefinition = "MEDIUMTEXT")
 	private String contents;
 	
 	@Column(name = "title", nullable = false, columnDefinition = "TEXT")

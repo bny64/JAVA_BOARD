@@ -30,11 +30,11 @@
 							아이디 저장
 						</label>
 					</div>					
-					<div>
+					<!-- <div>
 						<a href="#" class="txt1">
 							비밀번호 분실
 						</a>
-					</div>
+					</div> -->
 				</div>
 				<div style="height:30px;">
 					<span id="chkIdMsg" style="display:none; float:right;">

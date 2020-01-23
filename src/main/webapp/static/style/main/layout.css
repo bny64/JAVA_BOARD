@@ -544,6 +544,15 @@ div > button.btn1{
     font-size: 23px;    
 }
 
+div > button.btn2{
+	margin: 0 auto;    
+    border-radius: 15px;
+    width: 20%;
+    background-color: #FFFFFF;
+    color: #F7A804;
+    font-size: 23px;    
+}
+
 select.editor{
 	margin : 0 auto;
 }
@@ -579,4 +588,22 @@ div > input[type=password] {
 div > input[type=file]{
 	margin : 0 auto;
 	padding-left : 5%;
+}
+
+div.bdtitle {
+	text-align: center;
+	font-size: x-large;
+}
+
+div.bdcontents {
+	min-height : 400px;	
+}
+
+div.bdOth {
+	text-align: right;
+}
+
+div.bdArea {
+	width :70%;
+	margin : 0 auto;
 }
