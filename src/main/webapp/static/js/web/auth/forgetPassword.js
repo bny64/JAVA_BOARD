@@ -54,6 +54,7 @@ define([], function(){
 				callback:function(result){
 					if(result.msgCode==='U0000'){
 						alert('초기화된 비밀번호는 ' + result.password + ' 입니다.');
+						location.href = '/auth/login.do';
 					}else{
 						alert(result.msg);
 					}

@@ -44,10 +44,12 @@ define(['jquery'], function($){
 				mtnData : {}, //maintain data[유지되는 데이터]
 				token : true, //spring security token value[spring security 토큰값]
 				header : 'Content-type', //header type[헤더 타입]
-				headerValue : 'application/x-www-form-urlencoded; charset=UTF-8', //header value[헤더 값]	
+				headerValue : 'application/json; charset=UTF-8', //header value[헤더 값]	
 				dataType:'json',
 				error : function(result){
-					alert('요청 url : ' + result.url + '\nMessage : ' + result.msg + '\n코드 : ' + result.msgCode);
+					let msg = '요청 url : ' + result.url + '\nMessage : ' + result.msg + '\n코드 : ' + result.msgCode + (result.status===403 ? '\n세션이 만료되었습니다.' : '');
+					alert(msg);
+					if(result.status===403) location.reload();
 				}
 			};
 			
@@ -60,6 +62,7 @@ define(['jquery'], function($){
 				const csrfToken = document.querySelector('#_csrf').getAttribute('content');
 				const csrfHeader = document.querySelector('#_csrf_header').getAttribute('content');
 				xhr.setRequestHeader(csrfHeader, csrfToken);
+				console.log(csrfToken, csrfHeader);
 			}
 			
 			xhr.responseType = ajaxSetting.dataType;

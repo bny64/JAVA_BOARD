@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.PersistenceException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.LockedException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -22,7 +23,7 @@ public class CustomUserDetailService implements UserDetailsService{
 	private SecurityService securityService;
 	
 	@Override
-	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException, PersistenceException {
+	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException, PersistenceException, LockedException {
 		//권한정보가 있는 CustomUserDetails
 		CustomUserDetails userDetail = null;
 		
@@ -38,6 +39,8 @@ public class CustomUserDetailService implements UserDetailsService{
 			List<GrantedAuthority> listGranted = null;
 			UserAuthority userAuthority = null;
 			User user = listUser.get(0);
+			
+			if(user.getLoginFailCnt()>=5) throw new LockedException(email);
 			
 			userDetail = new CustomUserDetails(user);
 			

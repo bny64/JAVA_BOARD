@@ -25,7 +25,7 @@
 					<span class="label-input100">이름</span>
 				</div>
 									
-				<button class="login100-form-btn mb10" id="resetPasswordBtn">
+				<button class="btn2 mb10" id="resetPasswordBtn">
 					비밀번호 초기화
 				</button>
 				

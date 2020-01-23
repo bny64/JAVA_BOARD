@@ -61,6 +61,10 @@ define([], function(){
 		document.querySelector('#loginBtn').addEventListener('click', function(){
 			location.href = '/auth/login.do';
 		});
+		
+		document.querySelector('#resetPasswordBtn').addEventListener('click', function(){
+			location.href = '/auth/forgetPassword.do';
+		});
 		//--------------------event--------------------//
 		
 		

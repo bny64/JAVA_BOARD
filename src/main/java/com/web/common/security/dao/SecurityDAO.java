@@ -1,15 +1,16 @@
 package com.web.common.security.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.PersistenceException;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.CriteriaUpdate;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -54,4 +55,42 @@ public class SecurityDAO extends CommonDAO{
 		return session.createQuery(cr).getSingleResult();
 	}
 	
+	public int getLoginFailCnt(String email) throws PersistenceException {
+		Session session = getSession();
+		
+		CriteriaBuilder cb = session.getCriteriaBuilder();
+		CriteriaQuery<User> cr = cb.createQuery(User.class);
+		Root<User> root = cr.from(User.class);
+		Predicate restriction = cb.equal(root.get("email"), email);
+		cr.select(root).where(restriction);
+		return session.createQuery(cr).getSingleResult().getLoginFailCnt();
+	}
+	
+	public void addLoginFailCnt(Map<String, Object> req) throws PersistenceException {
+	
+		Session session = getSession();
+		
+		String email = (String) req.get("email");
+		int loginFailCnt = (Integer) req.get("loginFailCnt");
+		
+		CriteriaBuilder cb = session.getCriteriaBuilder();
+		CriteriaUpdate<User> ud = cb.createCriteriaUpdate(User.class);
+		Root<User> root = ud.from(User.class);
+		Predicate restriction = cb.equal(root.get("email"), email);
+		ud.set("loginFailCnt", loginFailCnt).where(restriction);
+		session.createQuery(ud).executeUpdate();
+		
+	}
+	
+	public void resetLoginFailCnt(String email) throws PersistenceException{
+		Session session = getSession();
+		
+		CriteriaBuilder cb = session.getCriteriaBuilder();
+		CriteriaUpdate<User> ud = cb.createCriteriaUpdate(User.class);
+		Root<User> root = ud.from(User.class);
+		Predicate restriction = cb.equal(root.get("email"), email);
+		
+		ud.set("loginFailCnt", 0).where(restriction);
+		session.createQuery(ud).executeUpdate();
+	}
 }

@@ -1,6 +1,7 @@
 package com.web.common.security.service;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.PersistenceException;
 
@@ -25,4 +26,15 @@ public class SecurityService{
 		return securityDao.SelectAuth(id);
 	}
 	
+	public int getLoginFailCnt(String email) throws PersistenceException {
+		return securityDao.getLoginFailCnt(email);
+	}
+	
+	public void addLoginFailCnt(Map<String, Object> req) throws PersistenceException {
+		securityDao.addLoginFailCnt(req);
+	}
+	
+	public void resetLoginFailCnt(String email) throws PersistenceException{
+		securityDao.resetLoginFailCnt(email);
+	}
 }

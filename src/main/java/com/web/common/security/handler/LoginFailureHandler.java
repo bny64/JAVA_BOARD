@@ -11,6 +11,7 @@ import org.springframework.security.authentication.AuthenticationCredentialsNotF
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.InternalAuthenticationServiceException;
+import org.springframework.security.authentication.LockedException;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.web.WebAttributes;
@@ -44,6 +45,8 @@ public class LoginFailureHandler implements AuthenticationFailureHandler{
 			errormsg = msgUtil.getMessage("BadCredentials");
 		}else if(exception instanceof AuthenticationCredentialsNotFoundException || exception instanceof DisabledException) {
 			errormsg = msgUtil.getMessage("NoAuthorities");
+		}else if(exception instanceof LockedException) {
+			errormsg = msgUtil.getMessage("Locked");
 		}
 		
 		request.setAttribute("userEmail", userEmail);

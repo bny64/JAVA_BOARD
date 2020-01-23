@@ -22,18 +22,14 @@ public class CustomAuthenticationEntryPoint implements AuthenticationEntryPoint{
 		
 		String contentType = request.getContentType();
 		
-		if(contentType != null) {
-		
-			if(contentType.contains("multipart/form-data") ||
-					contentType.contains("application/json") ||
-					contentType.contains("application/x-www-form-urlencoded")) {
-				
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/common/error/unauthorizedAjaxError.do");
-				dispatcher.forward(request, response);
-				
-			}			
+		if(contentType != null && 
+				(contentType.contains("multipart/form-data") ||
+				contentType.contains("application/json"))) {
 			
-		}else {
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/common/error/unauthorizedAjaxError.do");
+			dispatcher.forward(request, response);
+			
+		} else {
 			response.sendRedirect("/auth/login.do");
 		}
 		

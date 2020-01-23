@@ -110,7 +110,7 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
   </servlet-mapping>
   
   <session-config>
-  	<session-timeout>1</session-timeout>
+  	<session-timeout>30</session-timeout>
   </session-config>
   
   <!-- other -->

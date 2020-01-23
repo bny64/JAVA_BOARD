@@ -1,4 +1,4 @@
-
+7
 
 
 
@@ -651,4 +651,8 @@ input.input100 {
 
 .lgBtn1 {
 	text-align : right !important;
+}
+
+.btn2 {
+	float : right;
 }

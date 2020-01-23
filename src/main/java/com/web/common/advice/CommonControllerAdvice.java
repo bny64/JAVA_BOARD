@@ -77,18 +77,14 @@ public class CommonControllerAdvice {
 		String acceptHeader = request.getContentType();
 		
 		//ajax 요청일 경우
-		if(acceptHeader != null) {
-		
-			if(acceptHeader.contains("multipart/form-data") ||
-					acceptHeader.contains("application/json") ||
-					acceptHeader.contains("application/x-www-form-urlencoded")) {
-				
-				msg = MsgList.getInstance().getCodeMessage(MsgCode.RequestError);
-				comMap.put("msgCode", msg[0]);
-				comMap.put("msg", msg[1]);			
-				return comMap;				
-			}
-		}
+		if(acceptHeader != null && (acceptHeader.contains("multipart/form-data") ||
+				acceptHeader.contains("application/json"))) {
+			
+			msg = MsgList.getInstance().getCodeMessage(MsgCode.RequestError);
+			comMap.put("msgCode", msg[0]);
+			comMap.put("msg", msg[1]);			
+			return comMap;				
+		}		
 		
 		//URL 이동일 경우
 		response.sendRedirect("/common/error/requestError.do");

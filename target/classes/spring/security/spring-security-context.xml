@@ -98,6 +98,7 @@
 		</security:session-management>
 		
 		<!-- 권한 없이 접근시 이동할 페이지 -->
+		<!-- web.xml에  정의된 세션 만료 시간이 넘어가면 accessDeniedHandler가 동작된다. -->
 		<security:access-denied-handler ref="accessDeinedHandler"/>
 		
 	</security:http>

@@ -13,10 +13,14 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 
+import com.web.common.security.service.SecurityService;
 import com.web.log.domain.LoginLog;
 import com.web.log.service.LogService;
 
 public class CustomAuthenticationProvider implements AuthenticationProvider{
+	
+	@Autowired
+	private SecurityService securityService;
 	
 	@Autowired
 	private CustomUserDetailService userDetailService;
@@ -50,11 +54,20 @@ public class CustomAuthenticationProvider implements AuthenticationProvider{
 				
 		userDetails = (CustomUserDetails) userDetailService.loadUserByUsername(email);
 				
-		if(!passwordEncoding.matches(password, userDetails.getPassword())) 
+		if(!passwordEncoding.matches(password, userDetails.getPassword())) {
+			Map<String, Object> reqMap = new HashMap<String, Object>();			
+			int loginCnt = securityService.getLoginFailCnt(email);
+			loginCnt++;
+			reqMap.put("email", email);
+			reqMap.put("loginFailCnt", loginCnt);
+			securityService.addLoginFailCnt(reqMap);
 			throw new BadCredentialsException(email);
+		}
 		
 		if(userDetails.getAuthorities()==null) 
 			throw new DisabledException(email);
+		
+		securityService.resetLoginFailCnt(email);
 		
 		principal.put("name", userDetails.getName());
 		principal.put("id", userDetails.getId());

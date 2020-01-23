@@ -54,8 +54,7 @@ public class User implements Serializable{
 		this.name = name;
 	}
 	
-	public User(String id, String email, String password, String name, String joinType, String userType, String userKey) {
-		//super();
+	public User(String id, String email, String password, String name, String joinType, String userType, String userKey, int loginFailCnt) {
 		this.id = id;		
 		this.email = email;
 		this.password = password;
@@ -63,6 +62,7 @@ public class User implements Serializable{
 		this.joinType = joinType;
 		this.userType = userType;
 		this.userKey = userKey;
+		this.loginFailCnt = loginFailCnt;
 	}
 
 	/* @id : 기본키

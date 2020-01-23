@@ -11,7 +11,6 @@ import javax.persistence.criteria.CriteriaUpdate;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -162,7 +161,7 @@ public class AuthDAOImpl extends CommonDAO implements AuthDAO{
 		Root<User> root = ud.from(User.class);
 		Predicate restriction = cb.equal(root.get("email"), email);
 		
-		ud.set("password", password).where(restriction);
+		ud.set("password", password).set("loginFailCnt", 0).where(restriction);
 		session.createQuery(ud).executeUpdate();
 	}
 	

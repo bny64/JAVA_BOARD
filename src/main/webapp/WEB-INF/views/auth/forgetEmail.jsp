@@ -19,8 +19,12 @@
 					<span class="label-input100">이름</span>
 				</div>
 									
-				<button class="login100-form-btn mb10" id="findEmailBtn">
+				<button class="mb10 btn2" id="findEmailBtn">
 					이메일 찾기
+				</button>
+				
+				<button class="login100-form-btn mb10" id="resetPasswordBtn">
+					비밀번호 초기화
 				</button>
 				
 				<button class="login100-form-btn" id="loginBtn">
