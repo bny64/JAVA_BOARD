@@ -20,16 +20,16 @@
 				<input type="radio" class="" name="passYn" value="Y"/>
 			    <label for="passY">설정</label>
 			    <input type="radio" class="" name="passYn" value="N" checked/>
-			    <label for="passN">설정 안함</label>		    
+			    <label for="passN">설정 안함</label>
 			</div>
 			<div class="mt10" style="display:none;" id="boardPassDiv">
 				<input placeholder="비밀번호" type="password" id="boardPass" name="boardPass">
 			</div>
 			<div class="mt70">
-				<input type="file" id="boardFile" accept=".jpg, .jpeg, .png, .gif" name="boardFile">
+				<input  type="file" id="boardFile" accept=".jpg, .jpeg, .png, .gif" name="boardFile">
 			</div>
 			<div class="mt10 pt5">
-				<button class="mt30 btn1" id="registBtn" type="button">등록</button>
+				<button class="mt30 btn1" id="registBtn" type="button">수정</button>
 			</div>					
 		</form>
 	</main>

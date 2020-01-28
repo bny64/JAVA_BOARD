@@ -19,15 +19,22 @@ define([], function(){
 		
 		if(delBtn){
 			delBtn.addEventListener('click', function(){
-				pandora.bx.ajaxSend({
-					url : '/board/deleteBoard.do',
-					data : {
-						listNo : listNo
-					},
-					promise : true
-				}).then(function(result){
-					
-				});
+				if(confirm('정말 삭제하시겠습니까?')){
+					pandora.bx.ajaxSend({
+						url : '/board/deleteBoard.do',
+						data : {
+							listNo : listNo
+						},
+						promise : true
+					}).then(function(result){
+						if(result.msgCode==='D0000'){
+							alert(result.msg);
+							location.href = '/board/boardList.do';
+						}
+					}).catch(function(err){
+						alert(error.msg);
+					});
+				}
 			});
 		}
 		

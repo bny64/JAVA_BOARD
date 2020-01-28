@@ -230,7 +230,16 @@ public class BoardController extends WebCommonController{
 	@RequestMapping(value="/deleteBoard", method=RequestMethod.POST)
 	public @ResponseBody CommandMap deleteBoard(CommandMap reqMap) throws Exception{
 		logger.debug("********************[BoardController]:[deleteBoard:POST]********************");
-		CommandMap comMap = new CommandMap();
+		CommandMap comMap = new CommandMap();		
+		String[] msg;
+		
+		reqMap.put("id", getSessionUser().getId());
+		boardService.deleteBoard(reqMap.getMap());
+				
+		msg = MsgList.getInstance().getCodeMessage(MsgCode.DeleteSuccess);
+		comMap.put("msgCode", msg[0]);
+		comMap.put("msg", msg[1]);
+		
 		return comMap;
 	}
 }

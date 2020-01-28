@@ -31,6 +31,20 @@ public enum MsgCode {
 	UpdateFail,
 	
 	/**
+	 * 삭제 성공
+	 * @see
+	 * D0000
+	 * */	
+	DeleteSuccess,
+	
+	/**
+	 * 삭제 실패
+	 * @see
+	 * D0001
+	 * */	
+	DeleteFail,
+	
+	/**
 	 * 조회 성공
 	 * @see
 	 * S0000

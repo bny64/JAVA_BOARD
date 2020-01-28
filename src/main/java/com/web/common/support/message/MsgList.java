@@ -35,6 +35,16 @@ public class MsgList {
 		msgList.put(MsgCode.UpdateFail, msg);
 		
 		msg = new String[2];
+		msg[0] = "D0000";
+		msg[1] = "삭제 성공 하였습니다.";
+		msgList.put(MsgCode.DeleteSuccess, msg);
+		
+		msg = new String[2];
+		msg[0] = "D0001";
+		msg[1] = "삭제 실패 하였습니다.";
+		msgList.put(MsgCode.DeleteFail, msg);
+		
+		msg = new String[2];
 		msg[0] = "I0000";
 		msg[1] = "입력 성공 하였습니다.";
 		msgList.put(MsgCode.InsertSuccess, msg);

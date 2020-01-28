@@ -62,7 +62,6 @@ define(['jquery'], function($){
 				const csrfToken = document.querySelector('#_csrf').getAttribute('content');
 				const csrfHeader = document.querySelector('#_csrf_header').getAttribute('content');
 				xhr.setRequestHeader(csrfHeader, csrfToken);
-				console.log(csrfToken, csrfHeader);
 			}
 			
 			xhr.responseType = ajaxSetting.dataType;

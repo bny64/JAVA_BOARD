@@ -37,4 +37,9 @@ public class BoardServiceImpl implements BoardService {
 		return boardDao.getBoard(listNo);
 	}
 
+	@Override
+	public void deleteBoard(Map<String, Object> param) throws PersistenceException {
+		boardDao.deleteBoard(param);
+	}
+
 }

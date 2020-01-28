@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
-<div class="wrapper row1">
+<div class="wrapper row1">	
   <header id="header" class="hoc clear"> 
     <!-- ################################################################################################ -->
     <div id="logo" class="one_half first">
@@ -16,16 +16,18 @@
           <div class="block clear"><i class="far fa-clock"></i> <span><strong class="block"> Mon. - Sat.:</strong> 08.00am - 18.00pm</span> </div>
         </li>
       </ul>
-    </div> -->    
-    <c:if test="${userInfo ne null }">
+    </div> -->
+        
+    <sec:authorize access="isAuthenticated()">
+    	<sec:authentication property="principal" var="userInfo"/>
     	<div class="fltRt">
-	   	<ul class="nospace clear">
-	   		<li>
-	   			<span style="color: darkcyan; font-size: large;">${userInfo.name }</span>님 환영합니다.
-	   		</li>
-	   	</ul>
-	</div>
-    </c:if>        
+		   	<ul class="nospace clear">
+		   		<li>
+		   			<span style="color: darkcyan; font-size: large;">${userInfo.name }</span>님 환영합니다.
+		   		</li>
+		   	</ul>
+	   	</div>
+    </sec:authorize>      
     <!-- ################################################################################################ -->
   </header>
   <nav id="mainav" class="hoc clear mtm20"> 

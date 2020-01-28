@@ -1,10 +1,12 @@
 package com.web.board.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import javax.persistence.PersistenceException;
 import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaDelete;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
@@ -82,5 +84,24 @@ public class BoardDAOImpl extends CommonDAO implements BoardDAO{
 		
 		return session.createQuery(cr).getSingleResult();
 	}
+
+	@Override
+	public void deleteBoard(Map<String, Object> param) throws PersistenceException {
+		Session session = getSession();
+		
+		String userId = (String) param.get("id");
+		int listNo = Integer.parseInt((String) param.get("listNo")); 
+		
+		CriteriaBuilder cb = session.getCriteriaBuilder();
+		CriteriaDelete<Board> dl = cb.createCriteriaDelete(Board.class);
+		Root<Board> root = dl.from(Board.class);
+		List<Predicate> restrictions = new ArrayList<Predicate>();
+		restrictions.add(cb.equal(root.get("listNo"), listNo));
+		restrictions.add(cb.equal(root.get("id"), userId));
+		
+		dl.where(restrictions.toArray(new Predicate[] {}));
+		session.createQuery(dl).executeUpdate();
+	}
+
 
 }

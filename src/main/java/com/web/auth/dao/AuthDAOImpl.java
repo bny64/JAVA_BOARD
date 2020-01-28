@@ -139,12 +139,12 @@ public class AuthDAOImpl extends CommonDAO implements AuthDAO{
 		CriteriaBuilder cb = session.getCriteriaBuilder();
 		CriteriaQuery<Long> cr = cb.createQuery(Long.class);
 		Root<User> root = cr.from(User.class);
-		List<Predicate> predicates = new ArrayList<Predicate>();
-		predicates.add(cb.equal(root.get("id"), id));
-		predicates.add(cb.equal(root.get("name"), name));
-		predicates.add(cb.equal(root.get("email"), email));
+		List<Predicate> restrictions = new ArrayList<Predicate>();
+		restrictions.add(cb.equal(root.get("id"), id));
+		restrictions.add(cb.equal(root.get("name"), name));
+		restrictions.add(cb.equal(root.get("email"), email));
 		
-		cr.select(cb.count(root)).where(predicates.toArray(new Predicate[] {}));
+		cr.select(cb.count(root)).where(restrictions.toArray(new Predicate[] {}));
 		return (int) (long) session.createQuery(cr).getSingleResult();		
 	}
 
