@@ -52,10 +52,11 @@ define([], function(){
 			}).then(function(result){
 				if(result.msgCode==='I0000'){					
 					//썸네일 파일 저장 후 불러오는 시간 고려
+					alert('파일을 저장중 입니다. 잠시만 기다려 주세요.');
 					setTimeout(function(){
 						alert(result.msg);
 						location.href = '/board/boardList.do';
-					},1000);					
+					},3000);
 				}
 			}).catch(function(error){
 				alert(error.msg);

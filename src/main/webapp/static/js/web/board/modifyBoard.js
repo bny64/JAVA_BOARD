@@ -8,11 +8,6 @@ define([], function(){
 		const pandora = new arguments[1]('bot', arguments);
 		
 		//--------------------substantial logic--------------------//
-		
-		
-		
-		
-		
 		pandora.$('#contents').summernote({
 			width : '70%',
 			height : '400px',

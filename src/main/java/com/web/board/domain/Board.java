@@ -32,7 +32,7 @@ public class Board implements Serializable{
 	private static final long serialVersionUID = -7363117729121436953L;
 	
 	public Board(int listNo, String id, String name, Date createdAt, Date updatedAt, String contents, String title, String imgFilePath, String fileName, 
-			String thumbImgFilePath, String thumbFileName, String orgFileName) {
+			String thumbImgFilePath, String thumbFileName, String orgFileName, String passwordYn) {
 		this.listNo = listNo;
 		this.id = id;
 		this.name = name;
@@ -45,6 +45,7 @@ public class Board implements Serializable{
 		this.thumbImgFilePath = thumbImgFilePath;
 		this.thumbFileName = thumbFileName;
 		this.orgFileName = orgFileName;
+		this.passwordYn = passwordYn;
 	}
 	
 	@Id	

@@ -11,6 +11,6 @@ public interface BoardService {
 	public void registBoard(Board board) throws PersistenceException;
 	public List<Board> getBoardList(Map<String, Object> param) throws PersistenceException;
 	public Long getNumOfBoards(Map<String, Object> param) throws PersistenceException;
-	public Board getBoard(String listNo) throws PersistenceException;
+	public Board getBoard(Map<String, Object> param) throws PersistenceException;
 	public void deleteBoard(Map<String, Object> param) throws PersistenceException;
 }

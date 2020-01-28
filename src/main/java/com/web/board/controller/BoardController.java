@@ -1,10 +1,14 @@
 package com.web.board.controller;
 
+import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -61,24 +65,79 @@ public class BoardController extends WebCommonController{
 
 	/*게시판 수정하기:GET*/
 	@RequestMapping(value="/modifyBoard", method = RequestMethod.GET)
-	public ModelAndView modifyBoard(ModelAndView mnv) throws Exception{
+	public ModelAndView modifyBoard(ModelAndView mnv, CommandMap reqMap) throws Exception{
 		logger.debug("********************[BoardController]:[modifyBoard:GET]********************");	
 		mnv.setViewName("board/modifyBoard");
+		
+		Map<String, Object> resMap = new HashMap<String, Object>();
+		
+		Board board = boardService.getBoard(reqMap.getMap());
+		
+		
 		
 		return mnv;
 	}
 	
-	/*게시판 보기:GET*/
-	@RequestMapping(value="/viewBoard", method = RequestMethod.GET)
-	public ModelAndView viewBoard(ModelAndView mnv, CommandMap reqMap) throws Exception{
-		logger.debug("********************[BoardController]:[modifyBoard:GET]********************");	
-		mnv.setViewName("board/viewBoard");
-		
+	/*게시판 보기 비밀번호 체크:GET*/
+	
+	  @RequestMapping(value="/viewBoardCheck", method = RequestMethod.GET) 
+	  public ModelAndView viewBoardCheck(ModelAndView mnv, CommandMap reqMap) throws Exception {
+		  logger.debug("********************[BoardController]:[viewBoardCheck:GET]********************");
+		  mnv.setViewName("board/viewBoardCheck"); 
+		  
+		  mnv.addObject("listNo", reqMap.get("listNo"));
+		  
+		  return mnv;
+	  
+	  }
+	 
+	
+	/*게시판 보기:GET&POST*/
+	@RequestMapping(value="/viewBoard")
+	public ModelAndView viewBoard(ModelAndView mnv, CommandMap reqMap, HttpServletRequest request, HttpServletResponse response) throws Exception{
+		logger.debug("********************[BoardController]:[modifyBoard:GET&POST]********************");	
+				
+		String method = request.getMethod();
 		Map<String, Object> resMap = new HashMap<String, Object>();
+		String listNo = (String) reqMap.get("listNo");
 		Board board = new Board();
 		
-		String listNo = (String) reqMap.get("listNo");
-		board = boardService.getBoard(listNo);
+		board = boardService.getBoard(reqMap.getMap());
+		
+		//비밀번호 사용하는 게시글 인 경우
+		if("Y".equals(board.getPasswordYn())){
+			
+			String password = (String) reqMap.get("password");
+			
+			//패스워드가 없을 때
+			if(password==null) {
+				
+				response.sendRedirect("/board/viewBoardCheck.do?listNo=" + listNo);
+				return null;
+				
+			}else if(password!=null && method.toUpperCase().equals("POST")){
+				
+				if(!passwordEncoding.matches(password, board.getPassword())) {
+										
+					response.setCharacterEncoding("UTF-8");
+					response.setContentType("text/html; charset=UTF-8");
+					PrintWriter out = response.getWriter();
+					out.println("<script>alert('비밀번호가 일치하지 않습니다.'); location.href = '/board/viewBoardCheck.do?listNo=" + listNo + "';</script>");
+					return null;
+					
+				}
+				
+			}else {
+								
+				response.sendRedirect("/board/boardList.do");
+				response.getWriter().println("<script>alert('잘못된 접근입니다.')</script>");
+				return null;
+				
+			}
+		
+		}
+		
+		mnv.setViewName("board/viewBoard");
 		
 		resMap.put("listNo", board.getListNo());
 		resMap.put("name", board.getName());
@@ -94,7 +153,7 @@ public class BoardController extends WebCommonController{
 		else resMap.put("equalUserYn", "N");
 		
 		mnv.addObject("board", resMap);
-		
+				
 		return mnv;
 	}
 	

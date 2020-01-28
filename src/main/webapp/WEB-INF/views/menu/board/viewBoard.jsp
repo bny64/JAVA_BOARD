@@ -3,7 +3,7 @@
 <input type="hidden" value="${board.listNo }" id="listNo"> 
 <div class="wrapper row3 board">
 	<main class="hoc container clear"> 
-		<form id="registBoardForm" method="post" enctype="multipart/form-data">
+		<form>
 			<div class="bdArea">
 				<label class="title editor" for="title">제목</label>
 				<div class="bdtitle">${board.title }</div>

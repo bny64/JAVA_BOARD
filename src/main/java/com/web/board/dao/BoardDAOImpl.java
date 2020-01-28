@@ -46,7 +46,7 @@ public class BoardDAOImpl extends CommonDAO implements BoardDAO{
 		Predicate restriction = cb.equal(root.get("viewYn"), "Y");
 		
 		cr.select(cb.construct(Board.class, root.get("listNo"), root.get("id"), root.get("name"), root.get("createdAt"), root.get("updatedAt"), root.get("contents"), 
-				root.get("title"), root.get("imgFilePath"), root.get("fileName"), root.get("thumbImgFilePath"), root.get("thumbFileName"), root.get("orgFileName")))
+				root.get("title"), root.get("imgFilePath"), root.get("fileName"), root.get("thumbImgFilePath"), root.get("thumbFileName"), root.get("orgFileName"), root.get("passwordYn")))
 			.where(restriction)
 			.orderBy(cb.desc(root.get("createdAt")));		
 		
@@ -72,9 +72,11 @@ public class BoardDAOImpl extends CommonDAO implements BoardDAO{
 	}
 
 	@Override
-	public Board getBoard(String listNo) throws PersistenceException {
+	public Board getBoard(Map<String, Object> param) throws PersistenceException {
 		
 		Session session = getSession();
+		
+		int listNo = Integer.parseInt((String) param.get("listNo"));
 		
 		CriteriaBuilder cb = session.getCriteriaBuilder();
 		CriteriaQuery<Board> cr = cb.createQuery(Board.class);
