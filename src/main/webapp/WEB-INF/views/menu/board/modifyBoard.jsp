@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <div class="wrapper row3 board">
-	<main class="hoc container clear"> 
+	<main class="hoc container clear">
 		<form id="registBoardForm" method="post" enctype="multipart/form-data">
+		<input type="hidden" name="listNo" id="listNo" value="${listNo }">
 			<div>
 				<label class="title editor" for="title">제목</label>
 				<input class="title mb10" type="text" id="title" name="title">

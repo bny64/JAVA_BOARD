@@ -32,7 +32,16 @@ define([], function(){
 		//middle definition[2단계 definition]
 		const func_mid = arguments[arguments.length-1];
 		
-		if(vp.middle_path.indexOf('/index') < 0) lsList.mid_lib[0].push(jsFilePath + vp.bottom_path);
+		const excludeList = vp.excludeBotUrl;
+		for(let i = 0; i<excludeList.length; i++){
+			
+			if(location.pathname.indexOf(excludeList[i]) > -1) break;
+			
+			if(i===excludeList.length-1)lsList.mid_lib[0].push(jsFilePath + vp.bottom_path);
+			
+		}
+		
+		//if(vp.middle_path.indexOf('/index') < 0) lsList.mid_lib[0].push(jsFilePath + vp.bottom_path);
 		
 		requirejs(lsList.mid_lib[0], func_mid);
 	}

@@ -22,6 +22,25 @@ define([], function(){
 			]
 		});
 		
+		pandora.bx.ajaxSend({
+			url : '/board/modifyBoard.do',
+			data : {
+				listNo : document.querySelector('#listNo').value				
+			},
+			callback : setInitData
+		})
+
+		function setInitData(result){
+			
+			if(result.msgCode==='S0000'){
+				
+				const board = result.board;
+				
+				
+			}
+			
+		}
+		
 		
 		
 		

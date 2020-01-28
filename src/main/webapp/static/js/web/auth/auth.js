@@ -18,7 +18,7 @@ define([], function(){
 		//bottom definition[3단계 definition]
 		const func_bot = arguments[arguments.length-1];
 		
-		requirejs(lsList.bot_lib[0], func_bot);
+		if(func_bot.name==='Module') requirejs(lsList.bot_lib[0], func_bot);		
 	};
 	
 	return Module;

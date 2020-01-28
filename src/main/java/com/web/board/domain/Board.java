@@ -15,6 +15,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 import com.web.auth.domain.User;
 
@@ -32,7 +33,7 @@ public class Board implements Serializable{
 	private static final long serialVersionUID = -7363117729121436953L;
 	
 	public Board(int listNo, String id, String name, Date createdAt, Date updatedAt, String contents, String title, String imgFilePath, String fileName, 
-			String thumbImgFilePath, String thumbFileName, String orgFileName, String passwordYn) {
+			String thumbImgFilePath, String thumbFileName, String orgFileName, String passwordYn, String viewYn) {
 		this.listNo = listNo;
 		this.id = id;
 		this.name = name;
@@ -46,6 +47,7 @@ public class Board implements Serializable{
 		this.thumbFileName = thumbFileName;
 		this.orgFileName = orgFileName;
 		this.passwordYn = passwordYn;
+		this.viewYn = viewYn;
 	}
 	
 	@Id	
@@ -55,7 +57,7 @@ public class Board implements Serializable{
 	
 	
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name="userKey", columnDefinition = "VARCHAR(100)", nullable = false)
+	@JoinColumn(name="userKey", columnDefinition = "VARCHAR(100)", nullable = false)	
 	private User user;
 	
 	@Column(name = "id", nullable = false, length = 100)

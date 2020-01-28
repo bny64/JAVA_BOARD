@@ -45,8 +45,9 @@ public class BoardDAOImpl extends CommonDAO implements BoardDAO{
 		Root<Board> root = cr.from(Board.class);
 		Predicate restriction = cb.equal(root.get("viewYn"), "Y");
 		
-		cr.select(cb.construct(Board.class, root.get("listNo"), root.get("id"), root.get("name"), root.get("createdAt"), root.get("updatedAt"), root.get("contents"), 
-				root.get("title"), root.get("imgFilePath"), root.get("fileName"), root.get("thumbImgFilePath"), root.get("thumbFileName"), root.get("orgFileName"), root.get("passwordYn")))
+		cr.select(cb.construct(Board.class, root.get("listNo"), root.get("id"), root.get("name"), root.get("createdAt"), root.get("updatedAt"), 
+				root.get("contents"), root.get("title"), root.get("imgFilePath"), root.get("fileName"), root.get("thumbImgFilePath"), 
+				root.get("thumbFileName"), root.get("orgFileName"), root.get("passwordYn"), root.get("viewYn")))
 			.where(restriction)
 			.orderBy(cb.desc(root.get("createdAt")));		
 		
@@ -86,6 +87,25 @@ public class BoardDAOImpl extends CommonDAO implements BoardDAO{
 		
 		return session.createQuery(cr).getSingleResult();
 	}
+	
+	@Override
+	public Board getBoard_2(Map<String, Object> param) throws PersistenceException {
+		
+		Session session = getSession();
+		
+		int listNo = Integer.parseInt((String) param.get("listNo"));
+		
+		CriteriaBuilder cb = session.getCriteriaBuilder();
+		CriteriaQuery<Board> cr = cb.createQuery(Board.class);
+		Root<Board> root = cr.from(Board.class);
+		Predicate restriction = cb.equal(root.get("listNo"), listNo);
+		cr.select(cb.construct(Board.class, root.get("listNo"), root.get("id"), root.get("name"), root.get("createdAt"), root.get("updatedAt"),
+				root.get("contents"), root.get("title"), root.get("imgFilePath"), root.get("fileName"), root.get("thumbImgFilePath"),
+				root.get("thumbFileName"), root.get("orgFileName"), root.get("passwordYn"), root.get("viewYn")))
+		.where(restriction);
+		
+		return session.createQuery(cr).getSingleResult();
+	}
 
 	@Override
 	public void deleteBoard(Map<String, Object> param) throws PersistenceException {
@@ -105,5 +125,6 @@ public class BoardDAOImpl extends CommonDAO implements BoardDAO{
 		session.createQuery(dl).executeUpdate();
 	}
 
+	
 
 }

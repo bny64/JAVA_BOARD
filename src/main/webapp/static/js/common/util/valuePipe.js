@@ -9,6 +9,12 @@ define([], function(){
 	const globalVal = {};
 	let getMidPath;
 	
+	globalVal.excludeBotUrl = [
+		'/index.do',
+		'/board/viewBoardCheck.do'
+	];
+	
+	
 	//middle file path[2단계 파일 경로]
 	if(location.pathname.indexOf('/', 1) > -1){
 		getMidPath = location.pathname.substring(0, location.pathname.indexOf('/', 1));

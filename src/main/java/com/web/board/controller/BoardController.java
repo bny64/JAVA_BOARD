@@ -68,13 +68,8 @@ public class BoardController extends WebCommonController{
 	public ModelAndView modifyBoard(ModelAndView mnv, CommandMap reqMap) throws Exception{
 		logger.debug("********************[BoardController]:[modifyBoard:GET]********************");	
 		mnv.setViewName("board/modifyBoard");
-		
-		Map<String, Object> resMap = new HashMap<String, Object>();
-		
-		Board board = boardService.getBoard(reqMap.getMap());
-		
-		
-		
+
+		mnv.addObject("listNo", reqMap.get("listNo"));
 		return mnv;
 	}
 	
@@ -281,8 +276,18 @@ public class BoardController extends WebCommonController{
 	@RequestMapping(value="/modifyBoard", method=RequestMethod.POST)
 	public @ResponseBody CommandMap modifyBoard(CommandMap reqMap) throws Exception{
 		logger.debug("********************[BoardController]:[modifyBoard:POST]********************");
-		CommandMap comMap = new CommandMap();
-		return comMap;
+		CommandMap resMap = new CommandMap();
+		String[] msg;
+		
+		Board board = boardService.getBoard_2(reqMap.getMap());
+		
+		resMap.put("board", board);
+		
+		msg = MsgList.getInstance().getCodeMessage(MsgCode.SelectSuccess);
+		resMap.put("msgCode", msg[0]);
+		resMap.put("msg", msg[1]);
+		
+		return resMap;
 	}
 	
 	/*게시판 삭제하기:POST*/

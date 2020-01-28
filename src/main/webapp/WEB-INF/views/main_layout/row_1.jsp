@@ -5,7 +5,7 @@
   <header id="header" class="hoc clear"> 
     <!-- ################################################################################################ -->
     <div id="logo" class="one_half first">
-      <h1 class="logoname"><a href="javascript:void(0);"><span>JAVA</span>BOARD</a></h1>
+      <h1 class="logoname"><a href="/index.do"><span>JAVA</span>BOARD</a></h1>
     </div>
     <!-- <div class="one_half">
       <ul class="nospace clear">
