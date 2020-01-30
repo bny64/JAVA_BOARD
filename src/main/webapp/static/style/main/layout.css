@@ -516,6 +516,10 @@ table a, #comments a{background-color:inherit;}
 	padding-top : 5px;
 }
 
+.pdt30{
+	padding-top : 30px;
+}
+
 .nospace{
 	text-align: right;	
 }
@@ -562,7 +566,16 @@ div.editor.radio{
 	margin-left : 36%;
 }
 
+div.editor.radio2{
+	width: 45%;
+	margin-left : 28%;
+}
+
 .editor.radio > .span{
+	float : left;
+}
+
+.editor.radio2 > .span{
 	float : left;
 }
 
@@ -572,7 +585,20 @@ div.editor.radio{
     margin: 2px 0 4% 4%;
 }
 
+.editor.radio2 > input[type=radio]{
+	float: left;
+    clear: none;
+    margin: 2px 0 4% 4%;
+}
+
 .editor.radio > label{
+	float: left;
+    clear: none;
+    display: block;
+    margin-left : 3%;
+}
+
+.editor.radio2 > label{
 	float: left;
     clear: none;
     display: block;
