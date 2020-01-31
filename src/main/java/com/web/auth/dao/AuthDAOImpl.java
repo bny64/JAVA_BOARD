@@ -26,7 +26,7 @@ public class AuthDAOImpl extends CommonDAO implements AuthDAO{
 	//사용자 저장
 	@Override
 	public void join(User user) throws PersistenceException{
-		getSession().save(user);
+		getSession().save(user);		
 	}
 
 	//아이디로 유저 검색
@@ -160,7 +160,7 @@ public class AuthDAOImpl extends CommonDAO implements AuthDAO{
 		CriteriaUpdate<User> ud = cb.createCriteriaUpdate(User.class);
 		Root<User> root = ud.from(User.class);
 		Predicate restriction = cb.equal(root.get("email"), email);
-		
+				
 		ud.set("password", password).set("loginFailCnt", 0).where(restriction);
 		session.createQuery(ud).executeUpdate();
 	}

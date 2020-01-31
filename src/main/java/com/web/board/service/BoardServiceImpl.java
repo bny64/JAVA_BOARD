@@ -43,8 +43,15 @@ public class BoardServiceImpl implements BoardService {
 	}
 	
 	@Override
+	public void updateBoard(Board board) throws PersistenceException {
+		boardDao.updateBoard(board);
+	}
+	
+	@Override
 	public void deleteBoard(Map<String, Object> param) throws PersistenceException {
 		boardDao.deleteBoard(param);
 	}
+
+	
 
 }

@@ -5,7 +5,10 @@
       <div id="gallery">
         <figure>
           <header class="heading">BOARD LIST</header>
-          <ul class="nospace clear" id="boards">            
+          <div>
+          	<span>조회중 입니다</span>
+          </div>
+          <ul class="nospace clear" id="boards">
           </ul>
           <figcaption><a href="/board/registBoard.do">WRITE A NEW BOARD</a></figcaption>
         </figure>

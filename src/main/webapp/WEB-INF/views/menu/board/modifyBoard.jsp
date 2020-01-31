@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<input type="hidden" id="fileStatus" value="L">
 <input type="hidden" id="fileOrgNm">
 <div class="wrapper row3 board">
 	<main class="hoc container clear">
-		<form id="modifyBoardForm" method="post" enctype="multipart/form-data">
+		<form id="modifyBoardForm" method="post" enctype="multipart/form-data">		
 		<input type="hidden" name="listNo" id="listNo" value="${listNo }">
+		<input type="hidden" id="fileStatus" name="fileStatus" value="L">
 			<div>
 				<label class="title editor" for="title">제목</label>
 				<input class="title mb10" type="text" id="title" name="title">
@@ -20,7 +20,7 @@
 			</div>
 			<div class="editor radio2 mt10">
 				<span class="span">비밀번호 설정 여부</span>
-				<input type="radio" id="passNC" class="" name="passYn" value="NC" checked/>
+				<input type="radio" id="passNC" class="" name="passYn" value="NC"/>
 			    <label for="passNC">기존 비밀번호 사용</label>
 				<input type="radio" id="passY" class="" name="passYn" value="Y"/>
 			    <label for="passY">설정</label>
@@ -40,8 +40,11 @@
 				<input type="file" id="boardFile" accept=".jpg, .jpeg, .png, .gif" name="boardFile">
 			</div>			
 			<div class="mt10 pt5">
-				<button class="mt30 btn1" id="registBtn" type="button">수정</button>
-			</div>					
+				<button class="mt30 btn1" id="modifyBtn" type="button">수정</button>
+			</div>
+			<div class="pt5">
+				<button onclick="history.back()" class="mt30 btn1" id="backBtn" type="button">돌아가기</button>
+			</div>				
 		</form>
 	</main>
 </div>

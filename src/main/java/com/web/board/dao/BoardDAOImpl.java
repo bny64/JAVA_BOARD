@@ -107,6 +107,15 @@ public class BoardDAOImpl extends CommonDAO implements BoardDAO{
 		return session.createQuery(cr).getSingleResult();
 	}
 
+
+	@Override
+	public void updateBoard(Board board) throws PersistenceException {
+		
+		Session session = getSession();		
+		session.saveOrUpdate(board);
+		
+	}
+	
 	@Override
 	public void deleteBoard(Map<String, Object> param) throws PersistenceException {
 		Session session = getSession();
@@ -124,7 +133,4 @@ public class BoardDAOImpl extends CommonDAO implements BoardDAO{
 		dl.where(restrictions.toArray(new Predicate[] {}));
 		session.createQuery(dl).executeUpdate();
 	}
-
-	
-
 }

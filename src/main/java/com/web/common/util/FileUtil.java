@@ -96,10 +96,10 @@ public class FileUtil {
 			
 			file.transferTo(new File(filePath + "/" + fileName));
 			
-			map.put("imgFilePath", midPath);
+			map.put("filePath", midPath);
 			map.put("fileName", fileName);
 			map.put("orgFileName", orgFileName);
-			map.put("imgFileFullPath", filePath + "/" + fileName);
+			map.put("fileFullPath", filePath + "/" + fileName);
 			
 			fileList.add(map);
 		}
@@ -163,6 +163,17 @@ public class FileUtil {
 		return fileList;
 	}
 	
+	public void deleteFile(String type, Map<String, Object> requestMap) throws Exception {
+		
+		String filePath = parseName(type);
+		String fileName = (String) requestMap.get("fileName");
+		String fileMidPath = (String) requestMap.get("filePath");
+		
+		File file = new File(filePath + fileMidPath + "/" + fileName);
+		if(file.exists()) file.delete();
+		
+	}
+	
 	@SuppressWarnings("unchecked")
 	public String parseName(String number) {		
 		logger.debug("---------- [FileUtil]:[parseName] -----------");
@@ -186,5 +197,19 @@ public class FileUtil {
 		}
 		
 		return name;		
+	}
+	
+	public int reqFileCheck(Map<String, Object> requestMap) throws Exception {
+		
+		int fileLen = 0;
+		
+		for(Entry<String, Object> entry : requestMap.entrySet()) {
+			
+			if(entry.getValue() instanceof MultipartFile) {
+				fileLen++;			
+			}			
+		}
+		
+		return fileLen;
 	}
 }

@@ -3,6 +3,7 @@ package com.web.board.controller;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -65,8 +66,25 @@ public class BoardController extends WebCommonController{
 
 	/*게시판 수정하기:GET*/
 	@RequestMapping(value="/modifyBoard", method = RequestMethod.GET)
-	public ModelAndView modifyBoard(ModelAndView mnv, CommandMap reqMap) throws Exception{
+	public ModelAndView modifyBoard(ModelAndView mnv, CommandMap reqMap, HttpServletRequest request, HttpServletResponse response) throws Exception{
 		logger.debug("********************[BoardController]:[modifyBoard:GET]********************");	
+
+		String sessionBrdListNo = (String) request.getSession().getAttribute("boardListNo");
+		String listNo = (String) reqMap.get("listNo");
+		
+		if(sessionBrdListNo==null || !listNo.equals(sessionBrdListNo)) {
+			
+			request.removeAttribute("modifyCheck");
+			response.setCharacterEncoding("UTF-8");
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>alert('비정상적으로 접근할 수 없습니다.'); location.href = '/board/boardList.do';</script>");
+			return null;
+			
+		}else {
+			request.getSession().removeAttribute("boardListNo");
+		}
+		
 		mnv.setViewName("board/modifyBoard");
 
 		mnv.addObject("listNo", reqMap.get("listNo"));
@@ -91,7 +109,7 @@ public class BoardController extends WebCommonController{
 	@RequestMapping(value="/viewBoard")
 	public ModelAndView viewBoard(ModelAndView mnv, CommandMap reqMap, HttpServletRequest request, HttpServletResponse response) throws Exception{
 		logger.debug("********************[BoardController]:[modifyBoard:GET&POST]********************");	
-				
+		
 		String method = request.getMethod();
 		Map<String, Object> resMap = new HashMap<String, Object>();
 		String listNo = (String) reqMap.get("listNo");
@@ -133,6 +151,8 @@ public class BoardController extends WebCommonController{
 		}
 		
 		mnv.setViewName("board/viewBoard");
+		
+		request.getSession().setAttribute("boardListNo", listNo);
 		
 		resMap.put("listNo", board.getListNo());
 		resMap.put("name", board.getName());
@@ -186,11 +206,11 @@ public class BoardController extends WebCommonController{
 		//게시판 이미지는 한 개만 저장 가능
 		if(fileList.size() > 0) {
 			
-			String fileFullPath = fileList.get(0).get("imgFileFullPath");
+			String fileFullPath = fileList.get(0).get("fileFullPath");
 			String fileName = fileList.get(0).get("fileName");
 			
 			board.setFileName(fileName);
-			board.setImgFilePath(fileList.get(0).get("imgFilePath"));	
+			board.setImgFilePath(fileList.get(0).get("filePath"));	
 			board.setOrgFileName(fileList.get(0).get("orgFileName"));
 			
 			fileFullPaths.add(fileFullPath);
@@ -272,10 +292,10 @@ public class BoardController extends WebCommonController{
 		
 	}
 	
-	/*게시판 수정하기:POST*/
-	@RequestMapping(value="/modifyBoard", method=RequestMethod.POST)
-	public @ResponseBody CommandMap modifyBoard(CommandMap reqMap) throws Exception{
-		logger.debug("********************[BoardController]:[modifyBoard:POST]********************");
+	/*게시판 글 가져오기:POST*/
+	@RequestMapping(value="/getBoard", method=RequestMethod.POST)
+	public @ResponseBody CommandMap getBoard(CommandMap reqMap) throws Exception{
+		logger.debug("********************[BoardController]:[getBoard:POST]********************");
 		CommandMap resMap = new CommandMap();
 		String[] msg;
 		
@@ -284,6 +304,101 @@ public class BoardController extends WebCommonController{
 		resMap.put("board", board);
 		
 		msg = MsgList.getInstance().getCodeMessage(MsgCode.SelectSuccess);
+		resMap.put("msgCode", msg[0]);
+		resMap.put("msg", msg[1]);
+		
+		return resMap;
+	}
+	
+	/*게시판 글 수정:POST*/
+	@RequestMapping(value="/modifyBoard", method=RequestMethod.POST)
+	public @ResponseBody CommandMap modifyBoard(CommandMap reqMap) throws Exception{
+		logger.debug("********************[BoardController]:[modifyBoard:POST]********************");
+		CommandMap resMap = new CommandMap();
+		String[] msg;
+		List<String> fileFullPaths = new ArrayList<String>();
+		List<String> fileNames = new ArrayList<String>();		
+		
+		String fileStatus = (String) reqMap.get("fileStatus");
+		String passYn = (String) reqMap.get("passYn");
+		
+		Board board = boardService.getBoard(reqMap.getMap());
+		
+		board.setTitle((String) reqMap.get("title"));
+		board.setContents((String) reqMap.get("contents"));
+		board.setViewYn((String) reqMap.get("viewYn"));
+		board.setUpdatedAt(new Date());
+		
+		//비밀번호 설정
+		if("Y".equals(passYn)) {
+			
+			board.setPasswordYn((String) reqMap.get("passYn"));
+			board.setPassword(passwordEncoding.encode(reqMap.get("boardPass").toString()));
+			
+		}else if("N".equals(passYn)) {
+			
+			board.setPasswordYn((String) reqMap.get("passYn"));
+			board.setPassword(null);
+		}
+		
+		if("D".equals(fileStatus) || "U".equals(fileStatus)) {
+			
+			if(board.getOrgFileName()!=null) {
+				
+				Map<String, Object> fileMap = new HashMap<String, Object>();
+				fileMap.put("fileName", board.getFileName());
+				fileMap.put("filePath", board.getImgFilePath());
+				fileUtil.deleteFile("1", fileMap);
+				board.setOrgFileName(null);
+				board.setFileName(null);
+				board.setImgFilePath(null);
+				//fileMap.clear();
+				fileMap.put("fileName", board.getThumbFileName());
+				fileMap.put("filePath", board.getThumbImgFilePath());
+				fileUtil.deleteFile("thumb_1", fileMap);
+				board.setThumbFileName(null);
+				board.setThumbImgFilePath(null);
+				
+			}
+			
+			if("U".equals(fileStatus) && fileUtil.reqFileCheck(reqMap.getMap()) > 0) {
+					
+				List<HashMap<String, String>> fileList = fileUtil.saveDateFiles("1", reqMap.getMap());
+				
+				if(fileList.size() > 0) {
+					
+					String fileFullPath = fileList.get(0).get("fileFullPath");
+					String fileName = fileList.get(0).get("fileName");
+					
+					board.setFileName(fileName);
+					board.setImgFilePath(fileList.get(0).get("filePath"));	
+					board.setOrgFileName(fileList.get(0).get("orgFileName"));
+					
+					fileFullPaths.add(fileFullPath);
+					fileNames.add(fileName);
+											
+				}
+				
+				fileList.clear();
+				
+				reqMap.put("fileFullPaths", fileFullPaths);		
+				reqMap.put("fileNames", fileNames);
+				
+				fileList = fileUtil.saveDateThumbFiles("thumb_1", reqMap.getMap());
+				
+				if(fileList.size()>0) {
+					
+					board.setThumbFileName(fileList.get(0).get("thumbFileName"));
+					board.setThumbImgFilePath(fileList.get(0).get("thumbImgFilePath"));
+					
+				}
+					
+			}
+		}
+		
+		boardService.updateBoard(board);
+		
+		msg = MsgList.getInstance().getCodeMessage(MsgCode.UpdateSuccess);
 		resMap.put("msgCode", msg[0]);
 		resMap.put("msg", msg[1]);
 		
