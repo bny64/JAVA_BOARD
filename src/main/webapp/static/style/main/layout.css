@@ -639,3 +639,17 @@ img.lock {
 	height : 30px;
 	position : absolute;
 }
+
+div.loading {
+	margin-left: 43%;
+	height : 200px;
+	margin-top : 15%;
+}
+
+span.spnTxt{
+	font-size : 30px;
+}
+
+div.brdList{
+	height : 1065px;
+}

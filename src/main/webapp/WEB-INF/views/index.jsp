@@ -7,6 +7,9 @@
       <h6 class="heading">게시판 목록</h6>
       <p>다른 사용자들과 게시판으로 정보를 공유하세요</p>
     </div>
+    <div class="loading" id="loadingDiv">
+       	<span class="spnTxt">조회중 입니다</span>
+    </div>
     <ul class="nospace group overview" id="indexBoards">
       <!-- <li class="one_third">
         <figure><a href="#"><img src="/images/main/demo/348x261.png" alt=""></a>

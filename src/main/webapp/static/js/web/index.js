@@ -26,6 +26,9 @@ define([], function(){
 			
 			if(result.msgCode==='S0000'){
 
+				document.getElementById('loadingDiv').style.display = 'none';
+				document.getElementById('indexBoards').style.display = '';
+				
 				if(result.boards.length>0){
 					
 					const html = [];

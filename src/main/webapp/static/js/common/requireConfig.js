@@ -53,12 +53,15 @@ const requireConfig = {
 		// daterangepicker:{deps:['jquery','moment']},
 		// summernote
 		
-		//AMD지원 X
+		//AMD지원 X		
 		countdowntime : { deps : [ 'jquery' ] },
 		backtotop : {deps : ['jquery'] },
 		mobilemenu : {deps : ['jquery'] },
 		setDatepickerKor : { deps : [ 'jquery', 'jqueryui' ] },
-		summernote_kor : { deps : [ 'summrnote' ] },		
+		summernote : { deps : ['bootstrap'] },
+		//summernote 사용할 때 tooltip 메서드를 bootstrap에서 사용해야 하는데 jqueryui의 tooltip을 사용해서 bootstrap보다 jqueryui를 먼저 로드 시킴.
+		bootstrap : { deps : ['jqueryui'] }, 
+		summernote_kor : { deps : [ 'summrnote' ] },
 		bAjax : { deps : [ 'jqueryForm' ] }
 	}
 }

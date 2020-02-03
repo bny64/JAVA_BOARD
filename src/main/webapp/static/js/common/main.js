@@ -69,7 +69,7 @@ function checkLoadJsLib(){
 		
 	}else if(/^\/(board)$/.test(first_url)){
 		
-		type.lib = ['valuePipe','jquery','jqueryui', 'backtotop', 'popper', 'bootstrap','summernote'];		
+		type.lib = ['valuePipe','jquery', 'jqueryui', 'backtotop', 'popper', 'bootstrap','summernote'];		
 		type.bot_lib = [['valuePipe', 'libFilter','jquery', 'moment', 'bAjax', 'domUtil'],['','','$', 'mmt','bx', 'du']];	//bottom
 		
 	}else{
