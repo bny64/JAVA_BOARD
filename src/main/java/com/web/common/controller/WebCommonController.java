@@ -13,10 +13,10 @@ public class WebCommonController{
 	@Autowired
 	private AuthService authService;
 	
-	private ObjectMapper mapper;
+	private ObjectMapper mapper;	
 	
 	public WebCommonController() {
-		this.mapper = new ObjectMapper();
+		this.mapper = new ObjectMapper();		
 	}
 	
 	//세션에 담긴 Spring security 정보(id, name, email, userKey)
@@ -42,5 +42,6 @@ public class WebCommonController{
 		
 		return user;		
 	}
+	
 	
 }

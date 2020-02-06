@@ -1,7 +1,9 @@
 package com.web.common.resolver;
 
+import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,13 +20,17 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.web.common.util.JSONUtil;
+import com.web.common.menuList.MenuListService;
+import com.web.common.util.ParserUtil;
 
 //HandlerMethodArgumentResolver는 사용자 요청이 Controller에 도달하기 전에 그 요청의 파라미터들을 수정할 수 있게 해주는 역할을 한다.
 public class WebResolver implements HandlerMethodArgumentResolver {
 
 	@Autowired
-	private JSONUtil jsonUtil;
+	private MenuListService menuListService;
+	
+	@Autowired
+	private ParserUtil parserUtil;
 	/**
      * resolveArgument를 실행 할 수 있는 method인지 판별
      * @param methodParameter
@@ -52,7 +58,7 @@ public class WebResolver implements HandlerMethodArgumentResolver {
 		CommandMap commandMap = new CommandMap();
 		ObjectMapper mapper = new ObjectMapper();
 		
-        HttpServletRequest req = (HttpServletRequest) webRequest.getNativeRequest();        
+        HttpServletRequest req = (HttpServletRequest) webRequest.getNativeRequest();
         
         if(req.getAttribute("jsonReqCheck")!=null && (boolean)req.getAttribute("jsonReqCheck")) {
         	
@@ -83,7 +89,7 @@ public class WebResolver implements HandlerMethodArgumentResolver {
                 
             	key = (String) enumeration.nextElement();
                         	
-                if(jsonUtil.validJSONByStr(key)) {
+                if(parserUtil.validJSONByStr(key)) {
                 	Map<String, String> map = mapper.readValue(key, new TypeReference<Map<String, String>>(){});
                 	for(Map.Entry<String, String> entry : map.entrySet()) {
                 		commandMap.put(entry.getKey(), entry.getValue());
@@ -98,8 +104,21 @@ public class WebResolver implements HandlerMethodArgumentResolver {
             }
         	
         }
-         
+        
         return commandMap;
 	}
 	
+	public List<Map<String, Object>> getMenuList(HttpServletRequest request) {		
+		
+		String[] reqUrls = request.getRequestURI().toString().split("/");
+		List<String> urls = new ArrayList<String>();
+		List<Map<String, Object>> getUrls = new ArrayList<Map<String, Object>>();
+		
+		for(int i = 1; i<reqUrls.length; i++) {
+			urls.add("/" + reqUrls[i].replace(".do", ""));
+		}
+		
+		getUrls = menuListService.getMenuList(urls);
+		return getUrls;
+	}
 }

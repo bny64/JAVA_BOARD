@@ -50,9 +50,9 @@ public class BoardController extends WebCommonController{
 	//method 입력하지 않을 시 default값은 GET
 	/*게시판 리스트:GET*/
 	@RequestMapping(value="/boardList", method = RequestMethod.GET)
-	public ModelAndView boardList(ModelAndView mnv) throws Exception{
-		logger.debug("********************[BoardController]:[boardList:GET]********************");						
-		mnv.setViewName("board/boardList");
+	public ModelAndView boardList(ModelAndView mnv, CommandMap reqMap) throws Exception{
+		logger.debug("********************[BoardController]:[boardList:GET]********************");
+		mnv.setViewName("board/boardList");		
 		return mnv;
 	}
 	

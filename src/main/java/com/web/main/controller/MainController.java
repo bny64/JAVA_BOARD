@@ -13,11 +13,13 @@ public class MainController {
 	
 	private Logger logger = LoggerFactory.getLogger(MainController.class);
 			
-	//
+	
+	
 	@RequestMapping(value="/index", method = RequestMethod.GET)
 	public ModelAndView index(ModelAndView mnv) {		
 		logger.debug("---------- MainController index -----------");		
 		mnv.setViewName("index");
+		
 		return mnv;
 	}
 }

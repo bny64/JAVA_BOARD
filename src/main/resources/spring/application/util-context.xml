@@ -20,7 +20,7 @@
    		<property name="parser" ref="spelExpressionParser"/>
    	</bean>
    
-   	<bean id="jsonUtil" class="com.web.common.util.JSONUtil"/>
+   	<bean id="parserUtil" class="com.web.common.util.ParserUtil"/>
    	
    	
    	<!-- 참조 BEAN -->

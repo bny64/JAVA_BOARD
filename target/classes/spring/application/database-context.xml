@@ -45,5 +45,14 @@
 	</bean>
 	
 	<tx:annotation-driven transaction-manager="transactionManager"/>
+
+	<!-- 테스트를 위해 넣어 놓음. root-context에 정의되어 있어서 실제로 서버 올릴 때 필요없음. -->	
+	<bean id="propertyConfigurer" class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+		<property name="locations">
+			<value>classpath:properties/*.properties</value>
+		</property>
+		<property name="fileEncoding" value="UTF-8"></property>
+		<property name="order" value="1"></property>
+	</bean>
 	
 </beans>

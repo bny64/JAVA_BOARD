@@ -26,8 +26,9 @@ public class CustomFilter implements Filter{
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		
+
 		MutableHttpServletRequestWrapper MutableServletRequest = new MutableHttpServletRequestWrapper((HttpServletRequest)request);
+		
 		chain.doFilter(MutableServletRequest, response);
 		
 	}
@@ -37,5 +38,4 @@ public class CustomFilter implements Filter{
 		// TODO Auto-generated method stub
 		
 	}
-
 }

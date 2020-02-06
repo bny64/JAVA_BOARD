@@ -7,34 +7,46 @@ import java.util.Map;
 
 import javax.persistence.PersistenceException;
 
-import org.hibernate.Session;
 import org.hibernate.query.Query;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.web.common.dao.CommonDAO;
+import com.web.common.util.ParserUtil;
 
+@Repository
+@Transactional
 public class MenuListDAO extends CommonDAO{
 	
+	@SuppressWarnings("rawtypes")
+	@Autowired
+	ParserUtil parserUtil;
+	
 	@SuppressWarnings("unchecked")
-	public List<Map<String, String>> getMenuList(String[] url) throws PersistenceException{
-		
-		Session session = getSession();
-		
-		List<Map<String, String>> menuList = new ArrayList<Map<String, String>>();
-		Map<String, String> menu = new HashMap<String, String>();
+	public List<Map<String, Object>> getMenuList(List<String> urls) throws PersistenceException{
+
+		String[] columns = parserUtil.getClassFieldNames(MenuList.class);
+		List<Map<String, Object>> menuList = new ArrayList<Map<String, Object>>();
+		Map<String, Object> nativeQueryResult = new HashMap<String, Object>();
 		
 		String queryStr = "SELECT * FROM menuList WHERE listNo = 1";
 		
-		Query<Map<String, String>> query = session.createQuery(queryStr);
-		menu = query.getSingleResult();
-		menuList.add(menu);
+		Query<?> query = session.createNativeQuery(queryStr);
+		Object[] result = (Object[]) query.getSingleResult();
 		
-		for(String element : url) {
-			menu.clear();
+		nativeQueryResult = parserUtil.nativeQueryParser(columns, result);
+		menuList.add(nativeQueryResult);
+		
+		for(String url : urls) {
+			
 			queryStr = "SELECT * FROM menuList WHERE url = :url";
-			query = session.createQuery(queryStr);
-			query.setParameter("url", element);
-			menu = query.getSingleResult();
-			menuList.add(menu);
+			query = session.createNativeQuery(queryStr);
+			query.setParameter("url", url);
+			result = (Object[]) query.getSingleResult();
+			nativeQueryResult = parserUtil.nativeQueryParser(columns, result);
+			menuList.add(nativeQueryResult);
+			
 		}
 		
 		return menuList;
