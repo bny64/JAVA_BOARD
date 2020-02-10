@@ -1,9 +1,7 @@
 package com.web.common.resolver;
 
-import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -29,6 +27,7 @@ public class WebResolver implements HandlerMethodArgumentResolver {
 	@Autowired
 	private MenuListService menuListService;
 	
+	@SuppressWarnings("rawtypes")
 	@Autowired
 	private ParserUtil parserUtil;
 	/**
@@ -107,18 +106,5 @@ public class WebResolver implements HandlerMethodArgumentResolver {
         
         return commandMap;
 	}
-	
-	public List<Map<String, Object>> getMenuList(HttpServletRequest request) {		
 		
-		String[] reqUrls = request.getRequestURI().toString().split("/");
-		List<String> urls = new ArrayList<String>();
-		List<Map<String, Object>> getUrls = new ArrayList<Map<String, Object>>();
-		
-		for(int i = 1; i<reqUrls.length; i++) {
-			urls.add("/" + reqUrls[i].replace(".do", ""));
-		}
-		
-		getUrls = menuListService.getMenuList(urls);
-		return getUrls;
-	}
 }

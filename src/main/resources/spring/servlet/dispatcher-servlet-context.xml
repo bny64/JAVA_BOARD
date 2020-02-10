@@ -32,27 +32,24 @@
 	<!-- mvc controller를 스캔함. -->
 	<!-- component-scan 할 때 해당 패키지 밑으로 선언된 빈들을 읽어오기 때문에 com.bny.controller 로 설정되어 있을 경우 컨트롤러 bean만 찾기 때문에 나머지 dao, service 등의 빈을 읽지 못한다. 주의 할 것. -->
 	<context:component-scan base-package = "com.web">
-		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>	
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>		
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
 	</context:component-scan>	
 	
-	<!-- <mvc:interceptors>
+	<mvc:interceptors>
 		<mvc:interceptor>
-			<mvc:mapping path="/**"/>	 <mvc:mapping path="/index"/> /** 변경해서 테스트(안됨)
-			<mvc:exclude-mapping path="/index"/>		
-			<mvc:exclude-mapping path="/auth/**"/>
-			<mvc:exclude-mapping path="/css/**"/>
-			<mvc:exclude-mapping path="/fonts/**"/>
-			<mvc:exclude-mapping path="/images/**"/>
+			<mvc:mapping path="/**"/>
+			<mvc:exclude-mapping path="/images/**"/>		
 			<mvc:exclude-mapping path="/js/**"/>
-			<mvc:exclude-mapping path="/sass/**"/>
 			<mvc:exclude-mapping path="/publishing/**"/>
-			<mvc:exclude-mapping path="/vendor/**"/>
-			<mvc:exclude-mapping path="/lib/**"/>			
-			<bean class="com.bny.common.interceptor.AccessControlInterceptor"/>		
+			<mvc:exclude-mapping path="/style/**"/>
+			<mvc:exclude-mapping path="/lib/**"/>
+			<mvc:exclude-mapping path="/thumb/**"/>
+			<mvc:exclude-mapping path="/common/**"/>
+			<bean class="com.web.common.interceptor.AccessControllerInterceptor"/>		
 		</mvc:interceptor>
-	</mvc:interceptors> -->	
+	</mvc:interceptors>	
 	
 	<!-- resources/config에 정의된 properties를 읽어옴. -->
 	<bean id="propertyConfigurer" class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">

@@ -1,3 +1,4 @@
+
 2019.10.31 로그인 javascript 유효성 체크 확인
 2019.11.01 HandlerMethodArgumentResolver 설정중 
 2019.11.02 hibernate를 통해 유저 생성 완료
@@ -61,4 +62,4 @@
 2020.02.05 hibernate nativequery 작업중
 2020.02.06 hibernate nativequery 작업 완료 후 메뉴 이름 어떻게 가져올지 고민해야 함.
 2020.02.07 업무 때문에 업데이트 못함.
-2020.02.10 일 시작
+2020.02.10 메뉴 셋팅 완료

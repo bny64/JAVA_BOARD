@@ -7,9 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.web.common.controller.WebCommonController;
+
 
 @Controller
-public class MainController {
+public class MainController extends WebCommonController{
 	
 	private Logger logger = LoggerFactory.getLogger(MainController.class);
 			
@@ -17,6 +19,7 @@ public class MainController {
 	
 	@RequestMapping(value="/index", method = RequestMethod.GET)
 	public ModelAndView index(ModelAndView mnv) {		
+		
 		logger.debug("---------- MainController index -----------");		
 		mnv.setViewName("index");
 		

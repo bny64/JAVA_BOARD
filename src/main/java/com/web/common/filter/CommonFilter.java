@@ -26,7 +26,7 @@ public class CommonFilter implements Filter{
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		// TODO Auto-generated method stub
-		
+				
 		String contentType = request.getContentType();
 		
 		if(contentType != null) {
@@ -47,11 +47,12 @@ public class CommonFilter implements Filter{
 			//파일이 포함 됐을 때
 			}else if(contentType.contains("multipart/form-data")){
 				
-				request.setAttribute("multiReqCheck", true);				
+				request.setAttribute("multiReqCheck", true);
 			}
 		}
 		
 		chain.doFilter(request, response);
+		
 		
 	}
 

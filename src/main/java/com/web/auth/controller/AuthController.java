@@ -46,12 +46,14 @@ public class AuthController extends WebCommonController{
 	@Autowired
 	private PasswordEncoding passwordEncoding;
 	
+	
+	
 	//method 입력하지 않을 시 default값은 GET
 	//로그인 화면 이동
 	@RequestMapping(value="/login") //로그아웃 실패 후 이 페이지로 이동하기 때문에 GET, POST 모두 받아야 함.
-	public ModelAndView login(ModelAndView mnv, HttpServletRequest request) throws Exception {		
+	public ModelAndView login(CommandMap reqMap, ModelAndView mnv, HttpServletRequest request) throws Exception {		
 		logger.debug("********************[BoardController]:[login:GET]********************");
-				
+		
 		Map<String, ?> flashMap = RequestContextUtils.getInputFlashMap(request);
 		
 		if(flashMap!=null) {
@@ -89,13 +91,13 @@ public class AuthController extends WebCommonController{
 	
 	//아이디 중복 체크
 	@RequestMapping(value="/chkValId", method = RequestMethod.POST)
-	public @ResponseBody CommandMap chkValId(CommandMap map) throws Exception {
+	public @ResponseBody CommandMap chkValId(CommandMap reqMap) throws Exception {
 		logger.debug("********************[BoardController]:[chkValId:POST]********************");
 				
 		CommandMap comMap = new CommandMap();	
 		String[] msg;
 				
-		List<User> user = authService.selectById(map.get("id").toString());
+		List<User> user = authService.selectById(reqMap.get("id").toString());
 		
 		if(user.size() > 0) {
 			msg = MsgList.getInstance().getCodeMessage(MsgCode.DuplicateId);
@@ -112,13 +114,13 @@ public class AuthController extends WebCommonController{
 	
 	//이메일 중복 체크
 	@RequestMapping(value="/chkValEmail", method = RequestMethod.POST)
-	public @ResponseBody CommandMap chkValEmail(CommandMap map) throws Exception {
+	public @ResponseBody CommandMap chkValEmail(CommandMap reqMap) throws Exception {
 		logger.debug("********************[BoardController]:[chkValEmail:POST]********************");		
 		
 		CommandMap comMap = new CommandMap();
 		String[] msg;
 		
-		List<User> user = authService.selectByEmail(map.get("email").toString());
+		List<User> user = authService.selectByEmail(reqMap.get("email").toString());
 		
 		if(user.size() > 0) {
 			msg = MsgList.getInstance().getCodeMessage(MsgCode.DuplicateEmail);
@@ -135,7 +137,7 @@ public class AuthController extends WebCommonController{
 	
 	//가입 폼 전송
 	@RequestMapping(value="/join", method = RequestMethod.POST)
-	public String joinForm(ModelAndView mnv, CommandMap map, RedirectAttributes redirectAttr) throws Exception{
+	public String joinForm(ModelAndView mnv, CommandMap reqMap, RedirectAttributes redirectAttr) throws Exception{
 		logger.debug("********************[BoardController]:[joinForm:POST]********************");	
 		
 		String[] msg;
@@ -145,15 +147,15 @@ public class AuthController extends WebCommonController{
 		UserAuthority userAuthority = new UserAuthority();
 		
 		user.setUserKey(UUID.randomUUID().toString());		
-		user.setId(map.get("id").toString());
-		user.setPassword(passwordEncoding.encode(map.get("password").toString()));
-		user.setEmail(map.get("email").toString());
-		user.setName(map.get("name").toString());
-		if(map.get("phoneNumber")!= null) user.setPhoneNumber(map.get("phoneNumber").toString());
-		if(map.get("imgPath")!= null) user.setImgPath(map.get("imgPath").toString());
-		if(map.get("introduce")!=null) user.setIntroduce(map.get("introduce").toString());
-		if(map.get("birth")!= null) user.setBirth(new SimpleDateFormat("yyyy-MM-dd").parse(map.get("birth").toString()));
-		user.setEmailYn(map.get("emailYn").toString());
+		user.setId(reqMap.get("id").toString());
+		user.setPassword(passwordEncoding.encode(reqMap.get("password").toString()));
+		user.setEmail(reqMap.get("email").toString());
+		user.setName(reqMap.get("name").toString());
+		if(reqMap.get("phoneNumber")!= null) user.setPhoneNumber(reqMap.get("phoneNumber").toString());
+		if(reqMap.get("imgPath")!= null) user.setImgPath(reqMap.get("imgPath").toString());
+		if(reqMap.get("introduce")!=null) user.setIntroduce(reqMap.get("introduce").toString());
+		if(reqMap.get("birth")!= null) user.setBirth(new SimpleDateFormat("yyyy-MM-dd").parse(reqMap.get("birth").toString()));
+		user.setEmailYn(reqMap.get("emailYn").toString());
 		
 		authService.join(user);
 		
@@ -173,13 +175,13 @@ public class AuthController extends WebCommonController{
 	
 	//이메일 찾기
 	@RequestMapping(value="/forgetEmail", method = RequestMethod.POST)
-	public @ResponseBody CommandMap forgetEmail(CommandMap map) throws Exception {
+	public @ResponseBody CommandMap forgetEmail(CommandMap reqMap) throws Exception {
 		logger.debug("********************[BoardController]:[chkValId:POST]********************");
 		
 		CommandMap comMap = new CommandMap();	
 		String[] msg;
 				
-		List<User> user = authService.selectEmailByIdName(map.getMap());
+		List<User> user = authService.selectEmailByIdName(reqMap.getMap());
 		
 		if(user.size()>0) {
 			comMap.put("email", user.get(0).getEmail());
@@ -197,26 +199,26 @@ public class AuthController extends WebCommonController{
 	
 	//이메일 찾기
 	@RequestMapping(value="/forgetPassword", method = RequestMethod.POST)
-	public @ResponseBody CommandMap forgetPassword(CommandMap map) throws Exception {
+	public @ResponseBody CommandMap forgetPassword(CommandMap reqMap) throws Exception {
 		logger.debug("********************[BoardController]:[forgetPassword:POST]********************");
 		
 		CommandMap comMap = new CommandMap();	
 		String[] msg;
-		Map<String, String> reqMap = new HashMap<String, String>();
+		Map<String, String> serviceMap = new HashMap<String, String>();
 		
 		
 		
-		int cnt = authService.selectByIdNmEml(map.getMap());
+		int cnt = authService.selectByIdNmEml(reqMap.getMap());
 		
 		if(cnt==1) {
 		
 			String newPass = String.valueOf((int) (Math.random()*9999) + 1000);
-			reqMap.put("password", passwordEncoding.encode(newPass));
-			reqMap.put("email", (String) map.get("email")); 
+			serviceMap.put("password", passwordEncoding.encode(newPass));
+			serviceMap.put("email", (String) reqMap.get("email")); 
 			
 			try {
 				
-				authService.resetPassword(reqMap);
+				authService.resetPassword(serviceMap);
 				msg = MsgList.getInstance().getCodeMessage(MsgCode.UpdateSuccess);
 				comMap.put("password", newPass);
 				comMap.put("msgCode", msg[0]);
