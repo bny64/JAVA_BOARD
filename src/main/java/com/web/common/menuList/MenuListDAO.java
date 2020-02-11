@@ -59,4 +59,53 @@ public class MenuListDAO extends CommonDAO{
 		return menuList;
 	}
 	
+	@SuppressWarnings("unchecked")
+	public List<Map<String, Object>> getMenuListByDepth(String depth) throws PersistenceException {
+		
+		Session session = getSession();
+		
+		String[] columns = parserUtil.getClassFieldNames(MenuList.class);
+		
+		List<Map<String, Object>> menuList = new ArrayList<Map<String, Object>>();
+		List<Object[]> resultList = new ArrayList<Object[]>();
+		Map<String, Object> nativeQueryResult = new HashMap<String, Object>();
+		
+		String queryStr = "SELECT * FROM menuList WHERE depth = :depth";
+		Query<?> query = session.createNativeQuery(queryStr);
+		query.setParameter("depth", depth);
+		
+		resultList =  (List<Object[]>) query.list();
+		
+		for(Object[] menu : resultList) {
+			nativeQueryResult = parserUtil.nativeQueryParser(columns, menu);
+			menuList.add(nativeQueryResult);
+		}
+	
+		return menuList;		
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Map<String, Object>> getMenuListAll() throws PersistenceException {
+		
+		Session session = getSession();
+		
+		String[] columns = parserUtil.getClassFieldNames(MenuList.class);
+		
+		List<Map<String, Object>> menuList = new ArrayList<Map<String, Object>>();
+		List<Object[]> resultList = new ArrayList<Object[]>();
+		Map<String, Object> nativeQueryResult = new HashMap<String, Object>();
+		
+		String queryStr = "SELECT * FROM menuList";
+		Query<?> query = session.createNativeQuery(queryStr);
+		
+		resultList =  (List<Object[]>) query.list();
+		
+		for(Object[] menu : resultList) {
+			nativeQueryResult = parserUtil.nativeQueryParser(columns, menu);
+			menuList.add(nativeQueryResult);
+		}
+	
+		return menuList;		
+	}
+	
 }
