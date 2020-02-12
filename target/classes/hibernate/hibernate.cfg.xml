@@ -5,20 +5,15 @@
 
 <hibernate-configuration>
 	<session-factory>
-		<!-- 드라이버 -->
-		<!-- <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property> --> 
-		<!-- 비밀번호 -->
-		<!-- <property name="hibernate.connection.password">password</property> -->
-		<!-- url -->		
-		<!-- <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/tripleProject</property> -->		
-		<!-- 사용자 -->
-		<!-- <property name="hibernate.connection.username">bny64</property> -->
+		<!-- 드라이버 --><!-- <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property> --> 
+		<!-- 비밀번호 --><!-- <property name="hibernate.connection.password">password</property> -->
+		<!-- url --><!-- <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/tripleProject</property> -->		
+		<!-- 사용자 --><!-- <property name="hibernate.connection.username">bny64</property> -->
 		
 		<!-- 기본 스키마 -->
 		<!-- hibernate 5.x 버전에서는 default_schema null로 에러 발생함.  java1.7 Connection.getSchema()로 기본 스키마를 찾지만
 			java1.8에서는 이 메서드를 구현하지 않고 있다. hibernate 4.x 버전에서는 정상적으로 작동함.
-			hibernate 5.x 이상에서 사용하려면 아래와 같이 hibernate.schema_name_resolver라는 프로퍼티로 입력해서 사용해줘야한다.
-		-->
+			hibernate 5.x 이상에서 사용하려면 아래와 같이 hibernate.schema_name_resolver라는 프로퍼티로 입력해서 사용해줘야한다.-->
 		<!-- <property name="hibernate.default_schema">tripleProject</property> -->		
 		<property name="hibernate.schema_name_resolver">tripleProject</property>	
 				
@@ -60,7 +55,7 @@
 		<property name="format_sql">true</property>
 		<property name="use_sql_comments">false</property>
 
-		<!-- mapping을 hibernate.cfg.xml에서 사용할 경우 은 반드시 마지막으로 끝나야함. 안그러면 error 발생 -->
+		<!-- mapping을 spring이 아닌 hibernate.cfg.xml에서 사용할 경우는 xml property중에서 반드시 마지막으로 끝나야함. 안그러면 error 발생 -->
 		<!-- 복수의 클래스를 사용할 때는 mapping시는 ex)com.web.hibernate.entity.* -->
 		<!-- <mapping class="com.web.hibernate.entity.Student" /> -->
 		

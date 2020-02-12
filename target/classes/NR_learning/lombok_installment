@@ -1,5 +1,5 @@
-¸ŞÀÌºì¿¡¼­ ¼³Ä¡ ÈÄ ÇØ´ç Æú´õ·Î ÀÌµ¿ÇØ lombok.jar ÆÄÀÏÀ» ½ÇÇàÇØ¼­ ½ÇÇàÇÒ IDE¸¦ ³Ö¾îÁà¾ß ÇÑ´Ù.
-±×¸®°í ÇØ´ç IDE.ini ÆÄÀÏ¿¡ 
+ë©”ì´ë¸ì—ì„œ ì„¤ì¹˜ í›„ í•´ë‹¹ í´ë”ë¡œ ì´ë™í•´ lombok.jar íŒŒì¼ì„ ì‹¤í–‰í•´ì„œ ì‹¤í–‰í•  IDEë¥¼ ë„£ì–´ì¤˜ì•¼ í•œë‹¤.
+ê·¸ë¦¬ê³  í•´ë‹¹ IDE.ini íŒŒì¼ì— 
 -vmargs
 -Dosgi.requiredJavaVersion=1.8
 -Xms2048m
@@ -9,4 +9,4 @@
 --add-modules=ALL-SYSTEM
 -javaagent:lombok.jar
 
--vmargs ºÎºĞ¿¡ À§¿Í °°ÀÌ -javaagent:lombok.jar ºÎºĞ Ãß°¡
+-vmargs ë¶€ë¶„ì— ìœ„ì™€ ê°™ì´ -javaagent:lombok.jar ë¶€ë¶„ ì¶”ê°€

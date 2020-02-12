@@ -18,14 +18,10 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.web.common.menuList.MenuListService;
 import com.web.common.util.ParserUtil;
 
 //HandlerMethodArgumentResolver는 사용자 요청이 Controller에 도달하기 전에 그 요청의 파라미터들을 수정할 수 있게 해주는 역할을 한다.
 public class WebResolver implements HandlerMethodArgumentResolver {
-
-	@Autowired
-	private MenuListService menuListService;
 	
 	@SuppressWarnings("rawtypes")
 	@Autowired

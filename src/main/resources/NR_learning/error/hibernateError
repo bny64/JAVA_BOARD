@@ -1,2 +1,2 @@
-ids for this class must be manually assigned before calling save() -> @IdÀÇ Å¸ÀÔÀÌ ¸ÂÁö ¾Ê¾Æ »ý±â´Â ¿¡·¯.
-not-null property references a null or transient value : com.web.auth.domain.User.joinType]À»(¸¦) ¹ß»ý½ÃÄ×½À´Ï´Ù. -> not nullÀÎµ¥ null°ªÀÌ µé¾î°£ °æ¿ì
+ids for this class must be manually assigned before calling save() -> @Idì˜ íƒ€ìž…ì´ ë§žì§€ ì•Šì•„ ìƒê¸°ëŠ” ì—ëŸ¬.
+not-null property references a null or transient value : com.web.auth.domain.User.joinType]ì„(ë¥¼) ë°œìƒì‹œì¼°ìŠµë‹ˆë‹¤. -> not nullì¸ë° nullê°’ì´ ë“¤ì–´ê°„ ê²½ìš°

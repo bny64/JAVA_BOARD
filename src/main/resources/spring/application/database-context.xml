@@ -22,11 +22,11 @@
 	
 	<bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"/>
-		<!-- 환경설정 정보 -->
+		<!-- hibernate 환경설정 정보 -->
 		<property name="configLocations">
 			<value>classpath*:hibernate/hibernate.cfg.xml</value>
 		</property>
-		<!-- 복수개의 class를 읽을 때 사용 -->
+		<!-- 복수개의 class를 읽을 때 사용(entities) -->
 		<property name="packagesToScan">			
 			<list>
 				<value>com.web.*.domain</value>
