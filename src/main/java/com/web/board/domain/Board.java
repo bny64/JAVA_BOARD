@@ -83,10 +83,10 @@ public class Board implements Serializable{
 	@Column(name = "password")
 	private String password;
 	
-	@Column(name = "passwordYn", nullable = false, columnDefinition = "VARCHAR(2) default 'N'")
+	@Column(name = "passwordYn", nullable = false, columnDefinition = "VARCHAR(1) default 'N'")
 	private String passwordYn;
 	
-	@Column(name = "viewYn", nullable = false, columnDefinition = "VARCHAR(2) default 'Y'")
+	@Column(name = "viewYn", nullable = false, columnDefinition = "VARCHAR(1) default 'Y'")
 	private String viewYn;
 	
 	@Column(name = "imgFilePath")

@@ -113,7 +113,7 @@ public class User implements Serializable{
 	
 	/* columnDefinition에서 default값 설정시 TYPE(ex : VARCHAR(5)을 넣어주지 않으면 에러 발생.
 	 * */
-	@Column(name = "emailYn", columnDefinition = "VARCHAR(5) default 'N'")
+	@Column(name = "emailYn", columnDefinition = "VARCHAR(1) default 'N'")
 	private String emailYn;
 	
 	@Column(name = "birth")	
@@ -125,7 +125,7 @@ public class User implements Serializable{
 	@Column(name = "userType", nullable = false, columnDefinition = "VARCHAR(1) default 'B'")
 	private String userType;
 	
-	@Column(name = "useYn", columnDefinition = "VARCHAR(10) default 'Y'")
+	@Column(name = "useYn", columnDefinition = "VARCHAR(1) default 'Y'")
 	private String useYn;
 	
 	@Column(name = "loginFailCnt", length = 10)

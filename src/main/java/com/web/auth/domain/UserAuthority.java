@@ -40,13 +40,13 @@ public class UserAuthority implements Serializable{
 	@Column(name="id", nullable = false, unique=true, length=100)
 	private String id;
 	
-	@Column(name="authority", columnDefinition = "VARCHAR(50) default 'ROLE_BRONZE'")
+	@Column(name="authority", nullable = false, columnDefinition = "VARCHAR(50) default 'ROLE_BRONZE'")
 	private String authority = "ROLE_USER";
 	
 	@Column(name="name", nullable = false, length=100)
 	private String name;	
 	
-	@Column(name="enabled", columnDefinition = " VARCHAR(1) default 'Y'")
+	@Column(name="enabled", nullable = false, columnDefinition = " VARCHAR(1) default 'Y'")
 	private String enabled = "Y";
 	
 	@Column(name="createdAt", columnDefinition = "TIMESTAMP default CURRENT_TIMESTAMP")

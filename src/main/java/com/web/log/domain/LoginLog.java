@@ -18,15 +18,17 @@ import lombok.Data;
 @Entity
 @Table(name="loginLog")
 public class LoginLog implements Serializable{
-	
+		
+	private static final long serialVersionUID = -6361502491548766601L;
+
 	@Id
 	@Column(name="listNo", nullable = false)
 	/*
 	 * GeneratedValue
-	 * AUTO : JPA±¸ÇöÃ¼°¡ ÀÚµ¿À¸·Î »ı¼º Àü·«À» °áÁ¤ÇÑ´Ù.
-	 * IDENTITY : ±âº»Å° »ı¼ºÀ» µ¥ÀÌÅÍº£ÀÌ½º¿¡ À§ÀÓÇÑ´Ù.
-	 * SEQUENCE : µ¥ÀÌÅÍº£ÀÌ½ºÀÇ Æ¯º°ÇÑ ¿ÀºêÁ§Æ® ½ÃÄö½º¸¦ »ç¿ëÇÏ¿© ±âº»Å°¸¦ »ı¼ºÇÑ´Ù.
-	 * TABLE : µ¥ÀÌÅÍº£ÀÌ½º¿¡ Å° »ı¼º Àü¿ë Å×ÀÌºíÀ» ¸¸µé°í ÀÌ¸¦ »ç¿ëÇÏ¿© ±âº»Å°¸¦ »ı¼ºÇÑ´Ù.
+	 * AUTO : JPAêµ¬í˜„ì²´ê°€ ìë™ìœ¼ë¡œ ìƒì„± ì „ëµì„ ê²°ì •í•œë‹¤.
+	 * IDENTITY : ê¸°ë³¸í‚¤ ìƒì„±ì„ ë°ì´í„°ë² ì´ìŠ¤ì— ìœ„ì„í•œë‹¤.
+	 * SEQUENCE : ë°ì´í„°ë² ì´ìŠ¤ì˜ íŠ¹ë³„í•œ ì˜¤ë¸Œì íŠ¸ ì‹œí€€ìŠ¤ë¥¼ ì‚¬ìš©í•˜ì—¬ ê¸°ë³¸í‚¤ë¥¼ ìƒì„±í•œë‹¤.
+	 * TABLE : ë°ì´í„°ë² ì´ìŠ¤ì— í‚¤ ìƒì„± ì „ìš© í…Œì´ë¸”ì„ ë§Œë“¤ê³  ì´ë¥¼ ì‚¬ìš©í•˜ì—¬ ê¸°ë³¸í‚¤ë¥¼ ìƒì„±í•œë‹¤.
 	 * */
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	
 	private int listNo;
@@ -37,7 +39,7 @@ public class LoginLog implements Serializable{
 	@Column(name="joinType", nullable = false, length = 20)
 	private String joinType;
 	
-	@Column(name="id", nullable = false, length = 20)
+	@Column(name="id", nullable = false, length = 100)
 	private String id;
 	
 	@Column(name="loginAt", columnDefinition = "TIMESTAMP default CURRENT_TIMESTAMP")
@@ -46,17 +48,17 @@ public class LoginLog implements Serializable{
 
 	
 	/*
-	 * 1:N°ü°è
-	 * @ManyToOne(fetch = '') ¿£Æ¼Æ¼ ·Îµù °ü·Ã
-	 * FetchType.LAZY : ¿£Æ¼Æ¼¸¦ Á¶È¸ÇÒ ¶§ ¿¬°üµÈ ¿£Æ¼Æ¼¸¦ ½ÇÁ¦ »ç¿ëÇÒ ¶§ Á¶È¸ÇÑ´Ù. 
-	 * FetchType.EAGER : ¿£Æ¼Æ¼¸¦ Á¶È¸ÇÒ ¶§ ¿¬°üµÈ ¿£Æ¼Æ¼µµ ÇÔ²² Á¶È¸ÇÑ´Ù.
+	 * 1:Nê´€ê³„
+	 * @ManyToOne(fetch = '') ì—”í‹°í‹° ë¡œë”© ê´€ë ¨
+	 * FetchType.LAZY : ì—”í‹°í‹°ë¥¼ ì¡°íšŒí•  ë•Œ ì—°ê´€ëœ ì—”í‹°í‹°ë¥¼ ì‹¤ì œ ì‚¬ìš©í•  ë•Œ ì¡°íšŒí•œë‹¤. 
+	 * FetchType.EAGER : ì—”í‹°í‹°ë¥¼ ì¡°íšŒí•  ë•Œ ì—°ê´€ëœ ì—”í‹°í‹°ë„ í•¨ê»˜ ì¡°íšŒí•œë‹¤.
 	 * @ManytoOne(optional='')
-	 * default : true -> ¹İµå½Ã °ªÀÌ ÇÊ¿äÇÔ
-	 * false -> ÇØ´ç °´Ã¼¿¡ nullÀÌ µé¾î°¥ ¼öµµ ÀÖÀ½.
+	 * default : true -> ë°˜ë“œì‹œ ê°’ì´ í•„ìš”í•¨
+	 * false -> í•´ë‹¹ ê°ì²´ì— nullì´ ë“¤ì–´ê°ˆ ìˆ˜ë„ ìˆìŒ.
 	 * */
 	//@ManyToOne(fetch = FetchType.LAZY)
 	/*
-	 * @JoinColumn(name='ÇöÀç Å×ÀÌºíÀÇ  NÅ×ÀÌºíÀÇ ±âº»Å°¸¦ »ç¿ëÇÒ ÄÃ·³ ÀÌ¸§')
+	 * @JoinColumn(name='í˜„ì¬ í…Œì´ë¸”ì˜  Ní…Œì´ë¸”ì˜ ê¸°ë³¸í‚¤ë¥¼ ì‚¬ìš©í•  ì»¬ëŸ¼ ì´ë¦„')
 	 * */		
 	//@JoinColumn(name="userKey")
 	//private User user;	
