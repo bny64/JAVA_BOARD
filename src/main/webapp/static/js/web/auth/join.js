@@ -63,7 +63,11 @@ define([], function(){
 		    const that = this;
 		    let userEmail = document.querySelector('#email').value;
 
-	        if (userEmail === '') {
+		    
+		    if(!validate(document.querySelector('#email'))){		    	
+		    	return;
+		    }
+	        else if (userEmail === '') {
 	            document.querySelector('#email').value = '';
 	            alert('이메일을 입력해 주세요.')
 	            return;
