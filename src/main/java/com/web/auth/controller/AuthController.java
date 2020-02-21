@@ -154,7 +154,7 @@ public class AuthController extends WebCommonController{
 		if(reqMap.get("phoneNumber")!= null) user.setPhoneNumber(reqMap.get("phoneNumber").toString());
 		if(reqMap.get("imgPath")!= null) user.setImgPath(reqMap.get("imgPath").toString());
 		if(reqMap.get("introduce")!=null) user.setIntroduce(reqMap.get("introduce").toString());
-		if(reqMap.get("birth")!= null) user.setBirth(new SimpleDateFormat("yyyy-MM-dd").parse(reqMap.get("birth").toString()));
+		if(reqMap.get("birth")!= null) user.setBirth(reqMap.get("birth").toString());
 		user.setEmailYn(reqMap.get("emailYn").toString());
 		
 		authService.join(user);

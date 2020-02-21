@@ -5573,3 +5573,5 @@ org.springframework.security.access.AccessDeniedException: Access is denied
 ¢º DEBUG 17:03:07.125 [http-nio-9090-exec-9] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
 ¢º DEBUG 17:03:07.125 [http-nio-9090-exec-9] org.springframework.security.web.access.ExceptionTranslationFilter[doFilter:120] - Chain processed normally
 ¢º DEBUG 17:03:07.126 [http-nio-9090-exec-9] org.springframework.security.web.context.SecurityContextPersistenceFilter[doFilter:119] - SecurityContextHolder now cleared, as request processing completed
+¢º DEBUG 17:06:55.662 [localhost-startStop-2] org.springframework.web.context.support.XmlWebApplicationContext[doClose:1005] - Closing WebApplicationContext for namespace 'dispatcherServlet-servlet', started on Thu Feb 20 16:57:16 KST 2020, parent: Root WebApplicationContext
+¢º DEBUG 17:06:55.665 [localhost-startStop-2] org.springframework.web.context.support.XmlWebApplicationContext[doClose:1005] - Closing WebApplicationContext for namespace 'staticServlet-servlet', started on Thu Feb 20 16:57:19 KST 2020, parent: Root WebApplicationContext

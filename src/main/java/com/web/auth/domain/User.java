@@ -116,8 +116,8 @@ public class User implements Serializable{
 	@Column(name = "emailYn", columnDefinition = "VARCHAR(1) default 'N'")
 	private String emailYn;
 	
-	@Column(name = "birth")	
-	private Date birth;
+	@Column(name = "birth", length = 50)	
+	private String birth;
 	
 	@Column(name = "introduce", columnDefinition = "TEXT")
 	private String introduce;
