@@ -34,6 +34,9 @@ public class CustomAuthenticationProvider implements AuthenticationProvider{
 	@Override
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException, PersistenceException {
 		
+		/**
+		 * Security에서 에러 났을 때 처리가 안되어 있음.
+		 * */
 		/*
 		BadCredentialException	 비밀번호가 일치하지 않을 때 던지는 예외	
 		InternalAuthenticationServiceException	 존재하지 않는 아이디일 때 던지는 예외
