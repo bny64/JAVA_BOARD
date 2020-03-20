@@ -1,6 +1,5 @@
 package com.web.auth.controller;
 
-import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -243,68 +242,5 @@ public class AuthController extends WebCommonController{
 		return comMap;
 		
 	}
-	
-	//로그인 처리
-	//@RequestMapping(value="/login", method = RequestMethod.POST)
-	public String loginForm(CommandMap map, RedirectAttributes redirectAttr, HttpSession session) throws Exception {		
-		logger.debug("********************[BoardController]:[loginForm:POST]********************");	
-		
-		String email = map.get("email").toString();
-		String password = map.get("password").toString();		
-		Map<String, String> msgMap = new HashMap<String, String>();
-		Map<String, Object> sessionMap = new HashMap<String, Object>();
-		boolean result = false;
-		
-		List<User> user = authService.selectByEmail(email);
-		LoginLog log = new LoginLog();		
-		User getUser = null;
-		
-		if(user.size() > 0) {
-			getUser = user.get(0);
-			String getPassword = getUser.getPassword();			
-			result = passwordEncoding.matches(password, getPassword);			
-		}
-		
-		if(!result) {			
-			String[] msg = MsgList.getInstance().getCodeMessage(MsgCode.NullUser);
-			msgMap.put("msgCode", msg[0]);
-			msgMap.put("msg", msg[1]);
-			redirectAttr.addFlashAttribute("msg", msgMap);
-			return "redirect:/auth/login.do";			
-		}
-		
-		sessionMap.put("id", getUser.getId());
-		sessionMap.put("name", getUser.getName());
-		sessionMap.put("joinType", getUser.getJoinType());
-		
-		session.setAttribute("userInfo", sessionMap);
-		
-		log.setJoinType(getUser.getJoinType());
-		log.setName(getUser.getName());		
-		log.setId(getUser.getId());
-
-		logService.writeLoginLog(log);
-		
-		String[] msg = MsgList.getInstance().getCodeMessage(MsgCode.SuccessLogin);
-		msgMap.put("msgCode", msg[0]);
-		msgMap.put("msg", msg[1]);
-		redirectAttr.addFlashAttribute("msg", msgMap);
-		return "redirect:/index.do";		
-	}
-	
-	//로그아웃
-	
-	//@RequestMapping(value="/logout", method = RequestMethod.POST) public
-	ModelAndView logout(ModelAndView mnv, HttpSession session) throws Exception {
-		logger.debug("********************[BoardController]:[logout:POST]********************");	
-  
-		if(session.getAttribute("userInfo") != null) {
-			session.removeAttribute("userInfo"); }
-  
-		mnv.setViewName("index");
-  
-		return mnv; 
-	}
-	 
 	
 }

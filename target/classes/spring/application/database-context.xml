@@ -13,6 +13,8 @@
    
    <!-- BasicDataSource를 사용하기 위한 라이브러리 : dbcp2, pool2 (자바 버전 7 이상), dbcp2 -> connection pool 라이브러리 : 관리-->
    
+   
+   <!-- DataSource는 JDBC 명세의 일부분이면서 일반화된 연결 팩토리이다. 즉 DB와 관계된 connection 정보를 담고 있으며, bean으로 등록하여 인자를 넘겨준다. 이 과정을 통해 Spring은 DataSource로 DB와의 연결을 획득한다. -->
    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
 		<property name="driverClassName"><value>${db.driver}</value></property>
 		<property name="url"><value>${db.url}</value></property>
@@ -20,6 +22,11 @@
 		<property name="password"><value>${db.password}</value></property>		
 	</bean>
 	
+		
+	<!-- SessionFactory에 대한 Factory Bean. SessionFactory를 생성하는 객체를 등록시켜준다. 이는 Spring에서 사용할 DataSource와 Entity가 위치한 Package들에 대한 검색을 모두 포함하게 된다. 
+		Hibernate의 property를 등록한다
+		DataSource를 등록시킨다
+		Entity가 위치한 Package를 지정한다. -->
 	<bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"/>
 		<!-- hibernate 환경설정 정보 -->
@@ -40,6 +47,10 @@
 		<constructor-arg name="sessionFactory" ref="sessionFactory"/>
 	</bean> -->
 	
+	
+	<!-- Transaction을 사용하기 위한 PlatformTransactionManager interface의 구현체를 등록한다.
+		SessionFactory와 같이 사용될 DataSource를 등록한다.
+		SessionFactoryBean에서 생성되는 SessionFactory를 등록시켜준다. -->
 	<bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">		
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
