@@ -8,6 +8,7 @@
 				<label class="title editor" for="password">비밀번호</label>
 				<input style="margin : 0 auto;" id="password" name="password" type="text" placeholder="비밀번호를 입력하세요.">
 				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+				<button class="pass btnn">입력</button>
 			</div>
 		</form>
 	</main>

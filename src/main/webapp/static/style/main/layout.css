@@ -653,3 +653,10 @@ span.spnTxt{
 div.brdList{
 	height : 1065px;
 }
+
+
+.pass.btnn {
+	margin : 0 auto;
+	width : 15%;
+	margin-top : 10px;
+}

@@ -11,7 +11,7 @@ define([], function(){
 		const scopeType = arguments[0];
 		const libList = arguments[1];
 		
-		if(scopeType==='top' || scopeType==='mid'){
+		/*if(scopeType==='top' || scopeType==='mid'){
 		
 			for(let i=2; i<libList.length ; i++){
 				
@@ -28,6 +28,13 @@ define([], function(){
 				this[name] = libList[i];
 				
 			}
+		}*/
+		
+		for(let i=2; i<libList.length; i++){
+			
+			let name = lsList[scopeType+'_lib'][1][i];
+			this[name] = libList[i];
+			
 		}
 		
 	};

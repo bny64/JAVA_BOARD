@@ -29,7 +29,7 @@ public class AccessControllerInterceptor extends HandlerInterceptorAdapter {
 		
 		String contentType = request.getContentType();
 		
-		if(contentType==null) {
+		if(contentType==null && modelAndView != null) {
 			
 			List<String> setMenuList = getMenuNames(request);
 			List<Map<String, Object>> menuList = menuListService.getMenuList(setMenuList);			
