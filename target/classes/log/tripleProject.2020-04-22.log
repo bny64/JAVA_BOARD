@@ -1,0 +1,1297 @@
+▶ DEBUG 14:13:14.864 [http-nio-9090-exec-39] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/index.do'; against '/images/**'
+▶ DEBUG 14:13:14.869 [http-nio-9090-exec-39] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/index.do'; against '/js/**'
+▶ DEBUG 14:13:14.869 [http-nio-9090-exec-39] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/index.do'; against '/publishing/**'
+▶ DEBUG 14:13:14.869 [http-nio-9090-exec-39] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/index.do'; against '/style/**'
+▶ DEBUG 14:13:14.869 [http-nio-9090-exec-39] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/index.do'; against '/lib/**'
+▶ DEBUG 14:13:14.869 [http-nio-9090-exec-39] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/index.do'; against '/thumb/**'
+▶ DEBUG 14:13:14.870 [http-nio-9090-exec-39] org.springframework.security.web.FilterChainProxy[doFilter:328] - /index.do at position 1 of 14 in additional filter chain; firing Filter: 'SecurityContextPersistenceFilter'
+▶ DEBUG 14:13:14.870 [http-nio-9090-exec-39] org.springframework.security.web.context.HttpSessionSecurityContextRepository[readSecurityContextFromSession:173] - No HttpSession currently exists
+▶ DEBUG 14:13:14.870 [http-nio-9090-exec-39] org.springframework.security.web.context.HttpSessionSecurityContextRepository[loadContext:117] - No SecurityContext was available from the HttpSession: null. A new one will be created.
+▶ DEBUG 14:13:14.870 [http-nio-9090-exec-39] org.springframework.security.web.FilterChainProxy[doFilter:328] - /index.do at position 2 of 14 in additional filter chain; firing Filter: 'ConcurrentSessionFilter'
+▶ DEBUG 14:13:14.870 [http-nio-9090-exec-39] org.springframework.security.web.FilterChainProxy[doFilter:328] - /index.do at position 3 of 14 in additional filter chain; firing Filter: 'WebAsyncManagerIntegrationFilter'
+▶ DEBUG 14:13:14.870 [http-nio-9090-exec-39] org.springframework.security.web.FilterChainProxy[doFilter:328] - /index.do at position 4 of 14 in additional filter chain; firing Filter: 'HeaderWriterFilter'
+▶ DEBUG 14:13:14.870 [http-nio-9090-exec-39] org.springframework.security.web.FilterChainProxy[doFilter:328] - /index.do at position 5 of 14 in additional filter chain; firing Filter: 'CsrfFilter'
+▶ DEBUG 14:13:14.871 [http-nio-9090-exec-39] org.springframework.security.web.FilterChainProxy[doFilter:328] - /index.do at position 6 of 14 in additional filter chain; firing Filter: 'LogoutFilter'
+▶ DEBUG 14:13:14.871 [http-nio-9090-exec-39] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:157] - Request 'GET /index.do' doesn't match 'POST /auth/logout.do'
+▶ DEBUG 14:13:14.871 [http-nio-9090-exec-39] org.springframework.security.web.FilterChainProxy[doFilter:328] - /index.do at position 7 of 14 in additional filter chain; firing Filter: 'UsernamePasswordAuthenticationFilter'
+▶ DEBUG 14:13:14.871 [http-nio-9090-exec-39] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:157] - Request 'GET /index.do' doesn't match 'POST /auth/loginCheck.do'
+▶ DEBUG 14:13:14.871 [http-nio-9090-exec-39] org.springframework.security.web.FilterChainProxy[doFilter:328] - /index.do at position 8 of 14 in additional filter chain; firing Filter: 'BasicAuthenticationFilter'
+▶ DEBUG 14:13:14.871 [http-nio-9090-exec-39] org.springframework.security.web.FilterChainProxy[doFilter:328] - /index.do at position 9 of 14 in additional filter chain; firing Filter: 'RequestCacheAwareFilter'
+▶ DEBUG 14:13:14.871 [http-nio-9090-exec-39] org.springframework.security.web.savedrequest.HttpSessionRequestCache[getMatchingRequest:95] - saved request doesn't match
+▶ DEBUG 14:13:14.871 [http-nio-9090-exec-39] org.springframework.security.web.FilterChainProxy[doFilter:328] - /index.do at position 10 of 14 in additional filter chain; firing Filter: 'SecurityContextHolderAwareRequestFilter'
+▶ DEBUG 14:13:14.872 [http-nio-9090-exec-39] org.springframework.security.web.FilterChainProxy[doFilter:328] - /index.do at position 11 of 14 in additional filter chain; firing Filter: 'AnonymousAuthenticationFilter'
+▶ DEBUG 14:13:14.872 [http-nio-9090-exec-39] org.springframework.security.web.authentication.AnonymousAuthenticationFilter[doFilter:100] - Populated SecurityContextHolder with anonymous token: 'org.springframework.security.authentication.AnonymousAuthenticationToken@7817bb28: Principal: anonymousUser; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@b364: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: null; Granted Authorities: ROLE_ANONYMOUS'
+▶ DEBUG 14:13:14.872 [http-nio-9090-exec-39] org.springframework.security.web.FilterChainProxy[doFilter:328] - /index.do at position 12 of 14 in additional filter chain; firing Filter: 'SessionManagementFilter'
+▶ DEBUG 14:13:14.876 [http-nio-9090-exec-39] org.springframework.security.web.session.SessionManagementFilter[doFilter:124] - Requested session ID 9134FDBFC10EB43F1457C0FAF449C63A is invalid.
+▶ DEBUG 14:13:14.877 [http-nio-9090-exec-39] org.springframework.security.web.FilterChainProxy[doFilter:328] - /index.do at position 13 of 14 in additional filter chain; firing Filter: 'ExceptionTranslationFilter'
+▶ DEBUG 14:13:14.877 [http-nio-9090-exec-39] org.springframework.security.web.FilterChainProxy[doFilter:328] - /index.do at position 14 of 14 in additional filter chain; firing Filter: 'FilterSecurityInterceptor'
+▶ DEBUG 14:13:14.877 [http-nio-9090-exec-39] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/index.do'; against '/index.do'
+▶ DEBUG 14:13:14.877 [http-nio-9090-exec-39] org.springframework.security.web.access.intercept.FilterSecurityInterceptor[beforeInvocation:219] - Secure object: FilterInvocation: URL: /index.do; Attributes: [permitAll]
+▶ DEBUG 14:13:14.878 [http-nio-9090-exec-39] org.springframework.security.web.access.intercept.FilterSecurityInterceptor[authenticateIfRequired:348] - Previously Authenticated: org.springframework.security.authentication.AnonymousAuthenticationToken@7817bb28: Principal: anonymousUser; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@b364: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: null; Granted Authorities: ROLE_ANONYMOUS
+▶ DEBUG 14:13:14.878 [http-nio-9090-exec-39] org.springframework.security.access.vote.AffirmativeBased[decide:66] - Voter: org.springframework.security.web.access.expression.WebExpressionVoter@7c90a817, returned: 1
+▶ DEBUG 14:13:14.878 [http-nio-9090-exec-39] org.springframework.security.web.access.intercept.FilterSecurityInterceptor[beforeInvocation:243] - Authorization successful
+▶ DEBUG 14:13:14.878 [http-nio-9090-exec-39] org.springframework.security.web.access.intercept.FilterSecurityInterceptor[beforeInvocation:256] - RunAsManager did not change Authentication object
+▶ DEBUG 14:13:14.879 [http-nio-9090-exec-39] org.springframework.security.web.FilterChainProxy[doFilter:313] - /index.do reached end of additional filter chain; proceeding with original chain
+▶ DEBUG 14:13:14.879 [http-nio-9090-exec-39] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/index.do", parameters={}
+▶ DEBUG 14:13:14.879 [http-nio-9090-exec-39] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping[getHandler:412] - Mapped to com.web.main.controller.MainController#index(ModelAndView)
+▶ DEBUG 14:13:14.880 [http-nio-9090-exec-39] com.web.main.controller.MainController[index:23] - ---------- MainController index -----------
+▶ DEBUG 14:13:14.880 [http-nio-9090-exec-39] org.springframework.orm.hibernate5.HibernateTransactionManager[getTransaction:370] - Creating new transaction with name [com.web.common.menuList.MenuListDAO.getMenuList]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+▶ DEBUG 14:13:14.881 [http-nio-9090-exec-39] org.springframework.orm.hibernate5.HibernateTransactionManager[doBegin:466] - Opened new Session [SessionImpl(554513231<open>)] for Hibernate transaction
+▶ DEBUG 14:13:14.881 [http-nio-9090-exec-39] org.hibernate.engine.transaction.internal.TransactionImpl[<init>:53] - On TransactionImpl creation, JpaCompliance#isJpaTransactionComplianceEnabled == false
+▶ DEBUG 14:13:14.881 [http-nio-9090-exec-39] org.hibernate.engine.transaction.internal.TransactionImpl[begin:81] - begin
+▶ DEBUG 14:13:14.883 [http-nio-9090-exec-39] org.apache.commons.dbcp2.PoolableConnectionFactory[validateObject:351] - Failed to validate a poolable connection.
+java.sql.SQLException: isValid() returned false
+	at org.apache.commons.dbcp2.PoolableConnection.validate(PoolableConnection.java:283)
+	at org.apache.commons.dbcp2.PoolableConnectionFactory.validateConnection(PoolableConnectionFactory.java:362)
+	at org.apache.commons.dbcp2.PoolableConnectionFactory.validateObject(PoolableConnectionFactory.java:347)
+	at org.apache.commons.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:481)
+	at org.apache.commons.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:362)
+	at org.apache.commons.dbcp2.PoolingDataSource.getConnection(PoolingDataSource.java:134)
+	at org.apache.commons.dbcp2.BasicDataSource.getConnection(BasicDataSource.java:1533)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.internal.NonContextualJdbcConnectionAccess.obtainConnection(NonContextualJdbcConnectionAccess.java:38)
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.acquireConnectionIfNeeded(LogicalConnectionManagedImpl.java:104)
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.getPhysicalConnection(LogicalConnectionManagedImpl.java:134)
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.getConnectionForTransactionManagement(LogicalConnectionManagedImpl.java:250)
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.begin(LogicalConnectionManagedImpl.java:258)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.begin(JdbcResourceLocalTransactionCoordinatorImpl.java:246)
+	at org.hibernate.engine.transaction.internal.TransactionImpl.begin(TransactionImpl.java:83)
+	at org.hibernate.internal.AbstractSharedSessionContract.beginTransaction(AbstractSharedSessionContract.java:467)
+	at org.springframework.orm.hibernate5.HibernateTransactionManager.doBegin(HibernateTransactionManager.java:537)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.getTransaction(AbstractPlatformTransactionManager.java:376)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.createTransactionIfNecessary(TransactionAspectSupport.java:572)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:360)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:99)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:747)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:689)
+	at com.web.common.menuList.MenuListDAO$$EnhancerBySpringCGLIB$$aad9e0be.getMenuList(<generated>)
+	at com.web.common.menuList.MenuListService.getMenuList(MenuListService.java:19)
+	at com.web.common.interceptor.AccessControllerInterceptor.postHandle(AccessControllerInterceptor.java:35)
+	at org.springframework.web.servlet.HandlerExecutionChain.applyPostHandle(HandlerExecutionChain.java:161)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1047)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.web.common.filter.CustomFilter.doFilter(CustomFilter.java:32)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.web.common.filter.CommonFilter.doFilter(CommonFilter.java:54)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:126)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:90)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:118)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:158)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilterInternal(BasicAuthenticationFilter.java:154)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.csrf.CsrfFilter.doFilterInternal(CsrfFilter.java:117)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:92)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:77)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:152)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:528)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:798)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:810)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1500)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+▶ DEBUG 14:13:14.981 [http-nio-9090-exec-39] org.springframework.orm.hibernate5.HibernateTransactionManager[doBegin:554] - Exposing Hibernate transaction as JDBC [org.springframework.orm.hibernate5.HibernateTransactionManager$$Lambda$1011/1903908460@9f00e9d]
+▶ DEBUG 14:13:14.981 [http-nio-9090-exec-39] org.hibernate.SQL[logStatement:127] - 
+    SELECT
+        * 
+    FROM
+        menuList 
+    WHERE
+        listNo = 1
+▶ DEBUG 14:13:14.995 [http-nio-9090-exec-39] org.hibernate.loader.Loader[debugf:384] - Result set row: 0
+▶ DEBUG 14:13:14.996 [http-nio-9090-exec-39] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:14.996 [http-nio-9090-exec-39] org.hibernate.SQL[logStatement:127] - 
+    SELECT
+        * 
+    FROM
+        menuList 
+    WHERE
+        url = ?
+▶ DEBUG 14:13:15.000 [http-nio-9090-exec-39] org.hibernate.loader.Loader[debugf:384] - Result set row: 0
+▶ DEBUG 14:13:15.001 [http-nio-9090-exec-39] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:15.001 [http-nio-9090-exec-39] org.hibernate.SQL[logStatement:127] - 
+    SELECT
+        * 
+    FROM
+        menuList 
+    WHERE
+        url = ?
+▶ DEBUG 14:13:15.005 [http-nio-9090-exec-39] org.hibernate.loader.Loader[debugf:384] - Result set row: 0
+▶ DEBUG 14:13:15.005 [http-nio-9090-exec-39] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:15.006 [http-nio-9090-exec-39] org.springframework.orm.hibernate5.HibernateTransactionManager[processCommit:741] - Initiating transaction commit
+▶ DEBUG 14:13:15.006 [http-nio-9090-exec-39] org.springframework.orm.hibernate5.HibernateTransactionManager[doCommit:622] - Committing Hibernate transaction on Session [SessionImpl(554513231<open>)]
+▶ DEBUG 14:13:15.006 [http-nio-9090-exec-39] org.hibernate.engine.transaction.internal.TransactionImpl[commit:98] - committing
+▶ DEBUG 14:13:15.013 [http-nio-9090-exec-39] org.springframework.orm.hibernate5.HibernateTransactionManager[doCleanupAfterCompletion:729] - Closing Hibernate Session [SessionImpl(554513231<open>)] after transaction
+▶ DEBUG 14:13:15.014 [http-nio-9090-exec-39] org.springframework.orm.hibernate5.HibernateTransactionManager[getTransaction:370] - Creating new transaction with name [com.web.common.menuList.MenuListDAO.getMenuListAll]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+▶ DEBUG 14:13:15.014 [http-nio-9090-exec-39] org.springframework.orm.hibernate5.HibernateTransactionManager[doBegin:466] - Opened new Session [SessionImpl(676417832<open>)] for Hibernate transaction
+▶ DEBUG 14:13:15.014 [http-nio-9090-exec-39] org.hibernate.engine.transaction.internal.TransactionImpl[<init>:53] - On TransactionImpl creation, JpaCompliance#isJpaTransactionComplianceEnabled == false
+▶ DEBUG 14:13:15.014 [http-nio-9090-exec-39] org.hibernate.engine.transaction.internal.TransactionImpl[begin:81] - begin
+▶ DEBUG 14:13:15.021 [http-nio-9090-exec-39] org.springframework.orm.hibernate5.HibernateTransactionManager[doBegin:554] - Exposing Hibernate transaction as JDBC [org.springframework.orm.hibernate5.HibernateTransactionManager$$Lambda$1011/1903908460@34786fb2]
+▶ DEBUG 14:13:15.022 [http-nio-9090-exec-39] org.hibernate.SQL[logStatement:127] - 
+    SELECT
+        * 
+    FROM
+        menuList
+▶ DEBUG 14:13:15.027 [http-nio-9090-exec-39] org.hibernate.loader.Loader[debugf:384] - Result set row: 0
+▶ DEBUG 14:13:15.028 [http-nio-9090-exec-39] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:15.029 [http-nio-9090-exec-39] org.hibernate.loader.Loader[debugf:384] - Result set row: 1
+▶ DEBUG 14:13:15.029 [http-nio-9090-exec-39] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:15.030 [http-nio-9090-exec-39] org.hibernate.loader.Loader[debugf:384] - Result set row: 2
+▶ DEBUG 14:13:15.030 [http-nio-9090-exec-39] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:15.030 [http-nio-9090-exec-39] org.hibernate.loader.Loader[debugf:384] - Result set row: 3
+▶ DEBUG 14:13:15.031 [http-nio-9090-exec-39] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:15.031 [http-nio-9090-exec-39] org.hibernate.loader.Loader[debugf:384] - Result set row: 4
+▶ DEBUG 14:13:15.032 [http-nio-9090-exec-39] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:15.032 [http-nio-9090-exec-39] org.hibernate.loader.Loader[debugf:384] - Result set row: 5
+▶ DEBUG 14:13:15.033 [http-nio-9090-exec-39] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:15.033 [http-nio-9090-exec-39] org.hibernate.loader.Loader[debugf:384] - Result set row: 6
+▶ DEBUG 14:13:15.034 [http-nio-9090-exec-39] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:15.035 [http-nio-9090-exec-39] org.hibernate.loader.Loader[debugf:384] - Result set row: 7
+▶ DEBUG 14:13:15.035 [http-nio-9090-exec-39] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:15.035 [http-nio-9090-exec-39] org.hibernate.loader.Loader[debugf:384] - Result set row: 8
+▶ DEBUG 14:13:15.036 [http-nio-9090-exec-39] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:15.036 [http-nio-9090-exec-39] org.hibernate.loader.Loader[debugf:384] - Result set row: 9
+▶ DEBUG 14:13:15.037 [http-nio-9090-exec-39] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:15.037 [http-nio-9090-exec-39] org.hibernate.loader.Loader[debugf:384] - Result set row: 10
+▶ DEBUG 14:13:15.038 [http-nio-9090-exec-39] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:15.038 [http-nio-9090-exec-39] org.hibernate.loader.Loader[debugf:384] - Result set row: 11
+▶ DEBUG 14:13:15.039 [http-nio-9090-exec-39] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:15.039 [http-nio-9090-exec-39] org.hibernate.loader.Loader[debugf:384] - Result set row: 12
+▶ DEBUG 14:13:15.040 [http-nio-9090-exec-39] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:15.040 [http-nio-9090-exec-39] org.springframework.orm.hibernate5.HibernateTransactionManager[processCommit:741] - Initiating transaction commit
+▶ DEBUG 14:13:15.041 [http-nio-9090-exec-39] org.springframework.orm.hibernate5.HibernateTransactionManager[doCommit:622] - Committing Hibernate transaction on Session [SessionImpl(676417832<open>)]
+▶ DEBUG 14:13:15.041 [http-nio-9090-exec-39] org.hibernate.engine.transaction.internal.TransactionImpl[commit:98] - committing
+▶ DEBUG 14:13:15.049 [http-nio-9090-exec-39] org.springframework.orm.hibernate5.HibernateTransactionManager[doCleanupAfterCompletion:729] - Closing Hibernate Session [SessionImpl(676417832<open>)] after transaction
+▶ DEBUG 14:13:15.051 [http-nio-9090-exec-39] org.springframework.web.servlet.view.ContentNegotiatingViewResolver[getBestView:348] - Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.9, */*;q=0.8]
+▶ DEBUG 14:13:15.051 [http-nio-9090-exec-39] org.springframework.web.servlet.view.tiles3.TilesView[render:310] - View name 'index', model {modelAndView=ModelAndView [view="index"; model={}], org.springframework.validation.BindingResult.modelAndView=org.springframework.validation.BeanPropertyBindingResult: 0 errors, menuList=[{depth=1, listNo=1, name=메인, viewYn=Y, type=user, url=/index, parentListNo=null}, {depth=1, listNo=1, name=메인, viewYn=Y, type=user, url=/index, parentListNo=null}], menuTree={depth=1, children=[{depth=2, children=[{depth=3, listNo=3, name=글쓰기, viewYn=Y, type=user, url=/registBoard, parentListNo=2}, {depth=3, listNo=13, name=게시판 리스트, viewYn=Y, type=user, url=/boardList, parentListNo=2}], listNo=2, name=게시판, viewYn=Y, type=user, url=/board, parentListNo=1}], listNo=1, name=메인, viewYn=Y, type=user, url=/index}}
+▶ DEBUG 14:13:15.052 [http-nio-9090-exec-39] org.apache.tiles.impl.BasicTilesContainer[render:213] - Render request received for definition 'index'
+▶ DEBUG 14:13:15.067 [http-nio-9090-exec-39] org.springframework.security.web.session.HttpSessionEventPublisher[sessionCreated:71] - Publishing event: org.springframework.security.web.session.HttpSessionCreatedEvent[source=org.apache.catalina.session.StandardSessionFacade@25dfb76f]
+▶ DEBUG 14:13:15.068 [http-nio-9090-exec-39] org.springframework.security.web.header.writers.HstsHeaderWriter[writeHeaders:169] - Not injecting HSTS header since it did not match the requestMatcher org.springframework.security.web.header.writers.HstsHeaderWriter$SecureRequestMatcher@29f5448a
+▶ DEBUG 14:13:15.106 [http-nio-9090-exec-39] org.springframework.security.web.context.HttpSessionSecurityContextRepository[saveContext:351] - SecurityContext is empty or contents are anonymous - context will not be stored in HttpSession.
+▶ DEBUG 14:13:15.132 [http-nio-9090-exec-43] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/style/main/layout.css'; against '/images/**'
+▶ DEBUG 14:13:15.133 [http-nio-9090-exec-43] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/style/main/layout.css'; against '/js/**'
+▶ DEBUG 14:13:15.134 [http-nio-9090-exec-43] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/style/main/layout.css'; against '/publishing/**'
+▶ DEBUG 14:13:15.134 [http-nio-9090-exec-43] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/style/main/layout.css'; against '/style/**'
+▶ DEBUG 14:13:15.134 [http-nio-9090-exec-43] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /style/main/layout.css has an empty filter list
+▶ DEBUG 14:13:15.134 [http-nio-9090-exec-43] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/style/main/layout.css", parameters={}
+▶ DEBUG 14:13:15.134 [http-nio-9090-exec-43] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/style/"]
+▶ DEBUG 14:13:15.135 [http-nio-9090-exec-35] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/lib/bootstrap/css/bootstrap.min.css'; against '/images/**'
+▶ DEBUG 14:13:15.135 [http-nio-9090-exec-35] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/lib/bootstrap/css/bootstrap.min.css'; against '/js/**'
+▶ DEBUG 14:13:15.135 [http-nio-9090-exec-35] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /js/lib/bootstrap/css/bootstrap.min.css has an empty filter list
+▶ DEBUG 14:13:15.135 [http-nio-9090-exec-35] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/js/lib/bootstrap/css/bootstrap.min.css", parameters={}
+▶ DEBUG 14:13:15.135 [http-nio-9090-exec-35] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/js/"]
+▶ DEBUG 14:13:15.136 [http-nio-9090-exec-38] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/lib/summernote/summernote-bs4.css'; against '/images/**'
+▶ DEBUG 14:13:15.136 [http-nio-9090-exec-38] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/lib/summernote/summernote-bs4.css'; against '/js/**'
+▶ DEBUG 14:13:15.136 [http-nio-9090-exec-41] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/common/requireConfig.js'; against '/images/**'
+▶ DEBUG 14:13:15.136 [http-nio-9090-exec-38] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /js/lib/summernote/summernote-bs4.css has an empty filter list
+▶ DEBUG 14:13:15.136 [http-nio-9090-exec-41] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/common/requireConfig.js'; against '/js/**'
+▶ DEBUG 14:13:15.136 [http-nio-9090-exec-41] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /js/common/requireConfig.js has an empty filter list
+▶ DEBUG 14:13:15.136 [http-nio-9090-exec-38] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/js/lib/summernote/summernote-bs4.css", parameters={}
+▶ DEBUG 14:13:15.136 [http-nio-9090-exec-41] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/js/common/requireConfig.js", parameters={}
+▶ DEBUG 14:13:15.136 [http-nio-9090-exec-41] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/js/"]
+▶ DEBUG 14:13:15.136 [http-nio-9090-exec-38] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/js/"]
+▶ DEBUG 14:13:15.137 [http-nio-9090-exec-36] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/lib/requirejs/require.min.js'; against '/images/**'
+▶ DEBUG 14:13:15.137 [http-nio-9090-exec-36] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/lib/requirejs/require.min.js'; against '/js/**'
+▶ DEBUG 14:13:15.142 [http-nio-9090-exec-39] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:15.143 [http-nio-9090-exec-36] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /js/lib/requirejs/require.min.js has an empty filter list
+▶ DEBUG 14:13:15.143 [http-nio-9090-exec-39] org.springframework.security.web.access.ExceptionTranslationFilter[doFilter:120] - Chain processed normally
+▶ DEBUG 14:13:15.143 [http-nio-9090-exec-36] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/js/lib/requirejs/require.min.js", parameters={}
+▶ DEBUG 14:13:15.143 [http-nio-9090-exec-39] org.springframework.security.web.context.SecurityContextPersistenceFilter[doFilter:119] - SecurityContextHolder now cleared, as request processing completed
+▶ DEBUG 14:13:15.143 [http-nio-9090-exec-36] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/js/"]
+▶ DEBUG 14:13:15.145 [http-nio-9090-exec-41] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:15.150 [http-nio-9090-exec-43] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:15.151 [http-nio-9090-exec-36] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:15.153 [http-nio-9090-exec-35] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:15.154 [http-nio-9090-exec-38] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:15.157 [http-nio-9090-exec-40] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/style/main/framework.css'; against '/images/**'
+▶ DEBUG 14:13:15.157 [http-nio-9090-exec-40] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/style/main/framework.css'; against '/js/**'
+▶ DEBUG 14:13:15.157 [http-nio-9090-exec-40] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/style/main/framework.css'; against '/publishing/**'
+▶ DEBUG 14:13:15.157 [http-nio-9090-exec-40] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/style/main/framework.css'; against '/style/**'
+▶ DEBUG 14:13:15.156 [http-nio-9090-exec-37] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/style/main/fontawesome-free/css/fontawesome-all.min.css'; against '/images/**'
+▶ DEBUG 14:13:15.157 [http-nio-9090-exec-40] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /style/main/framework.css has an empty filter list
+▶ DEBUG 14:13:15.157 [http-nio-9090-exec-37] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/style/main/fontawesome-free/css/fontawesome-all.min.css'; against '/js/**'
+▶ DEBUG 14:13:15.157 [http-nio-9090-exec-40] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/style/main/framework.css", parameters={}
+▶ DEBUG 14:13:15.157 [http-nio-9090-exec-37] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/style/main/fontawesome-free/css/fontawesome-all.min.css'; against '/publishing/**'
+▶ DEBUG 14:13:15.157 [http-nio-9090-exec-37] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/style/main/fontawesome-free/css/fontawesome-all.min.css'; against '/style/**'
+▶ DEBUG 14:13:15.157 [http-nio-9090-exec-37] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /style/main/fontawesome-free/css/fontawesome-all.min.css has an empty filter list
+▶ DEBUG 14:13:15.157 [http-nio-9090-exec-40] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/style/"]
+▶ DEBUG 14:13:15.157 [http-nio-9090-exec-37] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/style/main/fontawesome-free/css/fontawesome-all.min.css", parameters={}
+▶ DEBUG 14:13:15.157 [http-nio-9090-exec-37] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/style/"]
+▶ DEBUG 14:13:15.161 [http-nio-9090-exec-40] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:15.163 [http-nio-9090-exec-37] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:15.279 [http-nio-9090-exec-42] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/common/main.js'; against '/images/**'
+▶ DEBUG 14:13:15.279 [http-nio-9090-exec-44] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/style/main/fontawesome-free/webfonts/fa-solid-900.woff2'; against '/images/**'
+▶ DEBUG 14:13:15.279 [http-nio-9090-exec-42] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/common/main.js'; against '/js/**'
+▶ DEBUG 14:13:15.279 [http-nio-9090-exec-44] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/style/main/fontawesome-free/webfonts/fa-solid-900.woff2'; against '/js/**'
+▶ DEBUG 14:13:15.279 [http-nio-9090-exec-42] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /js/common/main.js has an empty filter list
+▶ DEBUG 14:13:15.279 [http-nio-9090-exec-44] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/style/main/fontawesome-free/webfonts/fa-solid-900.woff2'; against '/publishing/**'
+▶ DEBUG 14:13:15.279 [http-nio-9090-exec-44] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/style/main/fontawesome-free/webfonts/fa-solid-900.woff2'; against '/style/**'
+▶ DEBUG 14:13:15.279 [http-nio-9090-exec-42] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/js/common/main.js", parameters={}
+▶ DEBUG 14:13:15.279 [http-nio-9090-exec-44] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /style/main/fontawesome-free/webfonts/fa-solid-900.woff2 has an empty filter list
+▶ DEBUG 14:13:15.279 [http-nio-9090-exec-44] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/style/main/fontawesome-free/webfonts/fa-solid-900.woff2", parameters={}
+▶ DEBUG 14:13:15.279 [http-nio-9090-exec-42] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/js/"]
+▶ DEBUG 14:13:15.279 [http-nio-9090-exec-44] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/style/"]
+▶ DEBUG 14:13:15.284 [http-nio-9090-exec-42] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:15.286 [http-nio-9090-exec-44] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:15.299 [http-nio-9090-exec-41] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/common/util/valuePipe.js'; against '/images/**'
+▶ DEBUG 14:13:15.299 [http-nio-9090-exec-41] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/common/util/valuePipe.js'; against '/js/**'
+▶ DEBUG 14:13:15.300 [http-nio-9090-exec-41] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /js/common/util/valuePipe.js has an empty filter list
+▶ DEBUG 14:13:15.299 [http-nio-9090-exec-39] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/lib/jquery/jquery.min.js'; against '/images/**'
+▶ DEBUG 14:13:15.300 [http-nio-9090-exec-41] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/js/common/util/valuePipe.js", parameters={}
+▶ DEBUG 14:13:15.300 [http-nio-9090-exec-41] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/js/"]
+▶ DEBUG 14:13:15.300 [http-nio-9090-exec-43] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/lib/jquery/jquery-ui.js'; against '/images/**'
+▶ DEBUG 14:13:15.300 [http-nio-9090-exec-39] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/lib/jquery/jquery.min.js'; against '/js/**'
+▶ DEBUG 14:13:15.300 [http-nio-9090-exec-43] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/lib/jquery/jquery-ui.js'; against '/js/**'
+▶ DEBUG 14:13:15.300 [http-nio-9090-exec-36] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/lib/bootstrap/js/popper.js'; against '/images/**'
+▶ DEBUG 14:13:15.300 [http-nio-9090-exec-39] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /js/lib/jquery/jquery.min.js has an empty filter list
+▶ DEBUG 14:13:15.300 [http-nio-9090-exec-43] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /js/lib/jquery/jquery-ui.js has an empty filter list
+▶ DEBUG 14:13:15.300 [http-nio-9090-exec-36] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/lib/bootstrap/js/popper.js'; against '/js/**'
+▶ DEBUG 14:13:15.300 [http-nio-9090-exec-39] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/js/lib/jquery/jquery.min.js", parameters={}
+▶ DEBUG 14:13:15.301 [http-nio-9090-exec-36] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /js/lib/bootstrap/js/popper.js has an empty filter list
+▶ DEBUG 14:13:15.301 [http-nio-9090-exec-39] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/js/"]
+▶ DEBUG 14:13:15.301 [http-nio-9090-exec-43] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/js/lib/jquery/jquery-ui.js", parameters={}
+▶ DEBUG 14:13:15.301 [http-nio-9090-exec-36] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/js/lib/bootstrap/js/popper.js", parameters={}
+▶ DEBUG 14:13:15.301 [http-nio-9090-exec-35] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/web/globalSvc.js'; against '/images/**'
+▶ DEBUG 14:13:15.301 [http-nio-9090-exec-43] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/js/"]
+▶ DEBUG 14:13:15.301 [http-nio-9090-exec-35] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/web/globalSvc.js'; against '/js/**'
+▶ DEBUG 14:13:15.301 [http-nio-9090-exec-36] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/js/"]
+▶ DEBUG 14:13:15.301 [http-nio-9090-exec-35] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /js/web/globalSvc.js has an empty filter list
+▶ DEBUG 14:13:15.301 [http-nio-9090-exec-35] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/js/web/globalSvc.js", parameters={}
+▶ DEBUG 14:13:15.301 [http-nio-9090-exec-35] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/js/"]
+▶ DEBUG 14:13:15.303 [http-nio-9090-exec-38] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/favicon.ico'; against '/images/**'
+▶ DEBUG 14:13:15.303 [http-nio-9090-exec-38] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/favicon.ico'; against '/js/**'
+▶ DEBUG 14:13:15.303 [http-nio-9090-exec-38] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/favicon.ico'; against '/publishing/**'
+▶ DEBUG 14:13:15.303 [http-nio-9090-exec-38] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/favicon.ico'; against '/style/**'
+▶ DEBUG 14:13:15.303 [http-nio-9090-exec-38] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/favicon.ico'; against '/lib/**'
+▶ DEBUG 14:13:15.303 [http-nio-9090-exec-38] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/favicon.ico'; against '/thumb/**'
+▶ DEBUG 14:13:15.304 [http-nio-9090-exec-38] org.springframework.security.web.FilterChainProxy[doFilter:328] - /favicon.ico at position 1 of 14 in additional filter chain; firing Filter: 'SecurityContextPersistenceFilter'
+▶ DEBUG 14:13:15.304 [http-nio-9090-exec-38] org.springframework.security.web.context.HttpSessionSecurityContextRepository[readSecurityContextFromSession:185] - HttpSession returned null object for SPRING_SECURITY_CONTEXT
+▶ DEBUG 14:13:15.304 [http-nio-9090-exec-38] org.springframework.security.web.context.HttpSessionSecurityContextRepository[loadContext:117] - No SecurityContext was available from the HttpSession: org.apache.catalina.session.StandardSessionFacade@25dfb76f. A new one will be created.
+▶ DEBUG 14:13:15.304 [http-nio-9090-exec-38] org.springframework.security.web.FilterChainProxy[doFilter:328] - /favicon.ico at position 2 of 14 in additional filter chain; firing Filter: 'ConcurrentSessionFilter'
+▶ DEBUG 14:13:15.304 [http-nio-9090-exec-38] org.springframework.security.web.FilterChainProxy[doFilter:328] - /favicon.ico at position 3 of 14 in additional filter chain; firing Filter: 'WebAsyncManagerIntegrationFilter'
+▶ DEBUG 14:13:15.304 [http-nio-9090-exec-38] org.springframework.security.web.FilterChainProxy[doFilter:328] - /favicon.ico at position 4 of 14 in additional filter chain; firing Filter: 'HeaderWriterFilter'
+▶ DEBUG 14:13:15.304 [http-nio-9090-exec-38] org.springframework.security.web.FilterChainProxy[doFilter:328] - /favicon.ico at position 5 of 14 in additional filter chain; firing Filter: 'CsrfFilter'
+▶ DEBUG 14:13:15.304 [http-nio-9090-exec-38] org.springframework.security.web.FilterChainProxy[doFilter:328] - /favicon.ico at position 6 of 14 in additional filter chain; firing Filter: 'LogoutFilter'
+▶ DEBUG 14:13:15.304 [http-nio-9090-exec-38] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:157] - Request 'GET /favicon.ico' doesn't match 'POST /auth/logout.do'
+▶ DEBUG 14:13:15.304 [http-nio-9090-exec-38] org.springframework.security.web.FilterChainProxy[doFilter:328] - /favicon.ico at position 7 of 14 in additional filter chain; firing Filter: 'UsernamePasswordAuthenticationFilter'
+▶ DEBUG 14:13:15.304 [http-nio-9090-exec-38] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:157] - Request 'GET /favicon.ico' doesn't match 'POST /auth/loginCheck.do'
+▶ DEBUG 14:13:15.304 [http-nio-9090-exec-38] org.springframework.security.web.FilterChainProxy[doFilter:328] - /favicon.ico at position 8 of 14 in additional filter chain; firing Filter: 'BasicAuthenticationFilter'
+▶ DEBUG 14:13:15.304 [http-nio-9090-exec-38] org.springframework.security.web.FilterChainProxy[doFilter:328] - /favicon.ico at position 9 of 14 in additional filter chain; firing Filter: 'RequestCacheAwareFilter'
+▶ DEBUG 14:13:15.304 [http-nio-9090-exec-38] org.springframework.security.web.savedrequest.HttpSessionRequestCache[getMatchingRequest:95] - saved request doesn't match
+▶ DEBUG 14:13:15.305 [http-nio-9090-exec-38] org.springframework.security.web.FilterChainProxy[doFilter:328] - /favicon.ico at position 10 of 14 in additional filter chain; firing Filter: 'SecurityContextHolderAwareRequestFilter'
+▶ DEBUG 14:13:15.305 [http-nio-9090-exec-38] org.springframework.security.web.FilterChainProxy[doFilter:328] - /favicon.ico at position 11 of 14 in additional filter chain; firing Filter: 'AnonymousAuthenticationFilter'
+▶ DEBUG 14:13:15.305 [http-nio-9090-exec-38] org.springframework.security.web.authentication.AnonymousAuthenticationFilter[doFilter:100] - Populated SecurityContextHolder with anonymous token: 'org.springframework.security.authentication.AnonymousAuthenticationToken@7817bb28: Principal: anonymousUser; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@b364: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: 81E4BD99984F14E7272BCB8355E8CF6A; Granted Authorities: ROLE_ANONYMOUS'
+▶ DEBUG 14:13:15.305 [http-nio-9090-exec-38] org.springframework.security.web.FilterChainProxy[doFilter:328] - /favicon.ico at position 12 of 14 in additional filter chain; firing Filter: 'SessionManagementFilter'
+▶ DEBUG 14:13:15.305 [http-nio-9090-exec-38] org.springframework.security.web.FilterChainProxy[doFilter:328] - /favicon.ico at position 13 of 14 in additional filter chain; firing Filter: 'ExceptionTranslationFilter'
+▶ DEBUG 14:13:15.305 [http-nio-9090-exec-38] org.springframework.security.web.FilterChainProxy[doFilter:328] - /favicon.ico at position 14 of 14 in additional filter chain; firing Filter: 'FilterSecurityInterceptor'
+▶ DEBUG 14:13:15.305 [http-nio-9090-exec-38] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/favicon.ico'; against '/index.do'
+▶ DEBUG 14:13:15.305 [http-nio-9090-exec-38] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/favicon.ico'; against '/auth/*.do'
+▶ DEBUG 14:13:15.305 [http-nio-9090-exec-38] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/favicon.ico'; against '/common/**/*.do'
+▶ DEBUG 14:13:15.305 [http-nio-9090-exec-38] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:157] - Request 'GET /favicon.ico' doesn't match 'POST /board/boardList.do'
+▶ DEBUG 14:13:15.305 [http-nio-9090-exec-38] org.springframework.security.web.access.intercept.FilterSecurityInterceptor[beforeInvocation:219] - Secure object: FilterInvocation: URL: /favicon.ico; Attributes: [hasAnyRole('ROLE_BRONZE', 'ROLE_SILVER', 'ROLE_ADMIN')]
+▶ DEBUG 14:13:15.308 [http-nio-9090-exec-38] org.springframework.security.web.access.intercept.FilterSecurityInterceptor[authenticateIfRequired:348] - Previously Authenticated: org.springframework.security.authentication.AnonymousAuthenticationToken@7817bb28: Principal: anonymousUser; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@b364: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: 81E4BD99984F14E7272BCB8355E8CF6A; Granted Authorities: ROLE_ANONYMOUS
+▶ DEBUG 14:13:15.310 [http-nio-9090-exec-38] org.springframework.security.access.vote.AffirmativeBased[decide:66] - Voter: org.springframework.security.web.access.expression.WebExpressionVoter@7c90a817, returned: -1
+▶ DEBUG 14:13:15.310 [http-nio-9090-exec-38] org.springframework.security.web.access.ExceptionTranslationFilter[handleSpringSecurityException:180] - Access is denied (user is anonymous); redirecting to authentication entry point
+org.springframework.security.access.AccessDeniedException: Access is denied
+	at org.springframework.security.access.vote.AffirmativeBased.decide(AffirmativeBased.java:84)
+	at org.springframework.security.access.intercept.AbstractSecurityInterceptor.beforeInvocation(AbstractSecurityInterceptor.java:233)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:123)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:90)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:118)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:158)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilterInternal(BasicAuthenticationFilter.java:154)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.csrf.CsrfFilter.doFilterInternal(CsrfFilter.java:117)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:92)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:77)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:152)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:528)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:798)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:810)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1500)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+▶ DEBUG 14:13:15.311 [http-nio-9090-exec-38] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:167] - Request '/favicon.ico' matched by universal pattern '/**'
+▶ DEBUG 14:13:15.311 [http-nio-9090-exec-41] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:15.311 [http-nio-9090-exec-35] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:15.311 [http-nio-9090-exec-38] org.springframework.security.web.savedrequest.HttpSessionRequestCache[saveRequest:61] - DefaultSavedRequest added to Session: DefaultSavedRequest[http://localhost:9090/favicon.ico]
+▶ DEBUG 14:13:15.311 [http-nio-9090-exec-38] org.springframework.security.web.access.ExceptionTranslationFilter[sendStartAuthentication:211] - Calling Authentication entry point.
+▶ DEBUG 14:13:15.311 [http-nio-9090-exec-36] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:15.311 [http-nio-9090-exec-38] org.springframework.security.web.header.writers.HstsHeaderWriter[writeHeaders:169] - Not injecting HSTS header since it did not match the requestMatcher org.springframework.security.web.header.writers.HstsHeaderWriter$SecureRequestMatcher@29f5448a
+▶ DEBUG 14:13:15.311 [http-nio-9090-exec-38] org.springframework.security.web.context.HttpSessionSecurityContextRepository[saveContext:351] - SecurityContext is empty or contents are anonymous - context will not be stored in HttpSession.
+▶ DEBUG 14:13:15.312 [http-nio-9090-exec-38] org.springframework.security.web.context.SecurityContextPersistenceFilter[doFilter:119] - SecurityContextHolder now cleared, as request processing completed
+▶ DEBUG 14:13:15.313 [http-nio-9090-exec-40] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/auth/login.do'; against '/images/**'
+▶ DEBUG 14:13:15.313 [http-nio-9090-exec-40] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/auth/login.do'; against '/js/**'
+▶ DEBUG 14:13:15.314 [http-nio-9090-exec-40] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/auth/login.do'; against '/publishing/**'
+▶ DEBUG 14:13:15.314 [http-nio-9090-exec-40] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/auth/login.do'; against '/style/**'
+▶ DEBUG 14:13:15.314 [http-nio-9090-exec-40] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/auth/login.do'; against '/lib/**'
+▶ DEBUG 14:13:15.314 [http-nio-9090-exec-40] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/auth/login.do'; against '/thumb/**'
+▶ DEBUG 14:13:15.314 [http-nio-9090-exec-40] org.springframework.security.web.FilterChainProxy[doFilter:328] - /auth/login.do at position 1 of 14 in additional filter chain; firing Filter: 'SecurityContextPersistenceFilter'
+▶ DEBUG 14:13:15.314 [http-nio-9090-exec-40] org.springframework.security.web.context.HttpSessionSecurityContextRepository[readSecurityContextFromSession:185] - HttpSession returned null object for SPRING_SECURITY_CONTEXT
+▶ DEBUG 14:13:15.314 [http-nio-9090-exec-40] org.springframework.security.web.context.HttpSessionSecurityContextRepository[loadContext:117] - No SecurityContext was available from the HttpSession: org.apache.catalina.session.StandardSessionFacade@25dfb76f. A new one will be created.
+▶ DEBUG 14:13:15.314 [http-nio-9090-exec-40] org.springframework.security.web.FilterChainProxy[doFilter:328] - /auth/login.do at position 2 of 14 in additional filter chain; firing Filter: 'ConcurrentSessionFilter'
+▶ DEBUG 14:13:15.315 [http-nio-9090-exec-40] org.springframework.security.web.FilterChainProxy[doFilter:328] - /auth/login.do at position 3 of 14 in additional filter chain; firing Filter: 'WebAsyncManagerIntegrationFilter'
+▶ DEBUG 14:13:15.315 [http-nio-9090-exec-40] org.springframework.security.web.FilterChainProxy[doFilter:328] - /auth/login.do at position 4 of 14 in additional filter chain; firing Filter: 'HeaderWriterFilter'
+▶ DEBUG 14:13:15.315 [http-nio-9090-exec-40] org.springframework.security.web.FilterChainProxy[doFilter:328] - /auth/login.do at position 5 of 14 in additional filter chain; firing Filter: 'CsrfFilter'
+▶ DEBUG 14:13:15.315 [http-nio-9090-exec-40] org.springframework.security.web.FilterChainProxy[doFilter:328] - /auth/login.do at position 6 of 14 in additional filter chain; firing Filter: 'LogoutFilter'
+▶ DEBUG 14:13:15.315 [http-nio-9090-exec-40] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:157] - Request 'GET /auth/login.do' doesn't match 'POST /auth/logout.do'
+▶ DEBUG 14:13:15.315 [http-nio-9090-exec-40] org.springframework.security.web.FilterChainProxy[doFilter:328] - /auth/login.do at position 7 of 14 in additional filter chain; firing Filter: 'UsernamePasswordAuthenticationFilter'
+▶ DEBUG 14:13:15.315 [http-nio-9090-exec-40] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:157] - Request 'GET /auth/login.do' doesn't match 'POST /auth/loginCheck.do'
+▶ DEBUG 14:13:15.316 [http-nio-9090-exec-40] org.springframework.security.web.FilterChainProxy[doFilter:328] - /auth/login.do at position 8 of 14 in additional filter chain; firing Filter: 'BasicAuthenticationFilter'
+▶ DEBUG 14:13:15.316 [http-nio-9090-exec-40] org.springframework.security.web.FilterChainProxy[doFilter:328] - /auth/login.do at position 9 of 14 in additional filter chain; firing Filter: 'RequestCacheAwareFilter'
+▶ DEBUG 14:13:15.316 [http-nio-9090-exec-40] org.springframework.security.web.savedrequest.DefaultSavedRequest[propertyEquals:359] - pathInfo: both null (property equals)
+▶ DEBUG 14:13:15.316 [http-nio-9090-exec-40] org.springframework.security.web.savedrequest.DefaultSavedRequest[propertyEquals:359] - queryString: both null (property equals)
+▶ DEBUG 14:13:15.316 [http-nio-9090-exec-40] org.springframework.security.web.savedrequest.DefaultSavedRequest[propertyEquals:383] - requestURI: arg1=/favicon.ico; arg2=/auth/login.do (property not equals)
+▶ DEBUG 14:13:15.316 [http-nio-9090-exec-40] org.springframework.security.web.savedrequest.HttpSessionRequestCache[getMatchingRequest:95] - saved request doesn't match
+▶ DEBUG 14:13:15.316 [http-nio-9090-exec-40] org.springframework.security.web.FilterChainProxy[doFilter:328] - /auth/login.do at position 10 of 14 in additional filter chain; firing Filter: 'SecurityContextHolderAwareRequestFilter'
+▶ DEBUG 14:13:15.316 [http-nio-9090-exec-40] org.springframework.security.web.FilterChainProxy[doFilter:328] - /auth/login.do at position 11 of 14 in additional filter chain; firing Filter: 'AnonymousAuthenticationFilter'
+▶ DEBUG 14:13:15.317 [http-nio-9090-exec-40] org.springframework.security.web.authentication.AnonymousAuthenticationFilter[doFilter:100] - Populated SecurityContextHolder with anonymous token: 'org.springframework.security.authentication.AnonymousAuthenticationToken@7817bb28: Principal: anonymousUser; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@b364: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: 81E4BD99984F14E7272BCB8355E8CF6A; Granted Authorities: ROLE_ANONYMOUS'
+▶ DEBUG 14:13:15.317 [http-nio-9090-exec-40] org.springframework.security.web.FilterChainProxy[doFilter:328] - /auth/login.do at position 12 of 14 in additional filter chain; firing Filter: 'SessionManagementFilter'
+▶ DEBUG 14:13:15.317 [http-nio-9090-exec-40] org.springframework.security.web.FilterChainProxy[doFilter:328] - /auth/login.do at position 13 of 14 in additional filter chain; firing Filter: 'ExceptionTranslationFilter'
+▶ DEBUG 14:13:15.317 [http-nio-9090-exec-40] org.springframework.security.web.FilterChainProxy[doFilter:328] - /auth/login.do at position 14 of 14 in additional filter chain; firing Filter: 'FilterSecurityInterceptor'
+▶ DEBUG 14:13:15.317 [http-nio-9090-exec-40] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/auth/login.do'; against '/index.do'
+▶ DEBUG 14:13:15.317 [http-nio-9090-exec-40] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/auth/login.do'; against '/auth/*.do'
+▶ DEBUG 14:13:15.317 [http-nio-9090-exec-40] org.springframework.security.web.access.intercept.FilterSecurityInterceptor[beforeInvocation:219] - Secure object: FilterInvocation: URL: /auth/login.do; Attributes: [isAnonymous()]
+▶ DEBUG 14:13:15.317 [http-nio-9090-exec-40] org.springframework.security.web.access.intercept.FilterSecurityInterceptor[authenticateIfRequired:348] - Previously Authenticated: org.springframework.security.authentication.AnonymousAuthenticationToken@7817bb28: Principal: anonymousUser; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@b364: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: 81E4BD99984F14E7272BCB8355E8CF6A; Granted Authorities: ROLE_ANONYMOUS
+▶ DEBUG 14:13:15.318 [http-nio-9090-exec-40] org.springframework.security.access.vote.AffirmativeBased[decide:66] - Voter: org.springframework.security.web.access.expression.WebExpressionVoter@7c90a817, returned: 1
+▶ DEBUG 14:13:15.318 [http-nio-9090-exec-40] org.springframework.security.web.access.intercept.FilterSecurityInterceptor[beforeInvocation:243] - Authorization successful
+▶ DEBUG 14:13:15.318 [http-nio-9090-exec-40] org.springframework.security.web.access.intercept.FilterSecurityInterceptor[beforeInvocation:256] - RunAsManager did not change Authentication object
+▶ DEBUG 14:13:15.318 [http-nio-9090-exec-40] org.springframework.security.web.FilterChainProxy[doFilter:313] - /auth/login.do reached end of additional filter chain; proceeding with original chain
+▶ DEBUG 14:13:15.318 [http-nio-9090-exec-40] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/auth/login.do", parameters={}
+▶ DEBUG 14:13:15.319 [http-nio-9090-exec-40] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping[getHandler:412] - Mapped to com.web.auth.controller.AuthController#login(CommandMap, ModelAndView, HttpServletRequest)
+▶ DEBUG 14:13:15.319 [http-nio-9090-exec-40] com.web.auth.controller.AuthController[login:54] - ********************[BoardController]:[login:GET]********************
+▶ DEBUG 14:13:15.320 [http-nio-9090-exec-40] org.springframework.orm.hibernate5.HibernateTransactionManager[getTransaction:370] - Creating new transaction with name [com.web.common.menuList.MenuListDAO.getMenuList]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+▶ DEBUG 14:13:15.320 [http-nio-9090-exec-40] org.springframework.orm.hibernate5.HibernateTransactionManager[doBegin:466] - Opened new Session [SessionImpl(568246405<open>)] for Hibernate transaction
+▶ DEBUG 14:13:15.320 [http-nio-9090-exec-40] org.hibernate.engine.transaction.internal.TransactionImpl[<init>:53] - On TransactionImpl creation, JpaCompliance#isJpaTransactionComplianceEnabled == false
+▶ DEBUG 14:13:15.320 [http-nio-9090-exec-40] org.hibernate.engine.transaction.internal.TransactionImpl[begin:81] - begin
+▶ DEBUG 14:13:15.321 [http-nio-9090-exec-39] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:15.328 [http-nio-9090-exec-40] org.springframework.orm.hibernate5.HibernateTransactionManager[doBegin:554] - Exposing Hibernate transaction as JDBC [org.springframework.orm.hibernate5.HibernateTransactionManager$$Lambda$1011/1903908460@44393e11]
+▶ DEBUG 14:13:15.329 [http-nio-9090-exec-40] org.hibernate.SQL[logStatement:127] - 
+    SELECT
+        * 
+    FROM
+        menuList 
+    WHERE
+        listNo = 1
+▶ DEBUG 14:13:15.333 [http-nio-9090-exec-40] org.hibernate.loader.Loader[debugf:384] - Result set row: 0
+▶ DEBUG 14:13:15.333 [http-nio-9090-exec-40] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:15.334 [http-nio-9090-exec-37] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/lib/jquery/jquery.backtotop.js'; against '/images/**'
+▶ DEBUG 14:13:15.334 [http-nio-9090-exec-37] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/lib/jquery/jquery.backtotop.js'; against '/js/**'
+▶ DEBUG 14:13:15.334 [http-nio-9090-exec-37] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /js/lib/jquery/jquery.backtotop.js has an empty filter list
+▶ DEBUG 14:13:15.334 [http-nio-9090-exec-37] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/js/lib/jquery/jquery.backtotop.js", parameters={}
+▶ DEBUG 14:13:15.334 [http-nio-9090-exec-37] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/js/"]
+▶ DEBUG 14:13:15.334 [http-nio-9090-exec-40] org.hibernate.SQL[logStatement:127] - 
+    SELECT
+        * 
+    FROM
+        menuList 
+    WHERE
+        url = ?
+▶ DEBUG 14:13:15.338 [http-nio-9090-exec-40] org.hibernate.loader.Loader[debugf:384] - Result set row: 0
+▶ DEBUG 14:13:15.338 [http-nio-9090-exec-40] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:15.338 [http-nio-9090-exec-37] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:15.339 [http-nio-9090-exec-40] org.hibernate.SQL[logStatement:127] - 
+    SELECT
+        * 
+    FROM
+        menuList 
+    WHERE
+        url = ?
+▶ DEBUG 14:13:15.343 [http-nio-9090-exec-40] org.hibernate.loader.Loader[debugf:384] - Result set row: 0
+▶ DEBUG 14:13:15.343 [http-nio-9090-exec-40] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:15.343 [http-nio-9090-exec-40] org.hibernate.SQL[logStatement:127] - 
+    SELECT
+        * 
+    FROM
+        menuList 
+    WHERE
+        url = ?
+▶ DEBUG 14:13:15.347 [http-nio-9090-exec-40] org.hibernate.loader.Loader[debugf:384] - Result set row: 0
+▶ DEBUG 14:13:15.347 [http-nio-9090-exec-40] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:15.348 [http-nio-9090-exec-40] org.hibernate.SQL[logStatement:127] - 
+    SELECT
+        * 
+    FROM
+        menuList 
+    WHERE
+        url = ?
+▶ DEBUG 14:13:15.353 [http-nio-9090-exec-40] org.hibernate.loader.Loader[debugf:384] - Result set row: 0
+▶ DEBUG 14:13:15.353 [http-nio-9090-exec-40] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:15.353 [http-nio-9090-exec-40] org.springframework.orm.hibernate5.HibernateTransactionManager[processCommit:741] - Initiating transaction commit
+▶ DEBUG 14:13:15.353 [http-nio-9090-exec-40] org.springframework.orm.hibernate5.HibernateTransactionManager[doCommit:622] - Committing Hibernate transaction on Session [SessionImpl(568246405<open>)]
+▶ DEBUG 14:13:15.353 [http-nio-9090-exec-40] org.hibernate.engine.transaction.internal.TransactionImpl[commit:98] - committing
+▶ DEBUG 14:13:15.360 [http-nio-9090-exec-40] org.springframework.orm.hibernate5.HibernateTransactionManager[doCleanupAfterCompletion:729] - Closing Hibernate Session [SessionImpl(568246405<open>)] after transaction
+▶ DEBUG 14:13:15.360 [http-nio-9090-exec-40] org.springframework.orm.hibernate5.HibernateTransactionManager[getTransaction:370] - Creating new transaction with name [com.web.common.menuList.MenuListDAO.getMenuListAll]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+▶ DEBUG 14:13:15.360 [http-nio-9090-exec-40] org.springframework.orm.hibernate5.HibernateTransactionManager[doBegin:466] - Opened new Session [SessionImpl(484706893<open>)] for Hibernate transaction
+▶ DEBUG 14:13:15.361 [http-nio-9090-exec-40] org.hibernate.engine.transaction.internal.TransactionImpl[<init>:53] - On TransactionImpl creation, JpaCompliance#isJpaTransactionComplianceEnabled == false
+▶ DEBUG 14:13:15.361 [http-nio-9090-exec-40] org.hibernate.engine.transaction.internal.TransactionImpl[begin:81] - begin
+▶ DEBUG 14:13:15.367 [http-nio-9090-exec-40] org.springframework.orm.hibernate5.HibernateTransactionManager[doBegin:554] - Exposing Hibernate transaction as JDBC [org.springframework.orm.hibernate5.HibernateTransactionManager$$Lambda$1011/1903908460@73549f44]
+▶ DEBUG 14:13:15.367 [http-nio-9090-exec-40] org.hibernate.SQL[logStatement:127] - 
+    SELECT
+        * 
+    FROM
+        menuList
+▶ DEBUG 14:13:15.371 [http-nio-9090-exec-40] org.hibernate.loader.Loader[debugf:384] - Result set row: 0
+▶ DEBUG 14:13:15.371 [http-nio-9090-exec-40] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:15.371 [http-nio-9090-exec-40] org.hibernate.loader.Loader[debugf:384] - Result set row: 1
+▶ DEBUG 14:13:15.371 [http-nio-9090-exec-40] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:15.372 [http-nio-9090-exec-40] org.hibernate.loader.Loader[debugf:384] - Result set row: 2
+▶ DEBUG 14:13:15.372 [http-nio-9090-exec-40] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:15.372 [http-nio-9090-exec-40] org.hibernate.loader.Loader[debugf:384] - Result set row: 3
+▶ DEBUG 14:13:15.372 [http-nio-9090-exec-40] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:15.372 [http-nio-9090-exec-40] org.hibernate.loader.Loader[debugf:384] - Result set row: 4
+▶ DEBUG 14:13:15.372 [http-nio-9090-exec-40] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:15.373 [http-nio-9090-exec-40] org.hibernate.loader.Loader[debugf:384] - Result set row: 5
+▶ DEBUG 14:13:15.373 [http-nio-9090-exec-40] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:15.373 [http-nio-9090-exec-40] org.hibernate.loader.Loader[debugf:384] - Result set row: 6
+▶ DEBUG 14:13:15.373 [http-nio-9090-exec-40] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:15.373 [http-nio-9090-exec-40] org.hibernate.loader.Loader[debugf:384] - Result set row: 7
+▶ DEBUG 14:13:15.374 [http-nio-9090-exec-40] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:15.374 [http-nio-9090-exec-40] org.hibernate.loader.Loader[debugf:384] - Result set row: 8
+▶ DEBUG 14:13:15.374 [http-nio-9090-exec-40] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:15.374 [http-nio-9090-exec-40] org.hibernate.loader.Loader[debugf:384] - Result set row: 9
+▶ DEBUG 14:13:15.374 [http-nio-9090-exec-40] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:15.374 [http-nio-9090-exec-40] org.hibernate.loader.Loader[debugf:384] - Result set row: 10
+▶ DEBUG 14:13:15.375 [http-nio-9090-exec-40] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:15.375 [http-nio-9090-exec-40] org.hibernate.loader.Loader[debugf:384] - Result set row: 11
+▶ DEBUG 14:13:15.375 [http-nio-9090-exec-40] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:15.375 [http-nio-9090-exec-40] org.hibernate.loader.Loader[debugf:384] - Result set row: 12
+▶ DEBUG 14:13:15.375 [http-nio-9090-exec-40] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:15.375 [http-nio-9090-exec-40] org.springframework.orm.hibernate5.HibernateTransactionManager[processCommit:741] - Initiating transaction commit
+▶ DEBUG 14:13:15.375 [http-nio-9090-exec-40] org.springframework.orm.hibernate5.HibernateTransactionManager[doCommit:622] - Committing Hibernate transaction on Session [SessionImpl(484706893<open>)]
+▶ DEBUG 14:13:15.376 [http-nio-9090-exec-40] org.hibernate.engine.transaction.internal.TransactionImpl[commit:98] - committing
+▶ DEBUG 14:13:15.382 [http-nio-9090-exec-40] org.springframework.orm.hibernate5.HibernateTransactionManager[doCleanupAfterCompletion:729] - Closing Hibernate Session [SessionImpl(484706893<open>)] after transaction
+▶ DEBUG 14:13:15.383 [http-nio-9090-exec-40] org.springframework.web.servlet.view.ContentNegotiatingViewResolver[getBestView:348] - Selected '*/*;q=0.8' given [image/webp, image/apng, image/*, */*;q=0.8]
+▶ DEBUG 14:13:15.383 [http-nio-9090-exec-40] org.springframework.web.servlet.view.tiles3.TilesView[render:310] - View name 'auth/login', model {modelAndView=ModelAndView [view="auth/login"; model={}], org.springframework.validation.BindingResult.modelAndView=org.springframework.validation.BeanPropertyBindingResult: 0 errors, menuList=[{depth=1, listNo=1, name=메인, viewYn=Y, type=user, url=/index, parentListNo=null}, {depth=2, listNo=6, name=인증, viewYn=N, type=user, url=/auth, parentListNo=1}, {depth=3, listNo=7, name=로그인, viewYn=N, type=user, url=/login, parentListNo=6}], menuTree={depth=1, children=[{depth=2, children=[{depth=3, listNo=3, name=글쓰기, viewYn=Y, type=user, url=/registBoard, parentListNo=2}, {depth=3, listNo=13, name=게시판 리스트, viewYn=Y, type=user, url=/boardList, parentListNo=2}], listNo=2, name=게시판, viewYn=Y, type=user, url=/board, parentListNo=1}], listNo=1, name=메인, viewYn=Y, type=user, url=/index}}
+▶ DEBUG 14:13:15.383 [http-nio-9090-exec-40] org.apache.tiles.impl.BasicTilesContainer[render:213] - Render request received for definition 'auth/login'
+▶ DEBUG 14:13:15.391 [http-nio-9090-exec-40] org.springframework.security.web.header.writers.HstsHeaderWriter[writeHeaders:169] - Not injecting HSTS header since it did not match the requestMatcher org.springframework.security.web.header.writers.HstsHeaderWriter$SecureRequestMatcher@29f5448a
+▶ DEBUG 14:13:15.404 [http-nio-9090-exec-40] org.springframework.security.web.context.HttpSessionSecurityContextRepository[saveContext:351] - SecurityContext is empty or contents are anonymous - context will not be stored in HttpSession.
+▶ DEBUG 14:13:15.404 [http-nio-9090-exec-40] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:15.404 [http-nio-9090-exec-40] org.springframework.security.web.access.ExceptionTranslationFilter[doFilter:120] - Chain processed normally
+▶ DEBUG 14:13:15.404 [http-nio-9090-exec-40] org.springframework.security.web.context.SecurityContextPersistenceFilter[doFilter:119] - SecurityContextHolder now cleared, as request processing completed
+▶ DEBUG 14:13:15.498 [http-nio-9090-exec-43] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:15.515 [http-nio-9090-exec-42] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/lib/bootstrap/js/bootstrap.js'; against '/images/**'
+▶ DEBUG 14:13:15.515 [http-nio-9090-exec-42] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/lib/bootstrap/js/bootstrap.js'; against '/js/**'
+▶ DEBUG 14:13:15.515 [http-nio-9090-exec-42] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /js/lib/bootstrap/js/bootstrap.js has an empty filter list
+▶ DEBUG 14:13:15.515 [http-nio-9090-exec-42] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/js/lib/bootstrap/js/bootstrap.js", parameters={}
+▶ DEBUG 14:13:15.515 [http-nio-9090-exec-42] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/js/"]
+▶ DEBUG 14:13:15.520 [http-nio-9090-exec-42] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:15.527 [http-nio-9090-exec-44] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/lib/summernote/summernote-bs4.js'; against '/images/**'
+▶ DEBUG 14:13:15.527 [http-nio-9090-exec-44] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/lib/summernote/summernote-bs4.js'; against '/js/**'
+▶ DEBUG 14:13:15.528 [http-nio-9090-exec-44] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /js/lib/summernote/summernote-bs4.js has an empty filter list
+▶ DEBUG 14:13:15.528 [http-nio-9090-exec-44] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/js/lib/summernote/summernote-bs4.js", parameters={}
+▶ DEBUG 14:13:15.528 [http-nio-9090-exec-44] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/js/"]
+▶ DEBUG 14:13:15.535 [http-nio-9090-exec-44] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:15.549 [http-nio-9090-exec-35] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/common/util/jsUtil.js'; against '/images/**'
+▶ DEBUG 14:13:15.549 [http-nio-9090-exec-41] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/common/util/libFilter.js'; against '/images/**'
+▶ DEBUG 14:13:15.549 [http-nio-9090-exec-35] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/common/util/jsUtil.js'; against '/js/**'
+▶ DEBUG 14:13:15.549 [http-nio-9090-exec-36] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/web/index.js'; against '/images/**'
+▶ DEBUG 14:13:15.549 [http-nio-9090-exec-41] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/common/util/libFilter.js'; against '/js/**'
+▶ DEBUG 14:13:15.549 [http-nio-9090-exec-35] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /js/common/util/jsUtil.js has an empty filter list
+▶ DEBUG 14:13:15.549 [http-nio-9090-exec-36] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/web/index.js'; against '/js/**'
+▶ DEBUG 14:13:15.549 [http-nio-9090-exec-41] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /js/common/util/libFilter.js has an empty filter list
+▶ DEBUG 14:13:15.549 [http-nio-9090-exec-36] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /js/web/index.js has an empty filter list
+▶ DEBUG 14:13:15.549 [http-nio-9090-exec-35] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/js/common/util/jsUtil.js", parameters={}
+▶ DEBUG 14:13:15.549 [http-nio-9090-exec-41] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/js/common/util/libFilter.js", parameters={}
+▶ DEBUG 14:13:15.549 [http-nio-9090-exec-36] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/js/web/index.js", parameters={}
+▶ DEBUG 14:13:15.549 [http-nio-9090-exec-41] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/js/"]
+▶ DEBUG 14:13:15.549 [http-nio-9090-exec-35] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/js/"]
+▶ DEBUG 14:13:15.549 [http-nio-9090-exec-36] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/js/"]
+▶ DEBUG 14:13:15.554 [http-nio-9090-exec-38] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/lib/jquery/jquery.form.min.js'; against '/images/**'
+▶ DEBUG 14:13:15.555 [http-nio-9090-exec-35] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:15.555 [http-nio-9090-exec-38] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/lib/jquery/jquery.form.min.js'; against '/js/**'
+▶ DEBUG 14:13:15.555 [http-nio-9090-exec-38] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /js/lib/jquery/jquery.form.min.js has an empty filter list
+▶ DEBUG 14:13:15.555 [http-nio-9090-exec-38] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/js/lib/jquery/jquery.form.min.js", parameters={}
+▶ DEBUG 14:13:15.555 [http-nio-9090-exec-38] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/js/"]
+▶ DEBUG 14:13:15.555 [http-nio-9090-exec-41] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:15.556 [http-nio-9090-exec-36] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:15.562 [http-nio-9090-exec-38] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:15.571 [http-nio-9090-exec-39] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/common/util/bAjax.js'; against '/images/**'
+▶ DEBUG 14:13:15.571 [http-nio-9090-exec-39] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/common/util/bAjax.js'; against '/js/**'
+▶ DEBUG 14:13:15.571 [http-nio-9090-exec-39] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /js/common/util/bAjax.js has an empty filter list
+▶ DEBUG 14:13:15.571 [http-nio-9090-exec-39] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/js/common/util/bAjax.js", parameters={}
+▶ DEBUG 14:13:15.572 [http-nio-9090-exec-39] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/js/"]
+▶ DEBUG 14:13:15.576 [http-nio-9090-exec-39] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:15.584 [http-nio-9090-exec-37] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/board/boardList.do'; against '/images/**'
+▶ DEBUG 14:13:15.585 [http-nio-9090-exec-37] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/board/boardList.do'; against '/js/**'
+▶ DEBUG 14:13:15.585 [http-nio-9090-exec-37] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/board/boardList.do'; against '/publishing/**'
+▶ DEBUG 14:13:15.585 [http-nio-9090-exec-37] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/board/boardList.do'; against '/style/**'
+▶ DEBUG 14:13:15.585 [http-nio-9090-exec-37] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/board/boardList.do'; against '/lib/**'
+▶ DEBUG 14:13:15.585 [http-nio-9090-exec-37] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/board/boardList.do'; against '/thumb/**'
+▶ DEBUG 14:13:15.585 [http-nio-9090-exec-37] org.springframework.security.web.FilterChainProxy[doFilter:328] - /board/boardList.do at position 1 of 14 in additional filter chain; firing Filter: 'SecurityContextPersistenceFilter'
+▶ DEBUG 14:13:15.585 [http-nio-9090-exec-37] org.springframework.security.web.context.HttpSessionSecurityContextRepository[readSecurityContextFromSession:185] - HttpSession returned null object for SPRING_SECURITY_CONTEXT
+▶ DEBUG 14:13:15.585 [http-nio-9090-exec-37] org.springframework.security.web.context.HttpSessionSecurityContextRepository[loadContext:117] - No SecurityContext was available from the HttpSession: org.apache.catalina.session.StandardSessionFacade@25dfb76f. A new one will be created.
+▶ DEBUG 14:13:15.585 [http-nio-9090-exec-37] org.springframework.security.web.FilterChainProxy[doFilter:328] - /board/boardList.do at position 2 of 14 in additional filter chain; firing Filter: 'ConcurrentSessionFilter'
+▶ DEBUG 14:13:15.585 [http-nio-9090-exec-37] org.springframework.security.web.FilterChainProxy[doFilter:328] - /board/boardList.do at position 3 of 14 in additional filter chain; firing Filter: 'WebAsyncManagerIntegrationFilter'
+▶ DEBUG 14:13:15.585 [http-nio-9090-exec-37] org.springframework.security.web.FilterChainProxy[doFilter:328] - /board/boardList.do at position 4 of 14 in additional filter chain; firing Filter: 'HeaderWriterFilter'
+▶ DEBUG 14:13:15.585 [http-nio-9090-exec-37] org.springframework.security.web.FilterChainProxy[doFilter:328] - /board/boardList.do at position 5 of 14 in additional filter chain; firing Filter: 'CsrfFilter'
+▶ DEBUG 14:13:15.585 [http-nio-9090-exec-37] org.springframework.security.web.FilterChainProxy[doFilter:328] - /board/boardList.do at position 6 of 14 in additional filter chain; firing Filter: 'LogoutFilter'
+▶ DEBUG 14:13:15.585 [http-nio-9090-exec-37] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/board/boardList.do'; against '/auth/logout.do'
+▶ DEBUG 14:13:15.586 [http-nio-9090-exec-37] org.springframework.security.web.FilterChainProxy[doFilter:328] - /board/boardList.do at position 7 of 14 in additional filter chain; firing Filter: 'UsernamePasswordAuthenticationFilter'
+▶ DEBUG 14:13:15.586 [http-nio-9090-exec-37] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/board/boardList.do'; against '/auth/loginCheck.do'
+▶ DEBUG 14:13:15.586 [http-nio-9090-exec-37] org.springframework.security.web.FilterChainProxy[doFilter:328] - /board/boardList.do at position 8 of 14 in additional filter chain; firing Filter: 'BasicAuthenticationFilter'
+▶ DEBUG 14:13:15.586 [http-nio-9090-exec-37] org.springframework.security.web.FilterChainProxy[doFilter:328] - /board/boardList.do at position 9 of 14 in additional filter chain; firing Filter: 'RequestCacheAwareFilter'
+▶ DEBUG 14:13:15.586 [http-nio-9090-exec-37] org.springframework.security.web.savedrequest.DefaultSavedRequest[propertyEquals:359] - pathInfo: both null (property equals)
+▶ DEBUG 14:13:15.586 [http-nio-9090-exec-37] org.springframework.security.web.savedrequest.DefaultSavedRequest[propertyEquals:359] - queryString: both null (property equals)
+▶ DEBUG 14:13:15.586 [http-nio-9090-exec-37] org.springframework.security.web.savedrequest.DefaultSavedRequest[propertyEquals:383] - requestURI: arg1=/favicon.ico; arg2=/board/boardList.do (property not equals)
+▶ DEBUG 14:13:15.586 [http-nio-9090-exec-37] org.springframework.security.web.savedrequest.HttpSessionRequestCache[getMatchingRequest:95] - saved request doesn't match
+▶ DEBUG 14:13:15.586 [http-nio-9090-exec-37] org.springframework.security.web.FilterChainProxy[doFilter:328] - /board/boardList.do at position 10 of 14 in additional filter chain; firing Filter: 'SecurityContextHolderAwareRequestFilter'
+▶ DEBUG 14:13:15.586 [http-nio-9090-exec-37] org.springframework.security.web.FilterChainProxy[doFilter:328] - /board/boardList.do at position 11 of 14 in additional filter chain; firing Filter: 'AnonymousAuthenticationFilter'
+▶ DEBUG 14:13:15.586 [http-nio-9090-exec-37] org.springframework.security.web.authentication.AnonymousAuthenticationFilter[doFilter:100] - Populated SecurityContextHolder with anonymous token: 'org.springframework.security.authentication.AnonymousAuthenticationToken@7817bb28: Principal: anonymousUser; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@b364: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: 81E4BD99984F14E7272BCB8355E8CF6A; Granted Authorities: ROLE_ANONYMOUS'
+▶ DEBUG 14:13:15.586 [http-nio-9090-exec-37] org.springframework.security.web.FilterChainProxy[doFilter:328] - /board/boardList.do at position 12 of 14 in additional filter chain; firing Filter: 'SessionManagementFilter'
+▶ DEBUG 14:13:15.586 [http-nio-9090-exec-37] org.springframework.security.web.FilterChainProxy[doFilter:328] - /board/boardList.do at position 13 of 14 in additional filter chain; firing Filter: 'ExceptionTranslationFilter'
+▶ DEBUG 14:13:15.587 [http-nio-9090-exec-37] org.springframework.security.web.FilterChainProxy[doFilter:328] - /board/boardList.do at position 14 of 14 in additional filter chain; firing Filter: 'FilterSecurityInterceptor'
+▶ DEBUG 14:13:15.587 [http-nio-9090-exec-37] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/board/boardList.do'; against '/index.do'
+▶ DEBUG 14:13:15.587 [http-nio-9090-exec-37] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/board/boardList.do'; against '/auth/*.do'
+▶ DEBUG 14:13:15.587 [http-nio-9090-exec-37] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/board/boardList.do'; against '/common/**/*.do'
+▶ DEBUG 14:13:15.587 [http-nio-9090-exec-37] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/board/boardList.do'; against '/board/boardList.do'
+▶ DEBUG 14:13:15.587 [http-nio-9090-exec-37] org.springframework.security.web.access.intercept.FilterSecurityInterceptor[beforeInvocation:219] - Secure object: FilterInvocation: URL: /board/boardList.do; Attributes: [permitAll]
+▶ DEBUG 14:13:15.587 [http-nio-9090-exec-37] org.springframework.security.web.access.intercept.FilterSecurityInterceptor[authenticateIfRequired:348] - Previously Authenticated: org.springframework.security.authentication.AnonymousAuthenticationToken@7817bb28: Principal: anonymousUser; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@b364: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: 81E4BD99984F14E7272BCB8355E8CF6A; Granted Authorities: ROLE_ANONYMOUS
+▶ DEBUG 14:13:15.588 [http-nio-9090-exec-37] org.springframework.security.access.vote.AffirmativeBased[decide:66] - Voter: org.springframework.security.web.access.expression.WebExpressionVoter@7c90a817, returned: 1
+▶ DEBUG 14:13:15.588 [http-nio-9090-exec-37] org.springframework.security.web.access.intercept.FilterSecurityInterceptor[beforeInvocation:243] - Authorization successful
+▶ DEBUG 14:13:15.588 [http-nio-9090-exec-37] org.springframework.security.web.access.intercept.FilterSecurityInterceptor[beforeInvocation:256] - RunAsManager did not change Authentication object
+▶ DEBUG 14:13:15.588 [http-nio-9090-exec-37] org.springframework.security.web.FilterChainProxy[doFilter:313] - /board/boardList.do reached end of additional filter chain; proceeding with original chain
+▶ DEBUG 14:13:15.588 [http-nio-9090-exec-37] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - POST "/board/boardList.do", parameters={}
+▶ DEBUG 14:13:15.588 [http-nio-9090-exec-37] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping[getHandler:412] - Mapped to com.web.board.controller.BoardController#boardList(CommandMap)
+▶ DEBUG 14:13:15.589 [http-nio-9090-exec-37] com.web.main.controller.MainController[boardList:246] - ********************[BoardController]:[boardList:POST]********************
+▶ DEBUG 14:13:15.589 [http-nio-9090-exec-37] com.web.common.util.FileUtil[parseName:281] - ---------- [FileUtil]:[parseName] -----------
+▶ DEBUG 14:13:15.589 [http-nio-9090-exec-37] org.springframework.orm.hibernate5.HibernateTransactionManager[getTransaction:370] - Creating new transaction with name [com.web.board.dao.BoardDAOImpl.getBoardList]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT,+java.lang.Exception
+▶ DEBUG 14:13:15.589 [http-nio-9090-exec-37] org.springframework.orm.hibernate5.HibernateTransactionManager[doBegin:466] - Opened new Session [SessionImpl(519751012<open>)] for Hibernate transaction
+▶ DEBUG 14:13:15.589 [http-nio-9090-exec-37] org.hibernate.engine.transaction.internal.TransactionImpl[<init>:53] - On TransactionImpl creation, JpaCompliance#isJpaTransactionComplianceEnabled == false
+▶ DEBUG 14:13:15.589 [http-nio-9090-exec-37] org.hibernate.engine.transaction.internal.TransactionImpl[begin:81] - begin
+▶ DEBUG 14:13:15.596 [http-nio-9090-exec-37] org.springframework.orm.hibernate5.HibernateTransactionManager[doBegin:554] - Exposing Hibernate transaction as JDBC [org.springframework.orm.hibernate5.HibernateTransactionManager$$Lambda$1011/1903908460@1d096518]
+▶ DEBUG 14:13:15.597 [http-nio-9090-exec-37] org.hibernate.query.criteria.internal.CriteriaQueryImpl[interpret:299] - Rendered criteria query -> select new com.web.board.domain.Board(generatedAlias0.listNo, generatedAlias0.id, generatedAlias0.name, generatedAlias0.createdAt, generatedAlias0.updatedAt, generatedAlias0.contents, generatedAlias0.title, generatedAlias0.imgFilePath, generatedAlias0.fileName, generatedAlias0.thumbImgFilePath, generatedAlias0.thumbFileName, generatedAlias0.orgFileName, generatedAlias0.passwordYn, generatedAlias0.viewYn) from Board as generatedAlias0 where generatedAlias0.viewYn=:param0 order by generatedAlias0.createdAt desc
+▶ DEBUG 14:13:15.597 [http-nio-9090-exec-37] org.hibernate.SQL[logStatement:127] - 
+    select
+        board0_.listNo as col_0_0_,
+        board0_.id as col_1_0_,
+        board0_.name as col_2_0_,
+        board0_.createdAt as col_3_0_,
+        board0_.updatedAt as col_4_0_,
+        board0_.contents as col_5_0_,
+        board0_.title as col_6_0_,
+        board0_.imgFilePath as col_7_0_,
+        board0_.fileName as col_8_0_,
+        board0_.thumbImgFilePath as col_9_0_,
+        board0_.thumbFileName as col_10_0_,
+        board0_.orgFileName as col_11_0_,
+        board0_.passwordYn as col_12_0_,
+        board0_.viewYn as col_13_0_ 
+    from
+        board board0_ 
+    where
+        board0_.viewYn=? 
+    order by
+        board0_.createdAt desc limit ?
+▶ DEBUG 14:13:15.614 [http-nio-9090-exec-37] org.hibernate.loader.Loader[debugf:384] - Result set row: 0
+▶ DEBUG 14:13:15.614 [http-nio-9090-exec-37] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:15.615 [http-nio-9090-exec-37] org.hibernate.loader.Loader[debugf:384] - Result set row: 1
+▶ DEBUG 14:13:15.615 [http-nio-9090-exec-37] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:15.615 [http-nio-9090-exec-37] org.hibernate.loader.Loader[debugf:384] - Result set row: 2
+▶ DEBUG 14:13:15.615 [http-nio-9090-exec-37] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:15.615 [http-nio-9090-exec-37] org.hibernate.loader.Loader[debugf:384] - Result set row: 3
+▶ DEBUG 14:13:15.616 [http-nio-9090-exec-37] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:15.616 [http-nio-9090-exec-37] org.hibernate.loader.Loader[debugf:384] - Result set row: 4
+▶ DEBUG 14:13:15.616 [http-nio-9090-exec-37] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:15.616 [http-nio-9090-exec-37] org.hibernate.loader.Loader[debugf:384] - Result set row: 5
+▶ DEBUG 14:13:15.616 [http-nio-9090-exec-37] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:15.616 [http-nio-9090-exec-37] org.springframework.orm.hibernate5.HibernateTransactionManager[processCommit:741] - Initiating transaction commit
+▶ DEBUG 14:13:15.617 [http-nio-9090-exec-37] org.springframework.orm.hibernate5.HibernateTransactionManager[doCommit:622] - Committing Hibernate transaction on Session [SessionImpl(519751012<open>)]
+▶ DEBUG 14:13:15.617 [http-nio-9090-exec-37] org.hibernate.engine.transaction.internal.TransactionImpl[commit:98] - committing
+▶ DEBUG 14:13:15.623 [http-nio-9090-exec-37] org.springframework.orm.hibernate5.HibernateTransactionManager[doCleanupAfterCompletion:729] - Closing Hibernate Session [SessionImpl(519751012<open>)] after transaction
+▶ DEBUG 14:13:15.625 [http-nio-9090-exec-37] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor[writeWithMessageConverters:273] - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+▶ DEBUG 14:13:15.625 [http-nio-9090-exec-37] org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor[traceDebug:91] - Writing [com.web.common.resolver.CommandMap@2332697c]
+▶ DEBUG 14:13:15.626 [http-nio-9090-exec-37] org.springframework.security.web.header.writers.HstsHeaderWriter[writeHeaders:169] - Not injecting HSTS header since it did not match the requestMatcher org.springframework.security.web.header.writers.HstsHeaderWriter$SecureRequestMatcher@29f5448a
+▶ DEBUG 14:13:15.626 [http-nio-9090-exec-37] org.springframework.security.web.context.HttpSessionSecurityContextRepository[saveContext:351] - SecurityContext is empty or contents are anonymous - context will not be stored in HttpSession.
+▶ DEBUG 14:13:15.626 [http-nio-9090-exec-37] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:15.626 [http-nio-9090-exec-37] org.springframework.security.web.access.ExceptionTranslationFilter[doFilter:120] - Chain processed normally
+▶ DEBUG 14:13:15.627 [http-nio-9090-exec-37] org.springframework.security.web.context.SecurityContextPersistenceFilter[doFilter:119] - SecurityContextHolder now cleared, as request processing completed
+▶ DEBUG 14:13:16.886 [http-nio-9090-exec-40] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/board/registBoard.do'; against '/images/**'
+▶ DEBUG 14:13:16.886 [http-nio-9090-exec-40] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/board/registBoard.do'; against '/js/**'
+▶ DEBUG 14:13:16.886 [http-nio-9090-exec-40] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/board/registBoard.do'; against '/publishing/**'
+▶ DEBUG 14:13:16.886 [http-nio-9090-exec-40] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/board/registBoard.do'; against '/style/**'
+▶ DEBUG 14:13:16.886 [http-nio-9090-exec-40] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/board/registBoard.do'; against '/lib/**'
+▶ DEBUG 14:13:16.886 [http-nio-9090-exec-40] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/board/registBoard.do'; against '/thumb/**'
+▶ DEBUG 14:13:16.886 [http-nio-9090-exec-40] org.springframework.security.web.FilterChainProxy[doFilter:328] - /board/registBoard.do at position 1 of 14 in additional filter chain; firing Filter: 'SecurityContextPersistenceFilter'
+▶ DEBUG 14:13:16.886 [http-nio-9090-exec-40] org.springframework.security.web.context.HttpSessionSecurityContextRepository[readSecurityContextFromSession:185] - HttpSession returned null object for SPRING_SECURITY_CONTEXT
+▶ DEBUG 14:13:16.886 [http-nio-9090-exec-40] org.springframework.security.web.context.HttpSessionSecurityContextRepository[loadContext:117] - No SecurityContext was available from the HttpSession: org.apache.catalina.session.StandardSessionFacade@25dfb76f. A new one will be created.
+▶ DEBUG 14:13:16.887 [http-nio-9090-exec-40] org.springframework.security.web.FilterChainProxy[doFilter:328] - /board/registBoard.do at position 2 of 14 in additional filter chain; firing Filter: 'ConcurrentSessionFilter'
+▶ DEBUG 14:13:16.887 [http-nio-9090-exec-40] org.springframework.security.web.FilterChainProxy[doFilter:328] - /board/registBoard.do at position 3 of 14 in additional filter chain; firing Filter: 'WebAsyncManagerIntegrationFilter'
+▶ DEBUG 14:13:16.887 [http-nio-9090-exec-40] org.springframework.security.web.FilterChainProxy[doFilter:328] - /board/registBoard.do at position 4 of 14 in additional filter chain; firing Filter: 'HeaderWriterFilter'
+▶ DEBUG 14:13:16.887 [http-nio-9090-exec-40] org.springframework.security.web.FilterChainProxy[doFilter:328] - /board/registBoard.do at position 5 of 14 in additional filter chain; firing Filter: 'CsrfFilter'
+▶ DEBUG 14:13:16.887 [http-nio-9090-exec-40] org.springframework.security.web.FilterChainProxy[doFilter:328] - /board/registBoard.do at position 6 of 14 in additional filter chain; firing Filter: 'LogoutFilter'
+▶ DEBUG 14:13:16.887 [http-nio-9090-exec-40] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:157] - Request 'GET /board/registBoard.do' doesn't match 'POST /auth/logout.do'
+▶ DEBUG 14:13:16.887 [http-nio-9090-exec-40] org.springframework.security.web.FilterChainProxy[doFilter:328] - /board/registBoard.do at position 7 of 14 in additional filter chain; firing Filter: 'UsernamePasswordAuthenticationFilter'
+▶ DEBUG 14:13:16.887 [http-nio-9090-exec-40] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:157] - Request 'GET /board/registBoard.do' doesn't match 'POST /auth/loginCheck.do'
+▶ DEBUG 14:13:16.887 [http-nio-9090-exec-40] org.springframework.security.web.FilterChainProxy[doFilter:328] - /board/registBoard.do at position 8 of 14 in additional filter chain; firing Filter: 'BasicAuthenticationFilter'
+▶ DEBUG 14:13:16.887 [http-nio-9090-exec-40] org.springframework.security.web.FilterChainProxy[doFilter:328] - /board/registBoard.do at position 9 of 14 in additional filter chain; firing Filter: 'RequestCacheAwareFilter'
+▶ DEBUG 14:13:16.887 [http-nio-9090-exec-40] org.springframework.security.web.savedrequest.DefaultSavedRequest[propertyEquals:359] - pathInfo: both null (property equals)
+▶ DEBUG 14:13:16.888 [http-nio-9090-exec-40] org.springframework.security.web.savedrequest.DefaultSavedRequest[propertyEquals:359] - queryString: both null (property equals)
+▶ DEBUG 14:13:16.888 [http-nio-9090-exec-40] org.springframework.security.web.savedrequest.DefaultSavedRequest[propertyEquals:383] - requestURI: arg1=/favicon.ico; arg2=/board/registBoard.do (property not equals)
+▶ DEBUG 14:13:16.888 [http-nio-9090-exec-40] org.springframework.security.web.savedrequest.HttpSessionRequestCache[getMatchingRequest:95] - saved request doesn't match
+▶ DEBUG 14:13:16.888 [http-nio-9090-exec-40] org.springframework.security.web.FilterChainProxy[doFilter:328] - /board/registBoard.do at position 10 of 14 in additional filter chain; firing Filter: 'SecurityContextHolderAwareRequestFilter'
+▶ DEBUG 14:13:16.888 [http-nio-9090-exec-40] org.springframework.security.web.FilterChainProxy[doFilter:328] - /board/registBoard.do at position 11 of 14 in additional filter chain; firing Filter: 'AnonymousAuthenticationFilter'
+▶ DEBUG 14:13:16.888 [http-nio-9090-exec-40] org.springframework.security.web.authentication.AnonymousAuthenticationFilter[doFilter:100] - Populated SecurityContextHolder with anonymous token: 'org.springframework.security.authentication.AnonymousAuthenticationToken@7817bb28: Principal: anonymousUser; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@b364: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: 81E4BD99984F14E7272BCB8355E8CF6A; Granted Authorities: ROLE_ANONYMOUS'
+▶ DEBUG 14:13:16.888 [http-nio-9090-exec-40] org.springframework.security.web.FilterChainProxy[doFilter:328] - /board/registBoard.do at position 12 of 14 in additional filter chain; firing Filter: 'SessionManagementFilter'
+▶ DEBUG 14:13:16.889 [http-nio-9090-exec-40] org.springframework.security.web.FilterChainProxy[doFilter:328] - /board/registBoard.do at position 13 of 14 in additional filter chain; firing Filter: 'ExceptionTranslationFilter'
+▶ DEBUG 14:13:16.889 [http-nio-9090-exec-40] org.springframework.security.web.FilterChainProxy[doFilter:328] - /board/registBoard.do at position 14 of 14 in additional filter chain; firing Filter: 'FilterSecurityInterceptor'
+▶ DEBUG 14:13:16.889 [http-nio-9090-exec-40] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/board/registBoard.do'; against '/index.do'
+▶ DEBUG 14:13:16.890 [http-nio-9090-exec-40] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/board/registBoard.do'; against '/auth/*.do'
+▶ DEBUG 14:13:16.890 [http-nio-9090-exec-40] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/board/registBoard.do'; against '/common/**/*.do'
+▶ DEBUG 14:13:16.890 [http-nio-9090-exec-40] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:157] - Request 'GET /board/registBoard.do' doesn't match 'POST /board/boardList.do'
+▶ DEBUG 14:13:16.890 [http-nio-9090-exec-40] org.springframework.security.web.access.intercept.FilterSecurityInterceptor[beforeInvocation:219] - Secure object: FilterInvocation: URL: /board/registBoard.do; Attributes: [hasAnyRole('ROLE_BRONZE', 'ROLE_SILVER', 'ROLE_ADMIN')]
+▶ DEBUG 14:13:16.890 [http-nio-9090-exec-40] org.springframework.security.web.access.intercept.FilterSecurityInterceptor[authenticateIfRequired:348] - Previously Authenticated: org.springframework.security.authentication.AnonymousAuthenticationToken@7817bb28: Principal: anonymousUser; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@b364: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: 81E4BD99984F14E7272BCB8355E8CF6A; Granted Authorities: ROLE_ANONYMOUS
+▶ DEBUG 14:13:16.890 [http-nio-9090-exec-40] org.springframework.security.access.vote.AffirmativeBased[decide:66] - Voter: org.springframework.security.web.access.expression.WebExpressionVoter@7c90a817, returned: -1
+▶ DEBUG 14:13:16.891 [http-nio-9090-exec-40] org.springframework.security.web.access.ExceptionTranslationFilter[handleSpringSecurityException:180] - Access is denied (user is anonymous); redirecting to authentication entry point
+org.springframework.security.access.AccessDeniedException: Access is denied
+	at org.springframework.security.access.vote.AffirmativeBased.decide(AffirmativeBased.java:84)
+	at org.springframework.security.access.intercept.AbstractSecurityInterceptor.beforeInvocation(AbstractSecurityInterceptor.java:233)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:123)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:90)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:118)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:158)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilterInternal(BasicAuthenticationFilter.java:154)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.csrf.CsrfFilter.doFilterInternal(CsrfFilter.java:117)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:92)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:77)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:152)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:528)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:798)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:810)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1500)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+▶ DEBUG 14:13:16.891 [http-nio-9090-exec-40] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:167] - Request '/board/registBoard.do' matched by universal pattern '/**'
+▶ DEBUG 14:13:16.891 [http-nio-9090-exec-40] org.springframework.security.web.savedrequest.HttpSessionRequestCache[saveRequest:61] - DefaultSavedRequest added to Session: DefaultSavedRequest[http://localhost:9090/board/registBoard.do]
+▶ DEBUG 14:13:16.892 [http-nio-9090-exec-40] org.springframework.security.web.access.ExceptionTranslationFilter[sendStartAuthentication:211] - Calling Authentication entry point.
+▶ DEBUG 14:13:16.892 [http-nio-9090-exec-40] org.springframework.security.web.header.writers.HstsHeaderWriter[writeHeaders:169] - Not injecting HSTS header since it did not match the requestMatcher org.springframework.security.web.header.writers.HstsHeaderWriter$SecureRequestMatcher@29f5448a
+▶ DEBUG 14:13:16.892 [http-nio-9090-exec-40] org.springframework.security.web.context.HttpSessionSecurityContextRepository[saveContext:351] - SecurityContext is empty or contents are anonymous - context will not be stored in HttpSession.
+▶ DEBUG 14:13:16.892 [http-nio-9090-exec-40] org.springframework.security.web.context.SecurityContextPersistenceFilter[doFilter:119] - SecurityContextHolder now cleared, as request processing completed
+▶ DEBUG 14:13:16.894 [http-nio-9090-exec-43] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/auth/login.do'; against '/images/**'
+▶ DEBUG 14:13:16.895 [http-nio-9090-exec-43] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/auth/login.do'; against '/js/**'
+▶ DEBUG 14:13:16.895 [http-nio-9090-exec-43] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/auth/login.do'; against '/publishing/**'
+▶ DEBUG 14:13:16.895 [http-nio-9090-exec-43] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/auth/login.do'; against '/style/**'
+▶ DEBUG 14:13:16.895 [http-nio-9090-exec-43] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/auth/login.do'; against '/lib/**'
+▶ DEBUG 14:13:16.895 [http-nio-9090-exec-43] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/auth/login.do'; against '/thumb/**'
+▶ DEBUG 14:13:16.895 [http-nio-9090-exec-43] org.springframework.security.web.FilterChainProxy[doFilter:328] - /auth/login.do at position 1 of 14 in additional filter chain; firing Filter: 'SecurityContextPersistenceFilter'
+▶ DEBUG 14:13:16.895 [http-nio-9090-exec-43] org.springframework.security.web.context.HttpSessionSecurityContextRepository[readSecurityContextFromSession:185] - HttpSession returned null object for SPRING_SECURITY_CONTEXT
+▶ DEBUG 14:13:16.895 [http-nio-9090-exec-43] org.springframework.security.web.context.HttpSessionSecurityContextRepository[loadContext:117] - No SecurityContext was available from the HttpSession: org.apache.catalina.session.StandardSessionFacade@25dfb76f. A new one will be created.
+▶ DEBUG 14:13:16.895 [http-nio-9090-exec-43] org.springframework.security.web.FilterChainProxy[doFilter:328] - /auth/login.do at position 2 of 14 in additional filter chain; firing Filter: 'ConcurrentSessionFilter'
+▶ DEBUG 14:13:16.895 [http-nio-9090-exec-43] org.springframework.security.web.FilterChainProxy[doFilter:328] - /auth/login.do at position 3 of 14 in additional filter chain; firing Filter: 'WebAsyncManagerIntegrationFilter'
+▶ DEBUG 14:13:16.895 [http-nio-9090-exec-43] org.springframework.security.web.FilterChainProxy[doFilter:328] - /auth/login.do at position 4 of 14 in additional filter chain; firing Filter: 'HeaderWriterFilter'
+▶ DEBUG 14:13:16.895 [http-nio-9090-exec-43] org.springframework.security.web.FilterChainProxy[doFilter:328] - /auth/login.do at position 5 of 14 in additional filter chain; firing Filter: 'CsrfFilter'
+▶ DEBUG 14:13:16.895 [http-nio-9090-exec-43] org.springframework.security.web.FilterChainProxy[doFilter:328] - /auth/login.do at position 6 of 14 in additional filter chain; firing Filter: 'LogoutFilter'
+▶ DEBUG 14:13:16.896 [http-nio-9090-exec-43] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:157] - Request 'GET /auth/login.do' doesn't match 'POST /auth/logout.do'
+▶ DEBUG 14:13:16.896 [http-nio-9090-exec-43] org.springframework.security.web.FilterChainProxy[doFilter:328] - /auth/login.do at position 7 of 14 in additional filter chain; firing Filter: 'UsernamePasswordAuthenticationFilter'
+▶ DEBUG 14:13:16.896 [http-nio-9090-exec-43] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:157] - Request 'GET /auth/login.do' doesn't match 'POST /auth/loginCheck.do'
+▶ DEBUG 14:13:16.896 [http-nio-9090-exec-43] org.springframework.security.web.FilterChainProxy[doFilter:328] - /auth/login.do at position 8 of 14 in additional filter chain; firing Filter: 'BasicAuthenticationFilter'
+▶ DEBUG 14:13:16.896 [http-nio-9090-exec-43] org.springframework.security.web.FilterChainProxy[doFilter:328] - /auth/login.do at position 9 of 14 in additional filter chain; firing Filter: 'RequestCacheAwareFilter'
+▶ DEBUG 14:13:16.896 [http-nio-9090-exec-43] org.springframework.security.web.savedrequest.DefaultSavedRequest[propertyEquals:359] - pathInfo: both null (property equals)
+▶ DEBUG 14:13:16.896 [http-nio-9090-exec-43] org.springframework.security.web.savedrequest.DefaultSavedRequest[propertyEquals:359] - queryString: both null (property equals)
+▶ DEBUG 14:13:16.896 [http-nio-9090-exec-43] org.springframework.security.web.savedrequest.DefaultSavedRequest[propertyEquals:383] - requestURI: arg1=/board/registBoard.do; arg2=/auth/login.do (property not equals)
+▶ DEBUG 14:13:16.896 [http-nio-9090-exec-43] org.springframework.security.web.savedrequest.HttpSessionRequestCache[getMatchingRequest:95] - saved request doesn't match
+▶ DEBUG 14:13:16.896 [http-nio-9090-exec-43] org.springframework.security.web.FilterChainProxy[doFilter:328] - /auth/login.do at position 10 of 14 in additional filter chain; firing Filter: 'SecurityContextHolderAwareRequestFilter'
+▶ DEBUG 14:13:16.896 [http-nio-9090-exec-43] org.springframework.security.web.FilterChainProxy[doFilter:328] - /auth/login.do at position 11 of 14 in additional filter chain; firing Filter: 'AnonymousAuthenticationFilter'
+▶ DEBUG 14:13:16.896 [http-nio-9090-exec-43] org.springframework.security.web.authentication.AnonymousAuthenticationFilter[doFilter:100] - Populated SecurityContextHolder with anonymous token: 'org.springframework.security.authentication.AnonymousAuthenticationToken@7817bb28: Principal: anonymousUser; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@b364: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: 81E4BD99984F14E7272BCB8355E8CF6A; Granted Authorities: ROLE_ANONYMOUS'
+▶ DEBUG 14:13:16.897 [http-nio-9090-exec-43] org.springframework.security.web.FilterChainProxy[doFilter:328] - /auth/login.do at position 12 of 14 in additional filter chain; firing Filter: 'SessionManagementFilter'
+▶ DEBUG 14:13:16.897 [http-nio-9090-exec-43] org.springframework.security.web.FilterChainProxy[doFilter:328] - /auth/login.do at position 13 of 14 in additional filter chain; firing Filter: 'ExceptionTranslationFilter'
+▶ DEBUG 14:13:16.897 [http-nio-9090-exec-43] org.springframework.security.web.FilterChainProxy[doFilter:328] - /auth/login.do at position 14 of 14 in additional filter chain; firing Filter: 'FilterSecurityInterceptor'
+▶ DEBUG 14:13:16.897 [http-nio-9090-exec-43] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/auth/login.do'; against '/index.do'
+▶ DEBUG 14:13:16.897 [http-nio-9090-exec-43] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/auth/login.do'; against '/auth/*.do'
+▶ DEBUG 14:13:16.897 [http-nio-9090-exec-43] org.springframework.security.web.access.intercept.FilterSecurityInterceptor[beforeInvocation:219] - Secure object: FilterInvocation: URL: /auth/login.do; Attributes: [isAnonymous()]
+▶ DEBUG 14:13:16.897 [http-nio-9090-exec-43] org.springframework.security.web.access.intercept.FilterSecurityInterceptor[authenticateIfRequired:348] - Previously Authenticated: org.springframework.security.authentication.AnonymousAuthenticationToken@7817bb28: Principal: anonymousUser; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@b364: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: 81E4BD99984F14E7272BCB8355E8CF6A; Granted Authorities: ROLE_ANONYMOUS
+▶ DEBUG 14:13:16.897 [http-nio-9090-exec-43] org.springframework.security.access.vote.AffirmativeBased[decide:66] - Voter: org.springframework.security.web.access.expression.WebExpressionVoter@7c90a817, returned: 1
+▶ DEBUG 14:13:16.897 [http-nio-9090-exec-43] org.springframework.security.web.access.intercept.FilterSecurityInterceptor[beforeInvocation:243] - Authorization successful
+▶ DEBUG 14:13:16.897 [http-nio-9090-exec-43] org.springframework.security.web.access.intercept.FilterSecurityInterceptor[beforeInvocation:256] - RunAsManager did not change Authentication object
+▶ DEBUG 14:13:16.898 [http-nio-9090-exec-43] org.springframework.security.web.FilterChainProxy[doFilter:313] - /auth/login.do reached end of additional filter chain; proceeding with original chain
+▶ DEBUG 14:13:16.898 [http-nio-9090-exec-43] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/auth/login.do", parameters={}
+▶ DEBUG 14:13:16.898 [http-nio-9090-exec-43] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping[getHandler:412] - Mapped to com.web.auth.controller.AuthController#login(CommandMap, ModelAndView, HttpServletRequest)
+▶ DEBUG 14:13:16.898 [http-nio-9090-exec-43] com.web.auth.controller.AuthController[login:54] - ********************[BoardController]:[login:GET]********************
+▶ DEBUG 14:13:16.899 [http-nio-9090-exec-43] org.springframework.orm.hibernate5.HibernateTransactionManager[getTransaction:370] - Creating new transaction with name [com.web.common.menuList.MenuListDAO.getMenuList]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+▶ DEBUG 14:13:16.899 [http-nio-9090-exec-43] org.springframework.orm.hibernate5.HibernateTransactionManager[doBegin:466] - Opened new Session [SessionImpl(1571533466<open>)] for Hibernate transaction
+▶ DEBUG 14:13:16.899 [http-nio-9090-exec-43] org.hibernate.engine.transaction.internal.TransactionImpl[<init>:53] - On TransactionImpl creation, JpaCompliance#isJpaTransactionComplianceEnabled == false
+▶ DEBUG 14:13:16.899 [http-nio-9090-exec-43] org.hibernate.engine.transaction.internal.TransactionImpl[begin:81] - begin
+▶ DEBUG 14:13:16.905 [http-nio-9090-exec-43] org.springframework.orm.hibernate5.HibernateTransactionManager[doBegin:554] - Exposing Hibernate transaction as JDBC [org.springframework.orm.hibernate5.HibernateTransactionManager$$Lambda$1011/1903908460@79d690b4]
+▶ DEBUG 14:13:16.906 [http-nio-9090-exec-43] org.hibernate.SQL[logStatement:127] - 
+    SELECT
+        * 
+    FROM
+        menuList 
+    WHERE
+        listNo = 1
+▶ DEBUG 14:13:16.910 [http-nio-9090-exec-43] org.hibernate.loader.Loader[debugf:384] - Result set row: 0
+▶ DEBUG 14:13:16.911 [http-nio-9090-exec-43] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:16.912 [http-nio-9090-exec-43] org.hibernate.SQL[logStatement:127] - 
+    SELECT
+        * 
+    FROM
+        menuList 
+    WHERE
+        url = ?
+▶ DEBUG 14:13:16.916 [http-nio-9090-exec-43] org.hibernate.loader.Loader[debugf:384] - Result set row: 0
+▶ DEBUG 14:13:16.916 [http-nio-9090-exec-43] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:16.916 [http-nio-9090-exec-43] org.hibernate.SQL[logStatement:127] - 
+    SELECT
+        * 
+    FROM
+        menuList 
+    WHERE
+        url = ?
+▶ DEBUG 14:13:16.920 [http-nio-9090-exec-43] org.hibernate.loader.Loader[debugf:384] - Result set row: 0
+▶ DEBUG 14:13:16.920 [http-nio-9090-exec-43] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:16.921 [http-nio-9090-exec-43] org.hibernate.SQL[logStatement:127] - 
+    SELECT
+        * 
+    FROM
+        menuList 
+    WHERE
+        url = ?
+▶ DEBUG 14:13:16.925 [http-nio-9090-exec-43] org.hibernate.loader.Loader[debugf:384] - Result set row: 0
+▶ DEBUG 14:13:16.925 [http-nio-9090-exec-43] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:16.925 [http-nio-9090-exec-43] org.hibernate.SQL[logStatement:127] - 
+    SELECT
+        * 
+    FROM
+        menuList 
+    WHERE
+        url = ?
+▶ DEBUG 14:13:16.929 [http-nio-9090-exec-43] org.hibernate.loader.Loader[debugf:384] - Result set row: 0
+▶ DEBUG 14:13:16.929 [http-nio-9090-exec-43] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:16.929 [http-nio-9090-exec-43] org.springframework.orm.hibernate5.HibernateTransactionManager[processCommit:741] - Initiating transaction commit
+▶ DEBUG 14:13:16.929 [http-nio-9090-exec-43] org.springframework.orm.hibernate5.HibernateTransactionManager[doCommit:622] - Committing Hibernate transaction on Session [SessionImpl(1571533466<open>)]
+▶ DEBUG 14:13:16.930 [http-nio-9090-exec-43] org.hibernate.engine.transaction.internal.TransactionImpl[commit:98] - committing
+▶ DEBUG 14:13:16.936 [http-nio-9090-exec-43] org.springframework.orm.hibernate5.HibernateTransactionManager[doCleanupAfterCompletion:729] - Closing Hibernate Session [SessionImpl(1571533466<open>)] after transaction
+▶ DEBUG 14:13:16.936 [http-nio-9090-exec-43] org.springframework.orm.hibernate5.HibernateTransactionManager[getTransaction:370] - Creating new transaction with name [com.web.common.menuList.MenuListDAO.getMenuListAll]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+▶ DEBUG 14:13:16.936 [http-nio-9090-exec-43] org.springframework.orm.hibernate5.HibernateTransactionManager[doBegin:466] - Opened new Session [SessionImpl(646364204<open>)] for Hibernate transaction
+▶ DEBUG 14:13:16.937 [http-nio-9090-exec-43] org.hibernate.engine.transaction.internal.TransactionImpl[<init>:53] - On TransactionImpl creation, JpaCompliance#isJpaTransactionComplianceEnabled == false
+▶ DEBUG 14:13:16.937 [http-nio-9090-exec-43] org.hibernate.engine.transaction.internal.TransactionImpl[begin:81] - begin
+▶ DEBUG 14:13:16.943 [http-nio-9090-exec-43] org.springframework.orm.hibernate5.HibernateTransactionManager[doBegin:554] - Exposing Hibernate transaction as JDBC [org.springframework.orm.hibernate5.HibernateTransactionManager$$Lambda$1011/1903908460@74fecbc4]
+▶ DEBUG 14:13:16.944 [http-nio-9090-exec-43] org.hibernate.SQL[logStatement:127] - 
+    SELECT
+        * 
+    FROM
+        menuList
+▶ DEBUG 14:13:16.948 [http-nio-9090-exec-43] org.hibernate.loader.Loader[debugf:384] - Result set row: 0
+▶ DEBUG 14:13:16.948 [http-nio-9090-exec-43] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:16.948 [http-nio-9090-exec-43] org.hibernate.loader.Loader[debugf:384] - Result set row: 1
+▶ DEBUG 14:13:16.948 [http-nio-9090-exec-43] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:16.948 [http-nio-9090-exec-43] org.hibernate.loader.Loader[debugf:384] - Result set row: 2
+▶ DEBUG 14:13:16.949 [http-nio-9090-exec-43] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:16.949 [http-nio-9090-exec-43] org.hibernate.loader.Loader[debugf:384] - Result set row: 3
+▶ DEBUG 14:13:16.949 [http-nio-9090-exec-43] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:16.949 [http-nio-9090-exec-43] org.hibernate.loader.Loader[debugf:384] - Result set row: 4
+▶ DEBUG 14:13:16.949 [http-nio-9090-exec-43] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:16.949 [http-nio-9090-exec-43] org.hibernate.loader.Loader[debugf:384] - Result set row: 5
+▶ DEBUG 14:13:16.949 [http-nio-9090-exec-43] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:16.950 [http-nio-9090-exec-43] org.hibernate.loader.Loader[debugf:384] - Result set row: 6
+▶ DEBUG 14:13:16.950 [http-nio-9090-exec-43] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:16.950 [http-nio-9090-exec-43] org.hibernate.loader.Loader[debugf:384] - Result set row: 7
+▶ DEBUG 14:13:16.950 [http-nio-9090-exec-43] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:16.950 [http-nio-9090-exec-43] org.hibernate.loader.Loader[debugf:384] - Result set row: 8
+▶ DEBUG 14:13:16.950 [http-nio-9090-exec-43] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:16.951 [http-nio-9090-exec-43] org.hibernate.loader.Loader[debugf:384] - Result set row: 9
+▶ DEBUG 14:13:16.951 [http-nio-9090-exec-43] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:16.951 [http-nio-9090-exec-43] org.hibernate.loader.Loader[debugf:384] - Result set row: 10
+▶ DEBUG 14:13:16.951 [http-nio-9090-exec-43] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:16.951 [http-nio-9090-exec-43] org.hibernate.loader.Loader[debugf:384] - Result set row: 11
+▶ DEBUG 14:13:16.951 [http-nio-9090-exec-43] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:16.952 [http-nio-9090-exec-43] org.hibernate.loader.Loader[debugf:384] - Result set row: 12
+▶ DEBUG 14:13:16.952 [http-nio-9090-exec-43] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:16.952 [http-nio-9090-exec-43] org.springframework.orm.hibernate5.HibernateTransactionManager[processCommit:741] - Initiating transaction commit
+▶ DEBUG 14:13:16.952 [http-nio-9090-exec-43] org.springframework.orm.hibernate5.HibernateTransactionManager[doCommit:622] - Committing Hibernate transaction on Session [SessionImpl(646364204<open>)]
+▶ DEBUG 14:13:16.952 [http-nio-9090-exec-43] org.hibernate.engine.transaction.internal.TransactionImpl[commit:98] - committing
+▶ DEBUG 14:13:16.959 [http-nio-9090-exec-43] org.springframework.orm.hibernate5.HibernateTransactionManager[doCleanupAfterCompletion:729] - Closing Hibernate Session [SessionImpl(646364204<open>)] after transaction
+▶ DEBUG 14:13:16.960 [http-nio-9090-exec-43] org.springframework.web.servlet.view.ContentNegotiatingViewResolver[getBestView:348] - Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.9, */*;q=0.8]
+▶ DEBUG 14:13:16.960 [http-nio-9090-exec-43] org.springframework.web.servlet.view.tiles3.TilesView[render:310] - View name 'auth/login', model {modelAndView=ModelAndView [view="auth/login"; model={}], org.springframework.validation.BindingResult.modelAndView=org.springframework.validation.BeanPropertyBindingResult: 0 errors, menuList=[{depth=1, listNo=1, name=메인, viewYn=Y, type=user, url=/index, parentListNo=null}, {depth=2, listNo=6, name=인증, viewYn=N, type=user, url=/auth, parentListNo=1}, {depth=3, listNo=7, name=로그인, viewYn=N, type=user, url=/login, parentListNo=6}], menuTree={depth=1, children=[{depth=2, children=[{depth=3, listNo=3, name=글쓰기, viewYn=Y, type=user, url=/registBoard, parentListNo=2}, {depth=3, listNo=13, name=게시판 리스트, viewYn=Y, type=user, url=/boardList, parentListNo=2}], listNo=2, name=게시판, viewYn=Y, type=user, url=/board, parentListNo=1}], listNo=1, name=메인, viewYn=Y, type=user, url=/index}}
+▶ DEBUG 14:13:16.960 [http-nio-9090-exec-43] org.apache.tiles.impl.BasicTilesContainer[render:213] - Render request received for definition 'auth/login'
+▶ DEBUG 14:13:16.960 [http-nio-9090-exec-43] org.springframework.security.web.header.writers.HstsHeaderWriter[writeHeaders:169] - Not injecting HSTS header since it did not match the requestMatcher org.springframework.security.web.header.writers.HstsHeaderWriter$SecureRequestMatcher@29f5448a
+▶ DEBUG 14:13:16.961 [http-nio-9090-exec-43] org.springframework.security.web.context.HttpSessionSecurityContextRepository[saveContext:351] - SecurityContext is empty or contents are anonymous - context will not be stored in HttpSession.
+▶ DEBUG 14:13:16.961 [http-nio-9090-exec-43] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:16.961 [http-nio-9090-exec-43] org.springframework.security.web.access.ExceptionTranslationFilter[doFilter:120] - Chain processed normally
+▶ DEBUG 14:13:16.961 [http-nio-9090-exec-43] org.springframework.security.web.context.SecurityContextPersistenceFilter[doFilter:119] - SecurityContextHolder now cleared, as request processing completed
+▶ DEBUG 14:13:16.976 [http-nio-9090-exec-42] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/style/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css'; against '/images/**'
+▶ DEBUG 14:13:16.976 [http-nio-9090-exec-42] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/style/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css'; against '/js/**'
+▶ DEBUG 14:13:16.976 [http-nio-9090-exec-42] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/style/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css'; against '/publishing/**'
+▶ DEBUG 14:13:16.976 [http-nio-9090-exec-42] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/style/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css'; against '/style/**'
+▶ DEBUG 14:13:16.976 [http-nio-9090-exec-42] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /style/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css has an empty filter list
+▶ DEBUG 14:13:16.976 [http-nio-9090-exec-42] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/style/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css", parameters={}
+▶ DEBUG 14:13:16.976 [http-nio-9090-exec-42] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/style/"]
+▶ DEBUG 14:13:16.977 [http-nio-9090-exec-44] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/style/login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css'; against '/images/**'
+▶ DEBUG 14:13:16.978 [http-nio-9090-exec-44] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/style/login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css'; against '/js/**'
+▶ DEBUG 14:13:16.978 [http-nio-9090-exec-44] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/style/login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css'; against '/publishing/**'
+▶ DEBUG 14:13:16.978 [http-nio-9090-exec-35] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/lib/animate/animate.css'; against '/images/**'
+▶ DEBUG 14:13:16.978 [http-nio-9090-exec-35] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/lib/animate/animate.css'; against '/js/**'
+▶ DEBUG 14:13:16.978 [http-nio-9090-exec-35] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /js/lib/animate/animate.css has an empty filter list
+▶ DEBUG 14:13:16.978 [http-nio-9090-exec-35] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/js/lib/animate/animate.css", parameters={}
+▶ DEBUG 14:13:16.978 [http-nio-9090-exec-35] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/js/"]
+▶ DEBUG 14:13:16.979 [http-nio-9090-exec-41] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/lib/css-hamburgers/hamburgers.min.css'; against '/images/**'
+▶ DEBUG 14:13:16.979 [http-nio-9090-exec-41] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/lib/css-hamburgers/hamburgers.min.css'; against '/js/**'
+▶ DEBUG 14:13:16.979 [http-nio-9090-exec-41] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /js/lib/css-hamburgers/hamburgers.min.css has an empty filter list
+▶ DEBUG 14:13:16.979 [http-nio-9090-exec-41] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/js/lib/css-hamburgers/hamburgers.min.css", parameters={}
+▶ DEBUG 14:13:16.979 [http-nio-9090-exec-41] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/js/"]
+▶ DEBUG 14:13:16.978 [http-nio-9090-exec-44] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/style/login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css'; against '/style/**'
+▶ DEBUG 14:13:16.980 [http-nio-9090-exec-44] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /style/login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css has an empty filter list
+▶ DEBUG 14:13:16.980 [http-nio-9090-exec-44] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/style/login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css", parameters={}
+▶ DEBUG 14:13:16.980 [http-nio-9090-exec-44] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/style/"]
+▶ DEBUG 14:13:16.981 [http-nio-9090-exec-36] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/lib/animsition/css/animsition.min.css'; against '/images/**'
+▶ DEBUG 14:13:16.981 [http-nio-9090-exec-36] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/lib/animsition/css/animsition.min.css'; against '/js/**'
+▶ DEBUG 14:13:16.982 [http-nio-9090-exec-36] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /js/lib/animsition/css/animsition.min.css has an empty filter list
+▶ DEBUG 14:13:16.982 [http-nio-9090-exec-36] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/js/lib/animsition/css/animsition.min.css", parameters={}
+▶ DEBUG 14:13:16.982 [http-nio-9090-exec-36] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/js/"]
+▶ DEBUG 14:13:16.981 [http-nio-9090-exec-38] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/lib/select2/select2.min.css'; against '/images/**'
+▶ DEBUG 14:13:16.982 [http-nio-9090-exec-38] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/lib/select2/select2.min.css'; against '/js/**'
+▶ DEBUG 14:13:16.982 [http-nio-9090-exec-38] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /js/lib/select2/select2.min.css has an empty filter list
+▶ DEBUG 14:13:16.982 [http-nio-9090-exec-38] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/js/lib/select2/select2.min.css", parameters={}
+▶ DEBUG 14:13:16.982 [http-nio-9090-exec-38] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/js/"]
+▶ DEBUG 14:13:16.987 [http-nio-9090-exec-41] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:16.987 [http-nio-9090-exec-35] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:16.991 [http-nio-9090-exec-38] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:16.992 [http-nio-9090-exec-44] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:16.993 [http-nio-9090-exec-44] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/lib/daterangepicker/daterangepicker.css'; against '/images/**'
+▶ DEBUG 14:13:16.993 [http-nio-9090-exec-44] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/lib/daterangepicker/daterangepicker.css'; against '/js/**'
+▶ DEBUG 14:13:16.993 [http-nio-9090-exec-44] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /js/lib/daterangepicker/daterangepicker.css has an empty filter list
+▶ DEBUG 14:13:16.993 [http-nio-9090-exec-44] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/js/lib/daterangepicker/daterangepicker.css", parameters={}
+▶ DEBUG 14:13:16.993 [http-nio-9090-exec-44] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/js/"]
+▶ DEBUG 14:13:16.994 [http-nio-9090-exec-37] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/style/login/css/util.css'; against '/images/**'
+▶ DEBUG 14:13:16.994 [http-nio-9090-exec-37] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/style/login/css/util.css'; against '/js/**'
+▶ DEBUG 14:13:16.994 [http-nio-9090-exec-37] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/style/login/css/util.css'; against '/publishing/**'
+▶ DEBUG 14:13:16.994 [http-nio-9090-exec-37] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/style/login/css/util.css'; against '/style/**'
+▶ DEBUG 14:13:16.994 [http-nio-9090-exec-37] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /style/login/css/util.css has an empty filter list
+▶ DEBUG 14:13:16.994 [http-nio-9090-exec-37] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/style/login/css/util.css", parameters={}
+▶ DEBUG 14:13:16.994 [http-nio-9090-exec-37] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/style/"]
+▶ DEBUG 14:13:16.995 [http-nio-9090-exec-36] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:16.997 [http-nio-9090-exec-42] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:16.999 [http-nio-9090-exec-40] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/style/login/css/main.css'; against '/images/**'
+▶ DEBUG 14:13:16.999 [http-nio-9090-exec-40] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/style/login/css/main.css'; against '/js/**'
+▶ DEBUG 14:13:16.999 [http-nio-9090-exec-40] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/style/login/css/main.css'; against '/publishing/**'
+▶ DEBUG 14:13:16.999 [http-nio-9090-exec-40] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/style/login/css/main.css'; against '/style/**'
+▶ DEBUG 14:13:16.999 [http-nio-9090-exec-40] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /style/login/css/main.css has an empty filter list
+▶ DEBUG 14:13:16.999 [http-nio-9090-exec-40] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/style/login/css/main.css", parameters={}
+▶ DEBUG 14:13:16.999 [http-nio-9090-exec-40] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/style/"]
+▶ DEBUG 14:13:17.000 [http-nio-9090-exec-44] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:17.004 [http-nio-9090-exec-40] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:17.005 [http-nio-9090-exec-43] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/lib/jquery/jquery-ui.css'; against '/images/**'
+▶ DEBUG 14:13:17.005 [http-nio-9090-exec-43] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/lib/jquery/jquery-ui.css'; against '/js/**'
+▶ DEBUG 14:13:17.006 [http-nio-9090-exec-43] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /js/lib/jquery/jquery-ui.css has an empty filter list
+▶ DEBUG 14:13:17.006 [http-nio-9090-exec-43] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/js/lib/jquery/jquery-ui.css", parameters={}
+▶ DEBUG 14:13:17.006 [http-nio-9090-exec-43] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/js/"]
+▶ DEBUG 14:13:17.007 [http-nio-9090-exec-40] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/lib/summernote/summernote.css'; against '/images/**'
+▶ DEBUG 14:13:17.009 [http-nio-9090-exec-40] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/lib/summernote/summernote.css'; against '/js/**'
+▶ DEBUG 14:13:17.011 [http-nio-9090-exec-40] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /js/lib/summernote/summernote.css has an empty filter list
+▶ DEBUG 14:13:17.011 [http-nio-9090-exec-40] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/js/lib/summernote/summernote.css", parameters={}
+▶ DEBUG 14:13:17.011 [http-nio-9090-exec-40] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/js/"]
+▶ DEBUG 14:13:17.010 [http-nio-9090-exec-37] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:17.013 [http-nio-9090-exec-43] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:17.016 [http-nio-9090-exec-40] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:17.028 [http-nio-9090-exec-35] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/images/login/images/bg-01.jpg'; against '/images/**'
+▶ DEBUG 14:13:17.028 [http-nio-9090-exec-35] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /images/login/images/bg-01.jpg has an empty filter list
+▶ DEBUG 14:13:17.028 [http-nio-9090-exec-35] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/images/login/images/bg-01.jpg", parameters={}
+▶ DEBUG 14:13:17.029 [http-nio-9090-exec-35] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/images/"]
+▶ DEBUG 14:13:17.035 [http-nio-9090-exec-35] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:17.038 [http-nio-9090-exec-38] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/style/login/fonts/montserrat/Montserrat-Regular.ttf'; against '/images/**'
+▶ DEBUG 14:13:17.038 [http-nio-9090-exec-38] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/style/login/fonts/montserrat/Montserrat-Regular.ttf'; against '/js/**'
+▶ DEBUG 14:13:17.038 [http-nio-9090-exec-36] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/style/login/fonts/montserrat/Montserrat-Bold.ttf'; against '/images/**'
+▶ DEBUG 14:13:17.038 [http-nio-9090-exec-39] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/style/login/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.woff2'; against '/images/**'
+▶ DEBUG 14:13:17.038 [http-nio-9090-exec-38] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/style/login/fonts/montserrat/Montserrat-Regular.ttf'; against '/publishing/**'
+▶ DEBUG 14:13:17.038 [http-nio-9090-exec-36] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/style/login/fonts/montserrat/Montserrat-Bold.ttf'; against '/js/**'
+▶ DEBUG 14:13:17.038 [http-nio-9090-exec-39] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/style/login/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.woff2'; against '/js/**'
+▶ DEBUG 14:13:17.038 [http-nio-9090-exec-38] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/style/login/fonts/montserrat/Montserrat-Regular.ttf'; against '/style/**'
+▶ DEBUG 14:13:17.038 [http-nio-9090-exec-36] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/style/login/fonts/montserrat/Montserrat-Bold.ttf'; against '/publishing/**'
+▶ DEBUG 14:13:17.038 [http-nio-9090-exec-39] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/style/login/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.woff2'; against '/publishing/**'
+▶ DEBUG 14:13:17.038 [http-nio-9090-exec-38] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /style/login/fonts/montserrat/Montserrat-Regular.ttf has an empty filter list
+▶ DEBUG 14:13:17.038 [http-nio-9090-exec-36] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/style/login/fonts/montserrat/Montserrat-Bold.ttf'; against '/style/**'
+▶ DEBUG 14:13:17.038 [http-nio-9090-exec-39] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/style/login/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.woff2'; against '/style/**'
+▶ DEBUG 14:13:17.038 [http-nio-9090-exec-36] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /style/login/fonts/montserrat/Montserrat-Bold.ttf has an empty filter list
+▶ DEBUG 14:13:17.038 [http-nio-9090-exec-39] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /style/login/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0 has an empty filter list
+▶ DEBUG 14:13:17.039 [http-nio-9090-exec-39] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/style/login/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0", parameters={masked}
+▶ DEBUG 14:13:17.038 [http-nio-9090-exec-38] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/style/login/fonts/montserrat/Montserrat-Regular.ttf", parameters={}
+▶ DEBUG 14:13:17.039 [http-nio-9090-exec-39] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/style/"]
+▶ DEBUG 14:13:17.039 [http-nio-9090-exec-38] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/style/"]
+▶ DEBUG 14:13:17.038 [http-nio-9090-exec-36] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/style/login/fonts/montserrat/Montserrat-Bold.ttf", parameters={}
+▶ DEBUG 14:13:17.039 [http-nio-9090-exec-36] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/style/"]
+▶ DEBUG 14:13:17.043 [http-nio-9090-exec-42] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/lib/jquery/jquery-cookie.min.js'; against '/images/**'
+▶ DEBUG 14:13:17.044 [http-nio-9090-exec-42] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/lib/jquery/jquery-cookie.min.js'; against '/js/**'
+▶ DEBUG 14:13:17.044 [http-nio-9090-exec-42] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /js/lib/jquery/jquery-cookie.min.js has an empty filter list
+▶ DEBUG 14:13:17.044 [http-nio-9090-exec-42] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/js/lib/jquery/jquery-cookie.min.js", parameters={}
+▶ DEBUG 14:13:17.044 [http-nio-9090-exec-42] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/js/"]
+▶ DEBUG 14:13:17.046 [http-nio-9090-exec-44] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/lib/animsition/js/animsition.min.js'; against '/images/**'
+▶ DEBUG 14:13:17.046 [http-nio-9090-exec-44] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/lib/animsition/js/animsition.min.js'; against '/js/**'
+▶ DEBUG 14:13:17.046 [http-nio-9090-exec-44] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /js/lib/animsition/js/animsition.min.js has an empty filter list
+▶ DEBUG 14:13:17.046 [http-nio-9090-exec-44] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/js/lib/animsition/js/animsition.min.js", parameters={}
+▶ DEBUG 14:13:17.046 [http-nio-9090-exec-44] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/js/"]
+▶ DEBUG 14:13:17.052 [http-nio-9090-exec-42] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:17.054 [http-nio-9090-exec-36] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:17.057 [http-nio-9090-exec-41] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/lib/select2/select2.min.js'; against '/images/**'
+▶ DEBUG 14:13:17.057 [http-nio-9090-exec-41] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/lib/select2/select2.min.js'; against '/js/**'
+▶ DEBUG 14:13:17.057 [http-nio-9090-exec-41] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /js/lib/select2/select2.min.js has an empty filter list
+▶ DEBUG 14:13:17.057 [http-nio-9090-exec-41] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/js/lib/select2/select2.min.js", parameters={}
+▶ DEBUG 14:13:17.058 [http-nio-9090-exec-41] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/js/"]
+▶ DEBUG 14:13:17.059 [http-nio-9090-exec-38] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:17.061 [http-nio-9090-exec-39] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:17.062 [http-nio-9090-exec-44] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:17.064 [http-nio-9090-exec-41] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:17.065 [http-nio-9090-exec-43] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/lib/daterangepicker/daterangepicker.js'; against '/images/**'
+▶ DEBUG 14:13:17.065 [http-nio-9090-exec-37] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/lib/daterangepicker/moment.min.js'; against '/images/**'
+▶ DEBUG 14:13:17.066 [http-nio-9090-exec-43] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/lib/daterangepicker/daterangepicker.js'; against '/js/**'
+▶ DEBUG 14:13:17.066 [http-nio-9090-exec-37] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/lib/daterangepicker/moment.min.js'; against '/js/**'
+▶ DEBUG 14:13:17.066 [http-nio-9090-exec-43] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /js/lib/daterangepicker/daterangepicker.js has an empty filter list
+▶ DEBUG 14:13:17.066 [http-nio-9090-exec-37] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /js/lib/daterangepicker/moment.min.js has an empty filter list
+▶ DEBUG 14:13:17.066 [http-nio-9090-exec-43] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/js/lib/daterangepicker/daterangepicker.js", parameters={}
+▶ DEBUG 14:13:17.066 [http-nio-9090-exec-37] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/js/lib/daterangepicker/moment.min.js", parameters={}
+▶ DEBUG 14:13:17.066 [http-nio-9090-exec-43] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/js/"]
+▶ DEBUG 14:13:17.066 [http-nio-9090-exec-37] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/js/"]
+▶ DEBUG 14:13:17.070 [http-nio-9090-exec-43] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:17.070 [http-nio-9090-exec-37] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:17.087 [http-nio-9090-exec-40] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/common/countdowntime/countdowntime.js'; against '/images/**'
+▶ DEBUG 14:13:17.087 [http-nio-9090-exec-40] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/common/countdowntime/countdowntime.js'; against '/js/**'
+▶ DEBUG 14:13:17.087 [http-nio-9090-exec-40] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /js/common/countdowntime/countdowntime.js has an empty filter list
+▶ DEBUG 14:13:17.087 [http-nio-9090-exec-35] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/common/datepicker/setDatepickerKor.js'; against '/images/**'
+▶ DEBUG 14:13:17.087 [http-nio-9090-exec-40] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/js/common/countdowntime/countdowntime.js", parameters={}
+▶ DEBUG 14:13:17.088 [http-nio-9090-exec-35] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/common/datepicker/setDatepickerKor.js'; against '/js/**'
+▶ DEBUG 14:13:17.088 [http-nio-9090-exec-35] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /js/common/datepicker/setDatepickerKor.js has an empty filter list
+▶ DEBUG 14:13:17.088 [http-nio-9090-exec-40] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/js/"]
+▶ DEBUG 14:13:17.088 [http-nio-9090-exec-35] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/js/common/datepicker/setDatepickerKor.js", parameters={}
+▶ DEBUG 14:13:17.088 [http-nio-9090-exec-35] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/js/"]
+▶ DEBUG 14:13:17.094 [http-nio-9090-exec-40] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:17.095 [http-nio-9090-exec-35] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:17.118 [http-nio-9090-exec-42] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/images/login/images/icons/favicon.ico'; against '/images/**'
+▶ DEBUG 14:13:17.118 [http-nio-9090-exec-42] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /images/login/images/icons/favicon.ico has an empty filter list
+▶ DEBUG 14:13:17.119 [http-nio-9090-exec-42] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/images/login/images/icons/favicon.ico", parameters={}
+▶ DEBUG 14:13:17.119 [http-nio-9090-exec-42] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/images/"]
+▶ DEBUG 14:13:17.124 [http-nio-9090-exec-36] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/web/auth/auth.js'; against '/images/**'
+▶ DEBUG 14:13:17.124 [http-nio-9090-exec-36] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/web/auth/auth.js'; against '/js/**'
+▶ DEBUG 14:13:17.124 [http-nio-9090-exec-36] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /js/web/auth/auth.js has an empty filter list
+▶ DEBUG 14:13:17.124 [http-nio-9090-exec-36] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/js/web/auth/auth.js", parameters={}
+▶ DEBUG 14:13:17.125 [http-nio-9090-exec-36] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/js/"]
+▶ DEBUG 14:13:17.129 [http-nio-9090-exec-42] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:17.130 [http-nio-9090-exec-36] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:17.140 [http-nio-9090-exec-38] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/web/auth/login.js'; against '/images/**'
+▶ DEBUG 14:13:17.140 [http-nio-9090-exec-38] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/web/auth/login.js'; against '/js/**'
+▶ DEBUG 14:13:17.140 [http-nio-9090-exec-38] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /js/web/auth/login.js has an empty filter list
+▶ DEBUG 14:13:17.140 [http-nio-9090-exec-38] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/js/web/auth/login.js", parameters={}
+▶ DEBUG 14:13:17.141 [http-nio-9090-exec-38] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/js/"]
+▶ DEBUG 14:13:17.144 [http-nio-9090-exec-38] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:17.152 [http-nio-9090-exec-39] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/common/util/domUtil.js'; against '/images/**'
+▶ DEBUG 14:13:17.152 [http-nio-9090-exec-39] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/common/util/domUtil.js'; against '/js/**'
+▶ DEBUG 14:13:17.152 [http-nio-9090-exec-39] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /js/common/util/domUtil.js has an empty filter list
+▶ DEBUG 14:13:17.153 [http-nio-9090-exec-39] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/js/common/util/domUtil.js", parameters={}
+▶ DEBUG 14:13:17.153 [http-nio-9090-exec-39] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/js/"]
+▶ DEBUG 14:13:17.157 [http-nio-9090-exec-39] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:18.924 [http-nio-9090-exec-44] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/auth/join.do'; against '/images/**'
+▶ DEBUG 14:13:18.924 [http-nio-9090-exec-44] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/auth/join.do'; against '/js/**'
+▶ DEBUG 14:13:18.924 [http-nio-9090-exec-44] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/auth/join.do'; against '/publishing/**'
+▶ DEBUG 14:13:18.924 [http-nio-9090-exec-44] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/auth/join.do'; against '/style/**'
+▶ DEBUG 14:13:18.924 [http-nio-9090-exec-44] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/auth/join.do'; against '/lib/**'
+▶ DEBUG 14:13:18.924 [http-nio-9090-exec-44] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/auth/join.do'; against '/thumb/**'
+▶ DEBUG 14:13:18.924 [http-nio-9090-exec-44] org.springframework.security.web.FilterChainProxy[doFilter:328] - /auth/join.do at position 1 of 14 in additional filter chain; firing Filter: 'SecurityContextPersistenceFilter'
+▶ DEBUG 14:13:18.925 [http-nio-9090-exec-44] org.springframework.security.web.context.HttpSessionSecurityContextRepository[readSecurityContextFromSession:185] - HttpSession returned null object for SPRING_SECURITY_CONTEXT
+▶ DEBUG 14:13:18.925 [http-nio-9090-exec-44] org.springframework.security.web.context.HttpSessionSecurityContextRepository[loadContext:117] - No SecurityContext was available from the HttpSession: org.apache.catalina.session.StandardSessionFacade@25dfb76f. A new one will be created.
+▶ DEBUG 14:13:18.925 [http-nio-9090-exec-44] org.springframework.security.web.FilterChainProxy[doFilter:328] - /auth/join.do at position 2 of 14 in additional filter chain; firing Filter: 'ConcurrentSessionFilter'
+▶ DEBUG 14:13:18.925 [http-nio-9090-exec-44] org.springframework.security.web.FilterChainProxy[doFilter:328] - /auth/join.do at position 3 of 14 in additional filter chain; firing Filter: 'WebAsyncManagerIntegrationFilter'
+▶ DEBUG 14:13:18.925 [http-nio-9090-exec-44] org.springframework.security.web.FilterChainProxy[doFilter:328] - /auth/join.do at position 4 of 14 in additional filter chain; firing Filter: 'HeaderWriterFilter'
+▶ DEBUG 14:13:18.925 [http-nio-9090-exec-44] org.springframework.security.web.FilterChainProxy[doFilter:328] - /auth/join.do at position 5 of 14 in additional filter chain; firing Filter: 'CsrfFilter'
+▶ DEBUG 14:13:18.925 [http-nio-9090-exec-44] org.springframework.security.web.FilterChainProxy[doFilter:328] - /auth/join.do at position 6 of 14 in additional filter chain; firing Filter: 'LogoutFilter'
+▶ DEBUG 14:13:18.925 [http-nio-9090-exec-44] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:157] - Request 'GET /auth/join.do' doesn't match 'POST /auth/logout.do'
+▶ DEBUG 14:13:18.925 [http-nio-9090-exec-44] org.springframework.security.web.FilterChainProxy[doFilter:328] - /auth/join.do at position 7 of 14 in additional filter chain; firing Filter: 'UsernamePasswordAuthenticationFilter'
+▶ DEBUG 14:13:18.926 [http-nio-9090-exec-44] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:157] - Request 'GET /auth/join.do' doesn't match 'POST /auth/loginCheck.do'
+▶ DEBUG 14:13:18.926 [http-nio-9090-exec-44] org.springframework.security.web.FilterChainProxy[doFilter:328] - /auth/join.do at position 8 of 14 in additional filter chain; firing Filter: 'BasicAuthenticationFilter'
+▶ DEBUG 14:13:18.926 [http-nio-9090-exec-44] org.springframework.security.web.FilterChainProxy[doFilter:328] - /auth/join.do at position 9 of 14 in additional filter chain; firing Filter: 'RequestCacheAwareFilter'
+▶ DEBUG 14:13:18.926 [http-nio-9090-exec-44] org.springframework.security.web.savedrequest.DefaultSavedRequest[propertyEquals:359] - pathInfo: both null (property equals)
+▶ DEBUG 14:13:18.926 [http-nio-9090-exec-44] org.springframework.security.web.savedrequest.DefaultSavedRequest[propertyEquals:359] - queryString: both null (property equals)
+▶ DEBUG 14:13:18.926 [http-nio-9090-exec-44] org.springframework.security.web.savedrequest.DefaultSavedRequest[propertyEquals:383] - requestURI: arg1=/board/registBoard.do; arg2=/auth/join.do (property not equals)
+▶ DEBUG 14:13:18.926 [http-nio-9090-exec-44] org.springframework.security.web.savedrequest.HttpSessionRequestCache[getMatchingRequest:95] - saved request doesn't match
+▶ DEBUG 14:13:18.926 [http-nio-9090-exec-44] org.springframework.security.web.FilterChainProxy[doFilter:328] - /auth/join.do at position 10 of 14 in additional filter chain; firing Filter: 'SecurityContextHolderAwareRequestFilter'
+▶ DEBUG 14:13:18.926 [http-nio-9090-exec-44] org.springframework.security.web.FilterChainProxy[doFilter:328] - /auth/join.do at position 11 of 14 in additional filter chain; firing Filter: 'AnonymousAuthenticationFilter'
+▶ DEBUG 14:13:18.926 [http-nio-9090-exec-44] org.springframework.security.web.authentication.AnonymousAuthenticationFilter[doFilter:100] - Populated SecurityContextHolder with anonymous token: 'org.springframework.security.authentication.AnonymousAuthenticationToken@7817bb28: Principal: anonymousUser; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@b364: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: 81E4BD99984F14E7272BCB8355E8CF6A; Granted Authorities: ROLE_ANONYMOUS'
+▶ DEBUG 14:13:18.927 [http-nio-9090-exec-44] org.springframework.security.web.FilterChainProxy[doFilter:328] - /auth/join.do at position 12 of 14 in additional filter chain; firing Filter: 'SessionManagementFilter'
+▶ DEBUG 14:13:18.927 [http-nio-9090-exec-44] org.springframework.security.web.FilterChainProxy[doFilter:328] - /auth/join.do at position 13 of 14 in additional filter chain; firing Filter: 'ExceptionTranslationFilter'
+▶ DEBUG 14:13:18.927 [http-nio-9090-exec-44] org.springframework.security.web.FilterChainProxy[doFilter:328] - /auth/join.do at position 14 of 14 in additional filter chain; firing Filter: 'FilterSecurityInterceptor'
+▶ DEBUG 14:13:18.927 [http-nio-9090-exec-44] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/auth/join.do'; against '/index.do'
+▶ DEBUG 14:13:18.927 [http-nio-9090-exec-44] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/auth/join.do'; against '/auth/*.do'
+▶ DEBUG 14:13:18.927 [http-nio-9090-exec-44] org.springframework.security.web.access.intercept.FilterSecurityInterceptor[beforeInvocation:219] - Secure object: FilterInvocation: URL: /auth/join.do; Attributes: [isAnonymous()]
+▶ DEBUG 14:13:18.927 [http-nio-9090-exec-44] org.springframework.security.web.access.intercept.FilterSecurityInterceptor[authenticateIfRequired:348] - Previously Authenticated: org.springframework.security.authentication.AnonymousAuthenticationToken@7817bb28: Principal: anonymousUser; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@b364: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: 81E4BD99984F14E7272BCB8355E8CF6A; Granted Authorities: ROLE_ANONYMOUS
+▶ DEBUG 14:13:18.928 [http-nio-9090-exec-44] org.springframework.security.access.vote.AffirmativeBased[decide:66] - Voter: org.springframework.security.web.access.expression.WebExpressionVoter@7c90a817, returned: 1
+▶ DEBUG 14:13:18.928 [http-nio-9090-exec-44] org.springframework.security.web.access.intercept.FilterSecurityInterceptor[beforeInvocation:243] - Authorization successful
+▶ DEBUG 14:13:18.928 [http-nio-9090-exec-44] org.springframework.security.web.access.intercept.FilterSecurityInterceptor[beforeInvocation:256] - RunAsManager did not change Authentication object
+▶ DEBUG 14:13:18.928 [http-nio-9090-exec-44] org.springframework.security.web.FilterChainProxy[doFilter:313] - /auth/join.do reached end of additional filter chain; proceeding with original chain
+▶ DEBUG 14:13:18.928 [http-nio-9090-exec-44] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/auth/join.do", parameters={}
+▶ DEBUG 14:13:18.928 [http-nio-9090-exec-44] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping[getHandler:412] - Mapped to com.web.auth.controller.AuthController#join(ModelAndView)
+▶ DEBUG 14:13:18.929 [http-nio-9090-exec-44] com.web.auth.controller.AuthController[join:69] - ********************[BoardController]:[join:GET]********************
+▶ DEBUG 14:13:18.929 [http-nio-9090-exec-44] org.springframework.orm.hibernate5.HibernateTransactionManager[getTransaction:370] - Creating new transaction with name [com.web.common.menuList.MenuListDAO.getMenuList]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+▶ DEBUG 14:13:18.930 [http-nio-9090-exec-44] org.springframework.orm.hibernate5.HibernateTransactionManager[doBegin:466] - Opened new Session [SessionImpl(689020020<open>)] for Hibernate transaction
+▶ DEBUG 14:13:18.930 [http-nio-9090-exec-44] org.hibernate.engine.transaction.internal.TransactionImpl[<init>:53] - On TransactionImpl creation, JpaCompliance#isJpaTransactionComplianceEnabled == false
+▶ DEBUG 14:13:18.930 [http-nio-9090-exec-44] org.hibernate.engine.transaction.internal.TransactionImpl[begin:81] - begin
+▶ DEBUG 14:13:18.936 [http-nio-9090-exec-44] org.springframework.orm.hibernate5.HibernateTransactionManager[doBegin:554] - Exposing Hibernate transaction as JDBC [org.springframework.orm.hibernate5.HibernateTransactionManager$$Lambda$1011/1903908460@c0e02f3]
+▶ DEBUG 14:13:18.937 [http-nio-9090-exec-44] org.hibernate.SQL[logStatement:127] - 
+    SELECT
+        * 
+    FROM
+        menuList 
+    WHERE
+        listNo = 1
+▶ DEBUG 14:13:18.941 [http-nio-9090-exec-44] org.hibernate.loader.Loader[debugf:384] - Result set row: 0
+▶ DEBUG 14:13:18.941 [http-nio-9090-exec-44] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:18.942 [http-nio-9090-exec-44] org.hibernate.SQL[logStatement:127] - 
+    SELECT
+        * 
+    FROM
+        menuList 
+    WHERE
+        url = ?
+▶ DEBUG 14:13:18.945 [http-nio-9090-exec-44] org.hibernate.loader.Loader[debugf:384] - Result set row: 0
+▶ DEBUG 14:13:18.946 [http-nio-9090-exec-44] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:18.946 [http-nio-9090-exec-44] org.hibernate.SQL[logStatement:127] - 
+    SELECT
+        * 
+    FROM
+        menuList 
+    WHERE
+        url = ?
+▶ DEBUG 14:13:18.950 [http-nio-9090-exec-44] org.hibernate.loader.Loader[debugf:384] - Result set row: 0
+▶ DEBUG 14:13:18.950 [http-nio-9090-exec-44] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:18.950 [http-nio-9090-exec-44] org.hibernate.SQL[logStatement:127] - 
+    SELECT
+        * 
+    FROM
+        menuList 
+    WHERE
+        url = ?
+▶ DEBUG 14:13:18.954 [http-nio-9090-exec-44] org.hibernate.loader.Loader[debugf:384] - Result set row: 0
+▶ DEBUG 14:13:18.955 [http-nio-9090-exec-44] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:18.955 [http-nio-9090-exec-44] org.hibernate.SQL[logStatement:127] - 
+    SELECT
+        * 
+    FROM
+        menuList 
+    WHERE
+        url = ?
+▶ DEBUG 14:13:18.959 [http-nio-9090-exec-44] org.hibernate.loader.Loader[debugf:384] - Result set row: 0
+▶ DEBUG 14:13:18.959 [http-nio-9090-exec-44] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:18.960 [http-nio-9090-exec-44] org.springframework.orm.hibernate5.HibernateTransactionManager[processCommit:741] - Initiating transaction commit
+▶ DEBUG 14:13:18.960 [http-nio-9090-exec-44] org.springframework.orm.hibernate5.HibernateTransactionManager[doCommit:622] - Committing Hibernate transaction on Session [SessionImpl(689020020<open>)]
+▶ DEBUG 14:13:18.960 [http-nio-9090-exec-44] org.hibernate.engine.transaction.internal.TransactionImpl[commit:98] - committing
+▶ DEBUG 14:13:18.966 [http-nio-9090-exec-44] org.springframework.orm.hibernate5.HibernateTransactionManager[doCleanupAfterCompletion:729] - Closing Hibernate Session [SessionImpl(689020020<open>)] after transaction
+▶ DEBUG 14:13:18.966 [http-nio-9090-exec-44] org.springframework.orm.hibernate5.HibernateTransactionManager[getTransaction:370] - Creating new transaction with name [com.web.common.menuList.MenuListDAO.getMenuListAll]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+▶ DEBUG 14:13:18.967 [http-nio-9090-exec-44] org.springframework.orm.hibernate5.HibernateTransactionManager[doBegin:466] - Opened new Session [SessionImpl(774820597<open>)] for Hibernate transaction
+▶ DEBUG 14:13:18.967 [http-nio-9090-exec-44] org.hibernate.engine.transaction.internal.TransactionImpl[<init>:53] - On TransactionImpl creation, JpaCompliance#isJpaTransactionComplianceEnabled == false
+▶ DEBUG 14:13:18.967 [http-nio-9090-exec-44] org.hibernate.engine.transaction.internal.TransactionImpl[begin:81] - begin
+▶ DEBUG 14:13:18.973 [http-nio-9090-exec-44] org.springframework.orm.hibernate5.HibernateTransactionManager[doBegin:554] - Exposing Hibernate transaction as JDBC [org.springframework.orm.hibernate5.HibernateTransactionManager$$Lambda$1011/1903908460@25ece863]
+▶ DEBUG 14:13:18.974 [http-nio-9090-exec-44] org.hibernate.SQL[logStatement:127] - 
+    SELECT
+        * 
+    FROM
+        menuList
+▶ DEBUG 14:13:18.978 [http-nio-9090-exec-44] org.hibernate.loader.Loader[debugf:384] - Result set row: 0
+▶ DEBUG 14:13:18.978 [http-nio-9090-exec-44] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:18.979 [http-nio-9090-exec-44] org.hibernate.loader.Loader[debugf:384] - Result set row: 1
+▶ DEBUG 14:13:18.979 [http-nio-9090-exec-44] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:18.979 [http-nio-9090-exec-44] org.hibernate.loader.Loader[debugf:384] - Result set row: 2
+▶ DEBUG 14:13:18.979 [http-nio-9090-exec-44] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:18.979 [http-nio-9090-exec-44] org.hibernate.loader.Loader[debugf:384] - Result set row: 3
+▶ DEBUG 14:13:18.979 [http-nio-9090-exec-44] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:18.979 [http-nio-9090-exec-44] org.hibernate.loader.Loader[debugf:384] - Result set row: 4
+▶ DEBUG 14:13:18.980 [http-nio-9090-exec-44] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:18.980 [http-nio-9090-exec-44] org.hibernate.loader.Loader[debugf:384] - Result set row: 5
+▶ DEBUG 14:13:18.980 [http-nio-9090-exec-44] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:18.980 [http-nio-9090-exec-44] org.hibernate.loader.Loader[debugf:384] - Result set row: 6
+▶ DEBUG 14:13:18.980 [http-nio-9090-exec-44] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:18.980 [http-nio-9090-exec-44] org.hibernate.loader.Loader[debugf:384] - Result set row: 7
+▶ DEBUG 14:13:18.980 [http-nio-9090-exec-44] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:18.981 [http-nio-9090-exec-44] org.hibernate.loader.Loader[debugf:384] - Result set row: 8
+▶ DEBUG 14:13:18.981 [http-nio-9090-exec-44] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:18.981 [http-nio-9090-exec-44] org.hibernate.loader.Loader[debugf:384] - Result set row: 9
+▶ DEBUG 14:13:18.981 [http-nio-9090-exec-44] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:18.981 [http-nio-9090-exec-44] org.hibernate.loader.Loader[debugf:384] - Result set row: 10
+▶ DEBUG 14:13:18.981 [http-nio-9090-exec-44] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:18.981 [http-nio-9090-exec-44] org.hibernate.loader.Loader[debugf:384] - Result set row: 11
+▶ DEBUG 14:13:18.982 [http-nio-9090-exec-44] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:18.982 [http-nio-9090-exec-44] org.hibernate.loader.Loader[debugf:384] - Result set row: 12
+▶ DEBUG 14:13:18.982 [http-nio-9090-exec-44] org.hibernate.loader.Loader[getRow:1586] - Result row: 
+▶ DEBUG 14:13:18.982 [http-nio-9090-exec-44] org.springframework.orm.hibernate5.HibernateTransactionManager[processCommit:741] - Initiating transaction commit
+▶ DEBUG 14:13:18.982 [http-nio-9090-exec-44] org.springframework.orm.hibernate5.HibernateTransactionManager[doCommit:622] - Committing Hibernate transaction on Session [SessionImpl(774820597<open>)]
+▶ DEBUG 14:13:18.983 [http-nio-9090-exec-44] org.hibernate.engine.transaction.internal.TransactionImpl[commit:98] - committing
+▶ DEBUG 14:13:18.989 [http-nio-9090-exec-44] org.springframework.orm.hibernate5.HibernateTransactionManager[doCleanupAfterCompletion:729] - Closing Hibernate Session [SessionImpl(774820597<open>)] after transaction
+▶ DEBUG 14:13:18.990 [http-nio-9090-exec-44] org.springframework.web.servlet.view.ContentNegotiatingViewResolver[getBestView:348] - Selected 'text/html' given [text/html, application/xhtml+xml, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.9, */*;q=0.8]
+▶ DEBUG 14:13:18.991 [http-nio-9090-exec-44] org.springframework.web.servlet.view.tiles3.TilesView[render:310] - View name 'auth/join', model {modelAndView=ModelAndView [view="auth/join"; model={}], org.springframework.validation.BindingResult.modelAndView=org.springframework.validation.BeanPropertyBindingResult: 0 errors, menuList=[{depth=1, listNo=1, name=메인, viewYn=Y, type=user, url=/index, parentListNo=null}, {depth=2, listNo=6, name=인증, viewYn=N, type=user, url=/auth, parentListNo=1}, {depth=3, listNo=8, name=회원가입, viewYn=N, type=user, url=/join, parentListNo=6}], menuTree={depth=1, children=[{depth=2, children=[{depth=3, listNo=3, name=글쓰기, viewYn=Y, type=user, url=/registBoard, parentListNo=2}, {depth=3, listNo=13, name=게시판 리스트, viewYn=Y, type=user, url=/boardList, parentListNo=2}], listNo=2, name=게시판, viewYn=Y, type=user, url=/board, parentListNo=1}], listNo=1, name=메인, viewYn=Y, type=user, url=/index}}
+▶ DEBUG 14:13:18.991 [http-nio-9090-exec-44] org.apache.tiles.impl.BasicTilesContainer[render:213] - Render request received for definition 'auth/join'
+▶ DEBUG 14:13:18.991 [http-nio-9090-exec-44] org.springframework.security.web.header.writers.HstsHeaderWriter[writeHeaders:169] - Not injecting HSTS header since it did not match the requestMatcher org.springframework.security.web.header.writers.HstsHeaderWriter$SecureRequestMatcher@29f5448a
+▶ DEBUG 14:13:19.057 [http-nio-9090-exec-44] org.springframework.security.web.context.HttpSessionSecurityContextRepository[saveContext:351] - SecurityContext is empty or contents are anonymous - context will not be stored in HttpSession.
+▶ DEBUG 14:13:19.058 [http-nio-9090-exec-44] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:19.058 [http-nio-9090-exec-44] org.springframework.security.web.access.ExceptionTranslationFilter[doFilter:120] - Chain processed normally
+▶ DEBUG 14:13:19.058 [http-nio-9090-exec-44] org.springframework.security.web.context.SecurityContextPersistenceFilter[doFilter:119] - SecurityContextHolder now cleared, as request processing completed
+▶ DEBUG 14:13:19.142 [http-nio-9090-exec-41] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/web/auth/join.js'; against '/images/**'
+▶ DEBUG 14:13:19.142 [http-nio-9090-exec-41] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/web/auth/join.js'; against '/js/**'
+▶ DEBUG 14:13:19.142 [http-nio-9090-exec-41] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /js/web/auth/join.js has an empty filter list
+▶ DEBUG 14:13:19.142 [http-nio-9090-exec-41] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/js/web/auth/join.js", parameters={}
+▶ DEBUG 14:13:19.142 [http-nio-9090-exec-41] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/js/"]
+▶ DEBUG 14:13:19.149 [http-nio-9090-exec-41] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:19.872 [http-nio-9090-exec-37] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/lib/jquery/images/ui-icons_444444_256x240.png'; against '/images/**'
+▶ DEBUG 14:13:19.872 [http-nio-9090-exec-37] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/lib/jquery/images/ui-icons_444444_256x240.png'; against '/js/**'
+▶ DEBUG 14:13:19.872 [http-nio-9090-exec-37] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /js/lib/jquery/images/ui-icons_444444_256x240.png has an empty filter list
+▶ DEBUG 14:13:19.872 [http-nio-9090-exec-37] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/js/lib/jquery/images/ui-icons_444444_256x240.png", parameters={}
+▶ DEBUG 14:13:19.872 [http-nio-9090-exec-37] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/js/"]
+▶ DEBUG 14:13:19.878 [http-nio-9090-exec-37] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:13:25.845 [http-nio-9090-exec-43] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/lib/bootstrap/js/popper.js.map'; against '/images/**'
+▶ DEBUG 14:13:25.845 [http-nio-9090-exec-43] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/lib/bootstrap/js/popper.js.map'; against '/js/**'
+▶ DEBUG 14:13:25.845 [http-nio-9090-exec-43] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /js/lib/bootstrap/js/popper.js.map has an empty filter list
+▶ DEBUG 14:13:25.845 [http-nio-9090-exec-43] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/js/lib/bootstrap/js/popper.js.map", parameters={}
+▶ DEBUG 14:13:25.845 [http-nio-9090-exec-43] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/js/"]
+▶ DEBUG 14:13:25.845 [http-nio-9090-exec-43] org.springframework.web.servlet.resource.ResourceHttpRequestHandler[handleRequest:454] - Resource not found
+▶ DEBUG 14:13:25.845 [http-nio-9090-exec-43] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 404 NOT_FOUND
+▶ DEBUG 14:13:25.897 [http-nio-9090-exec-40] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/lib/bootstrap/css/bootstrap.min.css.map'; against '/images/**'
+▶ DEBUG 14:13:25.897 [http-nio-9090-exec-40] org.springframework.security.web.util.matcher.AntPathRequestMatcher[matches:177] - Checking match of request : '/js/lib/bootstrap/css/bootstrap.min.css.map'; against '/js/**'
+▶ DEBUG 14:13:25.897 [http-nio-9090-exec-40] org.springframework.security.web.FilterChainProxy[doFilterInternal:202] - /js/lib/bootstrap/css/bootstrap.min.css.map has an empty filter list
+▶ DEBUG 14:13:25.897 [http-nio-9090-exec-40] org.springframework.web.servlet.DispatcherServlet[traceDebug:91] - GET "/js/lib/bootstrap/css/bootstrap.min.css.map", parameters={}
+▶ DEBUG 14:13:25.897 [http-nio-9090-exec-40] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping[getHandler:412] - Mapped to ResourceHttpRequestHandler ["/static/js/"]
+▶ DEBUG 14:13:25.925 [http-nio-9090-exec-40] org.springframework.web.servlet.DispatcherServlet[logResult:1131] - Completed 200 OK
+▶ DEBUG 14:44:43.277 [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.springframework.security.web.session.HttpSessionEventPublisher[sessionDestroyed:88] - Publishing event: org.springframework.security.web.session.HttpSessionDestroyedEvent[source=org.apache.catalina.session.StandardSessionFacade@25dfb76f]
