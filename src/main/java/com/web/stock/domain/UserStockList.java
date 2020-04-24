@@ -34,6 +34,11 @@ public class UserStockList implements Serializable{
 	
 	private static final long serialVersionUID = 7277902371115061789L;
 
+	public UserStockList(String stockName, String stockCode) {
+		this.stockCode = stockCode;
+		this.stockName = stockName;
+	}
+	
 	@Id
 	@Column(name = "listNo", nullable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

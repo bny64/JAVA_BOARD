@@ -67,7 +67,7 @@ function checkLoadJsLib(){
 		type.lib = ['valuePipe', 'jquery', 'jqueryui', 'jqueryCookie', 'animsition', 'popper', 'bootstrap', 'select2', 'moment','daterangepicker', 'countdowntime', 'setDatepickerKor'];
 		type.bot_lib = [['valuePipe', 'libFilter','jquery', 'bAjax','domUtil'],['','','$', 'bx','du']];		//bottom
 		
-	}else if(/^\/(board)$/.test(first_url)){
+	}else if(/^\/(board|stock)$/.test(first_url)){
 		
 		type.lib = ['valuePipe','jquery', 'jqueryui', 'backtotop', 'popper', 'bootstrap','summernote'];		
 		type.bot_lib = [['valuePipe', 'libFilter','jquery', 'moment', 'bAjax', 'domUtil'],['','','$', 'mmt','bx', 'du']];	//bottom

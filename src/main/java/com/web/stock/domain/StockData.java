@@ -62,8 +62,14 @@ public class StockData implements Serializable{
 	@Column(name="accIvstPrc", length = 50) //누적투자액
 	private String accIvstPrc;
 	
-	@Column(name="srvfee", length = 50) //수수료
+	@Column(name="buySrvfee", length = 50) //매수 수수료
+	private String buySrvfee;
+	
+	@Column(name="sellSrvfee", length = 50) //매도 수수료
 	private String srvfee;
+	
+	@Column(name="taxFee", length = 50) //세금
+	private String taxFee;
 	
 	@Column(name="accEstPrc", length = 50) //누적평가액
 	private String accEstPrc;
