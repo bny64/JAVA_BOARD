@@ -5,7 +5,7 @@
 		<div class="content">
 			<div style="height: 100px; width: 100%; padding-top: 1px; border-color: gray; border: solid 1px;">
 				<div style="width: 20%; height: 30px; margin: 0 auto; margin-top: 2%; text-align: center; float:left; margin-left:10%;">
-					<select style="float: left;height: 30px;">
+					<select style="float: left;height: 30px;" id="selectStock">
 						<c:forEach var="userStockList" items="${userStockList }">
 							<option value="${userStockList.stockCode }">${userStockList.stockName }</option>
 						</c:forEach>
@@ -26,7 +26,7 @@
 				</div>
 				<button id="addNewStock" style="float:left; margin-top:2%;">종목추가</button>
 			</div>
-			<div style="width: 25%; height: 500px; float: left; border-color: gray; border: solid 1px;" >
+			<div style="width: 25%; height: 500px; float: left; border-color: gray; border: solid 1px;" id="beforeData">
 				<div id="beforeData" style="width: 100%; margin-top: 5%; text-align:center;">     
 					<h3>마지막 데이터</h3>              
 					<div class="stkDiv1"><label>날짜</label><input class="stockipt " type="text"></div>  
@@ -40,12 +40,12 @@
 					<div class="stkDiv1"><label>세금</label><input class="stockipt " type="text"></div>  
 					<div class="stkDiv1"><label>누적평가액</label><input class="stockipt " type="text"></div>  
 					<div class="stkDiv1"><label>수익률(백분위)</label><input class="stockipt " type="text"></div>  
-					<div class="stkDiv1"><label>수익률</label><input class="stockipt " type="text"></div>  
+					<div class="stkDiv1"><label>수익률</label><input class="stockipt " type="text"></div>					  
 				</div>
 			</div>
-			<div style="width: 25%; height: 500px; float: left; border-color: gray; border: solid 1px;" >
+			<div style="width: 25%; height: 500px; float: left; border-color: gray; border: solid 1px;" id="nowData">
 				<div id="addData" style="width: 100%; margin-top: 5%; text-align:center;">
-					<h3>등록할 데이터</h3>                   
+					<h3>등록할 데이터</h3>
 					<div class="stkDiv1"><label>날짜</label><input class="stockipt " type="text"></div>  
 					<div class="stkDiv1"><label>현재가</label><input class="stockipt " type="text"></div>  
 					<div class="stkDiv1"><label>매수수량</label><input class="stockipt " type="text"></div>  
@@ -58,6 +58,7 @@
 					<div class="stkDiv1"><label>누적평가액</label><input class="stockipt " type="text"></div>  
 					<div class="stkDiv1"><label>수익률(백분위)</label><input class="stockipt " type="text"></div>  
 					<div class="stkDiv1"><label>수익률</label><input class="stockipt " type="text"></div>
+					<button id="addBtn" style="margin: 0 auto; margin-top: 3%;">추가</button>
 				</div>
 			</div>
 			<div style="width: 50%; height: 500px; float: right; border-color: gray; border: solid 1px;">

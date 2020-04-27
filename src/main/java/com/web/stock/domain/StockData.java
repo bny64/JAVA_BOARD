@@ -11,7 +11,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -34,12 +33,14 @@ public class StockData implements Serializable{
 	private int listNo;
 	
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)	
-	@JoinColumns({
-		@JoinColumn(name = "userKey", nullable = false, referencedColumnName = "userKey"),
-		@JoinColumn(name = "stockCode", nullable = false, referencedColumnName = "stockCode"),
-		@JoinColumn(name = "stockName", nullable = false, referencedColumnName = "stockName"),
-	})
+	@JoinColumn(name = "userKey", nullable = false, referencedColumnName = "userKey")	
 	private UserStockList userStockList;
+		
+	@Column(name = "stockCode", nullable = false, length=50)
+	private String stockCode;
+		
+	@Column(name = "stockName", nullable = false, length=50)
+	private String stockName;
 	
 	@Column(name = "id", nullable = false, length = 100)
 	private String id;

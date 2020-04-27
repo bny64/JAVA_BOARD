@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.web.stock.dao.StockDAO;
+import com.web.stock.domain.StockData;
 import com.web.stock.domain.UserStockList;
 
 @Service
@@ -29,6 +30,11 @@ public class StockServiceImpl implements StockService{
 	@Override
 	public List<UserStockList> getStockList(Map<String, Object> param) throws Exception {
 		return stockDao.getStockList(param);
+	}
+
+	@Override
+	public List<StockData> getStockData(Map<String, Object> param) throws Exception {		
+		return stockDao.getStockData(param);
 	}
 	
 }

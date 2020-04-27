@@ -1,5 +1,6 @@
 package com.web.stock.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.web.common.dao.CommonDAO;
+import com.web.stock.domain.StockData;
 import com.web.stock.domain.UserStockList;
 
 @Repository
@@ -58,6 +60,27 @@ public class StockDAOImpl extends CommonDAO implements StockDAO{
 		
 		List<UserStockList> stockList = session.createQuery(cr).getResultList();
 		
+		return stockList;
+	}
+
+	@Override
+	public List<StockData> getStockData(Map<String, Object> param) throws Exception {
+
+		Session session = getSession();
+		
+		CriteriaBuilder cb = session.getCriteriaBuilder();
+		CriteriaQuery<StockData> cr = cb.createQuery(StockData.class);
+		Root<StockData> root = cr.from(StockData.class);
+		
+		List<Predicate> restrictions = new ArrayList<Predicate>();
+		restrictions.add(cb.equal(root.get("id"), (String)param.get("id")));
+		restrictions.add(cb.equal(root.get("stockCode"), (String)param.get("stockCode")));
+		
+		cr.select(root)
+			.where(restrictions.toArray(new Predicate[] {}))
+			.orderBy(cb.desc(root.get("createdAt")));
+			
+		List<StockData> stockList = session.createQuery(cr).getResultList();
 		return stockList;
 	}
 

@@ -1,5 +1,6 @@
 package com.web.stock.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,6 +19,7 @@ import com.web.common.controller.WebCommonController;
 import com.web.common.resolver.CommandMap;
 import com.web.common.support.message.MsgCode;
 import com.web.common.support.message.MsgList;
+import com.web.stock.domain.StockData;
 import com.web.stock.domain.UserStockList;
 import com.web.stock.service.StockService;
 
@@ -74,6 +76,27 @@ public class StockController extends WebCommonController{
 		stockService.addNewStock(userStockList);
 		
 		msg = MsgList.getInstance().getCodeMessage(MsgCode.InsertSuccess);
+		comMap.put("msgCode", msg[0]);
+		comMap.put("msg", msg[1]);
+		
+		return comMap;
+	}
+	
+	@RequestMapping(value = "/getStockData", method=RequestMethod.POST)
+	public @ResponseBody CommandMap getStockData(ModelAndView mnv, CommandMap reqMap) throws Exception {
+		CommandMap comMap = new CommandMap();
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		List<StockData> stockDataList = new ArrayList<StockData>();
+		String[] msg;
+		
+		paramMap.put("id", getSessionUser().getId());
+		paramMap.put("stockCode", reqMap.get("stockCode"));
+		
+		stockDataList = stockService.getStockData(paramMap);
+		
+		comMap.put("stockDataList", stockDataList);
+		
+		msg = MsgList.getInstance().getCodeMessage(MsgCode.SelectSuccess);
 		comMap.put("msgCode", msg[0]);
 		comMap.put("msg", msg[1]);
 		
