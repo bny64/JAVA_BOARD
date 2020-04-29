@@ -1,6 +1,5 @@
 package com.web.stock.controller;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -86,14 +85,12 @@ public class StockController extends WebCommonController{
 	public @ResponseBody CommandMap getStockData(ModelAndView mnv, CommandMap reqMap) throws Exception {
 		CommandMap comMap = new CommandMap();
 		Map<String, Object> paramMap = new HashMap<String, Object>();
-		List<StockData> stockDataList = new ArrayList<StockData>();
 		String[] msg;
 		
 		paramMap.put("id", getSessionUser().getId());
 		paramMap.put("stockCode", reqMap.get("stockCode"));
 		
-		stockDataList = stockService.getStockData(paramMap);
-		
+		List<StockData> stockDataList = stockService.getStockData(paramMap);
 		comMap.put("stockDataList", stockDataList);
 		
 		msg = MsgList.getInstance().getCodeMessage(MsgCode.SelectSuccess);
@@ -101,6 +98,41 @@ public class StockController extends WebCommonController{
 		comMap.put("msg", msg[1]);
 		
 		return comMap;
+	}
+	
+	@RequestMapping(value = "/addStockData", method=RequestMethod.POST)
+	public @ResponseBody CommandMap addStockData(ModelAndView mnv, CommandMap reqMap) throws Exception {
+		
+		CommandMap comMap = new CommandMap();
+		StockData stockData = new StockData();		
+		String[] msg;
+		
+		
+		stockData.setUser(getSessionUser());		
+		stockData.setId(getSessionUser().getId());
+		stockData.setStockCode((String)reqMap.get("stockCode"));
+		stockData.setStockName((String)reqMap.get("stockName"));
+		stockData.setStockDate((String)reqMap.get("stockDate"));
+		stockData.setNowPrc((String)reqMap.get("nowPrc"));
+		stockData.setByMnt((String)reqMap.get("byMnt"));
+		stockData.setAccMnt((String)reqMap.get("accMnt"));
+		stockData.setIvstPrc((String)reqMap.get("ivstPrc"));
+		stockData.setAccIvstPrc((String)reqMap.get("accIvstPrc"));
+		stockData.setBuySrvfee((String)reqMap.get("buySrvfee"));
+		stockData.setSellSrvfee((String)reqMap.get("sellSrvfee"));
+		stockData.setTaxFee((String)reqMap.get("taxFee"));
+		stockData.setAccEstPrc((String)reqMap.get("accEstPrc"));
+		stockData.setErnRatePer((String)reqMap.get("ernRatePer"));
+		stockData.setErnRate((String)reqMap.get("ernRate"));
+		
+		stockService.addStockData(stockData);
+		
+		msg = MsgList.getInstance().getCodeMessage(MsgCode.InsertSuccess);
+		comMap.put("msgCode", msg[0]);
+		comMap.put("msg", msg[1]);
+		
+		return comMap;
+		
 	}
 	
 }

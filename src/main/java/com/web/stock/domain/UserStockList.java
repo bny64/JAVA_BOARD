@@ -45,7 +45,7 @@ public class UserStockList implements Serializable{
 	private int listNo;
 	
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)	
-	@JoinColumn(name="userKey", columnDefinition = "VARCHAR(100)", nullable = false)	
+	@JoinColumn(name="userKey", columnDefinition = "VARCHAR(100)", nullable = false, unique = false)	
 	private User user;
 	
 	@Column(name = "id", nullable = false, length = 100)
@@ -70,9 +70,5 @@ public class UserStockList implements Serializable{
 	@Column(name="updatedAt", columnDefinition = "TIMESTAMP default CURRENT_TIMESTAMP")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date updatedAt;
-	
-	@Transient
-	@OneToMany(mappedBy = "stockData",fetch = FetchType.EAGER)
-	private Collection<StockData> stockData;
 	
 }

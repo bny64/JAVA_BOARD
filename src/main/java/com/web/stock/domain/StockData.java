@@ -16,25 +16,49 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.web.auth.domain.User;
+
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@NoArgsConstructor
 @Entity
 @Table(name="stockData", schema = "tripleProject")
 public class StockData implements Serializable{
 
 	private static final long serialVersionUID = 259903335838245286L;
 
+	public StockData(String accEstPrc, String accIvstPrc, String accMnt, String buySrvfee, Date createdAt, String ernRate, String ernRatePer, String id, String ivstPrc, 
+			String nowPrc, String sellSrvFee, String stockCode, String stockDate, String stockName, String taxFee, String byMnt) {
+		this.accEstPrc = accEstPrc;
+		this.accIvstPrc = accIvstPrc;
+		this.accMnt = accMnt;
+		this.buySrvfee = buySrvfee;
+		this.createdAt = createdAt;
+		this.ernRate = ernRate;
+		this.ernRatePer = ernRatePer;
+		this.id = id;
+		this.ivstPrc = ivstPrc;
+		this.nowPrc = nowPrc;
+		this.sellSrvfee = sellSrvFee;
+		this.stockCode = stockCode;
+		this.stockName = stockName;
+		this.stockDate = stockDate;
+		this.taxFee = taxFee;
+		this.byMnt = byMnt;
+	}
+	
 	@Id
 	@Column(name="listNo", nullable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int listNo;
 	
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)	
-	@JoinColumn(name = "userKey", nullable = false, referencedColumnName = "userKey")	
-	private UserStockList userStockList;
+	@JoinColumn(name="userKey", columnDefinition = "VARCHAR(100)", nullable = false, unique = false)	
+	private User user;
 		
 	@Column(name = "stockCode", nullable = false, length=50)
 	private String stockCode;
@@ -67,7 +91,7 @@ public class StockData implements Serializable{
 	private String buySrvfee;
 	
 	@Column(name="sellSrvfee", length = 50) //매도 수수료
-	private String srvfee;
+	private String sellSrvfee;
 	
 	@Column(name="taxFee", length = 50) //세금
 	private String taxFee;

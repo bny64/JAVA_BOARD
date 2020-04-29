@@ -36,5 +36,10 @@ public class StockServiceImpl implements StockService{
 	public List<StockData> getStockData(Map<String, Object> param) throws Exception {		
 		return stockDao.getStockData(param);
 	}
+
+	@Override
+	public void addStockData(StockData stockData) throws Exception {
+		stockDao.addStockData(stockData);
+	}
 	
 }

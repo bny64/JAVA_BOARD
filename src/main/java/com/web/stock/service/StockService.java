@@ -11,4 +11,5 @@ public interface StockService {
 	public Long getStockOrder(Map<String, Object> param) throws Exception;
 	public List<UserStockList> getStockList(Map<String, Object> param) throws Exception;
 	public List<StockData> getStockData(Map<String, Object> param) throws Exception;
+	public void addStockData(StockData stockData) throws Exception;
 }

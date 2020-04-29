@@ -76,12 +76,23 @@ public class StockDAOImpl extends CommonDAO implements StockDAO{
 		restrictions.add(cb.equal(root.get("id"), (String)param.get("id")));
 		restrictions.add(cb.equal(root.get("stockCode"), (String)param.get("stockCode")));
 		
-		cr.select(root)
+		cr.select(cb.construct(StockData.class,	root.get("accEstPrc"), root.get("accIvstPrc"), root.get("accMnt"), root.get("buySrvfee"), root.get("createdAt"), 
+				root.get("ernRate"), root.get("ernRatePer"), root.get("id"), root.get("ivstPrc"), root.get("nowPrc"), root.get("sellSrvfee"), root.get("stockCode"),
+				root.get("stockDate"), root.get("stockName"), root.get("taxFee"), root.get("byMnt")))
 			.where(restrictions.toArray(new Predicate[] {}))
 			.orderBy(cb.desc(root.get("createdAt")));
 			
 		List<StockData> stockList = session.createQuery(cr).getResultList();
+		System.out.println(stockList);
 		return stockList;
+	}
+
+	@Override
+	public void addStockData(StockData stockData) throws Exception {
+		
+		Session session = getSession();
+		session.save(stockData);
+		
 	}
 
 }

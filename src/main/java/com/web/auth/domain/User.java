@@ -22,6 +22,7 @@ import org.hibernate.annotations.LazyCollectionOption;
 
 import com.web.board.domain.Board;
 import com.web.board.domain.Comment;
+import com.web.stock.domain.StockData;
 import com.web.stock.domain.UserStockList;
 
 import lombok.Getter;
@@ -151,9 +152,12 @@ public class User implements Serializable{
 	private UserAuthority userAuthority;
 	
 	@Transient
-	@OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
-	@LazyCollection(LazyCollectionOption.FALSE)
+	@OneToMany(mappedBy = "user",fetch = FetchType.EAGER)	
 	private Collection<UserStockList> userStockList;
+	
+	@Transient
+	@OneToMany(mappedBy = "user",fetch = FetchType.EAGER)	
+	private Collection<StockData> StockData;
 	
 	/*
 	 * @PrePersist 처음 저장시에만 호출

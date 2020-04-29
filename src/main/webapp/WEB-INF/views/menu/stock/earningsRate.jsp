@@ -29,35 +29,35 @@
 			<div style="width: 25%; height: 500px; float: left; border-color: gray; border: solid 1px;" id="beforeData">
 				<div id="beforeData" style="width: 100%; margin-top: 5%; text-align:center;">     
 					<h3>마지막 데이터</h3>              
-					<div class="stkDiv1"><label>날짜</label><input class="stockipt " type="text"></div>  
-					<div class="stkDiv1"><label>현재가</label><input class="stockipt " type="text"></div>  
-					<div class="stkDiv1"><label>매수수량</label><input class="stockipt " type="text"></div>  
-					<div class="stkDiv1"><label>누적수량</label><input class="stockipt " type="text"></div>
-					<div class="stkDiv1"><label>매수수수료</label><input class="stockipt " type="text"></div>
-					<div class="stkDiv1"><label>투자액</label><input class="stockipt " type="text"></div>  
-					<div class="stkDiv1"><label>누적투자액</label><input class="stockipt " type="text"></div>  
-					<div class="stkDiv1"><label>매도수수료</label><input class="stockipt " type="text"></div>  
-					<div class="stkDiv1"><label>세금</label><input class="stockipt " type="text"></div>  
-					<div class="stkDiv1"><label>누적평가액</label><input class="stockipt " type="text"></div>  
-					<div class="stkDiv1"><label>수익률(백분위)</label><input class="stockipt " type="text"></div>  
-					<div class="stkDiv1"><label>수익률</label><input class="stockipt " type="text"></div>					  
+					<div class="stkDiv1"><label>날짜</label><input data-name="stockDate" class="stockipt " type="text"></div>  
+					<div class="stkDiv1"><label>현재가</label><input data-name="nowPrc" class="stockipt " type="text"></div>  
+					<div class="stkDiv1"><label>매수수량</label><input data-name="byMnt" class="stockipt " type="text"></div>  
+					<div class="stkDiv1"><label>누적수량</label><input data-name="accMnt" class="stockipt " type="text"></div>
+					<div class="stkDiv1"><label>매수수수료</label><input data-name="buySrvfee" class="stockipt " type="text"></div>
+					<div class="stkDiv1"><label>투자액</label><input data-name="ivstPrc" class="stockipt " type="text"></div>  
+					<div class="stkDiv1"><label>누적투자액</label><input data-name="accIvstPrc" class="stockipt " type="text"></div>  
+					<div class="stkDiv1"><label>매도수수료</label><input data-name="sellSrvfee" class="stockipt " type="text"></div>  
+					<div class="stkDiv1"><label>세금</label><input data-name="taxFee" class="stockipt " type="text"></div>  
+					<div class="stkDiv1"><label>누적평가액</label><input data-name="accEstPrc" class="stockipt " type="text"></div>  
+					<div class="stkDiv1"><label>수익률(백분위)</label><input data-name="ernRatePer" class="stockipt " type="text"></div>  
+					<div class="stkDiv1"><label>수익률</label><input data-name="ernRate" class="stockipt " type="text"></div>				  
 				</div>
 			</div>
 			<div style="width: 25%; height: 500px; float: left; border-color: gray; border: solid 1px;" id="nowData">
 				<div id="addData" style="width: 100%; margin-top: 5%; text-align:center;">
 					<h3>등록할 데이터</h3>
-					<div class="stkDiv1"><label>날짜</label><input class="stockipt " type="text"></div>  
-					<div class="stkDiv1"><label>현재가</label><input class="stockipt " type="text"></div>  
-					<div class="stkDiv1"><label>매수수량</label><input class="stockipt " type="text"></div>  
-					<div class="stkDiv1"><label>누적수량</label><input class="stockipt " type="text"></div>
-					<div class="stkDiv1"><label>매수수수료</label><input class="stockipt " type="text"></div>
-					<div class="stkDiv1"><label>투자액</label><input class="stockipt " type="text"></div>  
-					<div class="stkDiv1"><label>누적투자액</label><input class="stockipt " type="text"></div>  
-					<div class="stkDiv1"><label>매도수수료</label><input class="stockipt " type="text"></div>  
-					<div class="stkDiv1"><label>세금</label><input class="stockipt " type="text"></div>  
-					<div class="stkDiv1"><label>누적평가액</label><input class="stockipt " type="text"></div>  
-					<div class="stkDiv1"><label>수익률(백분위)</label><input class="stockipt " type="text"></div>  
-					<div class="stkDiv1"><label>수익률</label><input class="stockipt " type="text"></div>
+					<div class="stkDiv1"><label>날짜</label><input data-name="stockDate" class="stockipt " type="text"></div>  
+					<div class="stkDiv1"><label>현재가</label><input data-name="nowPrc" class="stockipt " type="text"></div>  
+					<div class="stkDiv1"><label>매수수량</label><input data-name="byMnt" class="stockipt " type="text"></div>  
+					<div class="stkDiv1"><label>누적수량</label><input data-name="accMnt" class="stockipt " type="text"></div>
+					<div class="stkDiv1"><label>매수수수료</label><input data-name="buySrvfee" class="stockipt " type="text"></div>
+					<div class="stkDiv1"><label>투자액</label><input data-name="ivstPrc" class="stockipt " type="text"></div>  
+					<div class="stkDiv1"><label>누적투자액</label><input data-name="accIvstPrc" class="stockipt " type="text"></div>  
+					<div class="stkDiv1"><label>매도수수료</label><input data-name="sellSrvfee" class="stockipt " type="text"></div>  
+					<div class="stkDiv1"><label>세금</label><input data-name="taxFee" class="stockipt " type="text"></div>  
+					<div class="stkDiv1"><label>누적평가액</label><input data-name="accEstPrc" class="stockipt " type="text"></div>  
+					<div class="stkDiv1"><label>수익률(백분위)</label><input data-name="ernRatePer" class="stockipt " type="text"></div>  
+					<div class="stkDiv1"><label>수익률</label><input data-name="ernRate" class="stockipt " type="text"></div>
 					<button id="addBtn" style="margin: 0 auto; margin-top: 3%;">추가</button>
 				</div>
 			</div>
