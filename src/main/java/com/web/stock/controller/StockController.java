@@ -3,6 +3,7 @@ package com.web.stock.controller;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,20 +35,35 @@ public class StockController extends WebCommonController{
 	@RequestMapping(value = "/earningsRate", method=RequestMethod.GET)
 	public ModelAndView earningsRate(ModelAndView mnv, CommandMap reqMap) throws Exception {
 		logger.debug("********************[StockController]:[earningsRate:GET]********************");
+		
+		mnv.setViewName("stock/earningsRate");
+		return mnv;
+		
+	}
+	
+	//종목추가
+	@RequestMapping(value = "/getUserStockList", method=RequestMethod.POST)
+	public @ResponseBody CommandMap getUserStockList(ModelAndView mnv, CommandMap reqMap) throws Exception {
+		
+		CommandMap comMap = new CommandMap();
 		Map<String, Object> paramMap = new HashMap<String, Object>();
+		String[] msg;
 		User user = getSessionUser();
 		String id = user.getId();
 		
 		paramMap.put("id", id);
 		List<UserStockList> stockList = stockService.getStockList(paramMap);
 		
-		mnv.addObject("userStockList", stockList);
-		mnv.setViewName("stock/earningsRate");
+		comMap.put("userStockList", stockList);
 		
-		return mnv;
+		msg = MsgList.getInstance().getCodeMessage(MsgCode.SelectSuccess);
+		comMap.put("msgCode", msg[0]);
+		comMap.put("msg", msg[1]);
 		
+		return comMap;
 	}
 	
+	//종목추가
 	@RequestMapping(value = "/addNewStock", method=RequestMethod.POST)
 	public @ResponseBody CommandMap addNewStock(ModelAndView mnv, CommandMap reqMap) throws Exception {
 		logger.debug("********************[StockController]:[addNewStock:POST]********************");
@@ -70,6 +86,9 @@ public class StockController extends WebCommonController{
 		
 		userStockList.setStockCode((String)reqMap.get("stockCode"));
 		userStockList.setStockName((String)reqMap.get("stockName"));
+		userStockList.setStockNickName((String)reqMap.get("stockNickName"));
+		userStockList.setSellCheck("N");
+		userStockList.setStockKey(UUID.randomUUID().toString());
 		userStockList.setStockOrder((int) stockOrder);
 		
 		stockService.addNewStock(userStockList);
@@ -81,6 +100,7 @@ public class StockController extends WebCommonController{
 		return comMap;
 	}
 	
+	//종목 데이터 불러오기
 	@RequestMapping(value = "/getStockData", method=RequestMethod.POST)
 	public @ResponseBody CommandMap getStockData(ModelAndView mnv, CommandMap reqMap) throws Exception {
 		CommandMap comMap = new CommandMap();
@@ -88,7 +108,7 @@ public class StockController extends WebCommonController{
 		String[] msg;
 		
 		paramMap.put("id", getSessionUser().getId());
-		paramMap.put("stockCode", reqMap.get("stockCode"));
+		paramMap.put("stockKey", reqMap.get("stockKey"));
 		
 		List<StockData> stockDataList = stockService.getStockData(paramMap);
 		comMap.put("stockDataList", stockDataList);
@@ -100,6 +120,7 @@ public class StockController extends WebCommonController{
 		return comMap;
 	}
 	
+	//종목 데이터 추가
 	@RequestMapping(value = "/addStockData", method=RequestMethod.POST)
 	public @ResponseBody CommandMap addStockData(ModelAndView mnv, CommandMap reqMap) throws Exception {
 		
@@ -133,6 +154,26 @@ public class StockController extends WebCommonController{
 		
 		return comMap;
 		
+	}
+	
+	//종목 삭제
+	@RequestMapping(value = "/deleteStock", method=RequestMethod.POST)
+	public @ResponseBody CommandMap deleteStock(ModelAndView mnv, CommandMap reqMap) throws Exception {
+		
+		CommandMap comMap = new CommandMap();
+		String[] msg;
+		User user = getSessionUser();
+		
+		reqMap.put("id", user.getId());
+		
+		stockService.deleteStock(reqMap.getMap());
+		stockService.deleteStockData(reqMap.getMap());
+		
+		msg = MsgList.getInstance().getCodeMessage(MsgCode.DeleteSuccess);
+		comMap.put("msgCode", msg[0]);
+		comMap.put("msg", msg[1]);
+		
+		return comMap;
 	}
 	
 }

@@ -69,6 +69,9 @@ public class StockData implements Serializable{
 	@Column(name = "id", nullable = false, length = 100)
 	private String id;
 	
+	@Column(name = "stockKey", nullable = false, length = 100)
+	private String stockKey;
+	
 	@Column(name="stockDate", length = 50) //날짜
 	private String stockDate;
 

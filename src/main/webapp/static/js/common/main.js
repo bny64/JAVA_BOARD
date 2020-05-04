@@ -57,6 +57,7 @@ function checkLoadJsLib(){
 	if(location.pathname.indexOf('/',1) > -1) first_url = location.pathname.substring(0, location.pathname.indexOf('/',1));
 	else first_url = location.pathname.substring(0, location.pathname.indexOf('.'));
 	
+	//bot_lib애서 사용하는 라이브러리를 로드할 때 전역 lib에 추가해줘야 함.
 	if(/^\/(index)$/.test(first_url)){
 		
 		type.lib = ['valuePipe', 'jquery', 'jqueryui', 'backtotop', 'popper', 'bootstrap', 'summernote'];
@@ -69,8 +70,8 @@ function checkLoadJsLib(){
 		
 	}else if(/^\/(board|stock)$/.test(first_url)){
 		
-		type.lib = ['valuePipe','jquery', 'jqueryui', 'backtotop', 'popper', 'bootstrap','summernote'];		
-		type.bot_lib = [['valuePipe', 'libFilter','jquery', 'moment', 'bAjax', 'domUtil'],['','','$', 'mmt','bx', 'du']];	//bottom
+		type.lib = ['valuePipe','jquery', 'jqueryui', 'backtotop', 'popper', 'bootstrap','summernote', 'pqgrid', 'highchart'];		
+		type.bot_lib = [['valuePipe', 'libFilter','jquery', 'moment', 'bAjax', 'domUtil', 'pqgrid', 'highchart'],['','','$', 'mmt','bx', 'du', 'pqgrid', 'highchart']];	//bottom
 		
 	}else{
 		type = null;

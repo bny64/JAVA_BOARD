@@ -1,7 +1,6 @@
 package com.web.stock.domain;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
@@ -13,11 +12,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.persistence.Transient;
 
 import com.web.auth.domain.User;
 
@@ -34,9 +31,11 @@ public class UserStockList implements Serializable{
 	
 	private static final long serialVersionUID = 7277902371115061789L;
 
-	public UserStockList(String stockName, String stockCode) {
+	public UserStockList(String stockName, String stockCode, String stockNickName, String stockKey) {
 		this.stockCode = stockCode;
 		this.stockName = stockName;
+		this.stockNickName = stockNickName;
+		this.stockKey = stockKey;
 	}
 	
 	@Id
@@ -62,6 +61,15 @@ public class UserStockList implements Serializable{
 	
 	@Column(name = "stockName", nullable = false, length = 50)
 	private String stockName;
+	
+	@Column(name = "stockNickName", nullable = false, length = 50)
+	private String stockNickName;
+	
+	@Column(name = "sellCheck", nullable = false, length = 5)
+	private String sellCheck;
+	
+	@Column(name = "stockKey", nullable = false, length = 100)
+	private String stockKey;
 	
 	@Column(name="createdAt", columnDefinition = "TIMESTAMP default CURRENT_TIMESTAMP")
 	@Temporal(TemporalType.TIMESTAMP)

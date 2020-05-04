@@ -12,4 +12,6 @@ public interface StockDAO {
 	public List<UserStockList> getStockList(Map<String, Object> param) throws Exception;
 	public List<StockData> getStockData(Map<String, Object> param) throws Exception;
 	public void addStockData(StockData stockData) throws Exception;
+	public void deleteStock(Map<String, Object> param) throws Exception;
+	public void deleteStockData(Map<String, Object> param) throws Exception;
 }

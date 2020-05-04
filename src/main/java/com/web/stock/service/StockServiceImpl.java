@@ -41,5 +41,17 @@ public class StockServiceImpl implements StockService{
 	public void addStockData(StockData stockData) throws Exception {
 		stockDao.addStockData(stockData);
 	}
+
+	@Override
+	public void deleteStock(Map<String, Object> param) throws Exception {
+		stockDao.deleteStock(param);
+		
+	}
+
+	@Override
+	public void deleteStockData(Map<String, Object> param) throws Exception {
+		stockDao.deleteStockData(param);
+		
+	}
 	
 }

@@ -31,6 +31,8 @@ const requireConfig = {
 		summernote_kor : 'lib/summernote/lang/summernote-ko-KR',	// summernte-kor
 		backtotop : 'lib/jquery/jquery.backtotop',					// backtotop
 		mobilemenu : 'lib/jquery/jquery.mobilemenu',				// mobilemenu
+		pqgrid : 'lib/pqgrid/pqgrid.dev',							// pqgrid
+		highchart : 'lib/highchart/highcharts.src',					// highchart
 		//----------------------------------------util-------------------------------------------//
 		bAjax : 'common/util/bAjax', 								// bAjax
 		domUtil : 'common/util/domUtil', 							// domUtil
@@ -53,7 +55,8 @@ const requireConfig = {
 		// daterangepicker:{deps:['jquery','moment']},
 		// summernote
 		
-		//AMD지원 X		
+		//AMD지원 X
+		pqgrid : {deps : ['jquery' , 'jqueryui']},
 		countdowntime : { deps : [ 'jquery' ] },
 		backtotop : {deps : ['jquery'] },
 		mobilemenu : {deps : ['jquery'] },

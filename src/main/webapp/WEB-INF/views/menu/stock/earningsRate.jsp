@@ -1,30 +1,36 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<input type="hidden" id="nowStockName" value=""></input>
+<input type="hidden" id="nowStockCode" value=""></input>
+<input type="hidden" id="nowStockKey" value=""></input>
 <div class="wrapper row3">
 	<main class="hoc container clear">
-		<div class="content">
-			<div style="height: 100px; width: 100%; padding-top: 1px; border-color: gray; border: solid 1px;">
-				<div style="width: 20%; height: 30px; margin: 0 auto; margin-top: 2%; text-align: center; float:left; margin-left:10%;">
-					<select style="float: left;height: 30px;" id="selectStock">
-						<c:forEach var="userStockList" items="${userStockList }">
-							<option value="${userStockList.stockCode }">${userStockList.stockName }</option>
-						</c:forEach>
+		<div class="content">			
+			<div style="height: 70px; width: 100%; padding-top: 1px; border-color: gray; border: solid 1px;">
+				<div style="width: 20%; height: 30px; margin: 0 auto; margin-top: 1.5%; text-align: center; float:left; margin-left:5%;">
+					<label style="margin-top:2%; margin-right:2%; float:left;">종목선택</label>					
+					<select style="float: left;height: 30px; margin-left:3%; width:120px;" id="selectStock">						
 					</select>					
-				</div>
-				<div style="width: 20%; height: 30px; margin: 0 auto; margin-top: 2%; text-align: center; float:left;">
-					<button style="margin-left:1%; float:left;" id="addNewData">추가</button>
-					<button style="margin-left:1%; float:left;" id="modifyLastData">수정</button>
-					<button style="margin-left:1%; float:left;" id="deleteLastData">삭제</button>
+				</div>				
+				<div style="width:20%; float:left; margin-top:2%;">
+					<label for="stockCode" style=" float: left; margin-right:5%;">종목코드</label>
+					<input type="text" id="stockCode" style="float:left; margin-top : -0.5%; text-align:center; width:100px;">
 				</div>
 				<div style="width:20%; float:left; margin-top:2%;">
-					<label for="stockCode" style=" float: left;">종목코드</label>
-					<input type="text" id="stockCode" style="float:left;">
+					<label for="stockName" style=" float: left; margin-right:5%;">종목명</label>
+					<input type="text" id="stockName" style="float:left; margin-top : -0.5%; text-align:center; width:100px;">
 				</div>
 				<div style="width:20%; float:left; margin-top:2%;">
-					<label for="stockName" style=" float: left;">종목명</label>
-					<input type="text" id="stockName" style="float:left;">
+					<label for="stockName" style=" float: left; margin-right:5%;">종목별칭</label>
+					<input type="text" id="stockNickName" style="float:left; margin-top : -0.5%; text-align:center; width:100px;">
 				</div>
 				<button id="addNewStock" style="float:left; margin-top:2%;">종목추가</button>
+				<button id="deleteStock" style="display:none; float:left; margin-top:2%;">종목삭제</button>
+			</div>
+			<div style="height: 50px; width: 100%; padding-top: 1px; border-color: gray; border-left:black solid 1px; border-right:black solid 1px;">
+				<button style="float : right; margin-right:2%; margin-top:1%;">데이터 추가</button>
+			</div>
+			<div style="height: 450px; width: 100%; padding-top: 1px; border-top : none !important; border-color: gray; border: solid 1px;" id="stockGrid">
 			</div>
 			<div style="width: 25%; height: 500px; float: left; border-color: gray; border: solid 1px;" id="beforeData">
 				<div id="beforeData" style="width: 100%; margin-top: 5%; text-align:center;">     
