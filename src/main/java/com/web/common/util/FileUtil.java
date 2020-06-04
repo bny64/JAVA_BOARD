@@ -32,6 +32,7 @@ import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.Session;
 import com.jcraft.jsch.SftpATTRS;
+import com.jcraft.jsch.SftpException;
 
 /**
  * The class that use libraries to save and control files
@@ -92,7 +93,8 @@ public class FileUtil {
 		
 		// sftp 파일서버 경로
 		String filePath = parseName(type);
-
+		String filePathDate = "";
+		
 		// request로 들어온 파일 목록
 		for (Entry<String, Object> entry : requestMap.entrySet()) {
 
@@ -112,7 +114,10 @@ public class FileUtil {
 		for(int i=0; i<dateSplit.length; i++) {
 			
 			try {
+				
 				filePath += "/" + dateSplit[i];
+				filePathDate += "/" + dateSplit[i];
+				
 				channelSftp.stat(filePath);
 			}catch(Exception e) {
 				logger.debug("directory not found. make a new deirectory");
@@ -134,7 +139,7 @@ public class FileUtil {
 				channelSftp.cd(filePath);
 				channelSftp.put(multiFile.getInputStream(), fileName);
 
-				map.put("filePath", filePath);
+				map.put("filePath", filePathDate);
 				map.put("fileName", fileName);
 				map.put("orgFileName", orgFileName);
 				map.put("fileFullPath", filePath + "/" + fileName);
@@ -165,6 +170,7 @@ public class FileUtil {
 		InputStream in = null;		
 		
 		String filePath = parseName(type);
+		String filePathDate = "";
 		
 		String date = new SimpleDateFormat("yyyy.MM").format(new Date());
 		String[] dateSplit = date.split("\\.");
@@ -177,6 +183,7 @@ public class FileUtil {
 		for(int i=0; i<dateSplit.length; i++) {
 			try {
 				filePath += "/" + dateSplit[i];
+				filePathDate += "/" + dateSplit[i];
 				channelSftp.stat(filePath);
 			}catch(Exception e) {
 				logger.debug("directory not found. make a new deirectory");
@@ -229,7 +236,7 @@ public class FileUtil {
 				channelSftp.cd(filePath);
 				channelSftp.put(new FileInputStream(thumbFile), thumbFileName + "." + ext);
 				
-				map.put("thumbImgFilePath", filePath);
+				map.put("thumbImgFilePath", filePathDate);
 				map.put("thumbFileName", thumbFileName + "." + ext);
 				
 				fileList.add(map);
@@ -247,18 +254,33 @@ public class FileUtil {
 		return fileList;
 	}
 
-	public void deleteFile(String type, Map<String, Object> requestMap) throws Exception {
-
-		String filePath = parseName(type);
+	//이미지 파일 삭제
+	public void deleteImgFile(Map<String, Object> requestMap) throws Exception {
+		
+		connectServer();
+		Channel channel = session.openChannel("sftp");
+		channel.connect();
+		ChannelSftp channelSftp = (ChannelSftp) channel;
+		
+		String filePath = parseName("imgFile_1");
+		String fileMidPath = (String) requestMap.get("imgFilePath");
 		String fileName = (String) requestMap.get("fileName");
-		String fileMidPath = (String) requestMap.get("filePath");
-
-		File file = new File(filePath + fileMidPath + "/" + fileName);
-		if (file.exists())
-			file.delete();
-
+		
+		String tFilePath = parseName("imgFileThumb_1");
+		String tFileMidPath = (String) requestMap.get("thumbImgFilePath");
+		String tFileName = (String) requestMap.get("thumbFileName");
+		
+		try {
+			
+			channelSftp.rm(filePath + fileMidPath + "/" + fileName);
+			channelSftp.rm(tFilePath + tFileMidPath + "/" + tFileName);
+			
+		}catch(SftpException e) {
+			logger.debug("Failed to delete file.");
+		}
+		
 	}
-
+	
 	public void connectServer() throws Exception {
 
 		JSch jsch = new JSch();

@@ -5,14 +5,8 @@ define([], function(){
 	function Module(){
 		
 		const pandora = new arguments[1]('bot', arguments);			
-		let stockData = null;
 		
 		//--------------------substantial logic--------------------//
-		const selectTag = document.getElementById('selectStock');
-		let nowStockCode = selectTag.value;
-		let nowStockName = selectTag.selectedIndex > -1 ? (selectTag.options[selectTag.selectedIndex].text) : '';
-		initGrid();
-		getUserStockList();
 	   
 		//--------------------event--------------------//		
 		//새로운 주식 종목 추가 이벤트

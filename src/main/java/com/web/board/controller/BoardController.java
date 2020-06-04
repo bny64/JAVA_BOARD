@@ -348,14 +348,14 @@ public class BoardController extends WebCommonController{
 				Map<String, Object> fileMap = new HashMap<String, Object>();
 				fileMap.put("fileName", board.getFileName());
 				fileMap.put("filePath", board.getImgFilePath());
-				fileUtil.deleteFile("1", fileMap);
+				//fileUtil.deleteImgFile("1", fileMap);
 				board.setOrgFileName(null);
 				board.setFileName(null);
 				board.setImgFilePath(null);
 				//fileMap.clear();
 				fileMap.put("fileName", board.getThumbFileName());
 				fileMap.put("filePath", board.getThumbImgFilePath());
-				fileUtil.deleteFile("thumb_1", fileMap);
+				//fileUtil.deleteImgFile("thumb_1", fileMap);
 				board.setThumbFileName(null);
 				board.setThumbImgFilePath(null);
 				
@@ -396,8 +396,6 @@ public class BoardController extends WebCommonController{
 			}
 		}
 		
-		boardService.updateBoard(board);
-		
 		msg = MsgList.getInstance().getCodeMessage(MsgCode.UpdateSuccess);
 		resMap.put("msgCode", msg[0]);
 		resMap.put("msg", msg[1]);
@@ -412,9 +410,16 @@ public class BoardController extends WebCommonController{
 		CommandMap comMap = new CommandMap();		
 		String[] msg;
 		
+		Board board = boardService.getBoard(reqMap.getMap());
+		
+		//파일이 있을경우
+		if(!StringUtils.isNullOrEmpty(board.getFileName()) || !StringUtils.isNullOrEmpty(board.getThumbFileName())) {
+			fileUtil.deleteImgFile(boardService.getBoardMap(board, getSessionUser()));
+		}
+		
 		reqMap.put("id", getSessionUser().getId());
 		boardService.deleteBoard(reqMap.getMap());
-				
+		
 		msg = MsgList.getInstance().getCodeMessage(MsgCode.DeleteSuccess);
 		comMap.put("msgCode", msg[0]);
 		comMap.put("msg", msg[1]);

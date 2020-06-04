@@ -2,6 +2,8 @@ package com.web.board.domain;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -16,6 +18,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.web.auth.domain.User;
 
 import lombok.Getter;
@@ -102,4 +105,5 @@ public class Board implements Serializable{
 	
 	@Column(name = "orgFileName")
 	private String orgFileName;
+		
 }
