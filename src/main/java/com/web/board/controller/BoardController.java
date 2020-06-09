@@ -318,6 +318,8 @@ public class BoardController extends WebCommonController{
 		String[] msg;
 		List<String> fileFullPaths = new ArrayList<String>();
 		List<String> fileNames = new ArrayList<String>();		
+		Map<String, Object> delFile = new HashMap<String, Object>();
+		
 		
 		String fileStatus = (String) reqMap.get("fileStatus");
 		String passYn = (String) reqMap.get("passYn");
@@ -345,17 +347,16 @@ public class BoardController extends WebCommonController{
 			
 			if(board.getOrgFileName()!=null) {
 				
-				Map<String, Object> fileMap = new HashMap<String, Object>();
-				fileMap.put("fileName", board.getFileName());
-				fileMap.put("filePath", board.getImgFilePath());
-				//fileUtil.deleteImgFile("1", fileMap);
+				delFile.put("imgFilePath", board.getImgFilePath());
+				delFile.put("fileName", board.getFileName());
+				
 				board.setOrgFileName(null);
 				board.setFileName(null);
 				board.setImgFilePath(null);
-				//fileMap.clear();
-				fileMap.put("fileName", board.getThumbFileName());
-				fileMap.put("filePath", board.getThumbImgFilePath());
-				//fileUtil.deleteImgFile("thumb_1", fileMap);
+				
+				delFile.put("thumbImgFilePath", board.getThumbImgFilePath());
+				delFile.put("thumbFileName", board.getThumbFileName());
+				
 				board.setThumbFileName(null);
 				board.setThumbImgFilePath(null);
 				
@@ -363,7 +364,7 @@ public class BoardController extends WebCommonController{
 			
 			if("U".equals(fileStatus) && fileUtil.reqFileCheck(reqMap.getMap()) > 0) {
 					
-				List<HashMap<String, String>> fileList = fileUtil.saveDateFiles("1", reqMap.getMap());
+				List<HashMap<String, String>> fileList = fileUtil.saveDateFiles("imgFile_1", reqMap.getMap());
 				
 				if(fileList.size() > 0) {
 					
@@ -384,16 +385,18 @@ public class BoardController extends WebCommonController{
 				reqMap.put("fileFullPaths", fileFullPaths);		
 				reqMap.put("fileNames", fileNames);
 				
-				fileList = fileUtil.saveDateThumbFiles("thumb_1", reqMap.getMap());
+				fileList = fileUtil.saveDateThumbFiles("imgFileThumb_1", reqMap.getMap());
 				
 				if(fileList.size()>0) {
 					
 					board.setThumbFileName(fileList.get(0).get("thumbFileName"));
 					board.setThumbImgFilePath(fileList.get(0).get("thumbImgFilePath"));
-					
 				}
-					
 			}
+			
+			boardService.updateBoard(board);
+			fileUtil.deleteImgFile(delFile);
+			
 		}
 		
 		msg = MsgList.getInstance().getCodeMessage(MsgCode.UpdateSuccess);

@@ -83,6 +83,7 @@ define([], function(){
 			}else if(fileStatus.value==='D'){
 				alert('파일을 추가 하시면 기존에 있던 파일은 복구할 수 없습니다.\n기존파일을 복구하시려면 새로고침을 해주세요.');
 				document.getElementById('fileDiv').style.display = '';
+				this.style.display = 'none';
 			}
 			
 		});
@@ -93,6 +94,7 @@ define([], function(){
 			this.style.display = 'none';
 			document.getElementById('fileNm').textContent = document.getElementById('fileOrgNm').value;
 			document.getElementById('fileBtn').textContent = '파일 삭제';
+			document.getElementById('fileBtn').style.display = '';
 			document.getElementById('fileWarn').style.display = '';
 			document.getElementById('fileDiv').style.display = 'none';
 			
