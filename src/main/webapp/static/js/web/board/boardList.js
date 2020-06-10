@@ -60,7 +60,7 @@ define([], function(){
 						html.push('<li class="one_quarter' + ((i+1)%4===1?' first':'') + '">');
 						html.push(	'<a href="/board/viewBoard.do?listNo=' + data.listNo + '">');
 						if(data.passwordYn==='Y') html.push('<img src="/images/main/other/lock.png" class="lock">');
-						if(data.thumbImgFilePath) html.push('<img src="' +  data.thumbImgFilePath+ '/' + data.thumbFileName + '" alt="">');
+						if(data.thumbImgFilePath) html.push('<img class="brdImg" src="' +  data.thumbImgFilePath+ '/' + data.thumbFileName + '" alt="">');
 						html.push(			'<span>' + data.title + '</span><br>');
 						html.push(			'<span>' + data.id + '(' + data.name + ')</span><br>');
 						html.push(			'<span>' + pandora.mmt(data.createdAt).format('YYYY-MM-DD HH:mm:ss') + '</span>');

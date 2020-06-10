@@ -32,14 +32,15 @@ public class AccessControllerInterceptor extends HandlerInterceptorAdapter {
 		if(contentType==null && modelAndView != null) {
 			
 			List<String> setMenuList = getMenuNames(request);
-			List<Map<String, Object>> menuList = menuListService.getMenuList(setMenuList);			
+			List<Map<String, Object>> menuList = menuListService.getMenuList(setMenuList);
+			//화면에 보여줄 단계별 메뉴 이름
 			modelAndView.addObject("menuList", menuList);
 			
 			//if(!request.getRequestURI().contains("/auth")) {
 				
 				List<Map<String, Object>> menuListAll = menuListService.getMenuListAll();
 				Map<String, Object> menuTree = setMenuList(menuListAll);
-				
+				//전체 메뉴 트리
 				modelAndView.addObject("menuTree", menuTree);
 				
 			//}
