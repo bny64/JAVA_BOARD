@@ -2,7 +2,11 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
      id="bny" version="3.1" metadata-complete="true">
-<!-- web.xml은 서블릿 배포 서술자(DD)라고 부른다. Deployment Descriptor -->
+
+  <!-- SPRING request 순서 -->
+  <!-- FILTER => DISPATCHER => INTERCEPTOR => AOP => CONTROLLER -->
+	
+  <!-- web.xml은 서블릿 배포 서술자(DD)라고 부른다. Deployment Descriptor -->
 
 	
   <!-- DD파일의 title 정도 -->
@@ -38,7 +42,31 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
   </listener>
   <!-- listener -->  
   
-  
+	<!--
+  	FILTER단에서 컨트롤할 class
+ 	init(method) : 서버가 올라갈 때 최초 실행되는 메서드
+  	doFilter(method) : request 전, response 후 실행
+        	             메서드 내의 chain.doFilter() 전의 로직은 spring container의 dispatcher로 진입하기 전
+                	     메서드 내의 chain.doFilter() 후의 로직은 spring container의 dispatcher 후 사용자에게 최종 response 하기 직전의 단계
+  	destroy(method) : 서버가 종료될 때 실행되는 메서드
+  	-->
+
+  	<!--
+  	<filter>
+    	<filter-name>사용할 필터명</filter-name>
+	<filter-class>사용할 필터 클래스(implements 해서 사용. 사용할 수 있는 클래스는 정해져 있다. ex) implements Filter(javax.servlet.Filter))</filter-class>
+		<init-param>
+			<param-name>필터 클래스에서 사용할 변수명</param-name>
+			<param-value>필터 클래스에서 사용할 변수의 값</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>위에서 정의한 필터명</filter-name>
+		<filter-pattern>필터를 사용할 url 패턴</filter-pattern>
+	</filter-mapping>
+  	-->
+	
+	
   <!-- filter -->
   <!-- 한글 깨짐 문제를 CharacterEncoding을 사용하여 Encoding 처리한다. -->
   <filter>
