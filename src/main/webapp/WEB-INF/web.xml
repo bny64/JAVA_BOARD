@@ -19,6 +19,7 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
     
   <!-- context -->
   <!-- STS에서 기본적으로 제공해주는 설정 파일 외에 사용자가 직접 컨트롤하는 XML파일을 지정해주는 역할. <context-param>에서 설정되어 있는 root-context.xml은 모든 서블릿과 필터에서 사용되는 루트 스프링 컨테이너에 대한 설정-->
+  <!-- 전역에서 사용할 파라미터 정의 -->
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>
@@ -31,7 +32,8 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
   
   
   <!-- listener --> 
-  <!-- 스프링 설정정보를 읽는다. --> 
+  <!-- 스프링 설정정보를 읽는다. -->
+  <!-- 이벤트가 동작할 때 실행되는 클래스. listener는 상속받아서 사용. 정해져 있는 interface, class가 있다. -->
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
@@ -135,14 +137,13 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
   </servlet-mapping>
   
   <!-- servlet-context는 등록된 빈은 다른 컨텍스트와 공유할 수 없다. -->
+  <!-- 특정요청에 대해 사용할 servlet -->
   <servlet>
     <servlet-name>staticServlet</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
     <init-param>
       <param-name>contextConfigLocation</param-name>
-	      <param-value>
-					classpath:spring/static/static-context.xml
-		  </param-value>
+	      <param-value>classpath:spring/static/static-context.xml</param-value>
     </init-param> 
     <load-on-startup>1</load-on-startup>
   </servlet>
