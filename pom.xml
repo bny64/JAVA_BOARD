@@ -15,7 +15,7 @@
 		<hibernate-version>5.4.24.Final</hibernate-version>
 		<mysql-connector-version>8.0.28</mysql-connector-version>
 		<lombok-version>1.18.10</lombok-version>
-		<jackson-databind-version>2.13.4.1</jackson-databind-version>
+		<jackson-databind-version>2.13.4.2</jackson-databind-version>
 	</properties>
 
 	<!-- dependency에서의 scope * compile : 기본영역으로 아무것도 지정되지 않은 경우 사용됨. compile 
